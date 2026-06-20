@@ -1,7 +1,47 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-20T00:00:00.000Z",
+  "updatedAt": "2026-06-20T20:30:00.000Z",
   "apps": [
+    {
+      "id": "pairadox",
+      "name": "Pairadox",
+      "summary": "Combine two unlikely ingredients into a fast creative challenge.",
+      "description": "A tiny idea game for one person or a group. Pick two ingredients, then accept the strange challenge the forge makes from them.",
+      "category": "play",
+      "engine": "choice-mixer",
+      "emoji": "🧩",
+      "version": "1.0.0",
+      "createdAt": "2026-06-20",
+      "updatedAt": "2026-06-20",
+      "config": {
+        "instructions": "Choose two ingredients that do not obviously belong together, then complete the generated challenge in two minutes.",
+        "items": [],
+        "prompts": [],
+        "options": [
+          "A nearby object",
+          "A sound",
+          "A childhood memory",
+          "A color",
+          "A secret rule",
+          "A compliment",
+          "A ridiculous name",
+          "A tiny movement"
+        ],
+        "outcomes": [
+          "Invent a game that uses both ingredients and explain it in one sentence.",
+          "Create a thirty-second story in which both ingredients solve the same problem.",
+          "Design a fictional product inspired by both ingredients and give it a slogan.",
+          "Make a harmless challenge for a friend that includes both ingredients.",
+          "Describe a new holiday built around both ingredients.",
+          "Turn both ingredients into the rules of a miniature competition.",
+          "Imagine both ingredients are clues. Explain the mystery they reveal.",
+          "Combine both ingredients into an unusual but believable superpower."
+        ],
+        "minSeconds": 0,
+        "maxSeconds": 0,
+        "rounds": 0
+      }
+    },
     {
       "id": "time-sense",
       "name": "Time Sense",

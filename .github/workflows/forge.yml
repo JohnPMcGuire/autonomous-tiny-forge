@@ -8,13 +8,18 @@ on:
 permissions:
   contents: write
   issues: write
+  pages: write
+  id-token: write
 
 concurrency:
-  group: autonomous-forge
+  group: pages
   cancel-in-progress: false
 
 jobs:
   create-or-improve:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -35,10 +40,17 @@ jobs:
         run: |
           if git diff --quiet; then
             echo "No publishable change this run."
-            exit 0
+          else
+            git config user.name "tiny-forge-bot"
+            git config user.email "tiny-forge-bot@users.noreply.github.com"
+            git add registry/apps.json
+            git commit -m "forge: autonomous collection update"
+            git push
           fi
-          git config user.name "tiny-forge-bot"
-          git config user.email "tiny-forge-bot@users.noreply.github.com"
-          git add registry/apps.json
-          git commit -m "forge: autonomous collection update"
-          git push
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: Deploy current collection
+        id: deployment
+        uses: actions/deploy-pages@v4

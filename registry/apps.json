@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-20T22:00:00.000Z",
+  "updatedAt": "2026-06-20T23:00:00.000Z",
   "apps": [
     {
       "id": "pairadox",
@@ -111,16 +111,16 @@
     {
       "id": "constraint-spark",
       "name": "Constraint Spark",
-      "summary": "Draw a compact creative constraint for writing, designing, coding, or making.",
-      "description": "Constraints can remove the blank-page problem. Each card is restrictive enough to create direction without prescribing the result.",
+      "summary": "Swipe through an animated deck of creative constraints without repeats.",
+      "description": "A tactile constraint deck with animated SVG motion, swipe and drag gestures, touch, pointer, keyboard controls, optional local audio, and reshuffling without immediate repeats.",
       "category": "experiment",
       "engine": "challenge-deck",
       "emoji": "✳️",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "createdAt": "2026-06-20",
       "updatedAt": "2026-06-20",
       "config": {
-        "instructions": "Draw one constraint and apply it to whatever you are making for the next fifteen minutes.",
+        "instructions": "Swipe, tap, or use the arrow keys to draw a constraint. Work with it for fifteen minutes, then draw another when you need a new direction.",
         "items": [
           "Use only three controls.",
           "Make the ending explain the beginning.",

@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-20T20:30:00.000Z",
+  "updatedAt": "2026-06-20T21:10:00.000Z",
   "apps": [
     {
       "id": "pairadox",
       "name": "Pairadox",
-      "summary": "Combine two unlikely ingredients into a fast creative challenge.",
-      "description": "A tiny idea game for one person or a group. Pick two ingredients, then accept the strange challenge the forge makes from them.",
+      "summary": "Drag two unlikely ingredients into an animated forge and spark a creative challenge.",
+      "description": "A tactile idea game for one person or a group. Drag, tap, or use the keyboard to load two ingredients, then remix them with animation, optional sound, and a fresh challenge.",
       "category": "play",
       "engine": "choice-mixer",
       "emoji": "🧩",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "createdAt": "2026-06-20",
       "updatedAt": "2026-06-20",
       "config": {
-        "instructions": "Choose two ingredients that do not obviously belong together, then complete the generated challenge in two minutes.",
+        "instructions": "Drag or tap two ingredients into the forge. Use Random mix when you want a surprise, then complete the challenge in two minutes.",
         "items": [],
         "prompts": [],
         "options": [

@@ -1,0 +1,20 @@
+name: Validate Pairadox candidate
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run repository checks
+        run: node --check app.js && node --check pairadox.js && node --check scripts/forge.mjs && node scripts/validate.mjs

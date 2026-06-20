@@ -45,12 +45,12 @@
     {
       "id": "time-sense",
       "name": "Time Sense",
-      "summary": "Test how accurately you feel the passage of time without watching a clock.",
-      "description": "A quiet perception game. The timer disappears while you estimate a randomly selected duration.",
+      "summary": "Chase a moving spark and test how accurately you feel the passage of time.",
+      "description": "A five-round arcade-like perception game with a moving canvas spark, hidden timing, optional sound, and scoring for touch, pointer, or keyboard play.",
       "category": "play",
       "engine": "timer-guess",
       "emoji": "⏳",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "createdAt": "2026-06-20",
       "updatedAt": "2026-06-20",
       "config": {

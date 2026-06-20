@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-06-20T00:00:00.000Z",
+  "apps": [
+    {
+      "id": "time-sense",
+      "name": "Time Sense",
+      "summary": "Test how accurately you feel the passage of time without watching a clock.",
+      "description": "A quiet perception game. The timer disappears while you estimate a randomly selected duration.",
+      "category": "play",
+      "engine": "timer-guess",
+      "emoji": "⏳",
+      "version": "1.0.0",
+      "createdAt": "2026-06-20",
+      "updatedAt": "2026-06-20",
+      "config": {
+        "instructions": "Start the hidden timer and stop it when you believe the target duration has passed.",
+        "items": [],
+        "prompts": [],
+        "options": [],
+        "outcomes": [],
+        "minSeconds": 20,
+        "maxSeconds": 75,
+        "rounds": 5
+      }
+    },
+    {
+      "id": "fair-choice",
+      "name": "Fair Choice",
+      "summary": "Pick from a group while gently reducing repeat winners.",
+      "description": "A lightweight selector for chores, turns, restaurants, or anything else that should feel fair over repeated rounds.",
+      "category": "useful",
+      "engine": "fair-picker",
+      "emoji": "⚖️",
+      "version": "1.0.0",
+      "createdAt": "2026-06-20",
+      "updatedAt": "2026-06-20",
+      "config": {
+        "instructions": "Enter at least two choices. Recent selections are temporarily less likely to win again.",
+        "items": [],
+        "prompts": [],
+        "options": [],
+        "outcomes": [],
+        "minSeconds": 0,
+        "maxSeconds": 0,
+        "rounds": 0
+      }
+    },
+    {
+      "id": "tiny-step",
+      "name": "Tiny Step",
+      "summary": "Turn a vague or intimidating goal into one action you can begin now.",
+      "description": "A local-only task shrinker that adjusts its suggestion to your current energy instead of demanding an ideal version of you.",
+      "category": "useful",
+      "engine": "micro-step",
+      "emoji": "👣",
+      "version": "1.0.0",
+      "createdAt": "2026-06-20",
+      "updatedAt": "2026-06-20",
+      "config": {
+        "instructions": "Name the thing you want to move forward and be honest about your available energy.",
+        "items": [],
+        "prompts": [],
+        "options": [],
+        "outcomes": [],
+        "minSeconds": 0,
+        "maxSeconds": 0,
+        "rounds": 0
+      }
+    },
+    {
+      "id": "constraint-spark",
+      "name": "Constraint Spark",
+      "summary": "Draw a compact creative constraint for writing, designing, coding, or making.",
+      "description": "Constraints can remove the blank-page problem. Each card is restrictive enough to create direction without prescribing the result.",
+      "category": "experiment",
+      "engine": "challenge-deck",
+      "emoji": "✳️",
+      "version": "1.0.0",
+      "createdAt": "2026-06-20",
+      "updatedAt": "2026-06-20",
+      "config": {
+        "instructions": "Draw one constraint and apply it to whatever you are making for the next fifteen minutes.",
+        "items": [
+          "Use only three controls.",
+          "Make the ending explain the beginning.",
+          "Remove the feature you would normally show first.",
+          "Use repetition as the organizing principle.",
+          "Design for someone using only one hand.",
+          "Let one deliberate imperfection remain visible.",
+          "Make the smallest useful version possible.",
+          "Replace one instruction with a discoverable interaction."
+        ],
+        "prompts": [],
+        "options": [],
+        "outcomes": [],
+        "minSeconds": 0,
+        "maxSeconds": 0,
+        "rounds": 0
+      }
+    }
+  ]
+}

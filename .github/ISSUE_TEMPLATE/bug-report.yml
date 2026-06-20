@@ -1,0 +1,57 @@
+name: Report a bug
+description: Report something broken, confusing, inaccessible, or difficult to use.
+title: "[Bug] "
+body:
+  - type: input
+    id: app
+    attributes:
+      label: App or page
+      placeholder: Pairadox, Time Sense, homepage, or general
+    validations:
+      required: true
+  - type: textarea
+    id: happened
+    attributes:
+      label: What happened?
+      description: Include the steps that caused the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: dropdown
+    id: device
+    attributes:
+      label: Device type
+      options:
+        - Phone
+        - Tablet
+        - Desktop or laptop
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser
+      placeholder: Safari, Chrome, Firefox, Edge
+  - type: textarea
+    id: accessibility
+    attributes:
+      label: Accessibility or control details
+      description: Mention keyboard, touch, screen reader, reduced motion, zoom, or contrast issues where relevant.
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshots or recording
+      description: Drag files here when they help show the problem. Do not include private information.
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy check
+      options:
+        - label: I removed passwords, API keys, and sensitive personal information.
+          required: true

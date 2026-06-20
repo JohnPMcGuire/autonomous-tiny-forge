@@ -54,7 +54,7 @@ for (const [index, app] of registry.apps.entries()) {
   if (app.engine === 'timer-guess' && (!(config.minSeconds > 0) || config.maxSeconds <= config.minSeconds)) fail(`${label} has an invalid timer range`);
 }
 
-for (const file of ['index.html', 'styles.css', 'app.js', 'pairadox.js', 'fair-choice.js', '.nojekyll']) {
+for (const file of ['index.html', 'styles.css', 'app.js', 'pairadox.js', 'fair-choice.js', 'constraint-spark.js', '.nojekyll']) {
   if (!fs.existsSync(path.join(root, file))) fail(`${file} is missing`);
 }
 

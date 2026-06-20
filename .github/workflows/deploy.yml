@@ -22,7 +22,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - run: node --check app.js && node scripts/validate.mjs
+      - run: node --check app.js && node --check pairadox.js && node --check fair-choice.js && node --check constraint-spark.js && node --check scripts/forge.mjs && node --check scripts/validate.mjs && node scripts/validate.mjs
 
   deploy:
     needs: validate

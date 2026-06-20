@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-20T21:10:00.000Z",
+  "updatedAt": "2026-06-20T22:00:00.000Z",
   "apps": [
     {
       "id": "pairadox",
@@ -67,16 +67,16 @@
     {
       "id": "fair-choice",
       "name": "Fair Choice",
-      "summary": "Pick from a group while gently reducing repeat winners.",
-      "description": "A lightweight selector for chores, turns, restaurants, or anything else that should feel fair over repeated rounds.",
+      "summary": "Spin an animated fairness wheel that gently reduces repeat winners.",
+      "description": "A responsive canvas wheel for chores, turns, restaurants, or group choices. It supports touch, pointer, keyboard, optional local audio, recent-winner balancing, and duplicate protection.",
       "category": "useful",
       "engine": "fair-picker",
       "emoji": "⚖️",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "createdAt": "2026-06-20",
       "updatedAt": "2026-06-20",
       "config": {
-        "instructions": "Enter at least two choices. Recent selections are temporarily less likely to win again.",
+        "instructions": "Add two to twelve choices, then tap the animated wheel or use the keyboard. Recent winners become temporarily less likely to repeat.",
         "items": [],
         "prompts": [],
         "options": [],

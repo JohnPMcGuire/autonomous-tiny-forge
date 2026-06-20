@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: View the public forge
+    url: https://johnpmcguire.github.io/autonomous-tiny-forge/
+    about: Open the currently published tools and games.

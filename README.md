@@ -4,9 +4,20 @@ A public gallery of small, useful tools and playful experiments. The forge choos
 
 ## Public site
 
-After GitHub Pages is enabled with **GitHub Actions** as its source, the site is published at:
+The live site is published at:
 
 `https://johnpmcguire.github.io/autonomous-tiny-forge/`
+
+## Collaborate
+
+There are several ways to help:
+
+- Use the structured issue forms to propose a tool or game, report a bug, or share feedback.
+- Review existing apps on mobile and desktop.
+- Create a branch and submit a pull request for code, visual, game, accessibility, or documentation changes.
+- Add screenshots or short recordings when proposing interactive or visual changes.
+
+Start with [CONTRIBUTING.md](CONTRIBUTING.md). Pull requests use a checklist for tests, mobile behavior, keyboard and touch support, visual evidence, and safety. The repository owner reviews changes before merging.
 
 ## Architecture
 

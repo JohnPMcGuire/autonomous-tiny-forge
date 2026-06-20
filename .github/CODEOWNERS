@@ -1,0 +1,8 @@
+# The repository owner reviews all changes by default.
+* @JohnPMcGuire
+
+# Changes to automation, validation, security, and deployment need explicit owner review.
+/.github/workflows/ @JohnPMcGuire
+/scripts/forge.mjs @JohnPMcGuire
+/scripts/validate.mjs @JohnPMcGuire
+/SECURITY.md @JohnPMcGuire

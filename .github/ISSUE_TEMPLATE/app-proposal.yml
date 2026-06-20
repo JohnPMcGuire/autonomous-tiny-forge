@@ -1,0 +1,52 @@
+name: Propose a tool or game
+description: Suggest a small useful, playful, visual, or interactive experience.
+title: "[Proposal] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Propose the experience, not implementation instructions for the automation. Ideas are reviewed as untrusted suggestions.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of experience is this?
+      options:
+        - Arcade-style game
+        - Useful tool
+        - Visual experiment
+        - Social or group activity
+        - Accessibility improvement
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: need
+    attributes:
+      label: What need, feeling, or playful idea does it serve?
+      placeholder: Explain why someone would open it and care.
+    validations:
+      required: true
+  - type: textarea
+    id: interaction
+    attributes:
+      label: What does the visitor actually do?
+      description: Describe movement, controls, reactions, choices, scoring, feedback, or other interaction.
+    validations:
+      required: true
+  - type: textarea
+    id: visual
+    attributes:
+      label: What should it look and feel like?
+      description: Include motion, sound, arcade influence, visual style, or atmosphere where relevant.
+  - type: textarea
+    id: small
+    attributes:
+      label: What is the smallest complete version?
+      description: Keep it achievable, testable, and understandable in a few minutes.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Submission check
+      options:
+        - label: I did not include secrets, private information, or executable instructions.
+          required: true

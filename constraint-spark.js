@@ -70,6 +70,7 @@
     let suppressClick = false;
     let soundEnabled = false;
     let audioContext;
+    let disposed = false;
 
     const intro = document.createElement('div');
     intro.className = 'spark-intro';
@@ -147,6 +148,7 @@
     card.addEventListener('pointermove', moveDrag);
     card.addEventListener('pointerup', endDrag);
     card.addEventListener('pointercancel', cancelDrag);
+    dialog.addEventListener('close', cleanup, { once: true });
 
     createDeck(false);
     showNextCard('First card drawn.', false);
@@ -210,16 +212,16 @@
       setCardText();
     }
 
-    function advance(direction) {
-      if (drawing || !cards.length) return;
+    function advance(direction, message = 'New constraint drawn.', announceReshuffle = true, tone = 'move') {
+      if (disposed || drawing || !cards.length) return;
       drawing = true;
       card.setAttribute('aria-busy', 'true');
       nextButton.disabled = true;
       shuffleButton.disabled = true;
-      playTone('move');
+      playTone(tone);
 
       if (reducedMotion) {
-        showNextCard('New constraint drawn.');
+        showNextCard(message, announceReshuffle);
         finishAdvance();
         return;
       }
@@ -230,14 +232,14 @@
       card.style.opacity = '0';
 
       window.setTimeout(() => {
-        if (!card.isConnected) return;
-        showNextCard('New constraint drawn.');
+        if (disposed || !card.isConnected) return;
+        showNextCard(message, announceReshuffle);
         card.style.transition = 'none';
         card.style.transform = `translateX(${-direction * 86}px) rotate(${-direction * 5}deg)`;
         card.style.opacity = '0';
         requestAnimationFrame(() => {
           requestAnimationFrame(() => {
-            if (!card.isConnected) return;
+            if (disposed || !card.isConnected) return;
             card.style.transition = 'transform .28s cubic-bezier(.2,.8,.2,1), opacity .2s ease-out';
             card.style.transform = '';
             card.style.opacity = '1';
@@ -248,6 +250,7 @@
     }
 
     function finishAdvance() {
+      if (disposed) return;
       drawing = false;
       card.removeAttribute('aria-busy');
       nextButton.disabled = false;
@@ -258,14 +261,13 @@
     }
 
     function shuffleNow() {
-      if (drawing || !cards.length) return;
+      if (disposed || drawing || !cards.length) return;
       createDeck(true);
-      announcement.textContent = `Deck ${cycle} shuffled.`;
-      advance(1);
+      advance(1, `Deck ${cycle} shuffled. First card drawn.`, false, 'reshuffle');
     }
 
     function startDrag(event) {
-      if (drawing || event.button !== 0 || !event.isPrimary) return;
+      if (disposed || drawing || event.button !== 0 || !event.isPrimary) return;
       drag = {
         pointerId: event.pointerId,
         startX: event.clientX,
@@ -345,7 +347,7 @@
     }
 
     function playTone(kind) {
-      if (!soundEnabled || !audioContext || !dialog.open) return;
+      if (disposed || !soundEnabled || !audioContext || !dialog.open) return;
       const now = audioContext.currentTime;
       const oscillator = audioContext.createOscillator();
       const gain = audioContext.createGain();
@@ -360,6 +362,21 @@
       oscillator.connect(gain).connect(audioContext.destination);
       oscillator.start(now);
       oscillator.stop(now + .22);
+    }
+
+    function cleanup() {
+      disposed = true;
+      drawing = false;
+      if (drag) {
+        releasePointer(drag.pointerId);
+        drag = null;
+      }
+      card.removeAttribute('aria-busy');
+      card.style.transition = '';
+      card.style.transform = '';
+      card.style.opacity = '';
+      soundEnabled = false;
+      if (audioContext && audioContext.state !== 'closed') audioContext.close();
     }
   };
 })();

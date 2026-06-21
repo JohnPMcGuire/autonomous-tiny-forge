@@ -1,18 +1,18 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-21T04:00:00.000Z",
+  "updatedAt": "2026-06-21T14:00:00.000Z",
   "apps": [
     {
       "id": "pairadox",
       "name": "Pairadox",
-      "summary": "Drag two unlikely ingredients into an animated forge and spark a creative challenge.",
-      "description": "A tactile idea game for one person or a group. Drag, tap, or use the keyboard to load two ingredients, then remix them with animation, optional sound, and a fresh challenge.",
+      "summary": "Drag two unlikely ingredients into an animated forge and unlock 16 creative challenges.",
+      "description": "A tactile idea game for one person or a group. Drag, tap, or use the keyboard to load two ingredients, then remix them with animation, optional sound, and one of sixteen varied challenges.",
       "category": "play",
       "engine": "choice-mixer",
       "emoji": "🧩",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "createdAt": "2026-06-20",
-      "updatedAt": "2026-06-20",
+      "updatedAt": "2026-06-21",
       "config": {
         "instructions": "Drag or tap two ingredients into the forge. Use Random mix when you want a surprise, then complete the challenge in two minutes.",
         "items": [],
@@ -35,7 +35,15 @@
           "Describe a new holiday built around both ingredients.",
           "Turn both ingredients into the rules of a miniature competition.",
           "Imagine both ingredients are clues. Explain the mystery they reveal.",
-          "Combine both ingredients into an unusual but believable superpower."
+          "Combine both ingredients into an unusual but believable superpower.",
+          "Design a one-button arcade game where both ingredients change the rules.",
+          "Create a touch interaction where dragging one ingredient transforms the other.",
+          "Invent a sound cue for each ingredient, then combine them into a success jingle.",
+          "Turn the pair into a twenty-second physical challenge with three escalating rounds.",
+          "Sketch a moving icon that transitions from the first ingredient into the second.",
+          "Make a cooperative mini-game playable with one finger from each player.",
+          "Design a harmless boss battle where one ingredient is the player and the other is the obstacle.",
+          "Add a replay twist that changes the challenge after every imaginary win."
         ],
         "minSeconds": 0,
         "maxSeconds": 0,

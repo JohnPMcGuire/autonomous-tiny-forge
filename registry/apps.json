@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-20T23:00:00.000Z",
+  "updatedAt": "2026-06-21T00:00:00.000Z",
   "apps": [
     {
       "id": "pairadox",
@@ -89,16 +89,16 @@
     {
       "id": "tiny-step",
       "name": "Tiny Step",
-      "summary": "Turn a vague or intimidating goal into one action you can begin now.",
-      "description": "A local-only task shrinker that adjusts its suggestion to your current energy instead of demanding an ideal version of you.",
+      "summary": "Build a moving three-step trail matched to your goal and current energy.",
+      "description": "A local-only momentum tool with an animated SVG trail, draggable step selector, touch and keyboard controls, optional audio, flexible completion tracking, and energy-aware actions.",
       "category": "useful",
       "engine": "micro-step",
       "emoji": "👣",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "createdAt": "2026-06-20",
       "updatedAt": "2026-06-20",
       "config": {
-        "instructions": "Name the thing you want to move forward and be honest about your available energy.",
+        "instructions": "Name the goal, choose your real energy level, then build a three-step trail. Drag the marker, tap a step, or use the keyboard to inspect and complete the route.",
         "items": [],
         "prompts": [],
         "options": [],

@@ -7,6 +7,11 @@ const apiKey = process.env.OPENAI_API_KEY;
 const model = process.env.OPENAI_MODEL || 'gpt-5-mini';
 const repository = process.env.GITHUB_REPOSITORY;
 const githubToken = process.env.GITHUB_TOKEN;
+const processedFeedbackLabels = new Set([
+  'feedback:accepted',
+  'feedback:declined',
+  'feedback:deferred'
+]);
 
 if (!apiKey) {
   console.log('OPENAI_API_KEY is not configured. Skipping autonomous build without failing deployment.');
@@ -159,7 +164,11 @@ async function loadFeedback() {
   if (!repository || !githubToken) return [];
   const response = await github(`/repos/${repository}/issues?state=open&per_page=30&sort=created&direction=asc`);
   return response
-    .filter((issue) => !issue.pull_request && issue.title.startsWith('[Feedback]'))
+    .filter((issue) => {
+      if (issue.pull_request || !issue.title.startsWith('[Feedback]')) return false;
+      const labels = (issue.labels || []).map((label) => typeof label === 'string' ? label : label.name);
+      return !labels.some((label) => processedFeedbackLabels.has(label));
+    })
     .slice(0, 20)
     .map((issue) => ({
       number: issue.number,

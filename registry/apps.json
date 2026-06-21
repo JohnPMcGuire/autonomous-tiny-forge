@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-21T14:00:00.000Z",
+  "updatedAt": "2026-06-21T17:00:00.000Z",
   "apps": [
     {
       "id": "pairadox",
@@ -58,9 +58,9 @@
       "category": "play",
       "engine": "timer-guess",
       "emoji": "⏳",
-      "version": "1.2.0",
+      "version": "1.2.1",
       "createdAt": "2026-06-20",
-      "updatedAt": "2026-06-20",
+      "updatedAt": "2026-06-21",
       "config": {
         "instructions": "Choose Quick, Classic, or Endurance, then start the hidden timer and stop when the target duration feels complete.",
         "items": [],

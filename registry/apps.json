@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-21T00:00:00.000Z",
+  "updatedAt": "2026-06-21T02:01:00.000Z",
   "apps": [
     {
       "id": "pairadox",
@@ -45,16 +45,16 @@
     {
       "id": "time-sense",
       "name": "Time Sense",
-      "summary": "Chase a moving spark and test how accurately you feel the passage of time.",
-      "description": "A five-round arcade-like perception game with a moving canvas spark, hidden timing, optional sound, and scoring for touch, pointer, or keyboard play.",
+      "summary": "Choose a quick or deep session and test how accurately you feel time passing.",
+      "description": "An arcade-like perception game with three session lengths, a moving canvas spark, hidden timing, optional local sound, scoring, touch, pointer, keyboard support, and clean resource teardown.",
       "category": "play",
       "engine": "timer-guess",
       "emoji": "⏳",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "createdAt": "2026-06-20",
       "updatedAt": "2026-06-20",
       "config": {
-        "instructions": "Start the hidden timer and stop it when you believe the target duration has passed.",
+        "instructions": "Choose Quick, Classic, or Endurance, then start the hidden timer and stop when the target duration feels complete.",
         "items": [],
         "prompts": [],
         "options": [],

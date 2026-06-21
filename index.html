@@ -7,6 +7,7 @@
   <title>Autonomous Tiny Forge</title>
   <link rel="stylesheet" href="./styles.css">
   <script defer src="./app.js"></script>
+  <script defer src="./gallery-preview.js"></script>
   <script defer src="./pairadox.js"></script>
   <script defer src="./fair-choice.js"></script>
   <script defer src="./tiny-step.js"></script>
@@ -57,10 +58,10 @@
           <h2 id="gallery-title">Open a tiny app</h2>
         </div>
         <div class="filters" role="group" aria-label="Filter apps">
-          <button class="filter is-active" type="button" data-filter="all">All</button>
-          <button class="filter" type="button" data-filter="useful">Useful</button>
-          <button class="filter" type="button" data-filter="play">Play</button>
-          <button class="filter" type="button" data-filter="experiment">Experiments</button>
+          <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter" type="button" data-filter="useful" aria-pressed="false">Useful</button>
+          <button class="filter" type="button" data-filter="play" aria-pressed="false">Play</button>
+          <button class="filter" type="button" data-filter="experiment" aria-pressed="false">Experiments</button>
         </div>
       </div>
       <div class="app-grid" id="app-grid" aria-live="polite">

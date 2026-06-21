@@ -58,6 +58,9 @@
     let lastSegment = -1;
     let soundEnabled = false;
     let audioContext;
+    let resizeObserver;
+    let winToneTimer = 0;
+    let disposed = false;
 
     const intro = document.createElement('div');
     intro.className = 'fair-intro';
@@ -124,9 +127,17 @@
     const context = canvas.getContext('2d');
     textarea.addEventListener('input', syncItems);
     wheelButton.addEventListener('click', spin);
+    dialog.addEventListener('close', cleanup, { once: true });
     setResult('Build the wheel.', 'Add two or more choices, then tap the wheel or press Space or Enter.');
     updateHistory();
     syncItems();
+
+    if ('ResizeObserver' in window) {
+      resizeObserver = new ResizeObserver(() => {
+        if (!disposed) drawWheel();
+      });
+      resizeObserver.observe(wheelButton);
+    }
 
     function parseItems() {
       const seen = new Set();
@@ -143,7 +154,7 @@
     }
 
     function syncItems() {
-      if (spinning) return;
+      if (disposed || spinning) return;
       items = parseItems();
       status.textContent = items.length ? `${items.length} unique choice${items.length === 1 ? '' : 's'}` : 'Add choices';
       wheelButton.setAttribute('aria-label', items.length >= 2
@@ -161,7 +172,7 @@
     }
 
     function spin() {
-      if (spinning) return;
+      if (disposed || spinning) return;
       syncItems();
       if (items.length < 2) {
         setResult('Two unique choices needed.', 'Add another line before spinning. Duplicate names count only once.');
@@ -178,6 +189,7 @@
       targetAngle += TAU * (5 + Math.floor(Math.random() * 3));
 
       spinning = true;
+      lastSegment = currentSegment();
       textarea.disabled = true;
       spinButton.disabled = true;
       clearButton.disabled = true;
@@ -198,12 +210,16 @@
       const startTime = performance.now();
       const duration = 3300;
       const animate = (time) => {
+        if (disposed || !canvas.isConnected || !dialog.open) {
+          cancelSpin();
+          return;
+        }
         const progress = Math.min(1, (time - startTime) / duration);
         const eased = 1 - Math.pow(1 - progress, 5);
         angle = startAngle + (targetAngle - startAngle) * eased;
         drawWheel();
         tickIfNeeded();
-        if (progress < 1 && canvas.isConnected && dialog.open) {
+        if (progress < 1) {
           animationId = requestAnimationFrame(animate);
         } else {
           finishSpin(winner);
@@ -212,12 +228,24 @@
       animationId = requestAnimationFrame(animate);
     }
 
-    function finishSpin(winner) {
+    function setSpinControls(enabled) {
+      textarea.disabled = !enabled;
+      spinButton.disabled = !enabled;
+      clearButton.disabled = !enabled;
+      if (enabled) wheelButton.removeAttribute('aria-busy');
+    }
+
+    function cancelSpin() {
+      if (!spinning) return;
       spinning = false;
-      textarea.disabled = false;
-      spinButton.disabled = false;
-      clearButton.disabled = false;
-      wheelButton.removeAttribute('aria-busy');
+      setSpinControls(true);
+      hub.textContent = 'Spin';
+    }
+
+    function finishSpin(winner) {
+      if (disposed) return;
+      spinning = false;
+      setSpinControls(true);
       wheelButton.setAttribute('aria-label', `Winner: ${winner}. Spin again`);
       hub.textContent = 'Again';
       spinCount += 1;
@@ -230,7 +258,7 @@
     }
 
     function clearHistory() {
-      if (spinning) return;
+      if (disposed || spinning) return;
       state.recentPicks = [];
       spinCount = 0;
       status.textContent = items.length ? `${items.length} unique choice${items.length === 1 ? '' : 's'}` : 'Add choices';
@@ -241,10 +269,10 @@
 
     function updateHistory() {
       history.replaceChildren();
-      const label = document.createElement('span');
-      label.className = 'fair-history-label';
-      label.textContent = 'Recent winners';
-      history.append(label);
+      const labelElement = document.createElement('span');
+      labelElement.className = 'fair-history-label';
+      labelElement.textContent = 'Recent winners';
+      history.append(labelElement);
       const visible = state.recentPicks.slice(0, 5);
       if (!visible.length) {
         const empty = document.createElement('span');
@@ -262,6 +290,7 @@
     }
 
     function setResult(headline, detail) {
+      if (disposed) return;
       result.replaceChildren();
       const strong = document.createElement('strong');
       strong.textContent = headline;
@@ -286,6 +315,7 @@
     }
 
     function drawWheel() {
+      if (disposed) return;
       const bounds = wheelButton.getBoundingClientRect();
       const size = Math.max(1, Math.floor(Math.min(bounds.width, bounds.height)));
       const ratio = Math.min(window.devicePixelRatio || 1, 2);
@@ -341,8 +371,8 @@
         context.font = `900 ${Math.max(11, Math.min(17, size * 0.04))}px Inter, system-ui, sans-serif`;
         context.textAlign = isLeft ? 'left' : 'right';
         context.textBaseline = 'middle';
-        const label = item.length > 16 ? `${item.slice(0, 15)}…` : item;
-        context.fillText(label, (isLeft ? -1 : 1) * (radius - size * 0.05), 0, radius * 0.72);
+        const itemLabel = item.length > 16 ? `${item.slice(0, 15)}…` : item;
+        context.fillText(itemLabel, (isLeft ? -1 : 1) * (radius - size * 0.05), 0, radius * 0.72);
         context.restore();
       });
 
@@ -378,13 +408,14 @@
     }
 
     function playWinTone() {
-      if (!soundEnabled || !audioContext) return;
+      if (disposed || !soundEnabled || !audioContext || !dialog.open) return;
       playTone(520, 0.055, 0.16, 'sine');
-      window.setTimeout(() => playTone(780, 0.06, 0.2, 'sine'), 90);
+      window.clearTimeout(winToneTimer);
+      winToneTimer = window.setTimeout(() => playTone(780, 0.06, 0.2, 'sine'), 90);
     }
 
     function playTone(frequency, volume, duration, type) {
-      if (!soundEnabled || !audioContext) return;
+      if (disposed || !soundEnabled || !audioContext || !dialog.open) return;
       const now = audioContext.currentTime;
       const oscillator = audioContext.createOscillator();
       const gain = audioContext.createGain();
@@ -398,13 +429,14 @@
       oscillator.stop(now + duration + 0.02);
     }
 
-    if ('ResizeObserver' in window) {
-      new ResizeObserver(() => drawWheel()).observe(wheelButton);
-    }
-
-    dialog.addEventListener('close', () => {
+    function cleanup() {
+      disposed = true;
       cancelAnimationFrame(animationId);
+      window.clearTimeout(winToneTimer);
+      resizeObserver?.disconnect();
       spinning = false;
-    }, { once: true });
+      soundEnabled = false;
+      if (audioContext && audioContext.state !== 'closed') audioContext.close();
+    }
   };
 })();

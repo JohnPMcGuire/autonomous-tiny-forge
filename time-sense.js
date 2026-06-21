@@ -236,15 +236,15 @@
       const direction = elapsed < target ? 'early' : 'late';
       const accuracy = Math.max(0, Math.round(100 - (difference / target) * 200));
       scores.push({ accuracy, difference, elapsed, target });
+      const isFinalRound = scores.length >= preset.rounds;
       started = 0;
       setModesDisabled(false);
       arena.classList.remove('is-running');
       arenaKicker.textContent = `${preset.label} · ${scores.length} of ${preset.rounds}`;
-      arenaTitle.textContent = scores.length >= preset.rounds ? 'See final score' : 'Start next round';
+      arenaTitle.textContent = isFinalRound ? 'See final score' : 'Start next round';
       arenaNote.textContent = `${elapsed.toFixed(1)} seconds · ${accuracy}% accuracy`;
-      playTone(accuracy >= 90 ? 'good' : 'miss');
 
-      if (scores.length >= preset.rounds) {
+      if (isFinalRound) {
         sessionComplete = true;
         arena.classList.add('is-complete');
         const average = Math.round(scores.reduce((sum, item) => sum + item.accuracy, 0) / scores.length);
@@ -257,6 +257,7 @@
       } else {
         arena.setAttribute('aria-label', `Start round ${scores.length + 1} of ${preset.rounds}`);
         setResult(`${elapsed.toFixed(1)} seconds`, `You were ${difference.toFixed(1)} seconds ${direction}. Target: ${target}. Accuracy: ${accuracy}%.`);
+        playTone(accuracy >= 90 ? 'good' : 'miss');
       }
       updateHud();
     }

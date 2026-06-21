@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-21T02:01:00.000Z",
+  "updatedAt": "2026-06-21T04:00:00.000Z",
   "apps": [
     {
       "id": "pairadox",
@@ -111,16 +111,16 @@
     {
       "id": "constraint-spark",
       "name": "Constraint Spark",
-      "summary": "Swipe through an animated deck of creative constraints without repeats.",
-      "description": "A tactile constraint deck with animated SVG motion, swipe and drag gestures, touch, pointer, keyboard controls, optional local audio, and reshuffling without immediate repeats.",
+      "summary": "Swipe through an animated 16-card deck of creative constraints without repeats.",
+      "description": "A tactile 16-card constraint deck with animated SVG motion, swipe and drag gestures, touch, pointer, keyboard controls, optional local audio, and full-deck reshuffling without immediate repeats.",
       "category": "experiment",
       "engine": "challenge-deck",
       "emoji": "✳️",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "createdAt": "2026-06-20",
-      "updatedAt": "2026-06-20",
+      "updatedAt": "2026-06-21",
       "config": {
-        "instructions": "Swipe, tap, or use the arrow keys to draw a constraint. Work with it for fifteen minutes, then draw another when you need a new direction.",
+        "instructions": "Swipe, tap, or use the arrow keys to draw one of sixteen constraints. Work with it for fifteen minutes, then draw another when you need a new direction.",
         "items": [
           "Use only three controls.",
           "Make the ending explain the beginning.",
@@ -129,7 +129,15 @@
           "Design for someone using only one hand.",
           "Let one deliberate imperfection remain visible.",
           "Make the smallest useful version possible.",
-          "Replace one instruction with a discoverable interaction."
+          "Replace one instruction with a discoverable interaction.",
+          "Make one element respond differently to a tap, a drag, and a keyboard input.",
+          "Build a loop that becomes harder every thirty seconds.",
+          "Use motion to reveal state instead of adding explanatory text.",
+          "Let the player discover one rule by causing a harmless failure.",
+          "Design the interaction around a single moving object.",
+          "Add an optional sound cue that communicates success without words.",
+          "Make the experience fully playable with one finger and the arrow keys.",
+          "Turn the final state into the starting condition for the next round."
         ],
         "prompts": [],
         "options": [],

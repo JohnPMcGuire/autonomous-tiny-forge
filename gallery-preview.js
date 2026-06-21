@@ -106,6 +106,7 @@
       capabilities.append(chip);
     });
     button.insertBefore(capabilities, card.querySelector('.app-open'));
+    button.setAttribute('aria-label', `Open ${name}. Supports ${definition.capabilities.join(', ')}.`);
     button.classList.add('is-previewed');
 
     button.addEventListener('pointermove', (event) => {

@@ -111,6 +111,7 @@
 
     const modes = document.createElement('div');
     modes.className = 'spark-modes';
+    modes.setAttribute('role', 'group');
     modes.setAttribute('aria-label', 'Constraint Spark mode');
     const exploreMode = modeButton('Explore deck', 'explore');
     const sprintMode = modeButton('Three-card sprint', 'sprint');
@@ -118,6 +119,7 @@
 
     const paces = document.createElement('div');
     paces.className = 'spark-paces';
+    paces.setAttribute('role', 'group');
     paces.setAttribute('aria-label', 'Sprint pace');
     const paceOptions = [
       ['Quick · 30 sec', 30],
@@ -440,21 +442,22 @@
       score += roundPoints;
       sprintHud.querySelector('#spark-score').textContent = String(score);
       stopTimer();
-      playTone(timedOut ? 'move' : 'complete');
       if (sprintRound >= 3) {
         finishSprint();
         return;
       }
       const completedRound = sprintRound;
+      const tone = timedOut ? 'move' : 'complete';
       sprintRound += 1;
       timedOut = false;
-      animateNext(1, `Round ${completedRound} complete. +${roundPoints} points. Round ${sprintRound} begins.`, 'complete', startTimer);
+      animateNext(1, `Round ${completedRound} complete. +${roundPoints} points. Round ${sprintRound} begins.`, tone, startTimer);
     }
 
     function finishSprint() {
       sprintActive = false;
       sprintComplete = true;
       stopTimer();
+      timer.classList.remove('is-visible');
       const maxScore = 3 * (100 + roundSeconds * 2);
       const ratio = score / maxScore;
       const rank = ratio >= .82 ? 'Wildfire' : ratio >= .62 ? 'Bright spark' : 'Steady glow';
@@ -592,7 +595,7 @@
     }
 
     function startDrag(event) {
-      if (disposed || drawing || event.button !== 0 || !event.isPrimary) return;
+      if (disposed || drawing || event.button !== 0 || !event.isPrimary || (mode === 'sprint' && (!sprintActive || sprintComplete))) return;
       drag = {
         pointerId: event.pointerId,
         startX: event.clientX,

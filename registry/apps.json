@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-22T17:00:00.000Z",
+  "updatedAt": "2026-06-22T19:00:00.000Z",
   "apps": [
     {
       "id": "pairadox",
@@ -186,6 +186,63 @@
         "minSeconds": 0,
         "maxSeconds": 0,
         "rounds": 8
+      }
+    },
+    {
+      "id": "scene-circuit",
+      "name": "Scene Circuit",
+      "summary": "Combine roles, places, pressures, and twists into compact scenes that change as your ingredient set evolves.",
+      "description": "A combinatorial story lab for building playable scenes. Select and remove ingredients to shift the dramatic objective, test unlikely combinations, and discover prompts that reward revision rather than a single random result.",
+      "category": "play",
+      "engine": "word-remix",
+      "emoji": "🎭",
+      "version": "1.0.0",
+      "createdAt": "2026-06-22",
+      "updatedAt": "2026-06-22",
+      "config": {
+        "instructions": "Select three to six ingredients, then add or remove one at a time. The scene objective changes with the mix, turning revision into the main play loop.",
+        "items": [
+          "Role: reluctant expert",
+          "Role: cheerful rival",
+          "Role: person hiding good news",
+          "Role: exhausted rule-follower",
+          "Place: stalled elevator",
+          "Place: empty museum after closing",
+          "Place: crowded ferry deck",
+          "Place: neighborhood yard sale",
+          "Pressure: ninety seconds remain",
+          "Pressure: someone misunderstood the plan",
+          "Pressure: the obvious tool is missing",
+          "Pressure: nobody may say the real problem"
+        ],
+        "prompts": [
+          "Open after the mistake has already happened. Make every selected ingredient matter before the scene ends.",
+          "Give two selected ingredients opposing goals, then let a third become the unexpected solution.",
+          "Build a visible countdown. Each selected ingredient must make the remaining time feel more expensive.",
+          "Hide the central problem in ordinary conversation until one selected detail makes it impossible to ignore.",
+          "Let the least dramatic ingredient trigger the biggest reversal, but keep the ending believable.",
+          "Stage the scene as a negotiation where every concession creates a new complication.",
+          "Turn one ingredient into a rule, one into a temptation, and one into the cost of breaking the rule.",
+          "Write the final image first, then explain how the selected ingredients force the scene to reach it.",
+          "Make the characters solve the practical problem but accidentally worsen the emotional one.",
+          "Use repetition three times, changing its meaning on each return.",
+          "Remove the easiest resolution. Find a smaller, stranger ending that still feels earned.",
+          "Treat the setting as an active obstacle that changes what each character is willing to admit."
+        ],
+        "options": [
+          "Twist: the warning was actually an invitation",
+          "Twist: the rival quietly needs help",
+          "Twist: the missing object is in plain sight",
+          "Twist: the deadline belongs to someone else",
+          "Tone: sincere but increasingly absurd",
+          "Tone: tense with one calm person",
+          "Tone: playful until one honest sentence",
+          "Tone: formal behavior in a ridiculous situation"
+        ],
+        "outcomes": [],
+        "minSeconds": 0,
+        "maxSeconds": 0,
+        "rounds": 0
       }
     }
   ]

@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { execFileSync } from 'node:child_process';
 
 const root = path.resolve(import.meta.dirname, '..');
 const registryPath = path.join(root, 'registry', 'apps.json');
@@ -54,8 +55,17 @@ for (const [index, app] of registry.apps.entries()) {
   if (app.engine === 'timer-guess' && (!(config.minSeconds > 0) || config.maxSeconds <= config.minSeconds)) fail(`${label} has an invalid timer range`);
 }
 
-for (const file of ['index.html', 'styles.css', 'app.js', 'time-sense.js', 'gallery-preview.js', 'pairadox.js', 'fair-choice.js', 'tiny-step.js', 'constraint-spark.js', 'signal-garden.js', '.nojekyll']) {
+const requiredFiles = ['index.html', 'styles.css', 'app.js', 'time-sense.js', 'gallery-preview.js', 'pairadox.js', 'fair-choice.js', 'tiny-step.js', 'constraint-spark.js', 'signal-garden.js', '.nojekyll'];
+for (const file of requiredFiles) {
   if (!fs.existsSync(path.join(root, file))) fail(`${file} is missing`);
+}
+
+for (const file of requiredFiles.filter((file) => file.endsWith('.js'))) {
+  try {
+    execFileSync(process.execPath, ['--check', path.join(root, file)], { stdio: 'pipe' });
+  } catch {
+    fail(`${file} has invalid JavaScript syntax`);
+  }
 }
 
 if (!process.exitCode) console.log(`Validated ${registry.apps.length} apps and the static site shell.`);

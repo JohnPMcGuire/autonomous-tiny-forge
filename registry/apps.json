@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-21T23:00:00.000Z",
+  "updatedAt": "2026-06-22T13:00:00.000Z",
   "apps": [
     {
       "id": "pairadox",
       "name": "Pairadox",
-      "summary": "Drag two unlikely ingredients into an animated forge and unlock 16 creative challenges.",
-      "description": "A tactile idea game for one person or a group. Drag, tap, or use the keyboard to load two ingredients, then remix them with animation, optional sound, and one of sixteen varied challenges.",
+      "summary": "Mix two ingredients into a creative challenge or a funny story with a three-panel symbolic storyboard.",
+      "description": "A tactile idea game with challenge and story modes. Drag, tap, or use the keyboard to load two ingredients, then create a prompt or a complete local-only comedy with animated symbolic scenes and optional sound.",
       "category": "play",
       "engine": "choice-mixer",
       "emoji": "🧩",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "createdAt": "2026-06-20",
-      "updatedAt": "2026-06-21",
+      "updatedAt": "2026-06-22",
       "config": {
-        "instructions": "Drag or tap two ingredients into the forge. Use Random mix when you want a surprise, then complete the challenge in two minutes.",
+        "instructions": "Drag or tap two ingredients into the forge. Choose Challenge for a prompt or Story for a generated comedy with symbolic scenes, then remix whenever you want another result.",
         "items": [],
         "prompts": [],
         "options": [

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-22T15:00:00.000Z",
+  "updatedAt": "2026-06-22T17:00:00.000Z",
   "apps": [
     {
       "id": "pairadox",
@@ -153,6 +153,39 @@
         "minSeconds": 0,
         "maxSeconds": 0,
         "rounds": 0
+      }
+    },
+    {
+      "id": "signal-garden",
+      "name": "Signal Garden",
+      "summary": "Read moving signal patterns across four stations in practice, rush, or survival mode.",
+      "description": "A local pattern-prediction game with five pattern families, adaptive difficulty, focus-powered hints, scoring, streaks, lives, a timed mode, canvas motion, touch, keyboard controls, optional audio, and clean teardown.",
+      "category": "play",
+      "engine": "prediction-game",
+      "emoji": "🪴",
+      "version": "1.0.0",
+      "createdAt": "2026-06-22",
+      "updatedAt": "2026-06-22",
+      "config": {
+        "instructions": "Watch signals move among four garden stations, infer the rule, and predict the next stop. Choose guided practice, a timed rush, or three-life survival with adaptive difficulty.",
+        "items": [],
+        "prompts": [
+          "Orbit signals move consistently around the garden.",
+          "Echo signals repeat each station before moving on.",
+          "Weave signals alternate between two independent paths.",
+          "Mirror signals fold back through a short motif.",
+          "Pulse signals return to one anchor between changes."
+        ],
+        "options": [
+          "Ember",
+          "Moss",
+          "Tide",
+          "Dawn"
+        ],
+        "outcomes": [],
+        "minSeconds": 0,
+        "maxSeconds": 0,
+        "rounds": 8
       }
     }
   ]

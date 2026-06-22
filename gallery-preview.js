@@ -74,6 +74,22 @@
             </g>
           </g>
         </svg>`
+    },
+    'Signal Garden': {
+      id: 'signal-garden',
+      capabilities: ['Canvas', 'Modes', 'Touch', 'Keyboard'],
+      svg: `
+        <svg viewBox="0 0 320 150" focusable="false">
+          <path class="preview-track" d="M160 25 251 75 160 125 69 75Z"></path>
+          <path class="preview-track preview-track-faint" d="M160 25 160 125M69 75h182"></path>
+          <circle class="wheel-a" cx="160" cy="25" r="11"></circle>
+          <circle class="wheel-b" cx="251" cy="75" r="11"></circle>
+          <circle class="wheel-c" cx="160" cy="125" r="11"></circle>
+          <circle class="wheel-d" cx="69" cy="75" r="11"></circle>
+          <circle class="preview-time-trail preview-time-trail-three" cx="70" cy="70" r="9"></circle>
+          <circle class="preview-time-trail preview-time-trail-two" cx="70" cy="70" r="6"></circle>
+          <circle class="preview-time-spark" cx="70" cy="70" r="7"></circle>
+        </svg>`
     }
   };
 

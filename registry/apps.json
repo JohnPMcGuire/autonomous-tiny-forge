@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-22T19:00:00.000Z",
+  "updatedAt": "2026-06-22T21:00:00.000Z",
   "apps": [
     {
       "id": "pairadox",
@@ -243,6 +243,38 @@
         "minSeconds": 0,
         "maxSeconds": 0,
         "rounds": 0
+      }
+    },
+    {
+      "id": "threadline",
+      "name": "Threadline",
+      "summary": "Route a live signal through costly terrain and ordered relays before its charge runs out.",
+      "description": "A procedural spatial strategy game with three modes, ordered checkpoints, terrain costs, optional caches, limited surges and hints, adaptive difficulty, scoring, canvas motion, drag, touch, pointer, keyboard controls, local audio, and clean teardown.",
+      "category": "play",
+      "engine": "prediction-game",
+      "emoji": "🧵",
+      "version": "1.0.0",
+      "createdAt": "2026-06-22",
+      "updatedAt": "2026-06-22",
+      "config": {
+        "instructions": "Trace a route from start to exit, linking numbered relays in order. Manage charge across costly terrain, spend scarce surges and focus, and decide whether optional caches justify a detour.",
+        "items": [],
+        "prompts": [
+          "Relays must be reached in number order before the exit unlocks.",
+          "Brush costs two charge and storm cells cost three.",
+          "A surge makes the next valid move cost zero charge.",
+          "Focus reveals up to three useful cells toward the next objective."
+        ],
+        "options": [
+          "Start",
+          "Relay",
+          "Cache",
+          "Exit"
+        ],
+        "outcomes": [],
+        "minSeconds": 0,
+        "maxSeconds": 0,
+        "rounds": 5
       }
     }
   ]

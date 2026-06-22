@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-22T13:00:00.000Z",
+  "updatedAt": "2026-06-22T15:00:00.000Z",
   "apps": [
     {
       "id": "pairadox",
@@ -119,16 +119,16 @@
     {
       "id": "constraint-spark",
       "name": "Constraint Spark",
-      "summary": "Swipe through an animated 16-card deck of creative constraints without repeats.",
-      "description": "A tactile 16-card constraint deck with animated SVG motion, swipe and drag gestures, touch, pointer, keyboard controls, optional local audio, and full-deck reshuffling without immediate repeats.",
+      "summary": "Draw freely or race through three timed creative constraints with one strategic swap.",
+      "description": "A tactile 16-card constraint deck with Explore and Three-card Sprint modes, 30/60/90-second pacing, scoring, one strategic swap, animated SVG motion, touch, pointer, keyboard controls, optional local audio, and no-repeat reshuffling.",
       "category": "experiment",
       "engine": "challenge-deck",
       "emoji": "✳️",
-      "version": "1.2.1",
+      "version": "1.3.0",
       "createdAt": "2026-06-20",
-      "updatedAt": "2026-06-21",
+      "updatedAt": "2026-06-22",
       "config": {
-        "instructions": "Swipe, tap, or use the arrow keys to draw one of sixteen constraints. Work with it for fifteen minutes, then draw another when you need a new direction.",
+        "instructions": "Explore the animated deck freely, or choose a 30, 60, or 90-second three-card sprint. Complete each round for points and use one strategic swap when a constraint does not fit.",
         "items": [
           "Use only three controls.",
           "Make the ending explain the beginning.",

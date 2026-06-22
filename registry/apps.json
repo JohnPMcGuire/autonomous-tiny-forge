@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-22T21:00:00.000Z",
+  "updatedAt": "2026-06-22T23:00:00.000Z",
   "apps": [
     {
       "id": "pairadox",
@@ -238,6 +238,67 @@
           "Tone: tense with one calm person",
           "Tone: playful until one honest sentence",
           "Tone: formal behavior in a ridiculous situation"
+        ],
+        "outcomes": [],
+        "minSeconds": 0,
+        "maxSeconds": 0,
+        "rounds": 0
+      }
+    },
+    {
+      "id": "ripple-map",
+      "name": "Ripple Map",
+      "summary": "Build a consequence map that exposes delayed costs, feedback loops, hidden dependencies, and exit signals.",
+      "description": "A local systems-thinking lab for decisions with second-order effects. Add one lens at a time across choice, stakeholder, horizon, pressure, dependency, and signal; each selection advances the analysis toward a reversible test.",
+      "category": "useful",
+      "engine": "word-remix",
+      "emoji": "🌊",
+      "version": "1.0.0",
+      "createdAt": "2026-06-22",
+      "updatedAt": "2026-06-22",
+      "config": {
+        "instructions": "Select one chip from each lens in order: choice, stakeholder, horizon, pressure, dependency, and signal. Read the new consequence question after every selection, then swap one chip at a time to compare strategies.",
+        "items": [
+          "Choice: launch now",
+          "Choice: narrow the scope",
+          "Choice: wait for evidence",
+          "Stakeholder: first-time user",
+          "Stakeholder: frontline operator",
+          "Stakeholder: future maintainer",
+          "Horizon: tomorrow",
+          "Horizon: ninety days",
+          "Horizon: one year",
+          "Pressure: demand doubles",
+          "Pressure: budget shrinks",
+          "Pressure: deadline slips"
+        ],
+        "prompts": [
+          "Synthesize the whole map. State the decision, who absorbs its benefits and costs, the delayed consequence, the reinforcing loop, the earliest warning signal, and the smallest reversible test.",
+          "Immediate effect: what changes first if this choice is made, and what stays deceptively unchanged?",
+          "Distribution: who receives the visible benefit, and who quietly inherits extra work, risk, or waiting?",
+          "Time shift: how does the outcome look at this horizon compared with the first day? Name one benefit that fades and one cost that compounds.",
+          "Pressure response: when this pressure arrives, what behavior will people adopt to keep the system moving, and what new risk does that workaround create?",
+          "Dependency path: trace where this dependency can delay, distort, or concentrate the decision's effects. What single failure would spread furthest?",
+          "Signal and probe: turn the selected signal into a stop condition, then define the smallest reversible test that could reveal it before commitment grows.",
+          "Work migration: identify work that appears to disappear but actually moves to another person, queue, tool, or future date.",
+          "Metric trap: name a number that could improve while the real experience worsens. What balancing measure would expose the difference?",
+          "Feedback loop: describe one reinforcing loop that makes the decision increasingly attractive or increasingly costly after each cycle.",
+          "Delayed invoice: what cost arrives only after the decision has become socially, technically, or financially difficult to reverse?",
+          "Asymmetry: who can recover quickly from a bad outcome, and who cannot? Adjust the decision so the least reversible harm is reduced.",
+          "Lock-in: which habit, dependency, expectation, or data structure becomes harder to unwind after repeated use?",
+          "Recovery design: assume the choice fails. What must remain intact so the team can retreat without losing trust, data, or momentum?",
+          "Missing voice: whose experience is absent from the selected lenses, and how could that omission make the result look safer than it is?",
+          "No-action comparison: compare this map with doing nothing for the same horizon and pressure. Which risks are created by action, and which are merely revealed?",
+          "Smaller option: remove one irreversible element and redesign the choice as a bounded experiment with a clear owner and expiration point.",
+          "Monitoring contract: define one leading signal, one lagging outcome, a review date, and the exact condition that triggers pause, rollback, or expansion."
+        ],
+        "options": [
+          "Dependency: manual handoff",
+          "Dependency: shared data",
+          "Dependency: outside vendor",
+          "Signal: workarounds appear",
+          "Signal: errors cluster",
+          "Signal: trust declines"
         ],
         "outcomes": [],
         "minSeconds": 0,

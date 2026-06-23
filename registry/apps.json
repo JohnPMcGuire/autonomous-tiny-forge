@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-23T18:59:00.000Z",
+  "updatedAt": "2026-06-23T23:59:00.000Z",
   "apps": [
     {
       "id": "pairadox",
@@ -237,6 +237,28 @@
         "items": ["Claim: surprising pattern", "Claim: broken promise", "Claim: hidden cause", "Source: eyewitness account", "Source: system record", "Source: interested party", "Clue: timing mismatch", "Clue: repeated exception", "Clue: missing artifact", "Contradiction: two stories conflict", "Contradiction: data and memory differ", "Contradiction: motive exceeds evidence"],
         "prompts": ["Final case: state the claim, strongest evidence, weakest assumption, competing explanation, decisive test, and what would make you change your mind.", "Case intake: translate the selected claim into a testable question. Separate what is asserted from what is actually observed.", "Source quality: rate who produced the selected clue, what they could know directly, and what incentive might distort the account.", "Timeline: place the first three selected items in sequence. What must have happened before the visible clue could appear?", "Contradiction: identify two selected details that cannot both be fully true. Name the smallest fact that would resolve the conflict.", "Alternative: build a rival explanation using the same evidence. What does it explain better, and what does it strain?", "Core theory: combine six selected lenses into a provisional story with claim, source, clue, timeline, contradiction, and test.", "Base-rate check: compare the theory with a boring common explanation. What would you expect to see if nothing unusual happened?", "Missing evidence: name one absent record, witness, measurement, or artifact that would matter more than another opinion.", "Contamination risk: show how memory, incentives, sampling, editing, or repeated retelling could make a weak clue look stronger.", "Prediction: before adding new facts, write one risky prediction the theory makes. It should be specific enough to fail.", "Disconfirmation: choose the evidence that would damage your favorite explanation most. Why is that better than confirming evidence?", "Chain of custody: trace how the selected clue moved from event to record to interpretation. Where could meaning change?", "Confidence split: assign low, medium, or high confidence to each major step. Which link limits the whole case?", "Motive caution: propose a motive, then explain why motive alone is not evidence that the event happened.", "Decision threshold: decide whether the case supports action, more inquiry, or dismissal. Name the cost of being wrong each way.", "Peer challenge: have a skeptical reviewer rewrite the case in one paragraph. Keep the objection that survives your best reply.", "Revision audit: remove one selected chip, add one alternate, and identify which conclusion changes. Prefer the theory with fewer fragile assumptions."],
         "options": ["Test: independent check", "Test: before-and-after comparison", "Test: reproduce the event", "Risk: confirmation bias", "Risk: edited sample", "Risk: social pressure"],
+        "outcomes": [],
+        "minSeconds": 0,
+        "maxSeconds": 0,
+        "rounds": 0
+      }
+    },
+    {
+      "id": "heist-ledger",
+      "name": "Heist Ledger",
+      "summary": "Plan a caper by balancing crew roles, heat, tools, clocks, suspicion, escape, and recovery.",
+      "description": "A local planning game about risk and contingency. Build a clean job, then pressure-test it through crew conflicts, alarms, evidence trails, failed tools, escape timing, and recovery choices.",
+      "category": "play",
+      "engine": "word-remix",
+      "emoji": "💎",
+      "version": "1.0.0",
+      "createdAt": "2026-06-23",
+      "updatedAt": "2026-06-23",
+      "config": {
+        "instructions": "Pick one chip from each lens to form the job. Add or swap complications to manage heat, crew trust, evidence, timing, escape, and the final split.",
+        "items": ["Crew: nervous driver", "Crew: charming inside contact", "Crew: retired safe expert", "Target: moving exhibit", "Target: sealed archive", "Target: rival's decoy vault", "Tool: borrowed uniform", "Tool: silent glass cutter", "Tool: map with one old detail", "Clock: twelve-minute window", "Clock: guard shift overlap", "Clock: storm covers the exit"],
+        "prompts": ["Final ledger: state the target, crew role, clean entry, heat source, contingency, escape route, evidence risk, and who gets paid only if trust survives.", "Crew read: assign each selected crew member one strength, one pressure point, and one reason they might improvise at the worst time.", "Target map: describe the path in, the path out, and the single place where the plan becomes loud if one assumption fails.", "Tool test: use the selected tool for entry. What does it solve cleanly, and what trace does it accidentally leave behind?", "Clock pressure: turn the selected clock into a countdown. What step gets skipped if the team falls two minutes behind?", "Heat check: name the first signal that someone notices the job. Decide whether to pause, divert attention, or keep moving.", "Clean job: combine six selected lenses into a plan with entry, handoff, extraction, escape, and a stop condition.", "Crew conflict: one crew member protects themselves instead of the plan. What does the leader reveal, promise, or sacrifice to keep trust intact?", "False vault: the visible prize is bait. Which selected detail proves the real objective is elsewhere, and what previous step must be reinterpreted?", "Silent alarm: assume the alarm already fired but nobody knows yet. What action reduces heat without confirming guilt?", "Evidence trail: identify the smallest trace that links the crew to the target. Who can erase it, and what do they risk by trying?", "Decoy move: create a harmless-looking event that draws attention away while preserving the real escape option.", "Tool failure: remove the selected tool and redesign the next two steps with only the crew and clock still available.", "Split decision: decide whether the crew divides up, stays together, or abandons part of the prize. What changes about trust?", "Escape math: compare the fast exit, quiet exit, and unexpected exit. Which one fails if the clock or weather changes?", "Recovery: assume the job half-succeeds. What must be returned, hidden, confessed, or traded to avoid a worse ending?", "Double-cross audit: identify who benefits if the plan fails. Add one verification step that catches betrayal without insulting the honest crew.", "Final score: rate clean entry, heat control, crew trust, evidence risk, and escape margin. Revise the weakest category before replaying."],
+        "options": ["Heat: curious journalist", "Heat: jealous rival crew", "Heat: camera blind spot moved", "Escape: service tunnel", "Escape: crowded gala floor", "Escape: delivery van swap"],
         "outcomes": [],
         "minSeconds": 0,
         "maxSeconds": 0,

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-23T11:00:00.000Z",
+  "updatedAt": "2026-06-23T13:05:00.000Z",
   "apps": [
     {
       "id": "pairadox",
@@ -215,6 +215,28 @@
         "items": ["Demand: surprise spike", "Demand: uneven arrivals", "Demand: fragile deadline", "Bottleneck: one expert station", "Bottleneck: shared test bench", "Bottleneck: slow approval gate", "Policy: first in first out", "Policy: expedite loudest request", "Policy: batch before release", "Capacity: borrowed helper", "Capacity: overtime window", "Capacity: partial automation"],
         "prompts": ["Final run: state the bottleneck, chosen policy, queue behavior, quality risk, morale cost, recovery rule, and one signal that proves flow improved.", "Baseline: describe one normal unit entering the line, where it waits, and what invisible work happens before anyone notices delay.", "Arrival pattern: show how the selected demand changes the queue. What work arrives too early, too late, or in the wrong size?", "Constraint map: name the true bottleneck and one tempting non-bottleneck improvement that would not increase finished output.", "Policy test: apply the selected policy for one cycle. Who benefits, who waits longer, and what behavior does the rule encourage?", "Capacity tradeoff: add the selected capacity. What improves immediately, and what new coordination or quality cost appears?", "First run: combine six selected lenses into a one-day operating rule with owner, limit, queue signal, and stop condition.", "Queue spiral: assume waiting doubles. What shortcut will people invent, and how does that workaround feed the bottleneck again?", "Rework loop: reveal a defect that returns finished work to an earlier station. Which metric looked healthy while rework was growing?", "Priority conflict: two jobs claim urgency. Decide which one moves, which one waits, and what explicit cost is accepted.", "Morale load: describe how the policy feels to the slowest station after repeated cycles. What signal shows burnout before failure?", "Batch risk: change the unit size. When does batching reduce switching cost, and when does it hide problems until too late?", "Failure drill: remove one capacity chip or add one demand chip. Redesign the rule so the line degrades gracefully instead of pretending nothing changed.", "Flow experiment: set a short test with a work-in-progress limit, one allowed exception, and a review point that can reverse the change.", "Recovery sequence: decide what clears first after a jam: blocked work, rework, urgent work, or future demand. Explain the order.", "Gaming check: name a metric people could improve while customers wait longer. Add a balancing measure that makes the game visible.", "Learning loop: convert one queue signal into an earlier warning, one policy into a checklist, and one recurring exception into a decision rule.", "Final audit: remove any rule without an owner, signal, or rollback. Keep the smallest operating model that improves throughput without hiding damage."],
         "options": ["Quality: hidden defect", "Quality: review fatigue", "Quality: unclear done", "Morale: hero culture", "Morale: quiet overload", "Morale: blame avoidance"],
+        "outcomes": [],
+        "minSeconds": 0,
+        "maxSeconds": 0,
+        "rounds": 0
+      }
+    },
+    {
+      "id": "evidence-trail",
+      "name": "Evidence Trail",
+      "summary": "Build and stress-test a case by weighing clues, alternatives, contradictions, and decisive tests.",
+      "description": "A local investigation lab for sharper reasoning. Select claims, sources, clues, timelines, contradictions, and tests, then pressure-check confidence, missing evidence, rival explanations, and revision paths.",
+      "category": "useful",
+      "engine": "word-remix",
+      "emoji": "🕵️",
+      "version": "1.0.0",
+      "createdAt": "2026-06-23",
+      "updatedAt": "2026-06-23",
+      "config": {
+        "instructions": "Pick one chip from each lens to form the case. Add or swap evidence to test alternatives, confidence, missing facts, and what would change your mind.",
+        "items": ["Claim: surprising pattern", "Claim: broken promise", "Claim: hidden cause", "Source: eyewitness account", "Source: system record", "Source: interested party", "Clue: timing mismatch", "Clue: repeated exception", "Clue: missing artifact", "Contradiction: two stories conflict", "Contradiction: data and memory differ", "Contradiction: motive exceeds evidence"],
+        "prompts": ["Final case: state the claim, strongest evidence, weakest assumption, competing explanation, decisive test, and what would make you change your mind.", "Case intake: translate the selected claim into a testable question. Separate what is asserted from what is actually observed.", "Source quality: rate who produced the selected clue, what they could know directly, and what incentive might distort the account.", "Timeline: place the first three selected items in sequence. What must have happened before the visible clue could appear?", "Contradiction: identify two selected details that cannot both be fully true. Name the smallest fact that would resolve the conflict.", "Alternative: build a rival explanation using the same evidence. What does it explain better, and what does it strain?", "Core theory: combine six selected lenses into a provisional story with claim, source, clue, timeline, contradiction, and test.", "Base-rate check: compare the theory with a boring common explanation. What would you expect to see if nothing unusual happened?", "Missing evidence: name one absent record, witness, measurement, or artifact that would matter more than another opinion.", "Contamination risk: show how memory, incentives, sampling, editing, or repeated retelling could make a weak clue look stronger.", "Prediction: before adding new facts, write one risky prediction the theory makes. It should be specific enough to fail.", "Disconfirmation: choose the evidence that would damage your favorite explanation most. Why is that better than confirming evidence?", "Chain of custody: trace how the selected clue moved from event to record to interpretation. Where could meaning change?", "Confidence split: assign low, medium, or high confidence to each major step. Which link limits the whole case?", "Motive caution: propose a motive, then explain why motive alone is not evidence that the event happened.", "Decision threshold: decide whether the case supports action, more inquiry, or dismissal. Name the cost of being wrong each way.", "Peer challenge: have a skeptical reviewer rewrite the case in one paragraph. Keep the objection that survives your best reply.", "Revision audit: remove one selected chip, add one alternate, and identify which conclusion changes. Prefer the theory with fewer fragile assumptions."],
+        "options": ["Test: independent check", "Test: before-and-after comparison", "Test: reproduce the event", "Risk: confirmation bias", "Risk: edited sample", "Risk: social pressure"],
         "outcomes": [],
         "minSeconds": 0,
         "maxSeconds": 0,

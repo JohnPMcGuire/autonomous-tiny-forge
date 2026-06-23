@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-23T09:00:00.000Z",
+  "updatedAt": "2026-06-23T11:00:00.000Z",
   "apps": [
     {
       "id": "pairadox",
@@ -193,6 +193,28 @@
         "items": ["Role: impatient sponsor", "Role: cautious operator", "Role: silent expert", "Stake: deadline relief", "Stake: budget protection", "Stake: reputation risk", "Constraint: no extra headcount", "Constraint: public promise made", "Constraint: unclear ownership", "Offer: phased delivery", "Offer: shared fallback", "Offer: visible tradeoff"],
         "prompts": ["Final agreement: state each party's real need, conceded item, protected boundary, enforcement signal, repair path, and the smallest next commitment.", "Opening positions: list what each side says they want, then name the quieter need that would actually change the deal.", "Power map: identify who can delay, veto, rescue, or quietly undermine the agreement. What leverage should not be used?", "Constraint pressure: make the selected constraint force a real tradeoff. What option becomes impossible, and what new option appears?", "First concession: choose a concession that creates trust without giving away the protected boundary. What proof makes it credible?", "Walkaway line: define the condition where continuing the negotiation creates more damage than pausing it.", "Package deal: combine six selected lenses into one proposal with scope, timing, owner, fallback, and review signal.", "Misread motive: assume one party misunderstands another's goal. What evidence corrects the story without embarrassing anyone?", "Hidden cost: reveal a cost that lands outside the room. Who inherits it, and how does the deal change?", "Trust test: design a small reversible action each party can complete before asking for the bigger commitment.", "Enforcement: define what happens when a promise slips. Separate a useful correction from a punishment that only saves face.", "Face-saving exit: create a path where someone can change position without pretending they were never wrong.", "Fallback drill: remove one selected resource or offer. Redesign the agreement so the core outcome still survives.", "Asymmetric risk: decide who loses fastest if the deal fails. Adjust the terms so risk is visible and shared fairly.", "Signal review: choose the earliest signal that the agreement is working or failing. Who checks it, and when?", "Repair move: assume trust drops after the first week. What repair action restores useful cooperation without reopening everything?", "No-deal comparison: compare the agreement with doing nothing. Which harm is avoided, and which harm is merely delayed?", "Final audit: remove any promise without an owner, signal, or fallback. Keep only the deal parts that can survive pressure."],
         "options": ["Risk: quiet noncompliance", "Risk: metric theater", "Risk: future resentment", "Trust: shared scoreboard", "Trust: named decision owner", "Trust: reversible pilot"],
+        "outcomes": [],
+        "minSeconds": 0,
+        "maxSeconds": 0,
+        "rounds": 0
+      }
+    },
+    {
+      "id": "throughput-foundry",
+      "name": "Throughput Foundry",
+      "summary": "Balance demand, capacity, quality, morale, and rework in a bottleneck simulation.",
+      "description": "A local operations-simulation lab. Select demand, bottleneck, policy, capacity, quality, and morale conditions, then stress-test queues, rework, tradeoffs, recovery, and learning loops.",
+      "category": "experiment",
+      "engine": "word-remix",
+      "emoji": "🏭",
+      "version": "1.0.0",
+      "createdAt": "2026-06-23",
+      "updatedAt": "2026-06-23",
+      "config": {
+        "instructions": "Pick one chip from each lens to model the line. Add or swap conditions to test queues, rework, priority rules, morale, recovery, and throughput.",
+        "items": ["Demand: surprise spike", "Demand: uneven arrivals", "Demand: fragile deadline", "Bottleneck: one expert station", "Bottleneck: shared test bench", "Bottleneck: slow approval gate", "Policy: first in first out", "Policy: expedite loudest request", "Policy: batch before release", "Capacity: borrowed helper", "Capacity: overtime window", "Capacity: partial automation"],
+        "prompts": ["Final run: state the bottleneck, chosen policy, queue behavior, quality risk, morale cost, recovery rule, and one signal that proves flow improved.", "Baseline: describe one normal unit entering the line, where it waits, and what invisible work happens before anyone notices delay.", "Arrival pattern: show how the selected demand changes the queue. What work arrives too early, too late, or in the wrong size?", "Constraint map: name the true bottleneck and one tempting non-bottleneck improvement that would not increase finished output.", "Policy test: apply the selected policy for one cycle. Who benefits, who waits longer, and what behavior does the rule encourage?", "Capacity tradeoff: add the selected capacity. What improves immediately, and what new coordination or quality cost appears?", "First run: combine six selected lenses into a one-day operating rule with owner, limit, queue signal, and stop condition.", "Queue spiral: assume waiting doubles. What shortcut will people invent, and how does that workaround feed the bottleneck again?", "Rework loop: reveal a defect that returns finished work to an earlier station. Which metric looked healthy while rework was growing?", "Priority conflict: two jobs claim urgency. Decide which one moves, which one waits, and what explicit cost is accepted.", "Morale load: describe how the policy feels to the slowest station after repeated cycles. What signal shows burnout before failure?", "Batch risk: change the unit size. When does batching reduce switching cost, and when does it hide problems until too late?", "Failure drill: remove one capacity chip or add one demand chip. Redesign the rule so the line degrades gracefully instead of pretending nothing changed.", "Flow experiment: set a short test with a work-in-progress limit, one allowed exception, and a review point that can reverse the change.", "Recovery sequence: decide what clears first after a jam: blocked work, rework, urgent work, or future demand. Explain the order.", "Gaming check: name a metric people could improve while customers wait longer. Add a balancing measure that makes the game visible.", "Learning loop: convert one queue signal into an earlier warning, one policy into a checklist, and one recurring exception into a decision rule.", "Final audit: remove any rule without an owner, signal, or rollback. Keep the smallest operating model that improves throughput without hiding damage."],
+        "options": ["Quality: hidden defect", "Quality: review fatigue", "Quality: unclear done", "Morale: hero culture", "Morale: quiet overload", "Morale: blame avoidance"],
         "outcomes": [],
         "minSeconds": 0,
         "maxSeconds": 0,

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-23T00:58:30.000Z",
+  "updatedAt": "2026-06-23T03:00:00.000Z",
   "apps": [
     {
       "id": "pairadox",
@@ -340,6 +340,67 @@
         "minSeconds": 0,
         "maxSeconds": 0,
         "rounds": 5
+      }
+    },
+    {
+      "id": "faultline-drill",
+      "name": "Faultline Drill",
+      "summary": "Run a tabletop incident drill that exposes weak signals, tradeoffs, handoffs, and recovery paths.",
+      "description": "A local operational-resilience simulator. Build an incident from six lenses, contain the first failure, stress the response with alternate conditions, and finish with a concrete recovery and learning plan.",
+      "category": "useful",
+      "engine": "word-remix",
+      "emoji": "🧯",
+      "version": "1.0.0",
+      "createdAt": "2026-06-22",
+      "updatedAt": "2026-06-22",
+      "config": {
+        "instructions": "Choose one chip from each lens to form the initial incident. Then add or swap alternate conditions one at a time to test containment, escalation, recovery, and learning.",
+        "items": [
+          "System: checkout flow",
+          "System: team handoff",
+          "System: shared data feed",
+          "Trigger: traffic spike",
+          "Trigger: silent bad release",
+          "Trigger: critical vendor delay",
+          "Stakeholder: first-time user",
+          "Stakeholder: frontline operator",
+          "Stakeholder: executive sponsor",
+          "Constraint: no rollback window",
+          "Constraint: one on-call responder",
+          "Constraint: public deadline"
+        ],
+        "prompts": [
+          "Final debrief: state the incident, earliest signal, blast radius, containment decision, tradeoff accepted, recovery path, owner, and one change that would make the next response faster without hiding risk.",
+          "Normal state: define what healthy operation looks like for the selected system and name one dependency people assume will always work.",
+          "Detection: separate the first observable signal from the first interpretation. What evidence would disprove the convenient explanation?",
+          "Blast radius: identify who is affected now, who is affected next, and which boundary prevents the incident from spreading further.",
+          "First decision: choose one action that buys information and one action that reduces harm. Explain why doing both may be impossible.",
+          "Scarce resource: assign the selected constraint to a named decision. What must be deferred, degraded, or made manual to protect the core outcome?",
+          "Containment plan: combine the six selected lenses into a fifteen-minute response with an owner, stop condition, fallback, and communication trigger.",
+          "False recovery: assume the visible symptom clears while the cause remains. Which selected signal would reveal that the system is still unsafe?",
+          "Handoff risk: move control to another role or team. What context is most likely to be lost, and how will the receiver verify the current state?",
+          "Second-order failure: add one alternate condition. Show how the containment action creates a new queue, dependency, or customer behavior.",
+          "Stakeholder conflict: give two selected stakeholders different definitions of success. Which objective takes priority, and what cost is explicitly accepted?",
+          "Metric trap: name a reassuring number that could improve during the incident while real harm grows. Add a balancing measure.",
+          "Escalation threshold: define the exact evidence that changes the response from local containment to broader shutdown, rollback, or leadership escalation.",
+          "No-regrets move: choose an action that remains useful across several possible causes. State what information it preserves and what option it keeps open.",
+          "Plan failure: assume the current response stops working. Remove one resource or add one constraint, then design a smaller recovery route.",
+          "Recovery: describe the order for restoring service, validating data, clearing workarounds, and confirming that delayed failures are not still accumulating.",
+          "Communication contract: write one internal update and one user-facing update. Each must state what is known, what is uncertain, and when the next decision occurs.",
+          "Learning loop: convert one selected signal into an earlier alert, one handoff into a checklist, and one risky assumption into a tested fallback."
+        ],
+        "options": [
+          "Resource: one clean fallback",
+          "Resource: trusted expert for ten minutes",
+          "Resource: partial observability",
+          "Signal: errors cluster",
+          "Signal: queue growth",
+          "Signal: users invent a workaround"
+        ],
+        "outcomes": [],
+        "minSeconds": 0,
+        "maxSeconds": 0,
+        "rounds": 0
       }
     }
   ]

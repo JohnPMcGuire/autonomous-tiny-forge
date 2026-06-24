@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-06-23T23:59:00.000Z",
+  "updatedAt": "2026-06-24T01:00:00.000Z",
   "apps": [
     {
       "id": "pairadox",
@@ -259,6 +259,28 @@
         "items": ["Crew: nervous driver", "Crew: charming inside contact", "Crew: retired safe expert", "Target: moving exhibit", "Target: sealed archive", "Target: rival's decoy vault", "Tool: borrowed uniform", "Tool: silent glass cutter", "Tool: map with one old detail", "Clock: twelve-minute window", "Clock: guard shift overlap", "Clock: storm covers the exit"],
         "prompts": ["Final ledger: state the target, crew role, clean entry, heat source, contingency, escape route, evidence risk, and who gets paid only if trust survives.", "Crew read: assign each selected crew member one strength, one pressure point, and one reason they might improvise at the worst time.", "Target map: describe the path in, the path out, and the single place where the plan becomes loud if one assumption fails.", "Tool test: use the selected tool for entry. What does it solve cleanly, and what trace does it accidentally leave behind?", "Clock pressure: turn the selected clock into a countdown. What step gets skipped if the team falls two minutes behind?", "Heat check: name the first signal that someone notices the job. Decide whether to pause, divert attention, or keep moving.", "Clean job: combine six selected lenses into a plan with entry, handoff, extraction, escape, and a stop condition.", "Crew conflict: one crew member protects themselves instead of the plan. What does the leader reveal, promise, or sacrifice to keep trust intact?", "False vault: the visible prize is bait. Which selected detail proves the real objective is elsewhere, and what previous step must be reinterpreted?", "Silent alarm: assume the alarm already fired but nobody knows yet. What action reduces heat without confirming guilt?", "Evidence trail: identify the smallest trace that links the crew to the target. Who can erase it, and what do they risk by trying?", "Decoy move: create a harmless-looking event that draws attention away while preserving the real escape option.", "Tool failure: remove the selected tool and redesign the next two steps with only the crew and clock still available.", "Split decision: decide whether the crew divides up, stays together, or abandons part of the prize. What changes about trust?", "Escape math: compare the fast exit, quiet exit, and unexpected exit. Which one fails if the clock or weather changes?", "Recovery: assume the job half-succeeds. What must be returned, hidden, confessed, or traded to avoid a worse ending?", "Double-cross audit: identify who benefits if the plan fails. Add one verification step that catches betrayal without insulting the honest crew.", "Final score: rate clean entry, heat control, crew trust, evidence risk, and escape margin. Revise the weakest category before replaying."],
         "options": ["Heat: curious journalist", "Heat: jealous rival crew", "Heat: camera blind spot moved", "Escape: service tunnel", "Escape: crowded gala floor", "Escape: delivery van swap"],
+        "outcomes": [],
+        "minSeconds": 0,
+        "maxSeconds": 0,
+        "rounds": 0
+      }
+    },
+    {
+      "id": "loopwright",
+      "name": "Loopwright",
+      "summary": "Design a replayable habit loop by tuning triggers, friction, rewards, setbacks, and recovery rules.",
+      "description": "A local behavior-design lab for routines, games, and product loops. Build a loop from trigger, action, friction, reward, identity, and setback chips, then stress-test relapse, boredom, escalation, and recovery.",
+      "category": "experiment",
+      "engine": "word-remix",
+      "emoji": "🔁",
+      "version": "1.0.0",
+      "createdAt": "2026-06-23",
+      "updatedAt": "2026-06-23",
+      "config": {
+        "instructions": "Pick one chip from each lens to build the loop. Add or swap conditions to tune friction, reward timing, relapse recovery, and replay value.",
+        "items": ["Trigger: spare five minutes", "Trigger: visible unfinished work", "Trigger: social invitation", "Action: one tiny rep", "Action: choose the next path", "Action: repair one miss", "Friction: unclear first step", "Friction: too many choices", "Friction: delayed payoff", "Reward: instant feedback", "Reward: visible streak", "Reward: unlock a new option"],
+        "prompts": ["Final loop: state the trigger, smallest action, friction guardrail, reward timing, setback rule, and what makes the next run feel worth starting.", "Entry point: make the selected trigger visible without nagging. What should the user do before they have time to negotiate with themselves?", "Tiny action: shrink the first action until it can survive low energy. What still counts as a real rep?", "Friction map: separate useful friction from accidental friction. Which obstacle protects quality, and which only causes abandonment?", "Reward timing: decide what feedback arrives immediately, what arrives later, and what should never be gamed.", "Identity cue: connect the loop to the kind of person the user is practicing becoming without making failure feel permanent.", "First loop: combine six selected lenses into a start, action, reward, recovery, and next-step invitation.", "Miss recovery: assume the streak breaks. What recovery action restores momentum without pretending the miss did not happen?", "Boredom drift: after repeated wins, what becomes too predictable? Add one variation that changes strategy without changing the core action.", "Escalation check: when does making the loop harder improve mastery, and when does it punish consistency?", "Choice pressure: limit the next decision to two meaningful paths. What tradeoff should each path make visible?", "Social layer: add another person without turning the loop into surveillance, shame, or dependency.", "Failure signal: name the earliest sign that the loop is becoming performative rather than useful.", "Unlock rule: define one session-only unlock that rewards learning, not mere repetition.", "Resource tradeoff: add a cost in time, attention, or trust. What must be protected so the loop stays healthy?", "End condition: decide when to stop for the day even if the player wants one more round.", "Replay audit: swap one chip and identify which part of the loop changes: trigger, action, reward, recovery, or escalation.", "Final tuning: remove any reward, metric, or pressure that increases activity while reducing actual progress."],
+        "options": ["Identity: careful finisher", "Identity: playful experimenter", "Identity: calm restarter", "Setback: missed day", "Setback: noisy environment", "Setback: early win fades"],
         "outcomes": [],
         "minSeconds": 0,
         "maxSeconds": 0,

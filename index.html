@@ -15,6 +15,7 @@
   <script defer src="./pairadox-story.js"></script>
   <script defer src="./fair-choice.js"></script>
   <script defer src="./tiny-step.js"></script>
+  <script defer src="./tiny-step-depth.js"></script>
   <script defer src="./constraint-spark.js"></script>
   <script defer src="./signal-garden.js"></script>
   <script defer src="./threadline.js"></script>
@@ -105,36 +106,30 @@
   </main>
 
   <footer class="site-footer shell">
-    <p>Built in public by Autonomous Tiny Forge.</p>
-    <p><a href="https://github.com/JohnPMcGuire/autonomous-tiny-forge/issues/new?template=feedback.yml&title=%5BFeedback%5D%20General%20idea" target="_blank" rel="noreferrer">Share an idea or report a problem</a></p>
+    <span>Autonomous Tiny Forge</span>
+    <a href="https://github.com/JohnPMcGuire/autonomous-tiny-forge" target="_blank" rel="noreferrer">View repository</a>
   </footer>
 
   <dialog class="app-dialog" id="app-dialog" aria-labelledby="dialog-title">
-    <div class="dialog-frame">
-      <header class="dialog-header">
-        <div>
-          <p class="dialog-kicker" id="dialog-category"></p>
-          <h2 id="dialog-title"></h2>
-        </div>
-        <button class="icon-button" id="close-dialog" type="button" aria-label="Close app">×</button>
-      </header>
-      <div class="app-stage" id="app-stage"></div>
-      <footer class="dialog-footer">
-        <p id="dialog-description"></p>
-        <a class="text-link" id="dialog-feedback" href="#" target="_blank" rel="noreferrer">Send feedback about this app ↗</a>
-      </footer>
+    <div class="dialog-card">
+      <button class="dialog-close" id="close-dialog" type="button" aria-label="Close app">×</button>
+      <p class="app-meta" id="dialog-category"></p>
+      <h2 id="dialog-title"></h2>
+      <p id="dialog-description"></p>
+      <div id="app-stage"></div>
+      <div class="dialog-actions">
+        <a class="text-link" id="dialog-feedback" target="_blank" rel="noreferrer">Suggest an improvement</a>
+      </div>
     </div>
   </dialog>
 
   <template id="app-card-template">
     <article class="app-card">
-      <button class="app-card-button" type="button">
-        <span class="app-icon" aria-hidden="true"></span>
-        <span class="app-meta"></span>
-        <span class="app-name"></span>
-        <span class="app-summary"></span>
-        <span class="app-open">Open app <span aria-hidden="true">↗</span></span>
-      </button>
+      <div class="app-icon" aria-hidden="true"></div>
+      <p class="app-meta"></p>
+      <h3 class="app-name"></h3>
+      <p class="app-summary"></p>
+      <button class="app-card-button" type="button">Open</button>
     </article>
   </template>
 </body>

@@ -8,14 +8,20 @@
     const styles = document.createElement('style');
     styles.id = styleId;
     styles.textContent = `
-      .fair-game { max-width: 820px; gap: 16px; }
+      .fair-game { max-width: 900px; gap: 16px; }
       .fair-intro { display: flex; justify-content: space-between; gap: 16px; align-items: end; }
-      .fair-intro p { max-width: 590px; }
+      .fair-intro p { max-width: 620px; }
       .fair-status { flex: 0 0 auto; color: var(--accent-dark); font-size: .72rem; font-weight: 900; letter-spacing: .11em; text-transform: uppercase; }
-      .fair-layout { display: grid; grid-template-columns: minmax(210px, .75fr) minmax(300px, 1.25fr); gap: 22px; align-items: center; }
+      .fair-layout { display: grid; grid-template-columns: minmax(230px, .82fr) minmax(310px, 1.18fr); gap: 22px; align-items: center; }
       .fair-controls { display: grid; gap: 14px; }
-      .fair-controls textarea { min-height: 180px; }
+      .fair-controls textarea { min-height: 168px; }
       .fair-note { color: var(--muted); font-size: .82rem; line-height: 1.45; }
+      .fair-mode-row { display: flex; flex-wrap: wrap; gap: 8px; }
+      .fair-mode { border: 1px solid var(--line); border-radius: 999px; padding: 9px 12px; background: white; color: var(--ink); font-weight: 850; cursor: pointer; }
+      .fair-mode[aria-pressed="true"] { border-color: var(--accent); background: var(--mint); }
+      .fair-round-panel { display: grid; gap: 10px; border: 1px solid var(--line); border-radius: 18px; padding: 12px; background: white; }
+      .fair-round-panel label { color: var(--muted); font-size: .72rem; font-weight: 900; letter-spacing: .09em; text-transform: uppercase; }
+      .fair-round-panel input { width: 100%; accent-color: var(--accent); }
       .fair-wheel-shell { position: relative; width: min(100%, 430px); aspect-ratio: 1; margin-inline: auto; }
       .fair-pointer { position: absolute; z-index: 3; left: 50%; top: -2px; width: 0; height: 0; border-left: 18px solid transparent; border-right: 18px solid transparent; border-top: 34px solid #fff2bd; filter: drop-shadow(0 6px 5px rgba(0,0,0,.28)); transform: translateX(-50%); pointer-events: none; }
       .fair-wheel-button { position: absolute; inset: 14px; overflow: hidden; border: 2px solid rgba(255,255,255,.16); border-radius: 50%; padding: 0; background: #0b1d17; cursor: pointer; touch-action: manipulation; box-shadow: inset 0 0 0 8px rgba(255,255,255,.04), 0 18px 45px rgba(21,33,28,.18); }
@@ -23,17 +29,23 @@
       .fair-wheel-button:focus-visible { outline: 4px solid var(--accent); outline-offset: 5px; }
       .fair-wheel-button[aria-busy="true"] { cursor: wait; }
       .fair-wheel-button canvas { width: 100%; height: 100%; display: block; }
-      .fair-hub { position: absolute; z-index: 2; left: 50%; top: 50%; width: 82px; height: 82px; border: 8px solid rgba(255,255,255,.16); border-radius: 50%; display: grid; place-items: center; transform: translate(-50%, -50%); background: #10241d; color: white; box-shadow: 0 8px 24px rgba(0,0,0,.28); font-weight: 900; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; pointer-events: none; }
-      .fair-result { min-height: 106px; padding: 20px 22px; }
+      .fair-hub { position: absolute; z-index: 2; left: 50%; top: 50%; width: 82px; height: 82px; border: 8px solid rgba(255,255,255,.16); border-radius: 50%; display: grid; place-items: center; transform: translate(-50%, -50%); background: #10241d; color: white; box-shadow: 0 8px 24px rgba(0,0,0,.28); font-weight: 900; font-size: .72rem; letter-spacing: .08em; text-align: center; text-transform: uppercase; pointer-events: none; }
+      .fair-result { min-height: 112px; padding: 20px 22px; }
       .fair-result strong { font-size: clamp(1.25rem, 3.7vw, 2.1rem); }
-      .fair-history { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; min-height: 32px; }
+      .fair-history, .fair-rounds { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; min-height: 32px; }
       .fair-history-label { color: var(--muted); font-size: .72rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
-      .fair-history-chip { border: 1px solid var(--line); border-radius: 999px; padding: 6px 10px; background: white; font-size: .78rem; font-weight: 800; }
+      .fair-history-chip, .fair-round-chip { border: 1px solid var(--line); border-radius: 999px; padding: 6px 10px; background: white; font-size: .78rem; font-weight: 800; }
+      .fair-round-chip.is-complete { background: var(--mint); border-color: transparent; }
+      .fair-scoreboard { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+      .fair-stat { border: 1px solid var(--line); border-radius: 15px; padding: 10px; background: white; }
+      .fair-stat span { display: block; color: var(--muted); font-size: .62rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+      .fair-stat strong { display: block; margin-top: 4px; font-size: 1rem; }
       @media (max-width: 700px) {
         .fair-layout { grid-template-columns: 1fr; }
         .fair-wheel-shell { order: -1; width: min(100%, 360px); }
-        .fair-controls textarea { min-height: 132px; }
+        .fair-controls textarea { min-height: 124px; }
         .fair-intro { align-items: start; flex-direction: column; gap: 5px; }
+        .fair-scoreboard { grid-template-columns: repeat(2, 1fr); }
       }
       @media (max-width: 420px) {
         .fair-wheel-button { inset: 10px; }
@@ -51,6 +63,9 @@
     root.classList.add('fair-game');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let items = [];
+    let activeItems = [];
+    let mode = 'single';
+    let groupSize = 4;
     let angle = -Math.PI / 2;
     let animationId = 0;
     let spinning = false;
@@ -61,6 +76,7 @@
     let resizeObserver;
     let winToneTimer = 0;
     let disposed = false;
+    const round = { number: 1, picks: [], completed: [] };
 
     const intro = document.createElement('div');
     intro.className = 'fair-intro';
@@ -76,6 +92,13 @@
 
     const controls = document.createElement('div');
     controls.className = 'fair-controls';
+
+    const modeRow = document.createElement('div');
+    modeRow.className = 'fair-mode-row';
+    const singleMode = modeButton('One pick', 'single');
+    const groupMode = modeButton('Group rounds', 'group');
+    modeRow.append(singleMode, groupMode);
+
     const field = document.createElement('div');
     field.className = 'field';
     const label = document.createElement('label');
@@ -84,20 +107,38 @@
     const textarea = document.createElement('textarea');
     textarea.id = 'picker-items';
     textarea.maxLength = 600;
-    textarea.placeholder = 'Alex\nBailey\nCasey\nDrew';
+    textarea.placeholder = 'Alex\nBailey\nCasey\nDrew\nEllis\nFinley';
     const note = document.createElement('span');
     note.className = 'fair-note';
     note.textContent = 'Up to 12 unique choices. Duplicate lines are ignored so they cannot gain extra weight.';
     field.append(label, textarea, note);
 
+    const roundPanel = document.createElement('div');
+    roundPanel.className = 'fair-round-panel';
+    const roundLabel = document.createElement('label');
+    roundLabel.htmlFor = 'fair-group-size';
+    const groupSlider = document.createElement('input');
+    groupSlider.id = 'fair-group-size';
+    groupSlider.type = 'range';
+    groupSlider.min = '2';
+    groupSlider.max = '6';
+    groupSlider.value = String(groupSize);
+    groupSlider.addEventListener('input', () => {
+      groupSize = Number(groupSlider.value);
+      resetRounds(false);
+      drawWheel();
+    });
+    roundPanel.append(roundLabel, groupSlider);
+
     const actions = document.createElement('div');
     actions.className = 'tool-actions';
     const spinButton = makeButton('Spin fairly', spin);
+    const resetRoundsButton = makeButton('Reset rounds', () => resetRounds(true), true);
     const clearButton = makeButton('Clear history', clearHistory, true);
     const soundButton = makeButton('Sound off', toggleSound, true);
     soundButton.setAttribute('aria-pressed', 'false');
-    actions.append(spinButton, clearButton, soundButton);
-    controls.append(field, actions);
+    actions.append(spinButton, resetRoundsButton, clearButton, soundButton);
+    controls.append(modeRow, field, roundPanel, actions);
 
     const wheelShell = document.createElement('div');
     wheelShell.className = 'fair-wheel-shell';
@@ -118,18 +159,22 @@
 
     layout.append(controls, wheelShell);
 
+    const scoreboard = document.createElement('div');
+    scoreboard.className = 'fair-scoreboard';
     const result = resultCard();
     result.classList.add('fair-result');
+    const rounds = document.createElement('div');
+    rounds.className = 'fair-rounds';
     const history = document.createElement('div');
     history.className = 'fair-history';
-    root.append(intro, layout, result, history);
+    root.append(intro, layout, scoreboard, result, rounds, history);
 
     const context = canvas.getContext('2d');
     textarea.addEventListener('input', syncItems);
     wheelButton.addEventListener('click', spin);
     dialog.addEventListener('close', cleanup, { once: true });
     setResult('Build the wheel.', 'Add two or more choices, then tap the wheel or press Space or Enter.');
-    updateHistory();
+    updateMode();
     syncItems();
 
     if ('ResizeObserver' in window) {
@@ -137,6 +182,33 @@
         if (!disposed) drawWheel();
       });
       resizeObserver.observe(wheelButton);
+    }
+
+    function modeButton(text, value) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'fair-mode';
+      button.textContent = text;
+      button.setAttribute('aria-pressed', String(mode === value));
+      button.addEventListener('click', () => {
+        if (spinning || disposed || mode === value) return;
+        mode = value;
+        resetRounds(false);
+        updateMode();
+        syncItems();
+      });
+      return button;
+    }
+
+    function updateMode() {
+      singleMode.setAttribute('aria-pressed', String(mode === 'single'));
+      groupMode.setAttribute('aria-pressed', String(mode === 'group'));
+      roundPanel.hidden = mode !== 'group';
+      resetRoundsButton.hidden = mode !== 'group';
+      spinButton.textContent = mode === 'group' ? 'Spin next seat' : 'Spin fairly';
+      updateRoundPanel();
+      updateScoreboard();
+      updateHistory();
     }
 
     function parseItems() {
@@ -156,17 +228,33 @@
     function syncItems() {
       if (disposed || spinning) return;
       items = parseItems();
-      status.textContent = items.length ? `${items.length} unique choice${items.length === 1 ? '' : 's'}` : 'Add choices';
+      const picked = new Set(round.picks.map((item) => item.toLocaleLowerCase()));
+      activeItems = mode === 'group'
+        ? items.filter((item) => !picked.has(item.toLocaleLowerCase()))
+        : items.slice();
+      status.textContent = statusLabel();
       wheelButton.setAttribute('aria-label', items.length >= 2
-        ? `Spin the fairness wheel with ${items.length} choices`
+        ? mode === 'group'
+          ? `Spin the next group seat from ${activeItems.length || items.length} available choices`
+          : `Spin the fairness wheel with ${items.length} choices`
         : 'Add at least two choices to spin the fairness wheel');
+      updateRoundPanel();
+      updateScoreboard();
+      updateHistory();
       drawWheel();
     }
 
-    function weightedPick() {
-      const weighted = items.flatMap((item) => {
+    function statusLabel() {
+      if (!items.length) return 'Add choices';
+      if (mode === 'single') return `${items.length} unique choice${items.length === 1 ? '' : 's'}`;
+      return `Round ${round.number} · ${round.picks.length}/${Math.min(groupSize, items.length)} seated`;
+    }
+
+    function weightedPick(pool) {
+      const weighted = pool.flatMap((item) => {
         const recentCount = state.recentPicks.filter((pick) => pick.toLocaleLowerCase() === item.toLocaleLowerCase()).length;
-        return Array(Math.max(1, 4 - recentCount)).fill(item);
+        const roundPenalty = round.picks.some((pick) => pick.toLocaleLowerCase() === item.toLocaleLowerCase()) ? 2 : 0;
+        return Array(Math.max(1, 5 - recentCount - roundPenalty)).fill(item);
       });
       return weighted[Math.floor(Math.random() * weighted.length)];
     }
@@ -179,10 +267,15 @@
         textarea.focus();
         return;
       }
+      const pool = mode === 'group' ? activeItems : items;
+      if (pool.length < 1) {
+        setResult('Round complete.', 'Reset rounds or add more names to build another group.');
+        return;
+      }
 
-      const winner = weightedPick();
-      const winnerIndex = items.indexOf(winner);
-      const segmentSize = TAU / items.length;
+      const winner = weightedPick(pool);
+      const winnerIndex = pool.indexOf(winner);
+      const segmentSize = TAU / pool.length;
       const targetBase = -Math.PI / 2 - (winnerIndex + 0.5) * segmentSize;
       let targetAngle = targetBase;
       while (targetAngle <= angle) targetAngle += TAU;
@@ -193,10 +286,14 @@
       textarea.disabled = true;
       spinButton.disabled = true;
       clearButton.disabled = true;
+      resetRoundsButton.disabled = true;
+      groupSlider.disabled = true;
       wheelButton.setAttribute('aria-busy', 'true');
       wheelButton.setAttribute('aria-label', 'Fairness wheel spinning');
       hub.textContent = 'Wait';
-      setResult('Wheel in motion…', 'The winner was chosen with a recent-selection fairness adjustment.');
+      setResult('Wheel in motion…', mode === 'group'
+        ? 'The next seat is being selected without repeating anyone already seated in this round.'
+        : 'The winner was chosen with a recent-selection fairness adjustment.');
       playStartTone();
 
       if (reducedMotion) {
@@ -232,6 +329,8 @@
       textarea.disabled = !enabled;
       spinButton.disabled = !enabled;
       clearButton.disabled = !enabled;
+      resetRoundsButton.disabled = !enabled;
+      groupSlider.disabled = !enabled;
       if (enabled) wheelButton.removeAttribute('aria-busy');
     }
 
@@ -249,31 +348,114 @@
       wheelButton.setAttribute('aria-label', `Winner: ${winner}. Spin again`);
       hub.textContent = 'Again';
       spinCount += 1;
-      state.recentPicks = [winner, ...state.recentPicks].slice(0, 8);
-      status.textContent = `Spin ${spinCount}`;
-      setResult(winner, 'Chosen fairly. Recent winners become temporarily less likely to repeat.');
+      state.recentPicks = [winner, ...state.recentPicks].slice(0, 12);
+      if (mode === 'group') {
+        round.picks.push(winner);
+        const target = Math.min(groupSize, items.length);
+        const full = round.picks.length >= target;
+        setResult(
+          full ? `Round ${round.number} filled.` : `${winner} gets the next seat.`,
+          full ? `${round.picks.join(', ')} are grouped. Start another round or reset.` : `${target - round.picks.length} seat${target - round.picks.length === 1 ? '' : 's'} left in this round.`
+        );
+        if (full) finishGroupRound();
+      } else {
+        setResult(winner, 'Chosen fairly. Recent winners become temporarily less likely to repeat.');
+      }
+      status.textContent = statusLabel();
+      updateRoundPanel();
+      updateScoreboard();
       updateHistory();
       playWinTone();
+      syncItems();
       drawWheel();
+    }
+
+    function finishGroupRound() {
+      if (!round.picks.length) return;
+      round.completed.unshift({ number: round.number, picks: round.picks.slice() });
+      round.completed = round.completed.slice(0, 5);
+      round.number += 1;
+      round.picks = [];
+    }
+
+    function resetRounds(announce) {
+      if (disposed || spinning) return;
+      round.number = 1;
+      round.picks = [];
+      round.completed = [];
+      if (announce) setResult('Group rounds reset.', 'Everyone is available for the next round.');
+      syncItems();
     }
 
     function clearHistory() {
       if (disposed || spinning) return;
       state.recentPicks = [];
       spinCount = 0;
-      status.textContent = items.length ? `${items.length} unique choice${items.length === 1 ? '' : 's'}` : 'Add choices';
+      status.textContent = statusLabel();
       setResult('History cleared.', 'Every current choice now starts with equal weight.');
+      updateScoreboard();
       updateHistory();
       drawWheel();
     }
 
+    function updateRoundPanel() {
+      roundLabel.textContent = `Seats per group: ${groupSize}`;
+      roundPanel.querySelector('.fair-note')?.remove();
+      if (mode !== 'group') return;
+      const helper = document.createElement('span');
+      helper.className = 'fair-note';
+      helper.textContent = `${Math.min(groupSize, items.length || groupSize)} seats fill the current group. Winners cannot repeat inside the same round.`;
+      roundPanel.append(helper);
+    }
+
+    function updateScoreboard() {
+      scoreboard.replaceChildren(
+        stat('Mode', mode === 'group' ? 'Rounds' : 'Single'),
+        stat('Choices', String(items.length)),
+        stat('Spins', String(spinCount)),
+        stat('Groups', String(round.completed.length))
+      );
+    }
+
+    function stat(labelText, valueText) {
+      const box = document.createElement('div');
+      box.className = 'fair-stat';
+      const span = document.createElement('span');
+      span.textContent = labelText;
+      const strong = document.createElement('strong');
+      strong.textContent = valueText;
+      box.append(span, strong);
+      return box;
+    }
+
     function updateHistory() {
+      rounds.replaceChildren();
+      if (mode === 'group') {
+        const labelElement = document.createElement('span');
+        labelElement.className = 'fair-history-label';
+        labelElement.textContent = 'Current round';
+        rounds.append(labelElement);
+        const current = round.picks.length ? round.picks : ['No seats yet'];
+        current.forEach((item) => {
+          const chip = document.createElement('span');
+          chip.className = 'fair-round-chip';
+          chip.textContent = item;
+          rounds.append(chip);
+        });
+        round.completed.slice(0, 3).forEach((group) => {
+          const chip = document.createElement('span');
+          chip.className = 'fair-round-chip is-complete';
+          chip.textContent = `R${group.number}: ${group.picks.join(', ')}`;
+          rounds.append(chip);
+        });
+      }
+
       history.replaceChildren();
       const labelElement = document.createElement('span');
       labelElement.className = 'fair-history-label';
       labelElement.textContent = 'Recent winners';
       history.append(labelElement);
-      const visible = state.recentPicks.slice(0, 5);
+      const visible = state.recentPicks.slice(0, 6);
       if (!visible.length) {
         const empty = document.createElement('span');
         empty.className = 'fair-note';
@@ -300,10 +482,11 @@
     }
 
     function currentSegment() {
-      if (!items.length) return -1;
-      const segmentSize = TAU / items.length;
+      const pool = mode === 'group' ? activeItems : items;
+      if (!pool.length) return -1;
+      const segmentSize = TAU / pool.length;
       const position = ((-Math.PI / 2 - angle) % TAU + TAU) % TAU;
-      return Math.floor(position / segmentSize) % items.length;
+      return Math.floor(position / segmentSize) % pool.length;
     }
 
     function tickIfNeeded() {
@@ -327,11 +510,12 @@
       context.clearRect(0, 0, size, size);
       const center = size / 2;
       const radius = size * 0.47;
+      const pool = mode === 'group' ? activeItems : items;
 
       context.fillStyle = '#0b1d17';
       context.fillRect(0, 0, size, size);
 
-      if (items.length < 2) {
+      if (pool.length < 2 && items.length < 2) {
         context.strokeStyle = 'rgba(191,231,209,.28)';
         context.lineWidth = Math.max(2, size * 0.012);
         [0.24, 0.34, 0.44].forEach((scale) => {
@@ -347,8 +531,9 @@
         return;
       }
 
-      const segmentSize = TAU / items.length;
-      items.forEach((item, index) => {
+      const drawPool = pool.length ? pool : items;
+      const segmentSize = TAU / drawPool.length;
+      drawPool.forEach((item, index) => {
         const start = angle + index * segmentSize;
         const end = start + segmentSize;
         context.beginPath();
@@ -375,6 +560,13 @@
         context.fillText(itemLabel, (isLeft ? -1 : 1) * (radius - size * 0.05), 0, radius * 0.72);
         context.restore();
       });
+
+      if (mode === 'group' && round.picks.length) {
+        context.fillStyle = 'rgba(255,242,189,.12)';
+        context.beginPath();
+        context.arc(center, center, radius * 0.72, 0, TAU);
+        context.fill();
+      }
 
       context.beginPath();
       context.arc(center, center, radius, 0, TAU);

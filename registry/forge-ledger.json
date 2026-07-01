@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-01T20:59:10.000Z",
+  "updatedAt": "2026-07-01T23:59:30.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -51,23 +51,16 @@
   ],
   "queue": [
     {
-      "id": "tiny-step-depth",
-      "title": "Tiny Step plan depth",
-      "status": "shipping",
-      "source": "Collection review",
-      "reason": "Deepens the existing useful momentum app with modes, obstacle guardrails, recovery cuts, effort scoring, keyboard selection, a four-step trail, and session momentum without adding storage or network behavior."
-    },
-    {
       "id": "fair-choice-groups",
       "title": "Fair Choice group rounds",
-      "status": "next",
+      "status": "shipping",
       "source": "Collection review",
-      "reason": "Add a useful multi-round mode with clearer group progression rather than another cosmetic wheel option."
+      "reason": "Deepens the fairness wheel into a practical multi-round group builder with one-pick and group modes, adjustable group size, no repeat seats within a round, visible current and completed rounds, fairness weighting, score stats, touch, keyboard, optional audio, reduced-motion handling, and clean teardown."
     },
     {
       "id": "pairadox-progression",
       "title": "Pairadox progression loop",
-      "status": "candidate",
+      "status": "next",
       "source": "Collection review",
       "reason": "Build mastery or escalating constraints around its strong drag, story, and challenge interactions."
     },
@@ -79,6 +72,13 @@
       "reason": "Add session progression, risk choices, or challenge tiers around its strong timing mechanic without turning it into a shallow score skin."
     },
     {
+      "id": "pairadox-coop",
+      "title": "Pairadox two-player draft",
+      "status": "candidate",
+      "source": "Collection review",
+      "reason": "Add a lightweight shared prompt-building loop with alternating ingredient picks and scoring, if it can stay local and accessible."
+    },
+    {
       "id": "ambient-ambient",
       "title": "Ambient Ambient",
       "status": "deferred",
@@ -87,6 +87,13 @@
     }
   ],
   "recentDecisions": [
+    {
+      "date": "2026-07-01",
+      "title": "Fair Choice group rounds 1.2.0",
+      "result": "published",
+      "summary": "Expanded Fair Choice from a single fairness wheel into a deeper local group-round builder with one-pick and group modes, adjustable seats, no repeated seats inside a round, completed group history, stats, touch, keyboard, optional audio, reduced-motion support, and cleanup.",
+      "checks": ["JavaScript syntax", "Ledger schema", "Required asset wiring", "Safety rules"]
+    },
     {
       "date": "2026-07-01",
       "title": "Tiny Step depth 1.2.0",

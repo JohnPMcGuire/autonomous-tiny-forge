@@ -39,7 +39,7 @@ function renderForgeLedger(ledger, apps) {
   const scheduleCopy = document.createElement('div');
   const stateBadge = element('span', 'ledger-state');
   const scheduleTitle = element('h3', '', sprint.name);
-  const scheduleSummary = element('p', 'ledger-summary', `${sprint.runsPerDay} review windows per day · every ${formatInterval(sprint.intervalMinutes)} · ${formatRange(sprint.startsAt, sprint.endsAt, sprint.timezone)}`);
+  const scheduleSummary = element('p', 'ledger-summary', `${sprint.scheduler} · ${sprint.runsPerDay} review windows per day · every ${formatInterval(sprint.intervalMinutes)} · ${formatRange(sprint.startsAt, sprint.endsAt, sprint.timezone)}`);
   scheduleCopy.append(stateBadge, scheduleTitle, scheduleSummary);
 
   const nextBlock = element('div', 'ledger-next');
@@ -71,7 +71,8 @@ function renderForgeLedger(ledger, apps) {
   );
 
   const truthNote = element('p', 'ledger-truth-note', sprint.note);
-  scheduleCard.append(scheduleTop, progressWrap, stats, truthNote);
+  const secondaryNote = element('p', 'ledger-truth-note ledger-secondary-note', sprint.secondaryAutomation);
+  scheduleCard.append(scheduleTop, progressWrap, stats, truthNote, secondaryNote);
 
   const methodSection = element('section', 'ledger-panel');
   const methodHeader = sectionHeader('The build method', 'A scheduled review follows the same bounded path every time.');
@@ -182,7 +183,7 @@ function scheduleSnapshot(sprint, now) {
     };
   }
 
-  if (now > end) {
+  if (now >= end) {
     return {
       state: 'complete',
       label: 'Sprint complete',

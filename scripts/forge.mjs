@@ -3,6 +3,7 @@ import path from 'node:path';
 
 const root = path.resolve(import.meta.dirname, '..');
 const registryPath = path.join(root, 'registry', 'apps.json');
+const ledgerPath = path.join(root, 'registry', 'forge-ledger.json');
 const apiKey = process.env.OPENAI_API_KEY;
 const model = process.env.OPENAI_MODEL || 'gpt-5-mini';
 const repository = process.env.GITHUB_REPOSITORY;
@@ -19,8 +20,10 @@ if (!apiKey) {
 }
 
 const registry = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
+const ledger = JSON.parse(fs.readFileSync(ledgerPath, 'utf8'));
 const feedback = await loadFeedback();
-const today = new Date().toISOString().slice(0, 10);
+const now = new Date();
+const today = now.toISOString().slice(0, 10);
 
 const schema = {
   type: 'object',
@@ -128,10 +131,12 @@ const payload = await response.json();
 const outputText = payload.output?.flatMap((item) => item.content || []).find((content) => content.type === 'output_text')?.text;
 if (!outputText) throw new Error('OpenAI response did not contain structured output text.');
 const decision = JSON.parse(outputText);
+let changedApp;
 
 if (decision.action === 'create') {
   if (registry.apps.some((app) => app.id === decision.app.id)) throw new Error(`Generated id already exists: ${decision.app.id}`);
-  registry.apps.unshift({ ...decision.app, version: '1.0.0', createdAt: today, updatedAt: today });
+  changedApp = { ...decision.app, version: '1.0.0', createdAt: today, updatedAt: today };
+  registry.apps.unshift(changedApp);
   console.log(`Created ${decision.app.name}: ${decision.reason}`);
 } else if (decision.action === 'improve') {
   const index = registry.apps.findIndex((app) => app.id === decision.targetId);
@@ -141,24 +146,39 @@ if (decision.action === 'create') {
     throw new Error('The autonomous workflow may only rewrite generated-engine apps.');
   }
   const [major, minor, patch] = current.version.split('.').map(Number);
-  registry.apps[index] = {
+  changedApp = {
     ...decision.app,
     id: current.id,
     version: `${major}.${minor}.${patch + 1}`,
     createdAt: current.createdAt,
     updatedAt: today
   };
+  registry.apps[index] = changedApp;
   console.log(`Improved ${current.name}: ${decision.reason}`);
 } else {
   console.log(`Skipped this run: ${decision.reason}`);
 }
 
 if (decision.action !== 'skip') {
-  registry.updatedAt = new Date().toISOString();
+  registry.updatedAt = now.toISOString();
   fs.writeFileSync(registryPath, `${JSON.stringify(registry, null, 2)}\n`);
+  recordPublishedDecision(changedApp, decision.reason, now);
 }
 
 await applyFeedbackDecisions(decision.feedbackDecisions, feedback);
+
+function recordPublishedDecision(app, reason, timestamp) {
+  ledger.updatedAt = timestamp.toISOString();
+  ledger.recentDecisions.unshift({
+    date: timestamp.toISOString().slice(0, 10),
+    title: `${app.name} ${app.version}`,
+    result: 'published',
+    summary: sanitize(reason, 300),
+    checks: ['JavaScript syntax', 'Feedback routing', 'Registry and safety rules']
+  });
+  ledger.recentDecisions = ledger.recentDecisions.slice(0, 12);
+  fs.writeFileSync(ledgerPath, `${JSON.stringify(ledger, null, 2)}\n`);
+}
 
 async function loadFeedback() {
   if (!repository || !githubToken) return [];

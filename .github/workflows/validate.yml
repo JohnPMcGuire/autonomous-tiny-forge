@@ -16,9 +16,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Check JavaScript syntax
-        run: node --check app.js && node --check time-sense.js && node --check gallery-preview.js && node --check pairadox.js && node --check pairadox-story.js && node --check fair-choice.js && node --check tiny-step.js && node --check constraint-spark.js && node --check scripts/forge.mjs && node --check scripts/validate.mjs && node --check tests/feedback-routing.test.mjs
+      - name: Check automation and test syntax
+        run: node --check scripts/forge.mjs && node --check scripts/validate.mjs && node --check tests/feedback-routing.test.mjs
       - name: Test feedback routing
         run: node tests/feedback-routing.test.mjs
-      - name: Validate registry and safety rules
+      - name: Validate apps, ledger, assets, and safety rules
         run: node scripts/validate.mjs

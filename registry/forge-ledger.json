@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-01T15:53:49.000Z",
+  "updatedAt": "2026-07-01T17:00:55.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -51,11 +51,11 @@
   ],
   "queue": [
     {
-      "id": "forge-control-room",
-      "title": "Forge Control Room",
+      "id": "route-lab",
+      "title": "Route Lab",
       "status": "shipping",
-      "source": "Owner request",
-      "reason": "Expose the real schedule, decision method, quality gates, current candidate list, and latest published decisions on the public site."
+      "source": "Collection review",
+      "reason": "Adds a visual path-planning puzzle with terrain costs, ordered relays, limited charge, scan and bridge tools, scoring, canvas rendering, touch, and keyboard support."
     },
     {
       "id": "tiny-step-depth",
@@ -87,6 +87,13 @@
     }
   ],
   "recentDecisions": [
+    {
+      "date": "2026-07-01",
+      "title": "Route Lab 1.0.0",
+      "result": "published",
+      "summary": "Added a standalone local path-planning puzzle with terrain costs, ordered relays, limited charge, scan and bridge tools, scoring, canvas rendering, touch, and keyboard input.",
+      "checks": ["JavaScript syntax", "Ledger schema", "Required asset wiring", "Safety rules"]
+    },
     {
       "date": "2026-07-01",
       "title": "Forge Control Room",

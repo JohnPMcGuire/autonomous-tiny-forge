@@ -4,6 +4,7 @@
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
+    "scheduler": "ChatGPT scheduled task",
     "startsAt": "2026-07-01T12:00:00-05:00",
     "endsAt": "2026-07-31T10:00:00-05:00",
     "timezone": "America/Chicago",
@@ -11,7 +12,8 @@
     "runsPerDay": 12,
     "plannedReviewWindows": 360,
     "maxPublishableChangesPerWindow": 1,
-    "note": "A scheduled review is not a guaranteed release. The forge publishes at most one coherent change when it clears the quality and safety gates; otherwise it skips the window."
+    "note": "A scheduled review is not a guaranteed release. The forge publishes at most one coherent change when it clears the quality and safety gates; otherwise it skips the window.",
+    "secondaryAutomation": "A separate GitHub Actions workflow runs Tuesday and Friday at 15:17 UTC. It can only create or improve approved declarative-engine apps and records accepted publishes in this ledger."
   },
   "method": [
     {

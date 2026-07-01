@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-01T17:00:55.000Z",
+  "updatedAt": "2026-07-01T18:58:21.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -51,11 +51,11 @@
   ],
   "queue": [
     {
-      "id": "route-lab",
-      "title": "Route Lab",
+      "id": "harbor-balance",
+      "title": "Harbor Balance",
       "status": "shipping",
       "source": "Collection review",
-      "reason": "Adds a visual path-planning puzzle with terrain costs, ordered relays, limited charge, scan and bridge tools, scoring, canvas rendering, touch, and keyboard support."
+      "reason": "Adds a local resource-management route game with delivery contracts, cargo choices, fuel pressure, storm deadlines, repair tradeoffs, trust, scoring, canvas rendering, touch, and keyboard support."
     },
     {
       "id": "tiny-step-depth",
@@ -87,6 +87,13 @@
     }
   ],
   "recentDecisions": [
+    {
+      "date": "2026-07-01",
+      "title": "Harbor Balance 1.0.0",
+      "result": "published",
+      "summary": "Added a standalone local resource-management game with storm deadlines, district needs, cargo choices, fuel pressure, hazard repairs, trust, scoring, canvas rendering, touch, and keyboard input.",
+      "checks": ["JavaScript syntax", "Ledger schema", "Required asset wiring", "Safety rules"]
+    },
     {
       "date": "2026-07-01",
       "title": "Route Lab 1.0.0",

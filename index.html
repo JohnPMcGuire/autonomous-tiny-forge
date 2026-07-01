@@ -6,9 +6,11 @@
   <meta name="description" content="Small tools and playful experiments from an autonomous, safety-bounded web workshop.">
   <title>Autonomous Tiny Forge</title>
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./forge-ledger.css">
   <script defer src="./app.js"></script>
   <script defer src="./time-sense.js"></script>
   <script defer src="./gallery-preview.js"></script>
+  <script defer src="./forge-ledger.js"></script>
   <script defer src="./pairadox.js"></script>
   <script defer src="./pairadox-story.js"></script>
   <script defer src="./fair-choice.js"></script>
@@ -26,7 +28,7 @@
         <span>Tiny Forge</span>
       </a>
       <div class="nav-actions">
-        <a class="text-link" href="#about">How it works</a>
+        <a class="text-link" href="#build-ledger">Build process</a>
         <a class="button button-small" href="https://github.com/JohnPMcGuire/autonomous-tiny-forge/issues/new?template=feedback.yml&title=%5BFeedback%5D%20General%20idea" target="_blank" rel="noreferrer">Submit feedback</a>
       </div>
     </nav>
@@ -37,19 +39,20 @@
       <div class="hero-copy">
         <p class="eyebrow">An evolving public workshop</p>
         <h1>Small things that are useful, fun, or unexpectedly both.</h1>
-        <p class="hero-lede">The forge chooses what to make. Tests and fixed safety boundaries decide what gets published.</p>
+        <p class="hero-lede">The forge chooses what to make. Tests and fixed safety boundaries decide what gets published. The schedule, candidate list, and release method are visible below.</p>
         <div class="hero-actions">
           <a class="button" href="#gallery">Explore the forge</a>
-          <a class="button button-secondary" href="https://github.com/JohnPMcGuire/autonomous-tiny-forge" target="_blank" rel="noreferrer">View the build history</a>
+          <a class="button button-secondary" href="#build-ledger">Open the control room</a>
         </div>
       </div>
       <aside class="forge-status" aria-label="Forge status">
         <div class="status-orb" aria-hidden="true"><span></span></div>
         <p class="status-label">Forge status</p>
-        <p class="status-value">Ready to evolve</p>
+        <p class="status-value">Expansion sprint</p>
         <dl>
-          <div><dt>Creative control</dt><dd>AI-selected</dd></div>
-          <div><dt>Publishing gate</dt><dd>Tested rules</dd></div>
+          <div><dt>Review cadence</dt><dd>Every 2 hours</dd></div>
+          <div><dt>Publishing gate</dt><dd>All checks pass</dd></div>
+          <div><dt>Maximum scope</dt><dd>One change</dd></div>
           <div><dt>User data</dt><dd>Local only</dd></div>
         </dl>
       </aside>
@@ -70,6 +73,19 @@
       </div>
       <div class="app-grid" id="app-grid" aria-live="polite">
         <div class="loading-card">Heating the forge…</div>
+      </div>
+    </section>
+
+    <section class="forge-ledger-section shell" id="build-ledger" aria-labelledby="build-ledger-title">
+      <div class="ledger-intro">
+        <div>
+          <p class="eyebrow">Forge control room</p>
+          <h2 id="build-ledger-title">See what may be built, how it is judged, and when it can ship.</h2>
+        </div>
+        <p class="ledger-intro-copy"><strong>Transparency means showing the difference between a scheduled review and a release.</strong> The forge can inspect the project twelve times per day, but it still publishes at most one coherent change—and only after the validation and safety gates pass.</p>
+      </div>
+      <div class="forge-ledger-root" id="forge-ledger-root" aria-live="polite">
+        <p class="ledger-loading">Loading the public build ledger…</p>
       </div>
     </section>
 

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-01T18:58:21.000Z",
+  "updatedAt": "2026-07-01T20:59:10.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -51,23 +51,16 @@
   ],
   "queue": [
     {
-      "id": "harbor-balance",
-      "title": "Harbor Balance",
-      "status": "shipping",
-      "source": "Collection review",
-      "reason": "Adds a local resource-management route game with delivery contracts, cargo choices, fuel pressure, storm deadlines, repair tradeoffs, trust, scoring, canvas rendering, touch, and keyboard support."
-    },
-    {
       "id": "tiny-step-depth",
       "title": "Tiny Step plan depth",
-      "status": "next",
+      "status": "shipping",
       "source": "Collection review",
-      "reason": "Expand the limited plan families and close remaining timer and audio cleanup gaps without weakening its local-only design."
+      "reason": "Deepens the existing useful momentum app with modes, obstacle guardrails, recovery cuts, effort scoring, keyboard selection, a four-step trail, and session momentum without adding storage or network behavior."
     },
     {
       "id": "fair-choice-groups",
       "title": "Fair Choice group rounds",
-      "status": "candidate",
+      "status": "next",
       "source": "Collection review",
       "reason": "Add a useful multi-round mode with clearer group progression rather than another cosmetic wheel option."
     },
@@ -79,6 +72,13 @@
       "reason": "Build mastery or escalating constraints around its strong drag, story, and challenge interactions."
     },
     {
+      "id": "time-sense-arcade",
+      "title": "Time Sense arcade ladder",
+      "status": "candidate",
+      "source": "Collection review",
+      "reason": "Add session progression, risk choices, or challenge tiers around its strong timing mechanic without turning it into a shallow score skin."
+    },
+    {
       "id": "ambient-ambient",
       "title": "Ambient Ambient",
       "status": "deferred",
@@ -87,6 +87,13 @@
     }
   ],
   "recentDecisions": [
+    {
+      "date": "2026-07-01",
+      "title": "Tiny Step depth 1.2.0",
+      "result": "published",
+      "summary": "Expanded Tiny Step from a three-action trail into a deeper local planning loop with reset, focus, and stretch modes, obstacle guardrails, recovery cuts, effort values, momentum scoring, keyboard navigation, and a follow-up unlock.",
+      "checks": ["JavaScript syntax", "Ledger schema", "Required asset wiring", "Safety rules"]
+    },
     {
       "date": "2026-07-01",
       "title": "Harbor Balance 1.0.0",

@@ -96,7 +96,8 @@ const requiredFiles = [
   'constraint-spark.js', 'signal-garden.js', 'threadline.js', 'route-lab.js',
   'harbor-balance.js', 'canopy-courier.js', 'clue-current.js', 'switchyard-shuffle.js',
   'orbit-smith.js', 'tempo-kitchen.js', 'mnemonic-vault.js', 'chord-courier.js',
-  'shadow-switch.js', 'registry/apps.json', 'registry/forge-ledger.json', '.nojekyll'
+  'shadow-switch.js', 'bazaar-signals.js', 'registry/apps.json',
+  'registry/forge-ledger.json', '.nojekyll'
 ];
 for (const file of requiredFiles) {
   if (!fs.existsSync(path.join(root, file))) fail(`${file} is missing`);
@@ -111,10 +112,32 @@ for (const file of requiredFiles.filter((file) => file.endsWith('.js'))) {
 }
 
 const index = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-for (const asset of ['forge-ledger.css', 'forge-ledger.js', 'pairadox-progression.js', 'tiny-step-depth.js', 'route-lab.js', 'harbor-balance.js', 'canopy-courier.js', 'clue-current.js', 'switchyard-shuffle.js', 'orbit-smith.js', 'tempo-kitchen.js', 'mnemonic-vault.js', 'chord-courier.js', 'shadow-switch.js', 'registry/forge-ledger.json']) {
-  if (asset === 'registry/forge-ledger.json') continue;
+for (const asset of [
+  'forge-ledger.css', 'forge-ledger.js', 'pairadox-progression.js', 'tiny-step-depth.js',
+  'route-lab.js', 'harbor-balance.js', 'canopy-courier.js', 'clue-current.js',
+  'switchyard-shuffle.js', 'orbit-smith.js', 'tempo-kitchen.js', 'mnemonic-vault.js',
+  'chord-courier.js', 'shadow-switch.js', 'bazaar-signals.js'
+]) {
   if (!index.includes(asset)) fail(`index.html does not load ${asset}`);
 }
-if (!index.includes('id="forge-ledger-root"')) fail('index.html is missing the forge ledger root');
 
-if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone route games, Canopy Courier, Clue Current, Switchyard Shuffle, Orbit Smith, Tempo Kitchen, Mnemonic Vault, Chord Courier, Shadow Switch, Pairadox progression, Tiny Step depth, the public forge ledger, and the static site shell.`);
+if (!index.includes('class="forge-ledger-section shell"')) fail('index.html is missing the responsive forge ledger section class');
+if (!index.includes('id="forge-ledger-root" class="forge-ledger-root"')) fail('index.html is missing the stable forge ledger root class');
+if (!index.includes('class="dialog-frame"')) fail('index.html is missing the styled dialog frame');
+if (index.includes('class="dialog-shell"')) fail('index.html contains the obsolete unstyled dialog shell');
+
+const templateMatch = index.match(/<template id="app-card-template">([\s\S]*?)<\/template>/);
+if (!templateMatch) {
+  fail('index.html is missing the app card template');
+} else {
+  const buttonMatch = templateMatch[1].match(/<button[^>]*class="[^"]*app-card-button[^"]*"[^>]*>([\s\S]*?)<\/button>/);
+  if (!buttonMatch) {
+    fail('app card template must use one full-card button');
+  } else {
+    for (const className of ['app-icon', 'app-meta', 'app-name', 'app-summary', 'app-open']) {
+      if (!buttonMatch[1].includes(className)) fail(`app card ${className} must remain inside the full-card button`);
+    }
+  }
+}
+
+if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone games, the responsive shell contract, the public forge ledger, and the static site.`);

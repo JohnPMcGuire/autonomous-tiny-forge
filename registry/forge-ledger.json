@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-02T09:02:00.000Z",
+  "updatedAt": "2026-07-02T11:59:47.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -31,11 +31,11 @@
   ],
   "queue": [
     {
-      "id": "switchyard-shuffle",
-      "title": "Switchyard Shuffle",
+      "id": "orbit-smith",
+      "title": "Orbit Smith",
       "status": "shipping",
       "source": "Collection review",
-      "reason": "Adds a distinct sequencing and timing mechanic with moving rail cars, switch planning, ordered deliveries, limited moves, trust loss, scoring, canvas rendering, touch, keyboard controls, reduced-motion-safe styling, and clean animation teardown."
+      "reason": "Adds a distinct physics slingshot puzzle with gravity wells, beacon contracts, fuel and hull limits, hazards, scoring, responsive canvas rendering, touch drag, keyboard aiming, failure and recovery, and clean animation teardown."
     },
     {
       "id": "pairadox-coop",
@@ -67,6 +67,13 @@
     }
   ],
   "recentDecisions": [
+    {
+      "date": "2026-07-02",
+      "title": "Orbit Smith 1.0.0",
+      "result": "published",
+      "summary": "Added a standalone local physics slingshot puzzle with gravity wells, launch planning, beacon contracts, limited fuel, hull damage, debris hazards, scoring, responsive canvas rendering, touch drag, keyboard aiming, and animation teardown.",
+      "checks": ["JavaScript syntax", "Ledger schema", "Required asset wiring", "Safety rules"]
+    },
     {
       "date": "2026-07-02",
       "title": "Switchyard Shuffle 1.0.0",

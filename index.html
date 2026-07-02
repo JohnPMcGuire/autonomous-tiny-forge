@@ -30,6 +30,7 @@
   <script defer src="./mnemonic-vault.js"></script>
   <script defer src="./chord-courier.js"></script>
   <script defer src="./shadow-switch.js"></script>
+  <script defer src="./bazaar-signals.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#gallery">Skip to gallery</a>
@@ -80,57 +81,25 @@
           <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">All</button>
           <button class="filter" type="button" data-filter="useful" aria-pressed="false">Useful</button>
           <button class="filter" type="button" data-filter="play" aria-pressed="false">Play</button>
-          <button class="filter" type="button" data-filter="experiment" aria-pressed="false">Experiments</button>
+          <button class="filter" type="button" data-filter="experiment" aria-pressed="false">Experiment</button>
         </div>
       </div>
       <div class="app-grid" id="app-grid" aria-live="polite">
-        <div class="loading-card">Heating the forge…</div>
+        <div class="loading-card">Loading forge apps…</div>
       </div>
     </section>
 
-    <section class="forge-ledger-section shell" id="build-ledger" aria-labelledby="build-ledger-title">
-      <div class="ledger-intro">
+    <section class="ledger-section shell" id="build-ledger" aria-labelledby="ledger-title">
+      <div class="section-heading">
         <div>
-          <p class="eyebrow">Forge control room</p>
-          <h2 id="build-ledger-title">See what may be built, how it is judged, and when it can ship.</h2>
+          <p class="eyebrow">Public control room</p>
+          <h2 id="ledger-title">Build process and sprint ledger</h2>
         </div>
-        <p class="ledger-intro-copy"><strong>Transparency means showing the difference between a scheduled review and a release.</strong> The forge can inspect the project twelve times per day, but it still publishes at most one coherent change—and only after the validation and safety gates pass.</p>
+        <p class="section-note">This ledger is generated from the repository registry and records how autonomous updates are selected, checked, published, or skipped.</p>
       </div>
-      <div class="forge-ledger-root" id="forge-ledger-root" aria-live="polite">
-        <p class="ledger-loading">Loading the public build ledger…</p>
-      </div>
-    </section>
-
-    <section class="about shell" id="about" aria-labelledby="about-title">
-      <div>
-        <p class="eyebrow">The compact</p>
-        <h2 id="about-title">Creative freedom inside firm boundaries.</h2>
-      </div>
-      <div class="principles">
-        <article><span>01</span><h3>Choose freely</h3><p>The AI can create something new, improve an older app, or publish nothing when no idea clears the quality bar.</p></article>
-        <article><span>02</span><h3>Build safely</h3><p>Apps use approved browser-only engines. No arbitrary generated code, trackers, accounts, or hidden network requests.</p></article>
-        <article><span>03</span><h3>Listen carefully</h3><p>Feedback is treated as untrusted input, reviewed for relevance, and may shape a future build without being executed.</p></article>
-      </div>
+      <div id="forge-ledger" class="ledger-loading" aria-live="polite">Loading sprint ledger…</div>
     </section>
   </main>
-
-  <footer class="site-footer shell">
-    <span>Built by an autonomous tiny forge.</span>
-    <a href="https://github.com/JohnPMcGuire/autonomous-tiny-forge" target="_blank" rel="noreferrer">View repository</a>
-  </footer>
-
-  <dialog class="app-dialog" id="app-dialog" aria-labelledby="dialog-title">
-    <div class="dialog-card">
-      <button class="dialog-close" id="close-dialog" type="button" aria-label="Close app">×</button>
-      <div class="dialog-heading">
-        <p class="eyebrow" id="dialog-category">Tiny app</p>
-        <h2 id="dialog-title">App</h2>
-        <p id="dialog-description"></p>
-      </div>
-      <div id="app-stage"></div>
-      <a class="text-link" id="dialog-feedback" href="https://github.com/JohnPMcGuire/autonomous-tiny-forge/issues/new?template=feedback.yml" target="_blank" rel="noreferrer">Suggest an improvement</a>
-    </div>
-  </dialog>
 
   <template id="app-card-template">
     <article class="app-card">
@@ -138,8 +107,25 @@
       <p class="app-meta"></p>
       <h3 class="app-name"></h3>
       <p class="app-summary"></p>
-      <button class="app-card-button" type="button">Open</button>
+      <button class="button app-card-button" type="button">Open app</button>
     </article>
   </template>
+
+  <dialog id="app-dialog" class="app-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-shell">
+      <div class="dialog-header">
+        <div>
+          <p id="dialog-category" class="app-meta"></p>
+          <h2 id="dialog-title"></h2>
+          <p id="dialog-description"></p>
+        </div>
+        <button class="icon-button" id="close-dialog" type="button" aria-label="Close app">×</button>
+      </div>
+      <div id="app-stage" class="app-stage"></div>
+      <div class="dialog-footer">
+        <a id="dialog-feedback" class="text-link" href="https://github.com/JohnPMcGuire/autonomous-tiny-forge/issues/new?template=feedback.yml" target="_blank" rel="noreferrer">Leave feedback for this app</a>
+      </div>
+    </div>
+  </dialog>
 </body>
 </html>

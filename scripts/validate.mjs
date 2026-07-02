@@ -92,9 +92,9 @@ if (ledgerText.length > 50000) fail('forge ledger is too large');
 const requiredFiles = [
   'index.html', 'styles.css', 'forge-ledger.css', 'app.js', 'time-sense.js',
   'gallery-preview.js', 'forge-ledger.js', 'pairadox.js', 'pairadox-story.js',
-  'fair-choice.js', 'tiny-step.js', 'tiny-step-depth.js', 'constraint-spark.js',
-  'signal-garden.js', 'threadline.js', 'route-lab.js', 'harbor-balance.js',
-  'registry/apps.json', 'registry/forge-ledger.json', '.nojekyll'
+  'pairadox-progression.js', 'fair-choice.js', 'tiny-step.js', 'tiny-step-depth.js',
+  'constraint-spark.js', 'signal-garden.js', 'threadline.js', 'route-lab.js',
+  'harbor-balance.js', 'registry/apps.json', 'registry/forge-ledger.json', '.nojekyll'
 ];
 for (const file of requiredFiles) {
   if (!fs.existsSync(path.join(root, file))) fail(`${file} is missing`);
@@ -109,10 +109,10 @@ for (const file of requiredFiles.filter((file) => file.endsWith('.js'))) {
 }
 
 const index = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-for (const asset of ['forge-ledger.css', 'forge-ledger.js', 'tiny-step-depth.js', 'route-lab.js', 'harbor-balance.js', 'registry/forge-ledger.json']) {
+for (const asset of ['forge-ledger.css', 'forge-ledger.js', 'pairadox-progression.js', 'tiny-step-depth.js', 'route-lab.js', 'harbor-balance.js', 'registry/forge-ledger.json']) {
   if (asset === 'registry/forge-ledger.json') continue;
   if (!index.includes(asset)) fail(`index.html does not load ${asset}`);
 }
 if (!index.includes('id="forge-ledger-root"')) fail('index.html is missing the forge ledger root');
 
-if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone route games, Tiny Step depth, the public forge ledger, and the static site shell.`);
+if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone route games, Pairadox progression, Tiny Step depth, the public forge ledger, and the static site shell.`);

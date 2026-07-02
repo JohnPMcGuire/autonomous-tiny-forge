@@ -26,6 +26,7 @@
   <script defer src="./clue-current.js"></script>
   <script defer src="./switchyard-shuffle.js"></script>
   <script defer src="./orbit-smith.js"></script>
+  <script defer src="./tempo-kitchen.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#gallery">Skip to gallery</a>
@@ -118,11 +119,13 @@
   <dialog class="app-dialog" id="app-dialog" aria-labelledby="dialog-title">
     <div class="dialog-card">
       <button class="dialog-close" id="close-dialog" type="button" aria-label="Close app">×</button>
-      <p class="eyebrow" id="dialog-category">Tiny app</p>
-      <h2 id="dialog-title">App</h2>
-      <p id="dialog-description"></p>
+      <div class="dialog-heading">
+        <p class="eyebrow" id="dialog-category">Tiny app</p>
+        <h2 id="dialog-title">App</h2>
+        <p id="dialog-description"></p>
+      </div>
       <div id="app-stage"></div>
-      <a id="dialog-feedback" class="text-link" href="https://github.com/JohnPMcGuire/autonomous-tiny-forge/issues/new?template=feedback.yml" target="_blank" rel="noreferrer">Send feedback for this app</a>
+      <a class="text-link" id="dialog-feedback" href="https://github.com/JohnPMcGuire/autonomous-tiny-forge/issues/new?template=feedback.yml" target="_blank" rel="noreferrer">Suggest an improvement</a>
     </div>
   </dialog>
 
@@ -132,7 +135,7 @@
       <p class="app-meta"></p>
       <h3 class="app-name"></h3>
       <p class="app-summary"></p>
-      <button type="button" class="app-card-button">Open</button>
+      <button class="app-card-button" type="button">Open</button>
     </article>
   </template>
 </body>

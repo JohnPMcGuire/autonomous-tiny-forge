@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-01T23:59:30.000Z",
+  "updatedAt": "2026-07-02T01:55:00.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -16,31 +16,11 @@
     "secondaryAutomation": "A separate GitHub Actions workflow runs Tuesday and Friday at 15:17 UTC. It can only create or improve approved declarative-engine apps and records accepted publishes in this ledger."
   },
   "method": [
-    {
-      "id": "inspect",
-      "label": "Inspect",
-      "description": "Review the live site, repository, current apps, open feedback, bugs, depth, accessibility, and portfolio gaps."
-    },
-    {
-      "id": "compare",
-      "label": "Compare",
-      "description": "Consider at least three candidate changes and choose the one that creates the strongest useful depth or breadth."
-    },
-    {
-      "id": "build",
-      "label": "Build one",
-      "description": "Create or improve one coherent feature or app, including mobile, keyboard, touch, reduced-motion, teardown, and edge cases."
-    },
-    {
-      "id": "validate",
-      "label": "Validate",
-      "description": "Run JavaScript syntax checks, feedback-routing tests, registry rules, required-file checks, and safety-boundary validation."
-    },
-    {
-      "id": "publish",
-      "label": "Publish or skip",
-      "description": "Merge and deploy only after every required check passes. Skip when the candidate is weak, unsafe, duplicative, or incomplete."
-    }
+    {"id":"inspect","label":"Inspect","description":"Review the live site, repository, current apps, open feedback, bugs, depth, accessibility, and portfolio gaps."},
+    {"id":"compare","label":"Compare","description":"Consider at least three candidate changes and choose the one that creates the strongest useful depth or breadth."},
+    {"id":"build","label":"Build one","description":"Create or improve one coherent feature or app, including mobile, keyboard, touch, reduced-motion, teardown, and edge cases."},
+    {"id":"validate","label":"Validate","description":"Run JavaScript syntax checks, feedback-routing tests, registry rules, required-file checks, and safety-boundary validation."},
+    {"id":"publish","label":"Publish or skip","description":"Merge and deploy only after every required check passes. Skip when the candidate is weak, unsafe, duplicative, or incomplete."}
   ],
   "qualityGates": [
     "One coherent change maximum per review window",
@@ -51,23 +31,16 @@
   ],
   "queue": [
     {
-      "id": "fair-choice-groups",
-      "title": "Fair Choice group rounds",
-      "status": "shipping",
-      "source": "Collection review",
-      "reason": "Deepens the fairness wheel into a practical multi-round group builder with one-pick and group modes, adjustable group size, no repeat seats within a round, visible current and completed rounds, fairness weighting, score stats, touch, keyboard, optional audio, reduced-motion handling, and clean teardown."
-    },
-    {
       "id": "pairadox-progression",
       "title": "Pairadox progression loop",
-      "status": "next",
+      "status": "shipping",
       "source": "Collection review",
-      "reason": "Build mastery or escalating constraints around its strong drag, story, and challenge interactions."
+      "reason": "Deepens Pairadox with a session ladder, stage goals, scoring sparks, streak bonuses, wildcards, recovery cuts, mobile-friendly layout, keyboard-compatible controls, reduced-motion handling, and cleanup without changing the approved local-only engine boundary."
     },
     {
       "id": "time-sense-arcade",
       "title": "Time Sense arcade ladder",
-      "status": "candidate",
+      "status": "next",
       "source": "Collection review",
       "reason": "Add session progression, risk choices, or challenge tiers around its strong timing mechanic without turning it into a shallow score skin."
     },
@@ -79,6 +52,13 @@
       "reason": "Add a lightweight shared prompt-building loop with alternating ingredient picks and scoring, if it can stay local and accessible."
     },
     {
+      "id": "signal-garden-remix",
+      "title": "Signal Garden remix rules",
+      "status": "candidate",
+      "source": "Collection review",
+      "reason": "Add rule modifiers or unlockable pattern variants to improve replay value after the adaptive ten-round loop."
+    },
+    {
       "id": "ambient-ambient",
       "title": "Ambient Ambient",
       "status": "deferred",
@@ -87,6 +67,13 @@
     }
   ],
   "recentDecisions": [
+    {
+      "date": "2026-07-01",
+      "title": "Pairadox progression loop 1.4.0",
+      "result": "published",
+      "summary": "Expanded Pairadox with a five-stage session ladder, scoring sparks, streak bonuses, wildcards, recovery cuts, live card metadata, responsive layout, accessible buttons, reduced-motion handling, and local-only cleanup.",
+      "checks": ["JavaScript syntax", "Ledger schema", "Required asset wiring", "Safety rules"]
+    },
     {
       "date": "2026-07-01",
       "title": "Fair Choice group rounds 1.2.0",

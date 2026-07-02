@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-02T01:55:00.000Z",
+  "updatedAt": "2026-07-02T03:00:00.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -31,11 +31,11 @@
   ],
   "queue": [
     {
-      "id": "pairadox-progression",
-      "title": "Pairadox progression loop",
+      "id": "canopy-courier",
+      "title": "Canopy Courier",
       "status": "shipping",
       "source": "Collection review",
-      "reason": "Deepens Pairadox with a session ladder, stage goals, scoring sparks, streak bonuses, wildcards, recovery cuts, mobile-friendly layout, keyboard-compatible controls, reduced-motion handling, and cleanup without changing the approved local-only engine boundary."
+      "reason": "Adds an underserved ecological placement puzzle with six-turn resource pressure, seed roles, terrain effects, route connectivity, blight recovery, scoring, canvas motion, touch, keyboard, optional local audio, and cleanup."
     },
     {
       "id": "time-sense-arcade",
@@ -67,6 +67,13 @@
     }
   ],
   "recentDecisions": [
+    {
+      "date": "2026-07-01",
+      "title": "Canopy Courier 1.0.0",
+      "result": "published",
+      "summary": "Added a standalone local ecological placement game with seed choices, water pressure, pollinators, canopy growth, blight recovery, route connectivity, scoring, responsive canvas rendering, touch, keyboard input, optional local audio, and cleanup.",
+      "checks": ["JavaScript syntax", "Ledger schema", "Required asset wiring", "Safety rules"]
+    },
     {
       "date": "2026-07-01",
       "title": "Pairadox progression loop 1.4.0",

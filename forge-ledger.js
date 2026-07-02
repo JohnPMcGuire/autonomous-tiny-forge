@@ -5,6 +5,7 @@ if (ledgerRoot) {
 }
 
 async function initForgeLedger() {
+  normalizeLedgerRoot();
   try {
     const [ledgerResponse, appsResponse] = await Promise.all([
       fetch('./registry/forge-ledger.json', { cache: 'no-store' }),
@@ -25,6 +26,7 @@ async function initForgeLedger() {
 
     renderForgeLedger(ledger, Array.isArray(registry.apps) ? registry.apps : []);
   } catch (error) {
+    normalizeLedgerRoot();
     ledgerRoot.replaceChildren(
       element('p', 'ledger-error', 'The public build ledger could not be loaded. The repository history remains available on GitHub.')
     );
@@ -32,7 +34,13 @@ async function initForgeLedger() {
   }
 }
 
+function normalizeLedgerRoot() {
+  ledgerRoot.classList.remove('ledger-loading');
+  ledgerRoot.classList.add('forge-ledger-root');
+}
+
 function renderForgeLedger(ledger, apps) {
+  normalizeLedgerRoot();
   const sprint = ledger.sprint;
   const scheduleCard = element('article', 'ledger-schedule-card');
   const scheduleTop = element('div', 'ledger-card-heading');

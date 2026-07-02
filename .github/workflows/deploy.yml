@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: 22
       - name: Validate publish candidate
-        run: node --check scripts/forge.mjs && node --check scripts/validate.mjs && node --check tests/feedback-routing.test.mjs && node tests/feedback-routing.test.mjs && node scripts/validate.mjs
+        run: node --check scripts/forge.mjs && node --check scripts/validate.mjs && node --check tests/feedback-routing.test.mjs && node --check tests/mobile-shell-contract.test.mjs && node tests/feedback-routing.test.mjs && node tests/mobile-shell-contract.test.mjs && node scripts/validate.mjs
 
   deploy:
     needs: validate

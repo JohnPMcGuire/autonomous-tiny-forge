@@ -17,8 +17,10 @@ jobs:
         with:
           node-version: 22
       - name: Check automation and test syntax
-        run: node --check scripts/forge.mjs && node --check scripts/validate.mjs && node --check tests/feedback-routing.test.mjs
+        run: node --check scripts/forge.mjs && node --check scripts/validate.mjs && node --check tests/feedback-routing.test.mjs && node --check tests/mobile-shell-contract.test.mjs
       - name: Test feedback routing
         run: node tests/feedback-routing.test.mjs
+      - name: Test responsive shell contract
+        run: node tests/mobile-shell-contract.test.mjs
       - name: Validate apps, ledger, assets, and safety rules
         run: node scripts/validate.mjs

@@ -89,42 +89,46 @@
       </div>
     </section>
 
-    <section class="ledger-section shell" id="build-ledger" aria-labelledby="ledger-title">
-      <div class="section-heading">
+    <section class="forge-ledger-section shell" id="build-ledger" aria-labelledby="ledger-title">
+      <div class="ledger-intro">
         <div>
           <p class="eyebrow">Public control room</p>
           <h2 id="ledger-title">Build process and sprint ledger</h2>
         </div>
-        <p class="section-note">This ledger is generated from the repository registry and records how autonomous updates are selected, checked, published, or skipped.</p>
+        <p class="ledger-intro-copy"><strong>A review window is not a guaranteed release.</strong> The ledger shows the schedule, the candidate list, the quality gates, and the difference between inspecting the project and publishing a validated change.</p>
       </div>
-      <div id="forge-ledger-root" class="ledger-loading" aria-live="polite">Loading sprint ledger…</div>
+      <div id="forge-ledger-root" class="forge-ledger-root" aria-live="polite">
+        <p class="ledger-loading">Loading sprint ledger…</p>
+      </div>
     </section>
   </main>
 
   <template id="app-card-template">
     <article class="app-card">
-      <div class="app-icon" aria-hidden="true"></div>
-      <p class="app-meta"></p>
-      <h3 class="app-name"></h3>
-      <p class="app-summary"></p>
-      <button class="button app-card-button" type="button">Open app</button>
+      <button class="app-card-button" type="button">
+        <span class="app-icon" aria-hidden="true"></span>
+        <span class="app-meta"></span>
+        <span class="app-name"></span>
+        <span class="app-summary"></span>
+        <span class="app-open">Open app <span aria-hidden="true">↗</span></span>
+      </button>
     </article>
   </template>
 
   <dialog id="app-dialog" class="app-dialog" aria-labelledby="dialog-title">
-    <div class="dialog-shell">
-      <div class="dialog-header">
+    <div class="dialog-frame">
+      <header class="dialog-header">
         <div>
-          <p id="dialog-category" class="app-meta"></p>
+          <p id="dialog-category" class="dialog-kicker"></p>
           <h2 id="dialog-title"></h2>
-          <p id="dialog-description"></p>
         </div>
         <button class="icon-button" id="close-dialog" type="button" aria-label="Close app">×</button>
-      </div>
+      </header>
       <div id="app-stage" class="app-stage"></div>
-      <div class="dialog-footer">
+      <footer class="dialog-footer">
+        <p id="dialog-description"></p>
         <a id="dialog-feedback" class="text-link" href="https://github.com/JohnPMcGuire/autonomous-tiny-forge/issues/new?template=feedback.yml" target="_blank" rel="noreferrer">Leave feedback for this app</a>
-      </div>
+      </footer>
     </div>
   </dialog>
 </body>

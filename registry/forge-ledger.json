@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-02T13:03:00.000Z",
+  "updatedAt": "2026-07-02T14:58:00.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -30,13 +30,14 @@
     "Repository validation must pass before main is published"
   ],
   "queue": [
-    {"id":"tempo-kitchen","title":"Tempo Kitchen","status":"shipping","source":"Collection review","reason":"Adds a distinct time-management rush with recipe memory, station sequencing, customer patience, recovery tickets, adaptive rounds, scoring, responsive canvas rendering, touch and keyboard controls, and animation teardown."},
+    {"id":"mnemonic-vault","title":"Mnemonic Vault","status":"shipping","source":"Collection review","reason":"Adds a distinct memory-strategy loop with staged symbol paths, decoys, focus hints, lock pressure, scoring, adaptive rounds, responsive canvas rendering, touch and keyboard controls, reduced-motion behavior, and cleanup."},
     {"id":"pairadox-coop","title":"Pairadox two-player draft","status":"next","source":"Collection review","reason":"Add a lightweight shared prompt-building loop with alternating ingredient picks and scoring, if it can stay local and accessible."},
     {"id":"signal-garden-remix","title":"Signal Garden remix rules","status":"candidate","source":"Collection review","reason":"Add rule modifiers or unlockable pattern variants to improve replay value after the adaptive ten-round loop."},
     {"id":"tiny-step-history","title":"Tiny Step session recap","status":"candidate","source":"Collection review","reason":"Consider a local-only session recap or next-step memory inside the open dialog if it can avoid persistent storage and keep the tool lightweight."},
     {"id":"ambient-ambient","title":"Ambient Ambient","status":"deferred","source":"User feedback","reason":"The idea needs microphone permission and a reviewed audio-analysis runtime, so it stays visible without bypassing the approved engine boundary."}
   ],
   "recentDecisions": [
+    {"date":"2026-07-02","title":"Mnemonic Vault 1.0.0","result":"published","summary":"Added a standalone local memory-strategy game with staged symbol paths, rotating decoys, focus hints, attempts, streak scoring, adaptive locks, responsive canvas rendering, touch, keyboard controls, reduced-motion behavior, and animation/timer cleanup.","checks":["JavaScript syntax","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-02","title":"Tempo Kitchen 1.0.0","result":"published","summary":"Added a standalone local time-management service rush with recipe memory, prep-heat-plate sequencing, customer patience, recovery tickets, adaptive rush rounds, scoring, responsive canvas rendering, touch, keyboard controls, reduced-motion styling, and animation teardown.","checks":["JavaScript syntax","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-02","title":"Orbit Smith 1.0.0","result":"published","summary":"Added a standalone local physics slingshot puzzle with gravity wells, launch planning, beacon contracts, limited fuel, hull damage, debris hazards, scoring, responsive canvas rendering, touch drag, keyboard aiming, and animation teardown.","checks":["JavaScript syntax","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-02","title":"Switchyard Shuffle 1.0.0","result":"published","summary":"Added a standalone local rail-switch sequencing game with moving cars, ordered platform goals, switch timing, limited moves, trust loss, scoring, responsive canvas rendering, touch input, keyboard shortcuts, reduced-motion-safe styling, and animation teardown.","checks":["JavaScript syntax","Ledger schema","Required asset wiring","Safety rules"]},

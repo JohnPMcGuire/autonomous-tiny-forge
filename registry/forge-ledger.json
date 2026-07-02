@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-02T04:58:15.000Z",
+  "updatedAt": "2026-07-02T06:58:13.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -31,23 +31,16 @@
   ],
   "queue": [
     {
-      "id": "clue-current",
-      "title": "Clue Current",
-      "status": "shipping",
-      "source": "Collection review",
-      "reason": "Adds an underserved deduction loop with branching cases, suspect selection, evidence collection, accusation timing, focus, suspicion, credibility, scoring, mobile-friendly controls, keyboard shortcuts, reduced-motion styling, and no network or storage behavior."
-    },
-    {
       "id": "time-sense-arcade",
       "title": "Time Sense arcade ladder",
-      "status": "next",
+      "status": "shipping",
       "source": "Collection review",
-      "reason": "Add session progression, risk choices, or challenge tiers around its strong timing mechanic without turning it into a shallow score skin."
+      "reason": "Expands a strong timing mechanic with a six-stage arcade ladder, risk choices, focus economy, combo scoring, recovery shield, challenge curve, mobile-friendly controls, keyboard activation, reduced-motion behavior, optional local audio, and clean teardown."
     },
     {
       "id": "pairadox-coop",
       "title": "Pairadox two-player draft",
-      "status": "candidate",
+      "status": "next",
       "source": "Collection review",
       "reason": "Add a lightweight shared prompt-building loop with alternating ingredient picks and scoring, if it can stay local and accessible."
     },
@@ -59,6 +52,13 @@
       "reason": "Add rule modifiers or unlockable pattern variants to improve replay value after the adaptive ten-round loop."
     },
     {
+      "id": "tiny-step-history",
+      "title": "Tiny Step session recap",
+      "status": "candidate",
+      "source": "Collection review",
+      "reason": "Consider a local-only session recap or next-step memory inside the open dialog if it can avoid persistent storage and keep the tool lightweight."
+    },
+    {
       "id": "ambient-ambient",
       "title": "Ambient Ambient",
       "status": "deferred",
@@ -67,6 +67,13 @@
     }
   ],
   "recentDecisions": [
+    {
+      "date": "2026-07-02",
+      "title": "Time Sense arcade ladder 1.3.0",
+      "result": "published",
+      "summary": "Expanded Time Sense with a six-stage arcade ladder, risk choices, focus economy, combo scoring, one-use recovery shield, progressive target ranges, responsive progress UI, touch and keyboard activation, optional local audio, reduced-motion handling, and clean teardown.",
+      "checks": ["JavaScript syntax", "Ledger schema", "Required asset wiring", "Safety rules"]
+    },
     {
       "date": "2026-07-01",
       "title": "Clue Current 1.0.0",
@@ -128,13 +135,6 @@
       "title": "Signal Garden 1.1.0",
       "result": "published",
       "summary": "Added a three-mode adaptive pattern-prediction game with moving canvas signals, scoring, hints, touch, keyboard, and optional audio.",
-      "checks": ["JavaScript syntax", "Registry and safety rules"]
-    },
-    {
-      "date": "2026-06-22",
-      "title": "Constraint Spark 1.3.0",
-      "result": "published",
-      "summary": "Added Explore and Three-card Sprint modes with timed rounds, scoring, a strategic swap, progress, and clean teardown.",
       "checks": ["JavaScript syntax", "Registry and safety rules"]
     }
   ]

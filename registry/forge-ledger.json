@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-03T17:00:00.000Z",
+  "updatedAt": "2026-07-03T19:00:00.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -36,6 +36,7 @@
     {"id":"ambient-ambient","title":"Ambient Ambient","status":"deferred","source":"User feedback","reason":"The idea needs microphone permission and a reviewed audio-analysis runtime, so it stays visible without bypassing the approved engine boundary."}
   ],
   "recentDecisions": [
+    {"date":"2026-07-03","title":"Canal Lock Keeper 1.0.0","result":"published","summary":"Added a standalone local canal-lock logistics puzzle with water levels, gates, leaks, cargo deadlines, pressure failure, patch crews, scoring, responsive canvas rendering, touch and keyboard controls, reduced-motion behavior, and animation teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-03","title":"Mirror Marsh 1.0.0","result":"published","summary":"Added a standalone local beam-routing puzzle with rotatable mirrors, tide-blocked cells, power gates, limited moves, scoring, responsive canvas rendering, pointer, touch and keyboard controls, reduced-motion behavior, and animation teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-03","title":"Polar Drift Lab 1.0.0","result":"published","summary":"Added a standalone local polar expedition strategy game with drifting ice lanes, priority research samples, heat and morale tradeoffs, storm bracing, repair decisions, scoring, responsive canvas rendering, touch and keyboard controls, reduced-motion behavior, and animation teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-03","title":"Archive Alibi 1.0.0","result":"published","summary":"Added a standalone local deduction game with suspects, alibi claims, clue inspection, contradiction linking, scarce insight, pressure risk, accusation scoring, responsive canvas rendering, touch and keyboard controls, reduced-motion behavior, and animation teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},

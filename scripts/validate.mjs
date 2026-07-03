@@ -96,8 +96,8 @@ const requiredFiles = [
   'constraint-spark.js', 'signal-garden.js', 'threadline.js', 'route-lab.js',
   'harbor-balance.js', 'canopy-courier.js', 'clue-current.js', 'switchyard-shuffle.js',
   'orbit-smith.js', 'tempo-kitchen.js', 'mnemonic-vault.js', 'chord-courier.js',
-  'shadow-switch.js', 'bazaar-signals.js', 'triage-tower.js', 'registry/apps.json',
-  'registry/forge-ledger.json', '.nojekyll'
+  'shadow-switch.js', 'bazaar-signals.js', 'triage-tower.js', 'crosswind-cargo.js',
+  'registry/apps.json', 'registry/forge-ledger.json', '.nojekyll'
 ];
 for (const file of requiredFiles) {
   if (!fs.existsSync(path.join(root, file))) fail(`${file} is missing`);
@@ -116,7 +116,8 @@ for (const asset of [
   'forge-ledger.css', 'forge-ledger.js', 'pairadox-progression.js', 'tiny-step-depth.js',
   'route-lab.js', 'harbor-balance.js', 'canopy-courier.js', 'clue-current.js',
   'switchyard-shuffle.js', 'orbit-smith.js', 'tempo-kitchen.js', 'mnemonic-vault.js',
-  'chord-courier.js', 'shadow-switch.js', 'bazaar-signals.js', 'triage-tower.js'
+  'chord-courier.js', 'shadow-switch.js', 'bazaar-signals.js', 'triage-tower.js',
+  'crosswind-cargo.js'
 ]) {
   if (!index.includes(asset)) fail(`index.html does not load ${asset}`);
 }
@@ -140,4 +141,4 @@ if (!templateMatch) {
   }
 }
 
-if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone games, the responsive shell contract, the public forge ledger, and the static site.`);
+if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone games, Crosswind Cargo, the responsive shell contract, the public forge ledger, and the static site.`);

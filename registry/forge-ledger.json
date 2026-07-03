@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-03T09:58:00.000Z",
+  "updatedAt": "2026-07-03T10:58:00.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -36,6 +36,7 @@
     {"id":"ambient-ambient","title":"Ambient Ambient","status":"deferred","source":"User feedback","reason":"The idea needs microphone permission and a reviewed audio-analysis runtime, so it stays visible without bypassing the approved engine boundary."}
   ],
   "recentDecisions": [
+    {"date":"2026-07-03","title":"Foundry Shift 1.0.0","result":"published","summary":"Added a standalone local production-sequencing game with machine setup changes, delivery windows, rush orders, heat buildup, defect risk, cooling and scrap tradeoffs, scoring, responsive canvas rendering, touch and keyboard controls, reduced-motion behavior, and animation teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-03","title":"Pollinator Pact 1.0.0","result":"published","summary":"Added a standalone local ecology strategy game with bloom timing, pollinator energy, rotating open windows, drought restoration, biodiversity goals, scoring, responsive canvas rendering, touch and keyboard controls, reduced-motion behavior, and animation teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-03","title":"Bridge Cartographer 1.0.0","result":"published","summary":"Added a standalone local spatial planning puzzle with bridge placement, material limits, current hazards, stability checks, multi-map goals, scoring, responsive canvas rendering, touch and keyboard controls, reduced-motion behavior, and animation teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-03","title":"Cabin Pressure 1.0.0","result":"published","summary":"Added a standalone local survival-management game with linked ship systems, crew-role boosts, escalating crisis cards, scarce recovery actions, cascade failures, scoring, responsive canvas rendering, touch and keyboard controls, reduced-motion behavior, and animation teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},

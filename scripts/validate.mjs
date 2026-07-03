@@ -96,7 +96,7 @@ const requiredFiles = [
   'constraint-spark.js', 'signal-garden.js', 'threadline.js', 'route-lab.js',
   'harbor-balance.js', 'canopy-courier.js', 'clue-current.js', 'switchyard-shuffle.js',
   'orbit-smith.js', 'tempo-kitchen.js', 'mnemonic-vault.js', 'chord-courier.js',
-  'shadow-switch.js', 'bazaar-signals.js', 'registry/apps.json',
+  'shadow-switch.js', 'bazaar-signals.js', 'triage-tower.js', 'registry/apps.json',
   'registry/forge-ledger.json', '.nojekyll'
 ];
 for (const file of requiredFiles) {
@@ -116,7 +116,7 @@ for (const asset of [
   'forge-ledger.css', 'forge-ledger.js', 'pairadox-progression.js', 'tiny-step-depth.js',
   'route-lab.js', 'harbor-balance.js', 'canopy-courier.js', 'clue-current.js',
   'switchyard-shuffle.js', 'orbit-smith.js', 'tempo-kitchen.js', 'mnemonic-vault.js',
-  'chord-courier.js', 'shadow-switch.js', 'bazaar-signals.js'
+  'chord-courier.js', 'shadow-switch.js', 'bazaar-signals.js', 'triage-tower.js'
 ]) {
   if (!index.includes(asset)) fail(`index.html does not load ${asset}`);
 }

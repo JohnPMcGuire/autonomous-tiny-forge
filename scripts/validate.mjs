@@ -98,7 +98,8 @@ const requiredFiles = [
   'orbit-smith.js', 'tempo-kitchen.js', 'mnemonic-vault.js', 'chord-courier.js',
   'shadow-switch.js', 'bazaar-signals.js', 'triage-tower.js', 'crosswind-cargo.js',
   'cabin-pressure.js', 'bridge-cartographer.js', 'pollinator-pact.js', 'foundry-shift.js',
-  'archive-alibi.js', 'feedback-links.js', 'registry/apps.json', 'registry/forge-ledger.json', '.nojekyll'
+  'archive-alibi.js', 'polar-drift-lab.js', 'feedback-links.js', 'registry/apps.json',
+  'registry/forge-ledger.json', '.nojekyll'
 ];
 for (const file of requiredFiles) {
   if (!fs.existsSync(path.join(root, file))) fail(`${file} is missing`);
@@ -119,7 +120,7 @@ for (const asset of [
   'switchyard-shuffle.js', 'orbit-smith.js', 'tempo-kitchen.js', 'mnemonic-vault.js',
   'chord-courier.js', 'shadow-switch.js', 'bazaar-signals.js', 'triage-tower.js',
   'crosswind-cargo.js', 'cabin-pressure.js', 'bridge-cartographer.js', 'pollinator-pact.js',
-  'foundry-shift.js', 'archive-alibi.js', 'feedback-links.js'
+  'foundry-shift.js', 'archive-alibi.js', 'polar-drift-lab.js', 'feedback-links.js'
 ]) {
   if (!index.includes(asset)) fail(`index.html does not load ${asset}`);
 }
@@ -143,4 +144,4 @@ if (!templateMatch) {
   }
 }
 
-if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone games, Archive Alibi, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);
+if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone games, Polar Drift Lab, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);

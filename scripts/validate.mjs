@@ -97,7 +97,7 @@ const requiredFiles = [
   'harbor-balance.js', 'canopy-courier.js', 'clue-current.js', 'switchyard-shuffle.js',
   'orbit-smith.js', 'tempo-kitchen.js', 'mnemonic-vault.js', 'chord-courier.js',
   'shadow-switch.js', 'bazaar-signals.js', 'triage-tower.js', 'crosswind-cargo.js',
-  'feedback-links.js', 'registry/apps.json', 'registry/forge-ledger.json', '.nojekyll'
+  'cabin-pressure.js', 'feedback-links.js', 'registry/apps.json', 'registry/forge-ledger.json', '.nojekyll'
 ];
 for (const file of requiredFiles) {
   if (!fs.existsSync(path.join(root, file))) fail(`${file} is missing`);
@@ -117,7 +117,7 @@ for (const asset of [
   'route-lab.js', 'harbor-balance.js', 'canopy-courier.js', 'clue-current.js',
   'switchyard-shuffle.js', 'orbit-smith.js', 'tempo-kitchen.js', 'mnemonic-vault.js',
   'chord-courier.js', 'shadow-switch.js', 'bazaar-signals.js', 'triage-tower.js',
-  'crosswind-cargo.js', 'feedback-links.js'
+  'crosswind-cargo.js', 'cabin-pressure.js', 'feedback-links.js'
 ]) {
   if (!index.includes(asset)) fail(`index.html does not load ${asset}`);
 }
@@ -141,4 +141,4 @@ if (!templateMatch) {
   }
 }
 
-if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone games, Crosswind Cargo, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);
+if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone games, Cabin Pressure, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);

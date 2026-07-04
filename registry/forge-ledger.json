@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-04T00:58:00.000Z",
+  "updatedAt": "2026-07-04T03:58:00.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -31,11 +31,12 @@
   ],
   "queue": [
     {"id":"pairadox-coop","title":"Pairadox two-player draft","status":"next","source":"Collection review","reason":"Add a lightweight shared prompt-building loop with alternating ingredient picks and scoring, if it can stay local and accessible."},
-    {"id":"signal-garden-remix","title":"Signal Garden remix rules","status":"candidate","source":"Collection review","reason":"Add rule modifiers or unlockable pattern variants to improve replay value after the adaptive ten-round loop."},
     {"id":"scenario-editor","title":"Scenario editor toolkit","status":"candidate","source":"Collection review","reason":"Let deeper games expose more in-session setup choices without adding persistence or external data."},
+    {"id":"signal-garden-remix","title":"Signal Garden remix rules","status":"candidate","source":"Collection review","reason":"Add rule modifiers or unlockable pattern variants to improve replay value after the adaptive ten-round loop."},
     {"id":"ambient-ambient","title":"Ambient Ambient","status":"deferred","source":"User feedback","reason":"The idea needs microphone permission and a reviewed audio-analysis runtime, so it stays visible without bypassing the approved engine boundary."}
   ],
   "recentDecisions": [
+    {"date":"2026-07-03","title":"Resonance Room 1.0.0","result":"published","summary":"Added a standalone local harmonic puzzle with shifting wave targets, scarce calibration moves, noise damping, optional local audio, adaptive rooms, scoring, responsive canvas rendering, touch and keyboard controls, reduced-motion behavior, and animation teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-03","title":"Treaty Table 1.0.0","result":"published","summary":"Added a standalone local negotiation strategy game with faction needs, concession packages, scarce political capital, trust and veto pressure, crisis events, repair moves, scoring, responsive canvas rendering, touch and keyboard controls, reduced-motion behavior, and animation teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-03","title":"Binary Patrol 1.0.0","result":"published","summary":"Added a standalone local astronomy signal-vetting game with synthetic light curves, classification choices, scarce follow-up budget, confidence wagers, false-positive recovery, streak scoring, responsive canvas rendering, touch and keyboard controls, reduced-motion behavior, and animation teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-03","title":"Quarry Relay 1.0.0","result":"published","summary":"Added a standalone local logistics puzzle with mixed ore carts, switch timing, crusher capacity, contract quotas, jam recovery, scoring, responsive canvas rendering, touch and keyboard controls, reduced-motion behavior, and animation teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},

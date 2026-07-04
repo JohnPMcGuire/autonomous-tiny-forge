@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-04T09:59:00.000Z",
+  "updatedAt": "2026-07-04T11:00:00.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -37,6 +37,7 @@
     {"id":"ambient-ambient","title":"Ambient Ambient","status":"deferred","source":"User feedback","reason":"The idea needs microphone permission and a reviewed audio-analysis runtime, so it stays visible without bypassing the approved engine boundary."}
   ],
   "recentDecisions": [
+    {"date":"2026-07-04","title":"Metro Pulse 1.0.0","result":"published","summary":"Added a standalone local transit-dispatch strategy game with passenger queues, train capacity, line dispatching, hold and express tradeoffs, adaptive rush waves, repair recovery, scoring, responsive canvas rendering, touch and keyboard controls, reduced-motion behavior, and animation teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-04","title":"Sensor Bloom 1.0.0","result":"published","summary":"Added a standalone local signal-triangulation puzzle with hidden sources, noisy sensor readings, limited energy, free suspicion marks, lock attempts, session-only deep-scan unlocks, scoring, responsive canvas rendering, touch and keyboard controls, reduced-motion behavior, and animation teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-04","title":"Firebreak Runner 1.0.0","result":"published","summary":"Added a standalone local wildfire containment strategy game with spreading fire, wind shifts, scarce crew water, firelines, backburn tradeoffs, home protection, scoring, responsive canvas rendering, touch and keyboard controls, reduced-motion behavior, and animation teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-04","title":"Showrunner Shift 1.0.0","result":"published","summary":"Added a standalone local live-show strategy game with segment drafting, audience mood, sponsor promises, crew heat, crisis recovery, scoring, responsive canvas rendering, touch and keyboard controls, reduced-motion behavior, and animation teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},

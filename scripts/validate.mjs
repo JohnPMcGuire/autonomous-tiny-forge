@@ -101,7 +101,8 @@ const requiredFiles = [
   'archive-alibi.js', 'polar-drift-lab.js', 'mirror-marsh.js', 'canal-lock-keeper.js',
   'quarry-relay.js', 'binary-patrol.js', 'treaty-table.js', 'resonance-room.js',
   'showrunner-shift.js', 'firebreak-runner.js', 'sensor-bloom.js', 'metro-pulse.js',
-  'front-page-desk.js', 'feedback-links.js', 'registry/apps.json', 'registry/forge-ledger.json', '.nojekyll'
+  'front-page-desk.js', 'quiet-maintenance.js', 'feedback-links.js', 'registry/apps.json',
+  'registry/forge-ledger.json', '.nojekyll'
 ];
 for (const file of requiredFiles) {
   if (!fs.existsSync(path.join(root, file))) fail(`${file} is missing`);
@@ -125,7 +126,7 @@ for (const asset of [
   'foundry-shift.js', 'archive-alibi.js', 'polar-drift-lab.js', 'mirror-marsh.js',
   'canal-lock-keeper.js', 'quarry-relay.js', 'binary-patrol.js', 'treaty-table.js',
   'resonance-room.js', 'showrunner-shift.js', 'firebreak-runner.js', 'sensor-bloom.js',
-  'metro-pulse.js', 'front-page-desk.js', 'feedback-links.js'
+  'metro-pulse.js', 'front-page-desk.js', 'quiet-maintenance.js', 'feedback-links.js'
 ]) {
   if (!index.includes(asset)) fail(`index.html does not load ${asset}`);
 }
@@ -149,4 +150,4 @@ if (!templateMatch) {
   }
 }
 
-if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone games, Front Page Desk, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);
+if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone games, Quiet Maintenance, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);

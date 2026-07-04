@@ -48,6 +48,7 @@
   <script defer src="./showrunner-shift.js"></script>
   <script defer src="./firebreak-runner.js"></script>
   <script defer src="./sensor-bloom.js"></script>
+  <script defer src="./metro-pulse.js"></script>
   <script defer src="./feedback-links.js"></script>
 </head>
 <body>
@@ -121,6 +122,21 @@
     </section>
   </main>
 
+  <dialog class="app-dialog" id="app-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-frame">
+      <div class="dialog-header">
+        <div>
+          <p class="app-meta" id="dialog-category"></p>
+          <h2 id="dialog-title"></h2>
+          <p id="dialog-description"></p>
+        </div>
+        <button class="icon-button" id="close-dialog" type="button" aria-label="Close app">×</button>
+      </div>
+      <div id="app-stage" class="app-stage"></div>
+      <a class="feedback-link" id="dialog-feedback" href="https://github.com/JohnPMcGuire/autonomous-tiny-forge/issues/new?template=feedback.yml">Leave feedback for this app</a>
+    </div>
+  </dialog>
+
   <template id="app-card-template">
     <article class="app-card">
       <button class="app-card-button" type="button">
@@ -128,26 +144,9 @@
         <span class="app-meta"></span>
         <span class="app-name"></span>
         <span class="app-summary"></span>
-        <span class="app-open">Open app <span aria-hidden="true">↗</span></span>
+        <span class="app-open">Open app</span>
       </button>
     </article>
   </template>
-
-  <dialog id="app-dialog" class="app-dialog" aria-labelledby="dialog-title">
-    <div class="dialog-frame">
-      <header class="dialog-header">
-        <div>
-          <p id="dialog-category" class="dialog-kicker"></p>
-          <h2 id="dialog-title"></h2>
-        </div>
-        <button class="icon-button" id="close-dialog" type="button" aria-label="Close app">×</button>
-      </header>
-      <div id="app-stage" class="app-stage"></div>
-      <footer class="dialog-footer">
-        <p id="dialog-description"></p>
-        <a id="dialog-feedback" class="text-link" href="./">Leave feedback for this app</a>
-      </footer>
-    </div>
-  </dialog>
 </body>
 </html>

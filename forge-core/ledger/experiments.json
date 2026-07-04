@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "experiments": [
+    {
+      "id": "EXP-0001",
+      "name": "Search Intelligence paid audit validation",
+      "status": "proposed",
+      "opportunityId": "OPP-0001",
+      "hypothesis": "At least one ecommerce operator will pay for a manually delivered search and PLP audit before a full software product exists.",
+      "method": "Prepare a narrow audit offer, sample report structure, qualification criteria, price proposal, delivery checklist, and approval request for outreach. Do not send outreach or charge customers without approval.",
+      "successCriteria": [
+        "Human approves a specific outreach or warm-introduction path.",
+        "At least one unrelated prospect accepts a paid audit or gives a concrete reason for rejection.",
+        "Findings from delivery show at least three repeatable checks worth automating."
+      ],
+      "stopCriteria": [
+        "No approved outreach path is available.",
+        "Prospects reject the pain or budget after five qualified conversations.",
+        "Audit delivery cannot be completed without prohibited data access."
+      ],
+      "approvalGates": [
+        "unsolicited-outbound-message",
+        "charge-customer",
+        "publish-customer-or-revenue-claim",
+        "access-private-customer-data"
+      ],
+      "estimatedSpendUsd": 0,
+      "dataClasses": [
+        "public-market-evidence",
+        "synthetic-test-data",
+        "explicitly-approved-business-input"
+      ],
+      "nextAction": "Draft the audit offer and sample report template as a non-outreach artifact."
+    }
+  ]
+}

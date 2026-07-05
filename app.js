@@ -76,7 +76,8 @@ function openApp(app) {
     'choice-mixer': renderChoiceMixer,
     'word-remix': renderWordRemix,
     'reflection-cards': renderReflectionCards,
-    'prediction-game': renderPredictionGame
+    'prediction-game': renderPredictionGame,
+    'bridge-brace': window.renderBridgeBrace
   };
 
   const renderer = renderers[app.engine];
@@ -260,312 +261,73 @@ function renderTimerGuess(app) {
     started = performance.now();
     arena.classList.add('is-running');
     arena.classList.remove('is-complete');
-    arenaTitle.textContent = `Stop at ${target} seconds`;
-    arenaNote.textContent = 'The timer is hidden. Trust your sense of time.';
-    arena.setAttribute('aria-label', `Stop the hidden timer at ${target} seconds`);
-    result.innerHTML = `<strong>Target: ${target} seconds</strong><small>No countdown. Tap again when the moment feels right.</small>`;
-    playTone('start');
-    draw(performance.now());
+    arenaTitle.textContent = `${target} seconds`;
+    arenaNote.textContent = 'Tap when the hidden timer feels complete.';
+    arena.setAttribute('aria-label', `Stop the timer at ${target} seconds`);
+    result.innerHTML = '<strong>Timer running.</strong><small>No clock is shown. Trust the rhythm.</small>';
+    draw(started);
   }
 
   function stopRound() {
     const elapsed = (performance.now() - started) / 1000;
     const difference = Math.abs(elapsed - target);
-    const direction = elapsed < target ? 'early' : 'late';
-    const accuracy = Math.max(0, Math.round(100 - (difference / target) * 200));
-    scores.push({ accuracy, difference, elapsed, target });
-    started = 0;
+    const accuracy = Math.max(0, Math.round(100 - (difference / target) * 100));
+    scores.push({ elapsed, target, accuracy });
     arena.classList.remove('is-running');
-    arenaTitle.textContent = scores.length >= roundLimit ? 'See final score' : 'Start next round';
-    arenaNote.textContent = `${elapsed.toFixed(1)} seconds · ${accuracy}% accuracy`;
-    playTone(accuracy >= 90 ? 'good' : 'miss');
-
-    if (scores.length >= roundLimit) {
-      sessionComplete = true;
-      arena.classList.add('is-complete');
-      const average = Math.round(scores.reduce((sum, item) => sum + item.accuracy, 0) / scores.length);
-      const closest = scores.reduce((best, item) => item.difference < best.difference ? item : best);
-      arenaTitle.textContent = 'Play another set';
-      arenaNote.textContent = `Average ${average}% · best miss ${closest.difference.toFixed(1)}s`;
-      arena.setAttribute('aria-label', 'Start a new five-round session');
-      result.innerHTML = `<strong>${average}% session accuracy</strong><small>Closest round: ${closest.difference.toFixed(1)} seconds off. Tap the arena to play again.</small>`;
-    } else {
-      arena.setAttribute('aria-label', `Start round ${scores.length + 1} of ${roundLimit}`);
-      result.innerHTML = `<strong>${elapsed.toFixed(1)} seconds</strong><small>You were ${difference.toFixed(1)} seconds ${direction}. Target: ${target}. Accuracy: ${accuracy}%.</small>`;
-    }
+    arena.classList.add('is-complete');
+    arenaTitle.textContent = `${accuracy}%`;
+    arenaNote.textContent = `You stopped at ${elapsed.toFixed(1)}s for a ${target}s target.`;
+    result.innerHTML = `<strong>${accuracy}% accurate.</strong><small>Difference: ${difference.toFixed(1)} seconds. ${scores.length >= roundLimit ? 'Session complete.' : 'Start the next round when ready.'}</small>`;
+    playTone(accuracy > 85 ? 'good' : 'miss');
+    if (scores.length >= roundLimit) sessionComplete = true;
     updateHud();
-    draw(performance.now());
   }
 
   arena.addEventListener('click', () => {
-    if (started) stopRound();
-    else startRound();
+    if (started) {
+      stopRound();
+      started = 0;
+    } else {
+      startRound();
+    }
+  });
+
+  arena.addEventListener('keydown', (event) => {
+    if (event.key === ' ' || event.key === 'Enter') {
+      event.preventDefault();
+      arena.click();
+    }
   });
 
   root.append(hud, arena, result, actions);
-  updateHud();
-
-  const context = canvas.getContext('2d');
-  const stars = Array.from({ length: 42 }, (_, index) => ({
-    x: ((index * 47) % 101) / 100,
-    y: ((index * 71) % 97) / 96,
-    size: 0.7 + (index % 4) * 0.45,
-    phase: index * 0.73
-  }));
+  resetSession();
 
   function draw(time) {
-    const bounds = arena.getBoundingClientRect();
-    const width = Math.max(1, Math.floor(bounds.width));
-    const height = Math.max(1, Math.floor(bounds.height));
-    const ratio = Math.min(window.devicePixelRatio || 1, 2);
-    if (canvas.width !== Math.floor(width * ratio) || canvas.height !== Math.floor(height * ratio)) {
-      canvas.width = Math.floor(width * ratio);
-      canvas.height = Math.floor(height * ratio);
-    }
-    context.setTransform(ratio, 0, 0, ratio, 0, 0);
-    context.clearRect(0, 0, width, height);
-
-    const background = context.createLinearGradient(0, 0, width, height);
-    background.addColorStop(0, '#10241d');
-    background.addColorStop(1, '#07110d');
-    context.fillStyle = background;
-    context.fillRect(0, 0, width, height);
-
-    for (const star of stars) {
-      const shimmer = reducedMotion ? 0.55 : 0.35 + Math.sin(time * 0.0015 + star.phase) * 0.2;
-      context.fillStyle = `rgba(191, 231, 209, ${shimmer})`;
-      context.beginPath();
-      context.arc(star.x * width, star.y * height, star.size, 0, Math.PI * 2);
-      context.fill();
-    }
-
-    const centerX = width * 0.5;
-    const centerY = height * 0.5;
-    const radiusX = width * 0.31;
-    const radiusY = height * 0.27;
-    context.strokeStyle = 'rgba(191, 231, 209, 0.14)';
-    context.lineWidth = 1;
-    context.beginPath();
-    context.ellipse(centerX, centerY, radiusX, radiusY, -0.2, 0, Math.PI * 2);
-    context.stroke();
-    context.beginPath();
-    context.ellipse(centerX, centerY, radiusX * 0.68, radiusY * 1.35, 0.75, 0, Math.PI * 2);
-    context.stroke();
-
-    const motion = reducedMotion ? 0.6 : time * (started ? 0.00105 : 0.00026);
-    const wobble = Math.sin(motion * 0.73) * 0.42;
-    const sparkX = centerX + Math.cos(motion + wobble) * radiusX;
-    const sparkY = centerY + Math.sin(motion * 1.17) * radiusY;
-
-    if (!reducedMotion) {
-      for (let index = 10; index >= 1; index -= 1) {
-        const trailTime = motion - index * 0.07;
-        const trailX = centerX + Math.cos(trailTime + Math.sin(trailTime * 0.73) * 0.42) * radiusX;
-        const trailY = centerY + Math.sin(trailTime * 1.17) * radiusY;
-        context.fillStyle = `rgba(255, 111, 74, ${0.24 * (1 - index / 11)})`;
-        context.beginPath();
-        context.arc(trailX, trailY, Math.max(1, 5 - index * 0.32), 0, Math.PI * 2);
-        context.fill();
-      }
-    }
-
-    const glow = context.createRadialGradient(sparkX, sparkY, 0, sparkX, sparkY, 28);
-    glow.addColorStop(0, 'rgba(255, 235, 178, 0.95)');
-    glow.addColorStop(0.25, 'rgba(255, 111, 74, 0.8)');
-    glow.addColorStop(1, 'rgba(255, 111, 74, 0)');
-    context.fillStyle = glow;
-    context.beginPath();
-    context.arc(sparkX, sparkY, 28, 0, Math.PI * 2);
-    context.fill();
-
-    context.fillStyle = '#fff2bd';
-    context.beginPath();
-    context.arc(sparkX, sparkY, started ? 6.5 : 5, 0, Math.PI * 2);
-    context.fill();
+    const ctx = canvas.getContext('2d');
+    const rect = canvas.getBoundingClientRect();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.max(1, rect.width * dpr);
+    canvas.height = Math.max(1, rect.height * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const width = rect.width;
+    const height = rect.height;
+    ctx.clearRect(0, 0, width, height);
+    ctx.fillStyle = '#07110d';
+    ctx.fillRect(0, 0, width, height);
+    const active = Boolean(started);
+    const progress = active ? ((time - started) / (target * 1000)) : 0;
+    const radius = Math.max(18, Math.min(width, height) * (0.12 + (progress % 1) * 0.26));
+    ctx.beginPath();
+    ctx.arc(width / 2, height / 2, radius, 0, Math.PI * 2);
+    ctx.strokeStyle = active ? '#f6c35b' : '#9be7c2';
+    ctx.lineWidth = 10;
+    ctx.stroke();
+    if (active && !reducedMotion) requestAnimationFrame(draw);
   }
-
-  function animate(time) {
-    draw(time);
-    if (canvas.isConnected && dialog.open && !reducedMotion) requestAnimationFrame(animate);
-  }
-
-  draw(performance.now());
-  if (!reducedMotion) requestAnimationFrame(animate);
-  if ('ResizeObserver' in window) new ResizeObserver(() => draw(performance.now())).observe(arena);
-}
-
-function renderFairPicker(app) {
-  const root = panel(app.config.instructions);
-  const field = document.createElement('div');
-  field.className = 'field';
-  field.innerHTML = '<label for="picker-items">People or choices, one per line</label><textarea id="picker-items" placeholder="Alex\nBailey\nCasey"></textarea>';
-  const result = resultCard();
-  result.innerHTML = '<strong>Add at least two choices.</strong><small>Recent winners receive a small penalty so one option does not dominate.</small>';
-  const actions = document.createElement('div');
-  actions.className = 'tool-actions';
-  actions.append(makeButton('Choose fairly', () => {
-    const items = field.querySelector('textarea').value.split('\n').map((item) => item.trim()).filter(Boolean);
-    if (items.length < 2) {
-      result.innerHTML = '<strong>Two or more choices needed.</strong>';
-      return;
-    }
-    const weighted = items.flatMap((item) => {
-      const recentCount = state.recentPicks.filter((pick) => pick === item).length;
-      return Array(Math.max(1, 4 - recentCount)).fill(item);
-    });
-    const pick = weighted[Math.floor(Math.random() * weighted.length)];
-    state.recentPicks = [pick, ...state.recentPicks].slice(0, 8);
-    result.innerHTML = `<strong>${escapeHtml(pick)}</strong><small>Chosen with a recent-selection fairness adjustment.</small>`;
-  }), makeButton('Clear history', () => {
-    state.recentPicks = [];
-    result.innerHTML = '<strong>History cleared.</strong><small>Every option now starts with equal weight.</small>';
-  }, true));
-  root.append(field, actions, result);
-}
-
-function renderMicroStep(app) {
-  const root = panel(app.config.instructions);
-  const field = document.createElement('div');
-  field.className = 'field';
-  field.innerHTML = '<label for="goal-input">What are you trying to move forward?</label><input id="goal-input" maxlength="180" placeholder="Organize the garage">';
-  const energy = document.createElement('div');
-  energy.className = 'field';
-  energy.innerHTML = '<label for="energy-input">Energy right now: <output id="energy-output">3</output>/5</label><input id="energy-input" type="range" min="1" max="5" value="3">';
-  energy.querySelector('input').addEventListener('input', (event) => energy.querySelector('output').value = event.target.value);
-  const result = resultCard();
-  result.innerHTML = '<strong>Your next step will appear here.</strong>';
-  root.append(field, energy, makeButton('Shrink the task', () => {
-    const goal = field.querySelector('input').value.trim();
-    const level = Number(energy.querySelector('input').value);
-    if (!goal) {
-      result.innerHTML = '<strong>Enter a goal first.</strong>';
-      return;
-    }
-    const patterns = level <= 2
-      ? [`Open what you need for “${goal}” and place it in view.`, `Spend two minutes making “${goal}” easier to start later.`, `Write one sentence describing what “done enough” means for “${goal}”.`]
-      : level === 3
-        ? [`Set a ten-minute timer and complete the easiest visible part of “${goal}”.`, `Remove one obstacle standing between you and “${goal}”.`, `Make a three-item checklist for “${goal}”, then do item one.`]
-        : [`Choose the highest-impact part of “${goal}” and work on it for twenty focused minutes.`, `Finish one complete slice of “${goal}” before switching tasks.`, `Do the part of “${goal}” you have been avoiding, but stop after fifteen minutes.`];
-    const pick = patterns[Math.floor(Math.random() * patterns.length)];
-    result.innerHTML = `<strong>${escapeHtml(pick)}</strong><small>Small enough to start; meaningful enough to count.</small>`;
-  }), result);
-}
-
-function renderChallengeDeck(app) {
-  const root = panel(app.config.instructions);
-  const result = resultCard();
-  const cards = app.config.items.length ? app.config.items : app.config.prompts;
-  const draw = () => {
-    const item = cards[Math.floor(Math.random() * cards.length)];
-    result.innerHTML = `<strong>${escapeHtml(item)}</strong><small>Draw again whenever this one stops being interesting.</small>`;
-  };
-  draw();
-  root.append(result, makeButton('Draw another', draw));
-}
-
-function renderChoiceMixer(app) {
-  const root = panel(app.config.instructions);
-  const result = resultCard();
-  result.innerHTML = '<strong>Choose two ingredients.</strong><small>The forge will combine them into a small experiment.</small>';
-  const choices = document.createElement('div');
-  choices.className = 'choice-grid';
-  const selected = [];
-  for (const option of app.config.options) {
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'choice';
-    button.textContent = option;
-    button.addEventListener('click', () => {
-      if (selected.includes(option)) return;
-      selected.push(option);
-      button.disabled = true;
-      if (selected.length === 2) {
-        const outcome = app.config.outcomes[Math.floor(Math.random() * app.config.outcomes.length)];
-        result.innerHTML = `<strong>${escapeHtml(selected[0])} + ${escapeHtml(selected[1])}</strong><small>${escapeHtml(outcome)}</small>`;
-        [...choices.children].forEach((child) => child.disabled = true);
-      }
-    });
-    choices.append(button);
-  }
-  root.append(choices, result, makeButton('Reset mix', () => {
-    stage.replaceChildren();
-    renderChoiceMixer(app);
-  }, true));
-}
-
-function renderWordRemix(app) {
-  const root = panel(app.config.instructions);
-  const result = resultCard();
-  const bank = document.createElement('div');
-  bank.className = 'word-bank';
-  const selected = [];
-  const words = [...app.config.items, ...app.config.options].slice(0, 18);
-  for (const word of words) {
-    const chip = document.createElement('button');
-    chip.type = 'button';
-    chip.className = 'word-chip';
-    chip.textContent = word;
-    chip.addEventListener('click', () => {
-      chip.classList.toggle('is-selected');
-      const index = selected.indexOf(word);
-      if (index >= 0) selected.splice(index, 1); else selected.push(word);
-      const prompt = app.config.prompts[selected.length % app.config.prompts.length];
-      result.innerHTML = selected.length
-        ? `<strong>${escapeHtml(selected.join(' · '))}</strong><small>${escapeHtml(prompt)}</small>`
-        : '<strong>Select a few words.</strong>';
-    });
-    bank.append(chip);
-  }
-  result.innerHTML = '<strong>Select a few words.</strong><small>See what unlikely idea they suggest together.</small>';
-  root.append(bank, result);
-}
-
-function renderReflectionCards(app) {
-  const root = panel(app.config.instructions);
-  const result = resultCard();
-  let index = -1;
-  const next = () => {
-    index = (index + 1) % app.config.prompts.length;
-    result.innerHTML = `<strong>${escapeHtml(app.config.prompts[index])}</strong><small>There is no correct answer. Notice what arrives first.</small>`;
-  };
-  next();
-  root.append(result, makeButton('Next card', next));
-}
-
-function renderPredictionGame(app) {
-  const root = panel(app.config.instructions);
-  const result = resultCard();
-  let score = 0;
-  let rounds = 0;
-  const prompt = document.createElement('h3');
-  const choices = document.createElement('div');
-  choices.className = 'choice-grid';
-  const play = () => {
-    prompt.textContent = app.config.prompts[Math.floor(Math.random() * app.config.prompts.length)];
-    choices.replaceChildren();
-    const answer = app.config.options[Math.floor(Math.random() * app.config.options.length)];
-    for (const option of app.config.options.slice(0, 4)) {
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'choice';
-      button.textContent = option;
-      button.addEventListener('click', () => {
-        rounds += 1;
-        if (option === answer) score += 1;
-        result.innerHTML = `<strong>${option === answer ? 'Good prediction.' : `The hidden answer was ${escapeHtml(answer)}.`}</strong><small>Score: ${score}/${rounds}</small>`;
-        [...choices.children].forEach((child) => child.disabled = true);
-      });
-      choices.append(button);
-    }
-  };
-  root.append(prompt, choices, result, makeButton('New round', play));
-  play();
 }
 
 function labelCategory(value) {
-  return ({ useful: 'Useful tool', play: 'Tiny game', experiment: 'Experiment' })[value] || value;
-}
-
-function escapeHtml(value) {
-  return String(value).replace(/[&<>'"]/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[char]);
+  if (value === 'play') return 'Play';
+  if (value === 'useful') return 'Useful';
+  return 'Experiment';
 }

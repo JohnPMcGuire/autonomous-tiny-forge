@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-05T19:02:00.000Z",
+  "updatedAt": "2026-07-05T21:02:00.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -30,6 +30,7 @@
     "Repository validation must pass before main is published"
   ],
   "queue": [
+    {"id":"crowd-flow-follow-up","title":"Crowd-flow variants","status":"candidate","source":"Festival Flow review","reason":"Only expand crowd simulations if future work adds distinct venue shapes, accessibility routing, emergency events, staffing roles, or tutorial levels rather than more crowd labels."},
     {"id":"ecosystem-defense-follow-up","title":"Ecosystem defense variants","status":"candidate","source":"Canopy Guard review","reason":"Only expand lane-defense play if future work adds distinct weather systems, enemy behaviors, accessibility paths, or map objectives rather than more pest labels."},
     {"id":"optics-follow-up","title":"Optics puzzle variants","status":"candidate","source":"Beacon Builder review","reason":"Only expand beam-routing play if future work adds distinct mirror physics, tutorial levels, accessibility paths, or level-editor choices rather than more target labels."},
     {"id":"stowage-follow-up","title":"Stowage simulation variants","status":"candidate","source":"Stacklight Stow review","reason":"Only expand cargo-stowage play if future work adds distinct ship shapes, container rules, weather consequences, or accessibility paths rather than more manifest labels."},
@@ -42,6 +43,7 @@
     {"id":"ambient-ambient","title":"Ambient Ambient","status":"deferred","source":"User feedback","reason":"The idea needs microphone permission and a reviewed audio-analysis runtime, so it stays visible without bypassing the approved engine boundary."}
   ],
   "recentDecisions": [
+    {"date":"2026-07-05","title":"Festival Flow 1.0.0","result":"published","summary":"Added a standalone local crowd-flow strategy simulation with draggable signs, shade, medics, and gates, moving guests, heat and patience pressure, congestion incidents, budget tradeoffs, adaptive waves, session-only night-rush unlocks, scoring, responsive canvas rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-05","title":"Canopy Guard 1.0.0","result":"published","summary":"Added a standalone local lane-defense ecosystem game with roots, blossoms, owls, pest waves, water and sunlight tradeoffs, pollinator bonuses, recoverable grove damage, session-only storm-mode pressure, scoring, responsive canvas rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-05","title":"Beacon Builder 1.0.0","result":"published","summary":"Added a standalone local optics-routing puzzle with rotatable mirrors, splitters, fog gates, batteries, adaptive rounds, recoverable darkouts, session-only prism-mode unlocks, scoring, responsive SVG rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-05","title":"Stacklight Stow 1.0.0","result":"published","summary":"Added a standalone local cargo-stowage puzzle with deck balance, unloading-order constraints, fragile and hazard rules, crane energy, adaptive manifests, recoverable inspections, session-only storm-mode unlocks, scoring, responsive SVG rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},

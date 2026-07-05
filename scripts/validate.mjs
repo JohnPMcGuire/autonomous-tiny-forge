@@ -103,7 +103,8 @@ const requiredFiles = [
   'showrunner-shift.js', 'firebreak-runner.js', 'sensor-bloom.js', 'metro-pulse.js',
   'front-page-desk.js', 'quiet-maintenance.js', 'lantern-lanes.js', 'night-market-ledger.js',
   'rhythm-relay.js', 'courier-cipher.js', 'tidepool-tactics.js', 'pairadox-draft.js',
-  'relic-sorter.js', 'parcel-parabola.js', 'rover-script.js', 'feedback-links.js', 'registry/apps.json', 'registry/forge-ledger.json', '.nojekyll'
+  'relic-sorter.js', 'parcel-parabola.js', 'rover-script.js', 'skyline-dispatch.js',
+  'circuit-snapshot.js', 'stacklight-stow.js', 'feedback-links.js', 'registry/apps.json', 'registry/forge-ledger.json', '.nojekyll'
 ];
 for (const file of requiredFiles) {
   if (!fs.existsSync(path.join(root, file))) fail(`${file} is missing`);
@@ -129,7 +130,8 @@ for (const asset of [
   'resonance-room.js', 'showrunner-shift.js', 'firebreak-runner.js', 'sensor-bloom.js',
   'metro-pulse.js', 'front-page-desk.js', 'quiet-maintenance.js', 'lantern-lanes.js',
   'night-market-ledger.js', 'rhythm-relay.js', 'courier-cipher.js', 'tidepool-tactics.js',
-  'pairadox-draft.js', 'relic-sorter.js', 'parcel-parabola.js', 'rover-script.js', 'feedback-links.js'
+  'pairadox-draft.js', 'relic-sorter.js', 'parcel-parabola.js', 'rover-script.js',
+  'skyline-dispatch.js', 'circuit-snapshot.js', 'stacklight-stow.js', 'feedback-links.js'
 ]) {
   if (!index.includes(asset)) fail(`index.html does not load ${asset}`);
 }
@@ -153,4 +155,4 @@ if (!templateMatch) {
   }
 }
 
-if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone games including Rover Script, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);
+if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone games including Stacklight Stow, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);

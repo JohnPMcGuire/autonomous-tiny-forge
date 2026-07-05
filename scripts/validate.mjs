@@ -104,7 +104,7 @@ const requiredFiles = [
   'front-page-desk.js', 'quiet-maintenance.js', 'lantern-lanes.js', 'night-market-ledger.js',
   'rhythm-relay.js', 'courier-cipher.js', 'tidepool-tactics.js', 'pairadox-draft.js',
   'relic-sorter.js', 'parcel-parabola.js', 'rover-script.js', 'skyline-dispatch.js',
-  'circuit-snapshot.js', 'stacklight-stow.js', 'feedback-links.js', 'registry/apps.json', 'registry/forge-ledger.json', '.nojekyll'
+  'circuit-snapshot.js', 'stacklight-stow.js', 'beacon-builder.js', 'canopy-guard.js', 'feedback-links.js', 'registry/apps.json', 'registry/forge-ledger.json', '.nojekyll'
 ];
 for (const file of requiredFiles) {
   if (!fs.existsSync(path.join(root, file))) fail(`${file} is missing`);
@@ -131,7 +131,8 @@ for (const asset of [
   'metro-pulse.js', 'front-page-desk.js', 'quiet-maintenance.js', 'lantern-lanes.js',
   'night-market-ledger.js', 'rhythm-relay.js', 'courier-cipher.js', 'tidepool-tactics.js',
   'pairadox-draft.js', 'relic-sorter.js', 'parcel-parabola.js', 'rover-script.js',
-  'skyline-dispatch.js', 'circuit-snapshot.js', 'stacklight-stow.js', 'feedback-links.js'
+  'skyline-dispatch.js', 'circuit-snapshot.js', 'stacklight-stow.js', 'beacon-builder.js',
+  'canopy-guard.js', 'feedback-links.js'
 ]) {
   if (!index.includes(asset)) fail(`index.html does not load ${asset}`);
 }
@@ -155,4 +156,4 @@ if (!templateMatch) {
   }
 }
 
-if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone games including Stacklight Stow, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);
+if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone games including Canopy Guard, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);

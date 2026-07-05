@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-05T04:59:00.000Z",
+  "updatedAt": "2026-07-05T05:08:00.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -41,7 +41,7 @@
     {"id":"ambient-ambient","title":"Ambient Ambient","status":"deferred","source":"User feedback","reason":"The idea needs microphone permission and a reviewed audio-analysis runtime, so it stays visible without bypassing the approved engine boundary."}
   ],
   "recentDecisions": [
-    {"date":"2026-07-05","title":"Relic Sorter 1.0.0","result":"pending validation","summary":"Prepared a standalone local museum-layout mini-game with climate and security matching, visitor-route pressure, adjacency risks, move budgets, session-only hard-mode unlocks, scoring, responsive SVG rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
+    {"date":"2026-07-05","title":"Relic Sorter 1.0.0","result":"published","summary":"Added a standalone local museum-layout mini-game with climate and security matching, visitor-route pressure, adjacency risks, move budgets, session-only hard-mode unlocks, scoring, responsive SVG rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-04","title":"Pairadox Draft 1.0.0","result":"published","summary":"Added a standalone local two-player drafting mini-game with alternating ingredient picks, judge goals, denial burns, prototype scoring, chaos limits, session-only wide-market unlock pressure, responsive SVG rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-04","title":"Tidepool Tactics 1.0.0","result":"published","summary":"Added a standalone local conservation tactics mini-game with tide cycles, fragile habitats, sample goals, oxygen pressure, restoration tradeoffs, adaptive rounds, responsive canvas rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and animation teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-04","title":"Courier Cipher 1.0.0","result":"published","summary":"Added a standalone local route-and-deduction mini-game with cipher fragments, patrol pressure, decoys, limited stamina, session-only hard-mode unlocks, scoring, responsive canvas rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and animation teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},

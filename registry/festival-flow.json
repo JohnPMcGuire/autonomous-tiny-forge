@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "festival-flow",
+  "name": "Festival Flow",
+  "version": "1.0.0",
+  "category": "play",
+  "engine": "standalone",
+  "script": "./festival-flow.js",
+  "createdAt": "2026-07-05",
+  "updatedAt": "2026-07-05",
+  "summary": "Guide festival crowds with signs, shade, medics, and gates before congestion turns unsafe.",
+  "description": "A local crowd-flow strategy simulation with moving guests, drag-to-place amenities, budget tradeoffs, heat and patience pressure, wave goals, unlockable night rush, scoring, responsive canvas rendering, touch and keyboard controls, optional local audio, reduced-motion behavior, and teardown.",
+  "capabilities": [
+    "canvas",
+    "touch",
+    "pointer",
+    "keyboard",
+    "optional-audio",
+    "reduced-motion",
+    "teardown",
+    "session-unlocks"
+  ],
+  "safety": {
+    "network": "none",
+    "storage": "none",
+    "permissions": "none",
+    "userData": "local-session-only"
+  }
+}

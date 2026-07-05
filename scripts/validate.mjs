@@ -102,7 +102,8 @@ const requiredFiles = [
   'quarry-relay.js', 'binary-patrol.js', 'treaty-table.js', 'resonance-room.js',
   'showrunner-shift.js', 'firebreak-runner.js', 'sensor-bloom.js', 'metro-pulse.js',
   'front-page-desk.js', 'quiet-maintenance.js', 'lantern-lanes.js', 'night-market-ledger.js',
-  'rhythm-relay.js', 'courier-cipher.js', 'feedback-links.js', 'registry/apps.json', 'registry/forge-ledger.json', '.nojekyll'
+  'rhythm-relay.js', 'courier-cipher.js', 'tidepool-tactics.js', 'pairadox-draft.js',
+  'feedback-links.js', 'registry/apps.json', 'registry/forge-ledger.json', '.nojekyll'
 ];
 for (const file of requiredFiles) {
   if (!fs.existsSync(path.join(root, file))) fail(`${file} is missing`);
@@ -127,7 +128,8 @@ for (const asset of [
   'canal-lock-keeper.js', 'quarry-relay.js', 'binary-patrol.js', 'treaty-table.js',
   'resonance-room.js', 'showrunner-shift.js', 'firebreak-runner.js', 'sensor-bloom.js',
   'metro-pulse.js', 'front-page-desk.js', 'quiet-maintenance.js', 'lantern-lanes.js',
-  'night-market-ledger.js', 'rhythm-relay.js', 'courier-cipher.js', 'feedback-links.js'
+  'night-market-ledger.js', 'rhythm-relay.js', 'courier-cipher.js', 'tidepool-tactics.js',
+  'pairadox-draft.js', 'feedback-links.js'
 ]) {
   if (!index.includes(asset)) fail(`index.html does not load ${asset}`);
 }
@@ -151,4 +153,4 @@ if (!templateMatch) {
   }
 }
 
-if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone games, Courier Cipher, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);
+if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone games, Pairadox Draft, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);

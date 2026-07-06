@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-06T17:00:00.000Z",
+  "updatedAt": "2026-07-06T19:00:00.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -30,6 +30,7 @@
     "Repository validation must pass before main is published"
   ],
   "queue": [
+    {"id":"clinic-triage-follow-up","title":"Clinic triage variants","status":"candidate","source":"Clinic Circuit review","reason":"Only expand clinic-flow play if future work adds distinct department maps, tutorial shifts, accessibility review paths, staffing models, or outbreak scenarios rather than more patient labels."},
     {"id":"airport-sequencing-follow-up","title":"Airport sequencing variants","status":"candidate","source":"Runway Rush review","reason":"Only expand tower-sequencing play if future work adds distinct runway geometries, tutorial banks, accessibility review paths, weather cells, gate maps, or airline contracts rather than more aircraft labels."},
     {"id":"reef-current-follow-up","title":"Reef current variants","status":"candidate","source":"Coral Current review","reason":"Only expand reef-flow play if future work adds distinct current tools, reef goals, accessibility paths, tutorial reefs, or weather systems rather than more larva labels."},
     {"id":"audio-rhythm-follow-up","title":"Audio rhythm variants","status":"candidate","source":"Echo Kitchen review","reason":"Only expand audio-memory play if future work adds distinct rhythm notation, tutorial recipes, accessible visual-only play paths, or ensemble mechanics rather than more sound labels."},
@@ -40,10 +41,10 @@
     {"id":"deduction-follow-up","title":"Deduction puzzle variants","status":"candidate","source":"Verdict Vault review","reason":"Only expand mystery play if future work adds distinct evidence chains, tutorial cases, accessibility review paths, or non-accusation scoring rather than more suspect labels."},
     {"id":"cooperative-routing-follow-up","title":"Cooperative routing variants","status":"candidate","source":"Trail Tandem review","reason":"Only expand two-agent path planning if future work adds distinct escort roles, asymmetric abilities, rescue events, accessibility paths, or scenario setup rather than more terrain labels."},
     {"id":"structural-physics-follow-up","title":"Structural puzzle variants","status":"candidate","source":"Bridge Brace review","reason":"Only expand bridge-building play if future work adds distinct materials, tutorials, span geometries, inspection events, or accessibility paths rather than more cargo labels."},
-    {"id":"crowd-flow-follow-up","title":"Crowd-flow variants","status":"candidate","source":"Festival Flow review","reason":"Only expand crowd simulations if future work adds distinct venue shapes, accessibility routing, emergency events, staffing roles, or tutorial levels rather than more crowd labels."},
-    {"id":"ecosystem-defense-follow-up","title":"Ecosystem defense variants","status":"candidate","source":"Canopy Guard review","reason":"Only expand lane-defense play if future work adds distinct weather systems, enemy behaviors, accessibility paths, or map objectives rather than more pest labels."}
+    {"id":"crowd-flow-follow-up","title":"Crowd-flow variants","status":"candidate","source":"Festival Flow review","reason":"Only expand crowd simulations if future work adds distinct venue shapes, accessibility routing, emergency events, staffing roles, or tutorial levels rather than more crowd labels."}
   ],
   "recentDecisions": [
+    {"date":"2026-07-06","title":"Clinic Circuit 1.0.0","result":"published","summary":"Added a standalone local clinic-flow triage simulation with acuity, waiting risk, infection pressure, limited rooms, nurse focus, supply kits, follow-up recovery, adaptive waves, session-only night-clinic pressure, scoring, responsive SVG rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-06","title":"Runway Rush 1.0.0","result":"published","summary":"Added a standalone local airport-sequencing strategy game with two runway cooldowns, wake turbulence, fuel and taxi pressure, crosswind risk, holds, focus previews, priority swaps, adaptive traffic banks, recoverable diversions, session-only night-ops pressure, scoring, responsive SVG rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-06","title":"Coral Current 1.0.0","result":"published","summary":"Added a standalone local reef-current strategy game with rotating current cells, drifting larvae, clean reef targets, spreading algae, cleaner-fish resources, oxygen pressure, focus hints, adaptive waves, recoverable storm resets, session-only moon-tide unlocks, scoring, responsive grid rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-06","title":"Echo Kitchen 1.0.0","result":"published","summary":"Added a standalone local audio-memory rhythm game with recipe patterns, touch and keyboard input, adaptive rounds, combo scoring, focus hints, heat pressure, recoverable burned orders, session-only improv unlocks, responsive pads, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},

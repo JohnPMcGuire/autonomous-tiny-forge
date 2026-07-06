@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-06T08:58:00.000Z",
+  "updatedAt": "2026-07-06T10:59:00.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -30,6 +30,7 @@
     "Repository validation must pass before main is published"
   ],
   "queue": [
+    {"id":"lock-and-water-follow-up","title":"Lock and water variants","status":"candidate","source":"Cistern Lock review","reason":"Only expand lock-management play if future work adds distinct canal geometry, tutorials, accessibility paths, weather events, or cargo contracts rather than more boat labels."},
     {"id":"spectrum-simulation-follow-up","title":"Spectrum simulation variants","status":"candidate","source":"Tower Tuner review","reason":"Only expand radio-grid play if future work adds distinct terrain, weather, training levels, accessibility paths, or frequency-market rules rather than more caller labels."},
     {"id":"cellular-simulation-follow-up","title":"Cellular simulation variants","status":"candidate","source":"Petri Pursuit review","reason":"Only expand culture-growth play if future work adds distinct strain behaviors, tutorial dishes, accessibility paths, or scenario setup rather than more target labels."},
     {"id":"spatial-crafting-follow-up","title":"Spatial crafting variants","status":"candidate","source":"Glyph Foundry review","reason":"Only expand glyph crafting if future work adds distinct patron goals, pattern language, tutorials, accessibility paths, or meaningful forge events rather than more symbol labels."},
@@ -40,10 +41,10 @@
     {"id":"ecosystem-defense-follow-up","title":"Ecosystem defense variants","status":"candidate","source":"Canopy Guard review","reason":"Only expand lane-defense play if future work adds distinct weather systems, enemy behaviors, accessibility paths, or map objectives rather than more pest labels."},
     {"id":"optics-follow-up","title":"Optics puzzle variants","status":"candidate","source":"Beacon Builder review","reason":"Only expand beam-routing play if future work adds distinct mirror physics, tutorial levels, accessibility paths, or level-editor choices rather than more target labels."},
     {"id":"stowage-follow-up","title":"Stowage simulation variants","status":"candidate","source":"Stacklight Stow review","reason":"Only expand cargo-stowage play if future work adds distinct ship shapes, container rules, weather consequences, or accessibility paths rather than more manifest labels."},
-    {"id":"logic-puzzle-follow-up","title":"Logic puzzle variants","status":"candidate","source":"Circuit Snapshot review","reason":"Only expand circuit play if future work adds distinct gate semantics, tutorialized truth-table modes, failure recovery, or accessibility paths rather than more target rows."},
     {"id":"scenario-editor","title":"Scenario editor toolkit","status":"candidate","source":"Collection review","reason":"Let deeper games expose more in-session setup choices without adding persistence or external data."}
   ],
   "recentDecisions": [
+    {"date":"2026-07-06","title":"Cistern Lock 1.0.0","result":"published","summary":"Added a standalone local canal-lock strategy puzzle with stepped water chambers, boat draft limits, gates, pumps, leaks, pressure, queue patience, adaptive rounds, recoverable flood resets, session-only night-tide unlocks, scoring, responsive SVG rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-06","title":"Tower Tuner 1.0.0","result":"published","summary":"Added a standalone local spectrum-management strategy game with antenna placement, frequency bands, caller coverage, urgent calls, interference, filters, heat, budget tradeoffs, adaptive shifts, recoverable outages, session-only storm-band unlocks, scoring, responsive SVG rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-06","title":"Petri Pursuit 1.0.0","result":"published","summary":"Added a standalone local cellular-growth strategy game with culture spread, blight containment, target wells, nutrients, shields, antibiotics, heat, scarce actions, recoverable contamination, adaptive briefs, session-only outbreak unlocks, scoring, responsive SVG rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-05","title":"Glyph Foundry 1.0.0","result":"published","summary":"Added a standalone local spatial crafting game with glyph traits, patron orders, heat, alloy, flaws, resonance adjacency, rejected-order recovery, adaptive commissions, session-only masterwork unlocks, scoring, responsive SVG rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},

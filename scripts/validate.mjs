@@ -105,7 +105,7 @@ const requiredFiles = [
   'rhythm-relay.js', 'courier-cipher.js', 'tidepool-tactics.js', 'pairadox-draft.js',
   'relic-sorter.js', 'parcel-parabola.js', 'rover-script.js', 'skyline-dispatch.js',
   'circuit-snapshot.js', 'stacklight-stow.js', 'beacon-builder.js', 'canopy-guard.js',
-  'festival-flow.js', 'bridge-brace.js', 'trail-tandem.js', 'feedback-links.js', 'registry/apps.json', 'registry/forge-ledger.json', '.nojekyll'
+  'festival-flow.js', 'bridge-brace.js', 'trail-tandem.js', 'verdict-vault.js', 'feedback-links.js', 'registry/apps.json', 'registry/forge-ledger.json', '.nojekyll'
 ];
 for (const file of requiredFiles) {
   if (!fs.existsSync(path.join(root, file))) fail(`${file} is missing`);
@@ -133,7 +133,7 @@ for (const asset of [
   'night-market-ledger.js', 'rhythm-relay.js', 'courier-cipher.js', 'tidepool-tactics.js',
   'pairadox-draft.js', 'relic-sorter.js', 'parcel-parabola.js', 'rover-script.js',
   'skyline-dispatch.js', 'circuit-snapshot.js', 'stacklight-stow.js', 'beacon-builder.js',
-  'canopy-guard.js', 'festival-flow.js', 'bridge-brace.js', 'trail-tandem.js', 'feedback-links.js'
+  'canopy-guard.js', 'festival-flow.js', 'bridge-brace.js', 'trail-tandem.js', 'verdict-vault.js', 'feedback-links.js'
 ]) {
   if (!index.includes(asset)) fail(`index.html does not load ${asset}`);
 }
@@ -157,4 +157,4 @@ if (!templateMatch) {
   }
 }
 
-if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone games including Trail Tandem, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);
+if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone games including Verdict Vault, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);

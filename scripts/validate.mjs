@@ -106,7 +106,7 @@ const requiredFiles = [
   'relic-sorter.js', 'parcel-parabola.js', 'rover-script.js', 'skyline-dispatch.js',
   'circuit-snapshot.js', 'stacklight-stow.js', 'beacon-builder.js', 'canopy-guard.js',
   'festival-flow.js', 'bridge-brace.js', 'trail-tandem.js', 'verdict-vault.js',
-  'glyph-foundry.js', 'petri-pursuit.js', 'tower-tuner.js', 'cistern-lock.js', 'feedback-links.js', 'registry/apps.json', 'registry/forge-ledger.json', '.nojekyll'
+  'glyph-foundry.js', 'petri-pursuit.js', 'tower-tuner.js', 'cistern-lock.js', 'echo-kitchen.js', 'feedback-links.js', 'registry/apps.json', 'registry/forge-ledger.json', '.nojekyll'
 ];
 for (const file of requiredFiles) {
   if (!fs.existsSync(path.join(root, file))) fail(`${file} is missing`);
@@ -135,7 +135,7 @@ for (const asset of [
   'pairadox-draft.js', 'relic-sorter.js', 'parcel-parabola.js', 'rover-script.js',
   'skyline-dispatch.js', 'circuit-snapshot.js', 'stacklight-stow.js', 'beacon-builder.js',
   'canopy-guard.js', 'festival-flow.js', 'bridge-brace.js', 'trail-tandem.js', 'verdict-vault.js',
-  'glyph-foundry.js', 'petri-pursuit.js', 'tower-tuner.js', 'cistern-lock.js', 'feedback-links.js'
+  'glyph-foundry.js', 'petri-pursuit.js', 'tower-tuner.js', 'cistern-lock.js', 'echo-kitchen.js', 'feedback-links.js'
 ]) {
   if (!index.includes(asset)) fail(`index.html does not load ${asset}`);
 }
@@ -159,4 +159,4 @@ if (!templateMatch) {
   }
 }
 
-if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone games including Cistern Lock, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);
+if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone games including Echo Kitchen, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);

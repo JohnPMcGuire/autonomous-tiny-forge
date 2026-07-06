@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "echo-kitchen",
+  "name": "Echo Kitchen",
+  "summary": "Listen, remember, and serve rhythm recipes before the kitchen loses its groove.",
+  "description": "A local audio-memory rhythm game with recipe patterns, touch and keyboard input, adaptive rounds, combo scoring, mistake recovery, session-only improv unlocks, responsive pads, reduced-motion behavior, optional local audio, and clean teardown.",
+  "category": "play",
+  "type": "standalone",
+  "asset": "echo-kitchen.js",
+  "version": "1.0.0",
+  "createdAt": "2026-07-06",
+  "updatedAt": "2026-07-06",
+  "security": {
+    "network": false,
+    "storage": false,
+    "secrets": false,
+    "permissions": []
+  }
+}

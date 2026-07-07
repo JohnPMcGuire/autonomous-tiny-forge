@@ -108,8 +108,8 @@ const requiredFiles = [
   'festival-flow.js', 'bridge-brace.js', 'trail-tandem.js', 'verdict-vault.js',
   'glyph-foundry.js', 'petri-pursuit.js', 'tower-tuner.js', 'cistern-lock.js', 'echo-kitchen.js',
   'coral-current.js', 'runway-rush.js', 'word-sluice.js', 'chronicle-conductor.js', 'auction-atlas.js',
-  'mosaic-marshal.js', 'rumor-mill.js', 'cargo-loom.js', 'gallery-ghost.js', 'feedback-links.js',
-  'registry/apps.json', 'registry/forge-ledger.json', '.nojekyll'
+  'mosaic-marshal.js', 'rumor-mill.js', 'cargo-loom.js', 'gallery-ghost.js', 'comet-curl.js',
+  'sonar-salvage.js', 'feedback-links.js', 'registry/apps.json', 'registry/forge-ledger.json', '.nojekyll'
 ];
 for (const file of requiredFiles) {
   if (!fs.existsSync(path.join(root, file))) fail(`${file} is missing`);
@@ -140,7 +140,8 @@ for (const asset of [
   'canopy-guard.js', 'festival-flow.js', 'bridge-brace.js', 'trail-tandem.js', 'verdict-vault.js',
   'glyph-foundry.js', 'petri-pursuit.js', 'tower-tuner.js', 'cistern-lock.js', 'echo-kitchen.js',
   'coral-current.js', 'runway-rush.js', 'word-sluice.js', 'chronicle-conductor.js', 'auction-atlas.js',
-  'mosaic-marshal.js', 'rumor-mill.js', 'cargo-loom.js', 'gallery-ghost.js', 'feedback-links.js'
+  'mosaic-marshal.js', 'rumor-mill.js', 'cargo-loom.js', 'gallery-ghost.js', 'comet-curl.js',
+  'sonar-salvage.js', 'feedback-links.js'
 ]) {
   if (!index.includes(asset)) fail(`index.html does not load ${asset}`);
 }
@@ -164,4 +165,4 @@ if (!templateMatch) {
   }
 }
 
-if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone games including Gallery Ghost, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);
+if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone games including Sonar Salvage, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);

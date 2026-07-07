@@ -83,6 +83,7 @@
   <script defer src="./rumor-mill.js"></script>
   <script defer src="./cargo-loom.js"></script>
   <script defer src="./gallery-ghost.js"></script>
+  <script defer src="./comet-curl.js"></script>
   <script defer src="./feedback-links.js"></script>
 </head>
 <body>
@@ -158,28 +159,28 @@
 
   <dialog class="app-dialog" id="app-dialog" aria-labelledby="dialog-title">
     <div class="dialog-frame">
-      <div class="dialog-header">
+      <div class="dialog-head">
         <div>
-          <p class="app-meta" id="dialog-category"></p>
-          <h2 id="dialog-title"></h2>
-          <p id="dialog-description"></p>
+          <p class="app-meta" id="dialog-category">Tiny app</p>
+          <h2 id="dialog-title">App</h2>
+          <p id="dialog-description">Loading…</p>
         </div>
         <button class="icon-button" id="close-dialog" type="button" aria-label="Close app">×</button>
       </div>
       <div id="app-stage" class="app-stage"></div>
-      <a class="feedback-link" id="dialog-feedback" href="https://github.com/JohnPMcGuire/autonomous-tiny-forge/issues/new?template=feedback.yml">Leave feedback for this app</a>
+      <div class="dialog-foot">
+        <a class="text-link" id="dialog-feedback" href="https://github.com/JohnPMcGuire/autonomous-tiny-forge/issues/new?template=feedback.yml">Leave feedback for this app</a>
+      </div>
     </div>
   </dialog>
 
   <template id="app-card-template">
     <article class="app-card">
-      <button class="app-card-button" type="button">
-        <span class="app-icon" aria-hidden="true"></span>
-        <span class="app-meta"></span>
-        <span class="app-name"></span>
-        <span class="app-summary"></span>
-        <span class="app-open">Open app</span>
-      </button>
+      <div class="app-icon" aria-hidden="true"></div>
+      <p class="app-meta"></p>
+      <h3 class="app-name"></h3>
+      <p class="app-summary"></p>
+      <button class="app-card-button" type="button">Open app</button>
     </article>
   </template>
 </body>

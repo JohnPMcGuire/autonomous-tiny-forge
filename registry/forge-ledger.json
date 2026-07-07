@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-07T06:58:00.000Z",
+  "updatedAt": "2026-07-07T10:58:00.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -30,6 +30,7 @@
     "Repository validation must pass before main is published"
   ],
   "queue": [
+    {"id":"stealth-planning-follow-up","title":"Stealth planning variants","status":"candidate","source":"Gallery Ghost review","reason":"Only expand stealth play if future work adds distinct floor grammars, patrol tutorials, accessibility review paths, non-visual map summaries, or multi-objective heists rather than more room labels."},
     {"id":"cargo-loading-follow-up","title":"Cargo loading variants","status":"candidate","source":"Cargo Loom review","reason":"Only expand loading-balance play if future work adds distinct deck geometry, tutorial hauls, accessibility review paths, live conveyor timing, or multi-stop contracts rather than more cargo labels."},
     {"id":"information-resilience-follow-up","title":"Information resilience variants","status":"candidate","source":"Rumor Mill review","reason":"Only expand rumor-containment play if future work adds distinct scenario grammars, tutorial desks, accessibility review paths, multilingual cues, or richer stakeholder models rather than more rumor labels."},
     {"id":"spatial-pattern-follow-up","title":"Spatial pattern variants","status":"candidate","source":"Mosaic Marshal review","reason":"Only expand tile-arrangement play if future work adds distinct puzzle grammars, tutorials, accessibility review paths, or multi-board commissions rather than more patron labels."},
@@ -40,10 +41,10 @@
     {"id":"reef-current-follow-up","title":"Reef current variants","status":"candidate","source":"Coral Current review","reason":"Only expand reef-flow play if future work adds distinct current tools, reef goals, accessibility paths, tutorial reefs, or weather systems rather than more larva labels."},
     {"id":"audio-rhythm-follow-up","title":"Audio rhythm variants","status":"candidate","source":"Echo Kitchen review","reason":"Only expand audio-memory play if future work adds distinct rhythm notation, tutorial recipes, accessible visual-only play paths, or ensemble mechanics rather than more sound labels."},
     {"id":"lock-and-water-follow-up","title":"Lock and water variants","status":"candidate","source":"Cistern Lock review","reason":"Only expand lock-management play if future work adds distinct canal geometry, tutorials, accessibility paths, weather events, or cargo contracts rather than more boat labels."},
-    {"id":"spectrum-simulation-follow-up","title":"Spectrum simulation variants","status":"candidate","source":"Tower Tuner review","reason":"Only expand radio-grid play if future work adds distinct terrain, weather, training levels, accessibility paths, or frequency-market rules rather than more caller labels."},
-    {"id":"cellular-simulation-follow-up","title":"Cellular simulation variants","status":"candidate","source":"Petri Pursuit review","reason":"Only expand culture-growth play if future work adds distinct strain behaviors, tutorial dishes, accessibility paths, or scenario setup rather than more target labels."}
+    {"id":"spectrum-simulation-follow-up","title":"Spectrum simulation variants","status":"candidate","source":"Tower Tuner review","reason":"Only expand radio-grid play if future work adds distinct terrain, weather, training levels, accessibility paths, or frequency-market rules rather than more caller labels."}
   ],
   "recentDecisions": [
+    {"date":"2026-07-07","title":"Gallery Ghost 1.0.0","result":"published","summary":"Added a standalone local stealth-planning game with changing museum floors, patrol timing, visible light cones, key-and-lock routing, decoys, limited lamp battery, alarm recovery, undo, scoring, session-only curator mode, responsive SVG/DOM rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-07","title":"Cargo Loom 1.0.0","result":"published","summary":"Added a standalone local cargo-loading strategy game with bay balance, fragile and cold-chain cargo, priority contracts, jolts, reroutes, repair tokens, adaptive manifests, session-only express deck unlocks, scoring, responsive SVG/DOM rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-07","title":"Rumor Mill 1.0.0","result":"published","summary":"Added a standalone local information-resilience strategy game with spreading rumors, source confidence, verification cost, trust pressure, correction timing, adaptive scenarios, recoverable cascades, session-only crisis desk unlocks, scoring, responsive SVG/DOM rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-06","title":"Mosaic Marshal 1.0.0","result":"published","summary":"Added a standalone local spatial tile-arrangement puzzle with patron commissions, adjacent swaps, tile rotations, cracked grout, scarce glaze repairs, action pressure, adaptive walls, session-only night wall pressure, scoring, responsive DOM/SVG rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},

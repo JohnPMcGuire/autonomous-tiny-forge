@@ -1,0 +1,19 @@
+{
+  "id": "signal-symphony",
+  "name": "Signal Symphony",
+  "summary": "Conduct a four-channel signal loop by balancing rhythm, memory, noise, and battery.",
+  "description": "A local rhythm-memory strategy game with mode choice, sequenced tones, channel routing, battery pressure, noise gates, mistakes and recovery, session-only encore unlocks, scoring, SVG motion, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.",
+  "category": "play",
+  "engine": "standalone",
+  "emoji": "🎚️",
+  "version": "1.0.0",
+  "createdAt": "2026-07-07",
+  "updatedAt": "2026-07-07",
+  "entry": "signal-symphony.js",
+  "safety": {
+    "data": "local only",
+    "network": "none",
+    "storage": "none",
+    "audio": "optional user-initiated Web Audio"
+  }
+}

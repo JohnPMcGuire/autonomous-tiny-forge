@@ -110,7 +110,7 @@ const requiredFiles = [
   'coral-current.js', 'runway-rush.js', 'word-sluice.js', 'chronicle-conductor.js', 'auction-atlas.js',
   'mosaic-marshal.js', 'rumor-mill.js', 'cargo-loom.js', 'gallery-ghost.js', 'comet-curl.js',
   'sonar-salvage.js', 'greenhouse-grid.js', 'rain-garden-rally.js', 'signal-symphony.js', 'switchback-rescue.js',
-  'telescope-queue.js', 'grid-guardian.js', 'studio-switcher.js', 'creature-clinic.js', 'print-shop-panic.js', 'feedback-links.js', 'registry/apps.json', 'registry/forge-ledger.json', '.nojekyll'
+  'telescope-queue.js', 'grid-guardian.js', 'studio-switcher.js', 'creature-clinic.js', 'print-shop-panic.js', 'lift-line.js', 'feedback-links.js', 'registry/apps.json', 'registry/forge-ledger.json', '.nojekyll'
 ];
 for (const file of requiredFiles) {
   if (!fs.existsSync(path.join(root, file))) fail(`${file} is missing`);
@@ -143,7 +143,7 @@ for (const asset of [
   'coral-current.js', 'runway-rush.js', 'word-sluice.js', 'chronicle-conductor.js', 'auction-atlas.js',
   'mosaic-marshal.js', 'rumor-mill.js', 'cargo-loom.js', 'gallery-ghost.js', 'comet-curl.js',
   'sonar-salvage.js', 'greenhouse-grid.js', 'rain-garden-rally.js', 'signal-symphony.js', 'switchback-rescue.js',
-  'telescope-queue.js', 'grid-guardian.js', 'studio-switcher.js', 'creature-clinic.js', 'print-shop-panic.js', 'feedback-links.js'
+  'telescope-queue.js', 'grid-guardian.js', 'studio-switcher.js', 'creature-clinic.js', 'print-shop-panic.js', 'lift-line.js', 'feedback-links.js'
 ]) {
   if (!index.includes(asset)) fail(`index.html does not load ${asset}`);
 }
@@ -167,4 +167,4 @@ if (!templateMatch) {
   }
 }
 
-if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone games through Print Shop Panic, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);
+if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone games through Lift Line, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);

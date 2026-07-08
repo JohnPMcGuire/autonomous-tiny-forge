@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-08T17:00:56.000Z",
+  "updatedAt": "2026-07-08T19:02:00.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -41,8 +41,7 @@
     {"id":"sonar-deduction-follow-up","title":"Sonar deduction variants","status":"candidate","source":"Sonar Salvage review","reason":"Only expand spatial-deduction play if future work adds distinct map grammars, tutorial contracts, accessible text summaries, cooperative marker planning, or richer uncertainty tools rather than more wreck labels."},
     {"id":"physics-aiming-follow-up","title":"Physics aiming variants","status":"candidate","source":"Comet Curl review","reason":"Only expand physics-launch play if future work adds distinct surfaces, tutorial shots, accessibility review paths, wind fields, multiplayer targets, or richer trajectory planning rather than more asteroid labels."},
     {"id":"stealth-planning-follow-up","title":"Stealth planning variants","status":"candidate","source":"Gallery Ghost review","reason":"Only expand stealth play if future work adds distinct floor grammars, patrol tutorials, accessibility review paths, non-visual map summaries, or multi-objective heists rather than more room labels."},
-    {"id":"cargo-loading-follow-up","title":"Cargo loading variants","status":"candidate","source":"Cargo Loom review","reason":"Only expand loading-balance play if future work adds distinct deck geometry, tutorial hauls, accessibility review paths, live conveyor timing, or multi-stop contracts rather than more cargo labels."},
-    {"id":"information-resilience-follow-up","title":"Information resilience variants","status":"candidate","source":"Rumor Mill review","reason":"Only expand rumor-containment play if future work adds distinct scenario grammars, tutorial desks, accessibility review paths, multilingual cues, or richer stakeholder models rather than more rumor labels."}
+    {"id":"cargo-loading-follow-up","title":"Cargo loading variants","status":"candidate","source":"Cargo Loom review","reason":"Only expand loading-balance play if future work adds distinct deck geometry, tutorial hauls, accessibility review paths, live conveyor timing, or multi-stop contracts rather than more cargo labels."}
   ],
   "recentDecisions": [
     {"date":"2026-07-08","title":"Creature Clinic 1.0.0","result":"published","summary":"Added a standalone local animal-clinic strategy game with patient diagnosis, branching treatment tools, vitals, scarce time, budget, trust and staff resources, recoverable uncertainty, staff breather choices, adaptive modes, session-only specialist unlock, scoring, responsive DOM exam-room rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},

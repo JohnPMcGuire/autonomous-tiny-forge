@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-08T02:58:00.000Z",
+  "updatedAt": "2026-07-08T04:58:00.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -41,8 +41,7 @@
     {"id":"information-resilience-follow-up","title":"Information resilience variants","status":"candidate","source":"Rumor Mill review","reason":"Only expand rumor-containment play if future work adds distinct scenario grammars, tutorial desks, accessibility review paths, multilingual cues, or richer stakeholder models rather than more rumor labels."},
     {"id":"spatial-pattern-follow-up","title":"Spatial pattern variants","status":"candidate","source":"Mosaic Marshal review","reason":"Only expand tile-arrangement play if future work adds distinct puzzle grammars, tutorials, accessibility review paths, or multi-board commissions rather than more patron labels."},
     {"id":"auction-economy-follow-up","title":"Auction economy variants","status":"candidate","source":"Auction Atlas review","reason":"Only expand bidding and valuation play if future work adds distinct auction formats, tutorial routes, accessibility review paths, portfolio synergies, or negotiation events rather than more lot labels."},
-    {"id":"timeline-causality-follow-up","title":"Timeline causality variants","status":"candidate","source":"Chronicle Conductor review","reason":"Only expand causality-ordering play if future work adds distinct branch graphs, tutorial archives, accessible review paths, or multi-thread timelines rather than more event labels."},
-    {"id":"word-strategy-follow-up","title":"Word strategy variants","status":"candidate","source":"Word Sluice review","reason":"Only expand word-routing play if future work adds distinct clue grammars, accessibility review paths, language-difficulty settings, tutorial briefs, or multiplayer draft constraints rather than more word labels."}
+    {"id":"timeline-causality-follow-up","title":"Timeline causality variants","status":"candidate","source":"Chronicle Conductor review","reason":"Only expand causality-ordering play if future work adds distinct branch graphs, tutorial archives, accessible review paths, or multi-thread timelines rather than more event labels."}
   ],
   "recentDecisions": [
     {"date":"2026-07-07","title":"Switchback Rescue 1.0.0","result":"published","summary":"Added a standalone local emergency-dispatch strategy game with switchback route planning, triage timers, fuel and hospital-bed constraints, road closures, repair crews, stabilizer recovery, adaptive incidents, session-only night storm unlocks, scoring, responsive DOM grid rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},

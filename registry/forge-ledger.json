@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-07T22:58:00.000Z",
+  "updatedAt": "2026-07-08T02:58:00.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -30,6 +30,7 @@
     "Repository validation must pass before main is published"
   ],
   "queue": [
+    {"id":"emergency-dispatch-follow-up","title":"Emergency dispatch variants","status":"candidate","source":"Switchback Rescue review","reason":"Only expand dispatch-routing play if future work adds distinct map grammars, tutorial calls, accessible route summaries, multi-ambulance coordination, hospital transfers, or richer mutual-aid tradeoffs rather than more incident labels."},
     {"id":"audio-memory-follow-up","title":"Audio memory variants","status":"candidate","source":"Signal Symphony review","reason":"Only expand rhythm-memory play if future work adds distinct chart grammars, non-audio summaries, tutorial callouts, melody drafting, duet modes, or richer accessibility review paths rather than more channel labels."},
     {"id":"stormwater-simulation-follow-up","title":"Stormwater simulation variants","status":"candidate","source":"Rain Garden Rally review","reason":"Only expand civic-resilience play if future work adds distinct watershed shapes, tutorial storms, accessible route summaries, equity tradeoffs, or richer climate events rather than more tool labels."},
     {"id":"greenhouse-simulation-follow-up","title":"Greenhouse simulation variants","status":"candidate","source":"Greenhouse Grid review","reason":"Only expand crop-simulation play if future work adds distinct season grammars, tutorial plots, accessible text summaries, multi-greenhouse contracts, weather fronts, or richer biology tradeoffs rather than more crop labels."},
@@ -44,6 +45,7 @@
     {"id":"word-strategy-follow-up","title":"Word strategy variants","status":"candidate","source":"Word Sluice review","reason":"Only expand word-routing play if future work adds distinct clue grammars, accessibility review paths, language-difficulty settings, tutorial briefs, or multiplayer draft constraints rather than more word labels."}
   ],
   "recentDecisions": [
+    {"date":"2026-07-07","title":"Switchback Rescue 1.0.0","result":"published","summary":"Added a standalone local emergency-dispatch strategy game with switchback route planning, triage timers, fuel and hospital-bed constraints, road closures, repair crews, stabilizer recovery, adaptive incidents, session-only night storm unlocks, scoring, responsive DOM grid rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-07","title":"Signal Symphony 1.0.0","result":"published","summary":"Added a standalone local rhythm-memory strategy game with four-channel sequencing, listen and replay loops, battery pressure, noise gates, stabilizer and skip recovery choices, mode progression, session-only Encore unlocks, scoring, responsive SVG/DOM-style channel motion, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-07","title":"Rain Garden Rally 1.0.0","result":"published","summary":"Added a standalone local stormwater strategy game with flowing runoff, green-infrastructure placement, budget pressure, homes to protect, pollution capture, heat relief, emergency pumps, recoverable flooding, session-only permeable-paver unlocks, scoring, responsive SVG/DOM rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-07","title":"Greenhouse Grid 1.0.0","result":"published","summary":"Added a standalone local crop-simulation strategy game with day-by-day growth, crop requirements, water and shade resources, bee pollination, heat and pest pressure, drought-style daily events, recoverable pest clearing, harvest timing, session-only night-bloom unlock, scoring, responsive DOM rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},

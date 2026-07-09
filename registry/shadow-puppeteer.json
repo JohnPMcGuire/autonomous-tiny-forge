@@ -1,0 +1,26 @@
+{
+  "id": "shadow-puppeteer",
+  "name": "Shadow Puppeteer",
+  "summary": "Arrange lights and puppets so their moving shadows satisfy fussy theater contracts.",
+  "description": "A local projection puzzle with draggable lights and puppet blockers, target silhouettes, gel and focus resources, contract modes, scoring, session-only moonlight unlock, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.",
+  "category": "play",
+  "engine": "standalone",
+  "emoji": "🎭",
+  "version": "1.0.0",
+  "createdAt": "2026-07-09",
+  "updatedAt": "2026-07-09",
+  "config": {
+    "instructions": "Move a light and three puppets to match target shadow marks. Spend gel, focus, shape swaps, and cues to satisfy each theater contract.",
+    "items": [],
+    "prompts": [
+      "Village fable asks for a readable three-shadow tableau with forgiving target marks.",
+      "Storm opera tightens the tolerance and asks for cleaner projection angles.",
+      "Moonlit encore unlocks within the session after a strong cue and requires precise shadow spacing."
+    ],
+    "options": ["Light", "Puppet", "Target", "Screen"],
+    "outcomes": [],
+    "minSeconds": 0,
+    "maxSeconds": 0,
+    "rounds": 3
+  }
+}

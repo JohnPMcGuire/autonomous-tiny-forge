@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-09T11:00:00.000Z",
+  "updatedAt": "2026-07-09T19:24:00.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -16,31 +16,11 @@
     "secondaryAutomation": "A separate GitHub Actions workflow runs Tuesday and Friday at 15:17 UTC. It can only create or improve approved declarative-engine apps and records accepted publishes in this ledger."
   },
   "method": [
-    {
-      "id": "inspect",
-      "label": "Inspect",
-      "description": "Review the live site, repository, current apps, open feedback, bugs, depth, accessibility, and portfolio gaps."
-    },
-    {
-      "id": "compare",
-      "label": "Compare",
-      "description": "Consider at least three candidate changes and choose the one that creates the strongest useful depth or breadth."
-    },
-    {
-      "id": "build",
-      "label": "Build one",
-      "description": "Create or improve one coherent feature or app, including mobile, keyboard, touch, reduced-motion, teardown, and edge cases."
-    },
-    {
-      "id": "validate",
-      "label": "Validate",
-      "description": "Run JavaScript syntax checks, feedback-routing tests, registry rules, required-file checks, and safety-boundary validation."
-    },
-    {
-      "id": "publish",
-      "label": "Publish or skip",
-      "description": "Merge and deploy only after every required check passes. Skip when the candidate is weak, unsafe, duplicative, or incomplete."
-    }
+    {"id":"inspect","label":"Inspect","description":"Review the live site, repository, current apps, open feedback, bugs, depth, accessibility, and portfolio gaps."},
+    {"id":"compare","label":"Compare","description":"Consider at least three candidate changes and choose the one that creates the strongest useful depth or breadth."},
+    {"id":"build","label":"Build one","description":"Create or improve one coherent feature or app, including mobile, keyboard, touch, reduced-motion, teardown, and edge cases."},
+    {"id":"validate","label":"Validate","description":"Run JavaScript syntax checks, feedback-routing tests, registry rules, required-file checks, and safety-boundary validation."},
+    {"id":"publish","label":"Publish or skip","description":"Merge and deploy only after every required check passes. Skip when the candidate is weak, unsafe, duplicative, or incomplete."}
   ],
   "qualityGates": [
     "One coherent change maximum per review window",
@@ -50,234 +30,29 @@
     "Repository validation must pass before main is published"
   ],
   "queue": [
-    {
-      "id": "pattern-construction-follow-up",
-      "title": "Pattern construction variants",
-      "status": "candidate",
-      "source": "Quilt Quest review",
-      "reason": "Only expand tactile pattern-building play if future work adds distinct block grammars, accessible quilt summaries, drag-to-swap previews, multi-client commissions, fabric economy contracts, or richer symmetry and seam-stress tradeoffs rather than more fabric labels."
-    },
-    {
-      "id": "wind-navigation-follow-up",
-      "title": "Wind navigation variants",
-      "status": "candidate",
-      "source": "Kite Cartographer review",
-      "reason": "Only expand wind-navigation play if future work adds distinct wind grammars, accessible flight summaries, route contracts, multi-kite coordination, weather ethics, or richer forecast and line-tension tradeoffs rather than more marker labels."
-    },
-    {
-      "id": "potion-combinatorics-follow-up",
-      "title": "Potion combinatorics variants",
-      "status": "candidate",
-      "source": "Potion Parity review",
-      "reason": "Only expand potion-balancing play if future work adds distinct recipe grammars, accessible brew summaries, drag-to-cauldron support, multi-cauldron timing, apprentice requests, or richer ingredient synergies rather than more ingredient labels."
-    },
-    {
-      "id": "cave-exploration-follow-up",
-      "title": "Cave exploration variants",
-      "status": "candidate",
-      "source": "Cave Cartographer review",
-      "reason": "Only expand cave-exploration play if future work adds distinct cave grammars, accessible route summaries, multi-explorer coordination, rescue contracts, environmental ethics, or richer fog-of-war and exit-risk tradeoffs rather than more specimen labels."
-    },
-    {
-      "id": "clockwork-routing-follow-up",
-      "title": "Clockwork routing variants",
-      "status": "candidate",
-      "source": "Courtyard Clockwork review",
-      "reason": "Only expand timing-routing play if future work adds distinct gear grammars, accessible mechanism summaries, multi-source clocks, musical timing contracts, or richer jam and over-winding tradeoffs rather than more bird labels."
-    },
-    {
-      "id": "museum-security-follow-up",
-      "title": "Museum security variants",
-      "status": "candidate",
-      "source": "Museum Night Watch review",
-      "reason": "Only expand patrol-security play if future work adds distinct wing grammars, accessible incident summaries, multi-guard coordination, visitor ethics, evidence chains, or richer stealth and visibility tradeoffs rather than more alarm labels."
-    },
-    {
-      "id": "vertical-logistics-follow-up",
-      "title": "Vertical logistics variants",
-      "status": "candidate",
-      "source": "Lift Line review",
-      "reason": "Only expand elevator-dispatch play if future work adds distinct tower grammars, accessible route summaries, multi-car coordination, fire-service overrides, tenant equity tradeoffs, or richer destination batching rather than more call labels."
-    },
-    {
-      "id": "layout-production-follow-up",
-      "title": "Layout production variants",
-      "status": "candidate",
-      "source": "Print Shop Panic review",
-      "reason": "Only expand print-layout play if future work adds distinct plate geometries, drag previews, accessible page summaries, multi-client batches, print defects, or richer client-contract tradeoffs rather than more job labels."
-    },
-    {
-      "id": "care-triage-follow-up",
-      "title": "Care triage variants",
-      "status": "candidate",
-      "source": "Creature Clinic review",
-      "reason": "Only expand diagnosis and care play if future work adds distinct symptom grammars, accessible patient summaries, multi-room staffing, owner communication contracts, or richer recovery ethics rather than more animal labels."
-    },
-    {
-      "id": "broadcast-control-follow-up",
-      "title": "Broadcast control variants",
-      "status": "candidate",
-      "source": "Studio Switcher review",
-      "reason": "Only expand live-production play if future work adds distinct rundowns, accessible show recaps, multi-role booth coordination, timing pressure, or richer audience contracts rather than more camera labels."
-    },
-    {
-      "id": "power-grid-follow-up",
-      "title": "Power grid variants",
-      "status": "candidate",
-      "source": "Grid Guardian review",
-      "reason": "Only expand microgrid play if future work adds distinct grid grammars, accessible outage summaries, multi-operator dispatch, neighborhood equity contracts, or richer renewable forecasts rather than more district labels."
-    },
-    {
-      "id": "astronomy-scheduling-follow-up",
-      "title": "Astronomy scheduling variants",
-      "status": "candidate",
-      "source": "Telescope Queue review",
-      "reason": "Only expand observing-window play if future work adds distinct sky grammars, accessible night summaries, multi-scope coordination, spectrum contracts, or richer weather and calibration tradeoffs rather than more target labels."
-    }
+    {"id":"water-routing-follow-up","title":"Water routing variants","status":"candidate","source":"Floodgate Ferry review","reason":"Only expand ferry and lock-routing play if future work adds distinct water grammars, accessible harbor summaries, multi-boat collision previews, tide ethics, rescue contracts, or richer current and hull tradeoffs rather than more cargo labels."},
+    {"id":"pattern-construction-follow-up","title":"Pattern construction variants","status":"candidate","source":"Quilt Quest review","reason":"Only expand tactile pattern-building play if future work adds distinct block grammars, accessible quilt summaries, drag-to-swap previews, multi-client commissions, fabric economy contracts, or richer symmetry and seam-stress tradeoffs rather than more fabric labels."},
+    {"id":"wind-navigation-follow-up","title":"Wind navigation variants","status":"candidate","source":"Kite Cartographer review","reason":"Only expand wind-navigation play if future work adds distinct wind grammars, accessible flight summaries, route contracts, multi-kite coordination, weather ethics, or richer forecast and line-tension tradeoffs rather than more marker labels."},
+    {"id":"potion-combinatorics-follow-up","title":"Potion combinatorics variants","status":"candidate","source":"Potion Parity review","reason":"Only expand potion-balancing play if future work adds distinct recipe grammars, accessible brew summaries, drag-to-cauldron support, multi-cauldron timing, apprentice requests, or richer ingredient synergies rather than more ingredient labels."},
+    {"id":"cave-exploration-follow-up","title":"Cave exploration variants","status":"candidate","source":"Cave Cartographer review","reason":"Only expand cave-exploration play if future work adds distinct cave grammars, accessible route summaries, multi-explorer coordination, rescue contracts, environmental ethics, or richer fog-of-war and exit-risk tradeoffs rather than more specimen labels."},
+    {"id":"clockwork-routing-follow-up","title":"Clockwork routing variants","status":"candidate","source":"Courtyard Clockwork review","reason":"Only expand timing-routing play if future work adds distinct gear grammars, accessible mechanism summaries, multi-source clocks, musical timing contracts, or richer jam and over-winding tradeoffs rather than more bird labels."},
+    {"id":"museum-security-follow-up","title":"Museum security variants","status":"candidate","source":"Museum Night Watch review","reason":"Only expand patrol-security play if future work adds distinct wing grammars, accessible incident summaries, multi-guard coordination, visitor ethics, evidence chains, or richer stealth and visibility tradeoffs rather than more alarm labels."},
+    {"id":"vertical-logistics-follow-up","title":"Vertical logistics variants","status":"candidate","source":"Lift Line review","reason":"Only expand elevator-dispatch play if future work adds distinct tower grammars, accessible route summaries, multi-car coordination, fire-service overrides, tenant equity tradeoffs, or richer destination batching rather than more call labels."},
+    {"id":"layout-production-follow-up","title":"Layout production variants","status":"candidate","source":"Print Shop Panic review","reason":"Only expand print-layout play if future work adds distinct plate geometries, drag previews, accessible page summaries, multi-client batches, print defects, or richer client-contract tradeoffs rather than more job labels."},
+    {"id":"care-triage-follow-up","title":"Care triage variants","status":"candidate","source":"Creature Clinic review","reason":"Only expand diagnosis and care play if future work adds distinct symptom grammars, accessible patient summaries, multi-room staffing, owner communication contracts, or richer recovery ethics rather than more animal labels."},
+    {"id":"broadcast-control-follow-up","title":"Broadcast control variants","status":"candidate","source":"Studio Switcher review","reason":"Only expand live-production play if future work adds distinct rundowns, accessible show recaps, multi-role booth coordination, timing pressure, or richer audience contracts rather than more camera labels."},
+    {"id":"power-grid-follow-up","title":"Power grid variants","status":"candidate","source":"Grid Guardian review","reason":"Only expand microgrid play if future work adds distinct grid grammars, accessible outage summaries, multi-operator dispatch, neighborhood equity contracts, or richer renewable forecasts rather than more district labels."}
   ],
   "recentDecisions": [
-    {
-      "date": "2026-07-09",
-      "title": "Quilt Quest 1.0.0",
-      "result": "published",
-      "summary": "Added a standalone local tactile pattern puzzle with drag, tap, keyboard placement, scarce fabric scraps, client contracts, symmetry and contrast scoring, seam-stress mistakes, repair choices, adaptive orders, session-only star sampler unlock, reduced-motion behavior, optional local audio, and teardown.",
-      "checks": [
-        "JavaScript syntax",
-        "Responsive shell contract",
-        "Ledger schema",
-        "Required asset wiring",
-        "Safety rules"
-      ]
-    },
-    {
-      "date": "2026-07-09",
-      "title": "Kite Cartographer 1.0.0",
-      "result": "published",
-      "summary": "Added a standalone local wind-navigation arcade strategy game with gust forecasting, drag and keyboard steering, tension and stamina resources, marker routing, reel and dive recovery choices, adaptive modes, session-only storm-front unlock, scoring, responsive canvas motion, reduced-motion behavior, optional local audio, and teardown.",
-      "checks": [
-        "JavaScript syntax",
-        "Responsive shell contract",
-        "Ledger schema",
-        "Required asset wiring",
-        "Safety rules"
-      ]
-    },
-    {
-      "date": "2026-07-09",
-      "title": "Potion Parity 1.0.0",
-      "result": "published",
-      "summary": "Added a standalone local potion-balancing puzzle with recipe contracts, interacting ingredients, heat timing, instability, purify and vent recovery actions, adaptive modes, session-only eclipse recipe unlock, scoring, responsive DOM cauldron rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.",
-      "checks": [
-        "JavaScript syntax",
-        "Responsive shell contract",
-        "Ledger schema",
-        "Required asset wiring",
-        "Safety rules"
-      ]
-    },
-    {
-      "date": "2026-07-09",
-      "title": "Cave Cartographer 1.0.0",
-      "result": "published",
-      "summary": "Added a standalone local fog-of-war cave exploration game with map memory, rope, lantern fuel, oxygen pressure, chalk marks, scan pulses, cave-in risk, sample collection, extraction timing, adaptive modes, session-only crystal-depth unlock, scoring, responsive DOM cave rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.",
-      "checks": [
-        "JavaScript syntax",
-        "Responsive shell contract",
-        "Ledger schema",
-        "Required asset wiring",
-        "Safety rules"
-      ]
-    },
-    {
-      "date": "2026-07-08",
-      "title": "Courtyard Clockwork 1.0.0",
-      "result": "published",
-      "summary": "Added a standalone local timing-and-spatial clockwork puzzle with gear placement, timed gates, wind and oil resources, jam risk and recovery, bird-awakening targets, adaptive modes, session-only moon mechanism unlock, scoring, responsive SVG and DOM courtyard rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.",
-      "checks": [
-        "JavaScript syntax",
-        "Responsive shell contract",
-        "Ledger schema",
-        "Required asset wiring",
-        "Safety rules"
-      ]
-    },
-    {
-      "date": "2026-07-08",
-      "title": "Museum Night Watch 1.0.0",
-      "result": "published",
-      "summary": "Added a standalone local museum-patrol strategy game with hidden incidents, alarm aging, scan radius, stamina, camera charge, suspicion pressure, secure and decoy recovery choices, adaptive wing modes, session-only midnight-gala unlock, scoring, responsive DOM floor-grid rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.",
-      "checks": [
-        "JavaScript syntax",
-        "Responsive shell contract",
-        "Ledger schema",
-        "Required asset wiring",
-        "Safety rules"
-      ]
-    },
-    {
-      "date": "2026-07-08",
-      "title": "Lift Line 1.0.0",
-      "result": "published",
-      "summary": "Added a standalone local vertical-logistics strategy game with seven-floor elevator dispatch, passenger queues, capacity limits, power draw, patience pressure, express routing, repair recovery, adaptive rush modes, session-only sky-lobby unlock, scoring, responsive DOM tower rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.",
-      "checks": [
-        "JavaScript syntax",
-        "Responsive shell contract",
-        "Ledger schema",
-        "Required asset wiring",
-        "Safety rules"
-      ]
-    },
-    {
-      "date": "2026-07-08",
-      "title": "Print Shop Panic 1.0.0",
-      "result": "published",
-      "summary": "Added a standalone local print-layout strategy game with plate placement, client priorities, ink and deadline resources, proofing, alignment risk, page clearing and recovery, adaptive shift modes, session-only foil-night unlock, scoring, responsive DOM layout rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.",
-      "checks": [
-        "JavaScript syntax",
-        "Responsive shell contract",
-        "Ledger schema",
-        "Required asset wiring",
-        "Safety rules"
-      ]
-    },
-    {
-      "date": "2026-07-08",
-      "title": "Creature Clinic 1.0.0",
-      "result": "published",
-      "summary": "Added a standalone local animal-clinic strategy game with patient diagnosis, branching treatment tools, vitals, scarce time, budget, trust and staff resources, recoverable uncertainty, staff breather choices, adaptive modes, session-only specialist unlock, scoring, responsive DOM exam-room rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.",
-      "checks": [
-        "JavaScript syntax",
-        "Responsive shell contract",
-        "Ledger schema",
-        "Required asset wiring",
-        "Safety rules"
-      ]
-    },
-    {
-      "date": "2026-07-08",
-      "title": "Studio Switcher 1.0.0",
-      "result": "published",
-      "summary": "Added a standalone local live-production strategy game with camera switching, cue timing, talent energy, sponsor beats, mistake heat, clips, producer fixes, adaptive rundowns, session-only finale unlock, scoring, responsive DOM stage rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.",
-      "checks": [
-        "JavaScript syntax",
-        "Responsive shell contract",
-        "Ledger schema",
-        "Required asset wiring",
-        "Safety rules"
-      ]
-    },
-    {
-      "date": "2026-07-08",
-      "title": "Grid Guardian 1.0.0",
-      "result": "published",
-      "summary": "Added a standalone local microgrid strategy game with solar and gas supply, battery dispatch, feeder faults, repair crews, controlled outages, critical-load scoring, heat-wave pressure, session-only Island Mode unlock, responsive DOM grid rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.",
-      "checks": [
-        "JavaScript syntax",
-        "Responsive shell contract",
-        "Ledger schema",
-        "Required asset wiring",
-        "Safety rules"
-      ]
-    }
+    {"date":"2026-07-09","title":"Floodgate Ferry 1.0.0","result":"published","summary":"Added a standalone local spatial routing game with rotating current gates, moving ferries, cargo-specific exits, tide steps, limited rudder actions, hull damage, patience pressure, repair choices, adaptive harbor contracts, session-only storm lock unlock, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
+    {"date":"2026-07-09","title":"Quilt Quest 1.0.0","result":"published","summary":"Added a standalone local tactile pattern puzzle with drag, tap, keyboard placement, scarce fabric scraps, client contracts, symmetry and contrast scoring, seam-stress mistakes, repair choices, adaptive orders, session-only star sampler unlock, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
+    {"date":"2026-07-09","title":"Kite Cartographer 1.0.0","result":"published","summary":"Added a standalone local wind-navigation arcade strategy game with gust forecasting, drag and keyboard steering, tension and stamina resources, marker routing, reel and dive recovery choices, adaptive modes, session-only storm-front unlock, scoring, responsive canvas motion, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
+    {"date":"2026-07-09","title":"Potion Parity 1.0.0","result":"published","summary":"Added a standalone local potion-balancing puzzle with recipe contracts, interacting ingredients, heat timing, instability, purify and vent recovery actions, adaptive modes, session-only eclipse recipe unlock, scoring, responsive DOM cauldron rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
+    {"date":"2026-07-09","title":"Cave Cartographer 1.0.0","result":"published","summary":"Added a standalone local fog-of-war cave exploration game with map memory, rope, lantern fuel, oxygen pressure, chalk marks, scan pulses, cave-in risk, sample collection, extraction timing, adaptive modes, session-only crystal-depth unlock, scoring, responsive DOM cave rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
+    {"date":"2026-07-08","title":"Courtyard Clockwork 1.0.0","result":"published","summary":"Added a standalone local timing-and-spatial clockwork puzzle with gear placement, timed gates, wind and oil resources, jam risk and recovery, bird-awakening targets, adaptive modes, session-only moon mechanism unlock, scoring, responsive SVG and DOM courtyard rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
+    {"date":"2026-07-08","title":"Museum Night Watch 1.0.0","result":"published","summary":"Added a standalone local museum-patrol strategy game with hidden incidents, alarm aging, scan radius, stamina, camera charge, suspicion pressure, secure and decoy recovery choices, adaptive wing modes, session-only midnight-gala unlock, scoring, responsive DOM floor-grid rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
+    {"date":"2026-07-08","title":"Lift Line 1.0.0","result":"published","summary":"Added a standalone local vertical-logistics strategy game with seven-floor elevator dispatch, passenger queues, capacity limits, power draw, patience pressure, express routing, repair recovery, adaptive rush modes, session-only sky-lobby unlock, scoring, responsive DOM tower rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
+    {"date":"2026-07-08","title":"Print Shop Panic 1.0.0","result":"published","summary":"Added a standalone local print-layout strategy game with plate placement, client priorities, ink and deadline resources, proofing, alignment risk, page clearing and recovery, adaptive shift modes, session-only foil-night unlock, scoring, responsive DOM layout rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
+    {"date":"2026-07-08","title":"Creature Clinic 1.0.0","result":"published","summary":"Added a standalone local animal-clinic strategy game with patient diagnosis, branching treatment tools, vitals, scarce time, budget, trust and staff resources, recoverable uncertainty, staff breather choices, adaptive modes, session-only specialist unlock, scoring, responsive DOM exam-room rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]}
   ]
 }

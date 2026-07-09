@@ -36,11 +36,9 @@ for (const [index, app] of registry.apps.entries()) {
   if (!/^\d+\.\d+\.\d+$/.test(app.version || '')) fail(`${label}.version must be semantic`);
   if (!app.config || typeof app.config !== 'object') fail(`${label}.config is missing`);
   if (!app.config?.instructions || app.config.instructions.length > 220) fail(`${label}.config.instructions is invalid`);
-
   const text = JSON.stringify(app);
   if (forbiddenPattern.test(text)) fail(`${label} contains a forbidden code or network pattern`);
   if (text.length > 12000) fail(`${label} is too large`);
-
   for (const key of ['items', 'prompts', 'options', 'outcomes']) {
     if (!Array.isArray(app.config?.[key])) fail(`${label}.config.${key} must be an array`);
     if ((app.config?.[key] || []).length > 24) fail(`${label}.config.${key} has too many entries`);
@@ -48,7 +46,6 @@ for (const [index, app] of registry.apps.entries()) {
       if (typeof value !== 'string' || value.length < 1 || value.length > 220) fail(`${label}.config.${key} has an invalid entry`);
     }
   }
-
   const config = app.config;
   if (app.engine === 'challenge-deck' && config.items.length < 6) fail(`${label} needs at least six challenge cards`);
   if (app.engine === 'choice-mixer' && (config.options.length < 4 || config.outcomes.length < 4)) fail(`${label} needs at least four options and outcomes`);
@@ -78,14 +75,12 @@ for (const [index, item] of ledger.queue.entries()) {
   if (!item.title || !item.reason || !item.source) fail(`forge ledger queue[${index}] is incomplete`);
   if (!allowedQueueStatuses.has(item.status)) fail(`forge ledger queue[${index}].status is invalid`);
 }
-
 for (const [index, decision] of ledger.recentDecisions.entries()) {
   if (!decision.date || Number.isNaN(Date.parse(`${decision.date}T12:00:00Z`))) fail(`forge ledger recentDecisions[${index}].date is invalid`);
   if (!decision.title || !decision.summary) fail(`forge ledger recentDecisions[${index}] is incomplete`);
   if (!allowedDecisionResults.has(decision.result)) fail(`forge ledger recentDecisions[${index}].result is invalid`);
   if (!Array.isArray(decision.checks) || decision.checks.length < 1 || decision.checks.length > 8) fail(`forge ledger recentDecisions[${index}].checks is invalid`);
 }
-
 if (forbiddenPattern.test(ledgerText)) fail('forge ledger contains a forbidden code or network pattern');
 if (ledgerText.length > 50000) fail('forge ledger is too large');
 
@@ -110,12 +105,11 @@ const requiredFiles = [
   'coral-current.js', 'runway-rush.js', 'word-sluice.js', 'chronicle-conductor.js', 'auction-atlas.js',
   'mosaic-marshal.js', 'rumor-mill.js', 'cargo-loom.js', 'gallery-ghost.js', 'comet-curl.js',
   'sonar-salvage.js', 'greenhouse-grid.js', 'rain-garden-rally.js', 'signal-symphony.js', 'switchback-rescue.js',
-  'telescope-queue.js', 'grid-guardian.js', 'studio-switcher.js', 'creature-clinic.js', 'print-shop-panic.js', 'lift-line.js', 'feedback-links.js', 'registry/apps.json', 'registry/forge-ledger.json', '.nojekyll'
+  'telescope-queue.js', 'grid-guardian.js', 'studio-switcher.js', 'creature-clinic.js', 'print-shop-panic.js', 'lift-line.js', 'museum-night-watch.js', 'feedback-links.js', 'registry/apps.json', 'registry/forge-ledger.json', '.nojekyll'
 ];
 for (const file of requiredFiles) {
   if (!fs.existsSync(path.join(root, file))) fail(`${file} is missing`);
 }
-
 for (const file of requiredFiles.filter((file) => file.endsWith('.js'))) {
   try {
     execFileSync(process.execPath, ['--check', path.join(root, file)], { stdio: 'pipe' });
@@ -143,16 +137,14 @@ for (const asset of [
   'coral-current.js', 'runway-rush.js', 'word-sluice.js', 'chronicle-conductor.js', 'auction-atlas.js',
   'mosaic-marshal.js', 'rumor-mill.js', 'cargo-loom.js', 'gallery-ghost.js', 'comet-curl.js',
   'sonar-salvage.js', 'greenhouse-grid.js', 'rain-garden-rally.js', 'signal-symphony.js', 'switchback-rescue.js',
-  'telescope-queue.js', 'grid-guardian.js', 'studio-switcher.js', 'creature-clinic.js', 'print-shop-panic.js', 'lift-line.js', 'feedback-links.js'
+  'telescope-queue.js', 'grid-guardian.js', 'studio-switcher.js', 'creature-clinic.js', 'print-shop-panic.js', 'lift-line.js', 'museum-night-watch.js', 'feedback-links.js'
 ]) {
   if (!index.includes(asset)) fail(`index.html does not load ${asset}`);
 }
-
 if (!index.includes('class="forge-ledger-section shell"')) fail('index.html is missing the responsive forge ledger section class');
 if (!index.includes('id="forge-ledger-root" class="forge-ledger-root"')) fail('index.html is missing the stable forge ledger root class');
 if (!index.includes('class="dialog-frame"')) fail('index.html is missing the styled dialog frame');
 if (index.includes('class="dialog-shell"')) fail('index.html contains the obsolete unstyled dialog shell');
-
 const templateMatch = index.match(/<template id="app-card-template">([\s\S]*?)<\/template>/);
 if (!templateMatch) {
   fail('index.html is missing the app card template');
@@ -166,5 +158,4 @@ if (!templateMatch) {
     }
   }
 }
-
-if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone games through Lift Line, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);
+if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone games through Museum Night Watch, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);

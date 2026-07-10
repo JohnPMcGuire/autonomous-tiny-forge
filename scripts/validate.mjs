@@ -91,7 +91,7 @@ const requiredFiles = [
   'museum-night-watch.js', 'courtyard-clockwork.js', 'cave-cartographer.js', 'potion-parity.js', 'kite-cartographer.js',
   'quilt-quest.js', 'floodgate-ferry.js', 'seismic-survey.js', 'shadow-puppeteer.js', 'fossil-layers.js', 'alt-text-atelier.js',
   'cold-chain-cargo.js', 'library-stack-sprint.js', 'stairwell-steward.js', 'sunprint-safari.js', 'battery-bazaar.js',
-  'feedback-links.js', 'registry/apps.json', 'registry/forge-ledger.json', '.nojekyll'
+  'echo-reef-rescue.js', 'feedback-links.js', 'registry/apps.json', 'registry/forge-ledger.json', '.nojekyll'
 ];
 for (const file of requiredFiles) {
   if (!fs.existsSync(path.join(root, file))) fail(`${file} is missing`);
@@ -106,12 +106,13 @@ for (const file of requiredFiles.filter((file) => file.endsWith('.js'))) {
 
 const index = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const feedbackLinks = fs.readFileSync(path.join(root, 'feedback-links.js'), 'utf8');
-for (const asset of requiredFiles.filter((file) => file.endsWith('.js') && !['stairwell-steward.js', 'sunprint-safari.js', 'battery-bazaar.js'].includes(file))) {
+for (const asset of requiredFiles.filter((file) => file.endsWith('.js') && !['stairwell-steward.js', 'sunprint-safari.js', 'battery-bazaar.js', 'echo-reef-rescue.js'].includes(file))) {
   if (!index.includes(asset) && !feedbackLinks.includes(asset)) fail(`${asset} is not wired into the site shell`);
 }
 if (!feedbackLinks.includes('stairwell-steward.js')) fail('feedback-links.js does not load stairwell-steward.js');
 if (!feedbackLinks.includes('sunprint-safari.js')) fail('feedback-links.js does not load sunprint-safari.js');
 if (!feedbackLinks.includes('battery-bazaar.js')) fail('feedback-links.js does not load battery-bazaar.js');
+if (!feedbackLinks.includes('echo-reef-rescue.js')) fail('feedback-links.js does not load echo-reef-rescue.js');
 if (!index.includes('class="forge-ledger-section shell"')) fail('index.html is missing the responsive forge ledger section class');
 if (!index.includes('id="forge-ledger-root" class="forge-ledger-root"')) fail('index.html is missing the stable forge ledger root class');
 if (!index.includes('class="dialog-frame"')) fail('index.html is missing the styled dialog frame');
@@ -125,4 +126,4 @@ else {
     if (!buttonMatch[1].includes(className)) fail(`app card ${className} must remain inside the full-card button`);
   }
 }
-if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone games through Battery Bazaar, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);
+if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone games through Echo Reef Rescue, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);

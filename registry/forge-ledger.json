@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-10T12:59:00.000Z",
+  "updatedAt": "2026-07-10T14:59:00.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -50,6 +50,13 @@
     "Repository validation must pass before main is published"
   ],
   "queue": [
+    {
+      "id": "sonar-navigation-follow-up",
+      "title": "Sonar navigation variants",
+      "status": "candidate",
+      "source": "Echo Reef Rescue review",
+      "reason": "Only expand sonar-rescue play if future work adds distinct echo grammars, accessible sonar summaries, multi-sub coordination, reef ethics, or richer oxygen and battery tradeoffs rather than more map labels."
+    },
     {
       "id": "microgrid-energy-follow-up",
       "title": "Microgrid strategy variants",
@@ -126,16 +133,22 @@
       "status": "candidate",
       "source": "Quilt Quest review",
       "reason": "Only expand tactile pattern-building play if future work adds distinct block grammars, accessible quilt summaries, drag-to-swap previews, multi-client commissions, fabric economy contracts, or richer symmetry and seam-stress tradeoffs rather than more fabric labels."
-    },
-    {
-      "id": "wind-navigation-follow-up",
-      "title": "Wind navigation variants",
-      "status": "candidate",
-      "source": "Kite Cartographer review",
-      "reason": "Only expand wind-navigation play if future work adds distinct wind grammars, accessible flight summaries, route contracts, multi-kite coordination, weather ethics, or richer forecast and line-tension tradeoffs rather than more marker labels."
     }
   ],
   "recentDecisions": [
+    {
+      "date": "2026-07-10",
+      "title": "Echo Reef Rescue 1.0.0",
+      "result": "published",
+      "summary": "Added a standalone local sonar-navigation rescue game with hidden hazards, oxygen and battery tradeoffs, current drift, survivor pickup, exit timing, rescue contracts, session-only night dive unlock, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive shell contract",
+        "Ledger schema",
+        "Required asset wiring",
+        "Safety rules"
+      ]
+    },
     {
       "date": "2026-07-10",
       "title": "Battery Bazaar 1.0.0",
@@ -193,19 +206,6 @@
       "title": "Cold Chain Cargo 1.0.0",
       "result": "published",
       "summary": "Added a standalone local cold-chain packing game with spatial cargo placement, rotation, temperature zones, battery-powered cooling, deadlines, spoilage risk, route scoring, contract modes, session-only express manifests, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.",
-      "checks": [
-        "JavaScript syntax",
-        "Responsive shell contract",
-        "Ledger schema",
-        "Required asset wiring",
-        "Safety rules"
-      ]
-    },
-    {
-      "date": "2026-07-09",
-      "title": "Alt Text Atelier 1.0.0",
-      "result": "published",
-      "summary": "Added a standalone local accessibility writing game with stylized scene cards, token drafting, word budgets, decorative-image decisions, context-specific scoring, redundancy penalties, revision limits, session-only expert briefs, touch, drag and keyboard controls, reduced-motion behavior, optional local audio, and teardown.",
       "checks": [
         "JavaScript syntax",
         "Responsive shell contract",

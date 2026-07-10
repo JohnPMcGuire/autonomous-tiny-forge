@@ -3,14 +3,17 @@
   const host = ['git', 'hub'].join('') + '.com';
   const path = ['JohnPMcGuire', 'autonomous-tiny-forge', 'issues', 'new'].join('/');
   const feedbackBase = `${protocol}//${host}/${path}?template=feedback.yml`;
+  const sprintApps = ['alt-text-atelier', 'stairwell-steward'];
 
   function loadSprintApps() {
-    if (document.querySelector('script[data-forge-sprint-app="alt-text-atelier"]')) return;
-    const script = document.createElement('script');
-    script.defer = true;
-    script.src = './alt-text-atelier.js';
-    script.dataset.forgeSprintApp = 'alt-text-atelier';
-    document.head.append(script);
+    sprintApps.forEach((slug) => {
+      if (document.querySelector(`script[data-forge-sprint-app="${slug}"]`)) return;
+      const script = document.createElement('script');
+      script.defer = true;
+      script.src = slug === 'stairwell-steward' ? './stairwell-steward.js' : `./${slug}.js`;
+      script.dataset.forgeSprintApp = slug;
+      document.head.append(script);
+    });
   }
 
   function restoreFeedbackLinks() {

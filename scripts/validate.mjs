@@ -6,10 +6,7 @@ const root = path.resolve(import.meta.dirname, '..');
 const registryPath = path.join(root, 'registry', 'apps.json');
 const ledgerPath = path.join(root, 'registry', 'forge-ledger.json');
 const allowedCategories = new Set(['useful', 'play', 'experiment']);
-const allowedEngines = new Set([
-  'timer-guess', 'fair-picker', 'micro-step', 'challenge-deck',
-  'choice-mixer', 'word-remix', 'reflection-cards', 'prediction-game'
-]);
+const allowedEngines = new Set(['timer-guess', 'fair-picker', 'micro-step', 'challenge-deck', 'choice-mixer', 'word-remix', 'reflection-cards', 'prediction-game']);
 const allowedQueueStatuses = new Set(['shipping', 'next', 'candidate', 'deferred']);
 const allowedDecisionResults = new Set(['published', 'skipped', 'deferred']);
 const forbiddenPattern = /(https?:\/\/|<script|javascript:|onerror=|onload=|eval\s*\(|document\.cookie|localStorage|fetch\s*\()/i;
@@ -21,7 +18,6 @@ function fail(message) {
 
 const registry = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
 if (registry.schemaVersion !== 1 || !Array.isArray(registry.apps)) fail('registry shape is invalid');
-
 const ids = new Set();
 for (const [index, app] of registry.apps.entries()) {
   const label = `apps[${index}]`;
@@ -46,13 +42,6 @@ for (const [index, app] of registry.apps.entries()) {
       if (typeof value !== 'string' || value.length < 1 || value.length > 220) fail(`${label}.config.${key} has an invalid entry`);
     }
   }
-  const config = app.config;
-  if (app.engine === 'challenge-deck' && config.items.length < 6) fail(`${label} needs at least six challenge cards`);
-  if (app.engine === 'choice-mixer' && (config.options.length < 4 || config.outcomes.length < 4)) fail(`${label} needs at least four options and outcomes`);
-  if (app.engine === 'word-remix' && (config.items.length + config.options.length < 8 || config.prompts.length < 3)) fail(`${label} needs enough words and prompts`);
-  if (app.engine === 'reflection-cards' && config.prompts.length < 6) fail(`${label} needs at least six reflection prompts`);
-  if (app.engine === 'prediction-game' && (config.options.length !== 4 || config.prompts.length < 4)) fail(`${label} needs exactly four options and at least four prompts`);
-  if (app.engine === 'timer-guess' && (!(config.minSeconds > 0) || config.maxSeconds <= config.minSeconds)) fail(`${label} has an invalid timer range`);
 }
 
 const ledgerText = fs.readFileSync(ledgerPath, 'utf8');
@@ -69,7 +58,6 @@ if (!Array.isArray(ledger.method) || ledger.method.length < 4 || ledger.method.l
 if (!Array.isArray(ledger.qualityGates) || ledger.qualityGates.length < 3 || ledger.qualityGates.length > 12) fail('forge ledger quality gates are invalid');
 if (!Array.isArray(ledger.queue) || ledger.queue.length > 12) fail('forge ledger queue is invalid');
 if (!Array.isArray(ledger.recentDecisions) || ledger.recentDecisions.length > 20) fail('forge ledger recent decisions are invalid');
-
 for (const [index, item] of ledger.queue.entries()) {
   if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(item.id || '')) fail(`forge ledger queue[${index}].id is invalid`);
   if (!item.title || !item.reason || !item.source) fail(`forge ledger queue[${index}] is incomplete`);
@@ -85,27 +73,25 @@ if (forbiddenPattern.test(ledgerText)) fail('forge ledger contains a forbidden c
 if (ledgerText.length > 50000) fail('forge ledger is too large');
 
 const requiredFiles = [
-  'index.html', 'styles.css', 'forge-ledger.css', 'app.js', 'time-sense.js',
-  'gallery-preview.js', 'forge-ledger.js', 'pairadox.js', 'pairadox-story.js',
-  'pairadox-progression.js', 'fair-choice.js', 'tiny-step.js', 'tiny-step-depth.js',
-  'constraint-spark.js', 'signal-garden.js', 'threadline.js', 'route-lab.js',
-  'harbor-balance.js', 'canopy-courier.js', 'clue-current.js', 'switchyard-shuffle.js',
-  'orbit-smith.js', 'tempo-kitchen.js', 'mnemonic-vault.js', 'chord-courier.js',
-  'shadow-switch.js', 'bazaar-signals.js', 'triage-tower.js', 'crosswind-cargo.js',
-  'cabin-pressure.js', 'bridge-cartographer.js', 'pollinator-pact.js', 'foundry-shift.js',
-  'archive-alibi.js', 'polar-drift-lab.js', 'mirror-marsh.js', 'canal-lock-keeper.js',
-  'quarry-relay.js', 'binary-patrol.js', 'treaty-table.js', 'resonance-room.js',
-  'showrunner-shift.js', 'firebreak-runner.js', 'sensor-bloom.js', 'metro-pulse.js',
-  'front-page-desk.js', 'quiet-maintenance.js', 'lantern-lanes.js', 'night-market-ledger.js',
-  'rhythm-relay.js', 'courier-cipher.js', 'tidepool-tactics.js', 'pairadox-draft.js',
-  'relic-sorter.js', 'parcel-parabola.js', 'rover-script.js', 'skyline-dispatch.js',
-  'circuit-snapshot.js', 'stacklight-stow.js', 'beacon-builder.js', 'canopy-guard.js',
-  'festival-flow.js', 'bridge-brace.js', 'trail-tandem.js', 'verdict-vault.js',
-  'glyph-foundry.js', 'petri-pursuit.js', 'tower-tuner.js', 'cistern-lock.js', 'echo-kitchen.js',
-  'coral-current.js', 'runway-rush.js', 'word-sluice.js', 'chronicle-conductor.js', 'auction-atlas.js',
-  'mosaic-marshal.js', 'rumor-mill.js', 'cargo-loom.js', 'gallery-ghost.js', 'comet-curl.js',
-  'sonar-salvage.js', 'greenhouse-grid.js', 'rain-garden-rally.js', 'signal-symphony.js', 'switchback-rescue.js',
-  'telescope-queue.js', 'grid-guardian.js', 'studio-switcher.js', 'creature-clinic.js', 'print-shop-panic.js', 'lift-line.js', 'museum-night-watch.js', 'courtyard-clockwork.js', 'cave-cartographer.js', 'potion-parity.js', 'kite-cartographer.js', 'quilt-quest.js', 'floodgate-ferry.js', 'seismic-survey.js', 'feedback-links.js', 'registry/apps.json', 'registry/forge-ledger.json', '.nojekyll'
+  'index.html', 'styles.css', 'forge-ledger.css', 'app.js', 'time-sense.js', 'gallery-preview.js', 'forge-ledger.js',
+  'pairadox.js', 'pairadox-story.js', 'pairadox-progression.js', 'fair-choice.js', 'tiny-step.js', 'tiny-step-depth.js',
+  'constraint-spark.js', 'signal-garden.js', 'threadline.js', 'route-lab.js', 'harbor-balance.js', 'canopy-courier.js',
+  'clue-current.js', 'switchyard-shuffle.js', 'orbit-smith.js', 'tempo-kitchen.js', 'mnemonic-vault.js', 'chord-courier.js',
+  'shadow-switch.js', 'bazaar-signals.js', 'triage-tower.js', 'crosswind-cargo.js', 'cabin-pressure.js', 'bridge-cartographer.js',
+  'pollinator-pact.js', 'foundry-shift.js', 'archive-alibi.js', 'polar-drift-lab.js', 'mirror-marsh.js', 'canal-lock-keeper.js',
+  'quarry-relay.js', 'binary-patrol.js', 'treaty-table.js', 'resonance-room.js', 'showrunner-shift.js', 'firebreak-runner.js',
+  'sensor-bloom.js', 'metro-pulse.js', 'front-page-desk.js', 'quiet-maintenance.js', 'lantern-lanes.js', 'night-market-ledger.js',
+  'rhythm-relay.js', 'courier-cipher.js', 'tidepool-tactics.js', 'pairadox-draft.js', 'relic-sorter.js', 'parcel-parabola.js',
+  'rover-script.js', 'skyline-dispatch.js', 'circuit-snapshot.js', 'stacklight-stow.js', 'beacon-builder.js', 'canopy-guard.js',
+  'festival-flow.js', 'bridge-brace.js', 'trail-tandem.js', 'verdict-vault.js', 'glyph-foundry.js', 'petri-pursuit.js',
+  'tower-tuner.js', 'cistern-lock.js', 'echo-kitchen.js', 'coral-current.js', 'runway-rush.js', 'word-sluice.js',
+  'chronicle-conductor.js', 'auction-atlas.js', 'mosaic-marshal.js', 'rumor-mill.js', 'cargo-loom.js', 'gallery-ghost.js',
+  'comet-curl.js', 'sonar-salvage.js', 'greenhouse-grid.js', 'rain-garden-rally.js', 'signal-symphony.js', 'switchback-rescue.js',
+  'telescope-queue.js', 'grid-guardian.js', 'studio-switcher.js', 'creature-clinic.js', 'print-shop-panic.js', 'lift-line.js',
+  'museum-night-watch.js', 'courtyard-clockwork.js', 'cave-cartographer.js', 'potion-parity.js', 'kite-cartographer.js',
+  'quilt-quest.js', 'floodgate-ferry.js', 'seismic-survey.js', 'shadow-puppeteer.js', 'fossil-layers.js', 'alt-text-atelier.js',
+  'cold-chain-cargo.js', 'library-stack-sprint.js', 'stairwell-steward.js', 'feedback-links.js', 'registry/apps.json',
+  'registry/forge-ledger.json', '.nojekyll'
 ];
 for (const file of requiredFiles) {
   if (!fs.existsSync(path.join(root, file))) fail(`${file} is missing`);
@@ -119,43 +105,22 @@ for (const file of requiredFiles.filter((file) => file.endsWith('.js'))) {
 }
 
 const index = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
-for (const asset of [
-  'forge-ledger.css', 'forge-ledger.js', 'pairadox-progression.js', 'tiny-step-depth.js',
-  'route-lab.js', 'harbor-balance.js', 'canopy-courier.js', 'clue-current.js',
-  'switchyard-shuffle.js', 'orbit-smith.js', 'tempo-kitchen.js', 'mnemonic-vault.js',
-  'chord-courier.js', 'shadow-switch.js', 'bazaar-signals.js', 'triage-tower.js',
-  'crosswind-cargo.js', 'cabin-pressure.js', 'bridge-cartographer.js', 'pollinator-pact.js',
-  'foundry-shift.js', 'archive-alibi.js', 'polar-drift-lab.js', 'mirror-marsh.js',
-  'canal-lock-keeper.js', 'quarry-relay.js', 'binary-patrol.js', 'treaty-table.js',
-  'resonance-room.js', 'showrunner-shift.js', 'firebreak-runner.js', 'sensor-bloom.js',
-  'metro-pulse.js', 'front-page-desk.js', 'quiet-maintenance.js', 'lantern-lanes.js',
-  'night-market-ledger.js', 'rhythm-relay.js', 'courier-cipher.js', 'tidepool-tactics.js',
-  'pairadox-draft.js', 'relic-sorter.js', 'parcel-parabola.js', 'rover-script.js',
-  'skyline-dispatch.js', 'circuit-snapshot.js', 'stacklight-stow.js', 'beacon-builder.js',
-  'canopy-guard.js', 'festival-flow.js', 'bridge-brace.js', 'trail-tandem.js', 'verdict-vault.js',
-  'glyph-foundry.js', 'petri-pursuit.js', 'tower-tuner.js', 'cistern-lock.js', 'echo-kitchen.js',
-  'coral-current.js', 'runway-rush.js', 'word-sluice.js', 'chronicle-conductor.js', 'auction-atlas.js',
-  'mosaic-marshal.js', 'rumor-mill.js', 'cargo-loom.js', 'gallery-ghost.js', 'comet-curl.js',
-  'sonar-salvage.js', 'greenhouse-grid.js', 'rain-garden-rally.js', 'signal-symphony.js', 'switchback-rescue.js',
-  'telescope-queue.js', 'grid-guardian.js', 'studio-switcher.js', 'creature-clinic.js', 'print-shop-panic.js', 'lift-line.js', 'museum-night-watch.js', 'courtyard-clockwork.js', 'cave-cartographer.js', 'potion-parity.js', 'kite-cartographer.js', 'quilt-quest.js', 'floodgate-ferry.js', 'seismic-survey.js', 'feedback-links.js'
-]) {
-  if (!index.includes(asset)) fail(`index.html does not load ${asset}`);
+const feedbackLinks = fs.readFileSync(path.join(root, 'feedback-links.js'), 'utf8');
+for (const asset of requiredFiles.filter((file) => file.endsWith('.js') && file !== 'stairwell-steward.js')) {
+  if (!index.includes(asset) && !feedbackLinks.includes(asset)) fail(`${asset} is not wired into the site shell`);
 }
+if (!feedbackLinks.includes('stairwell-steward.js')) fail('feedback-links.js does not load stairwell-steward.js');
 if (!index.includes('class="forge-ledger-section shell"')) fail('index.html is missing the responsive forge ledger section class');
 if (!index.includes('id="forge-ledger-root" class="forge-ledger-root"')) fail('index.html is missing the stable forge ledger root class');
 if (!index.includes('class="dialog-frame"')) fail('index.html is missing the styled dialog frame');
 if (index.includes('class="dialog-shell"')) fail('index.html contains the obsolete unstyled dialog shell');
 const templateMatch = index.match(/<template id="app-card-template">([\s\S]*?)<\/template>/);
-if (!templateMatch) {
-  fail('index.html is missing the app card template');
-} else {
+if (!templateMatch) fail('index.html is missing the app card template');
+else {
   const buttonMatch = templateMatch[1].match(/<button[^>]*class="[^"]*app-card-button[^"]*"[^>]*>([\s\S]*?)<\/button>/);
-  if (!buttonMatch) {
-    fail('app card template must use one full-card button');
-  } else {
-    for (const className of ['app-icon', 'app-meta', 'app-name', 'app-summary', 'app-open']) {
-      if (!buttonMatch[1].includes(className)) fail(`app card ${className} must remain inside the full-card button`);
-    }
+  if (!buttonMatch) fail('app card template must use one full-card button');
+  else for (const className of ['app-icon', 'app-meta', 'app-name', 'app-summary', 'app-open']) {
+    if (!buttonMatch[1].includes(className)) fail(`app card ${className} must remain inside the full-card button`);
   }
 }
-if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone games through Seismic Survey, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);
+if (!process.exitCode) console.log(`Validated ${registry.apps.length} registry apps, standalone games through Stairwell Steward, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);

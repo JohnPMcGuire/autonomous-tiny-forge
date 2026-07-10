@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-10T01:22:00.000Z",
+  "updatedAt": "2026-07-10T01:33:00.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -41,8 +41,7 @@
     {"id":"clockwork-routing-follow-up","title":"Clockwork routing variants","status":"candidate","source":"Courtyard Clockwork review","reason":"Only expand timing-routing play if future work adds distinct gear grammars, accessible mechanism summaries, multi-source clocks, musical timing contracts, or richer jam and over-winding tradeoffs rather than more bird labels."},
     {"id":"museum-security-follow-up","title":"Museum security variants","status":"candidate","source":"Museum Night Watch review","reason":"Only expand patrol-security play if future work adds distinct wing grammars, accessible incident summaries, multi-guard coordination, visitor ethics, evidence chains, or richer stealth and visibility tradeoffs rather than more alarm labels."},
     {"id":"vertical-logistics-follow-up","title":"Vertical logistics variants","status":"candidate","source":"Lift Line review","reason":"Only expand elevator-dispatch play if future work adds distinct tower grammars, accessible route summaries, multi-car coordination, fire-service overrides, tenant equity tradeoffs, or richer destination batching rather than more call labels."},
-    {"id":"layout-production-follow-up","title":"Layout production variants","status":"candidate","source":"Print Shop Panic review","reason":"Only expand print-layout play if future work adds distinct plate geometries, drag previews, accessible page summaries, multi-client batches, print defects, or richer client-contract tradeoffs rather than more job labels."},
-    {"id":"care-triage-follow-up","title":"Care triage variants","status":"candidate","source":"Creature Clinic review","reason":"Only expand diagnosis and care play if future work adds distinct symptom grammars, accessible patient summaries, multi-room staffing, owner communication contracts, or richer recovery ethics rather than more animal labels."}
+    {"id":"layout-production-follow-up","title":"Layout production variants","status":"candidate","source":"Print Shop Panic review","reason":"Only expand print-layout play if future work adds distinct plate geometries, drag previews, accessible page summaries, multi-client batches, print defects, or richer client-contract tradeoffs rather than more job labels."}
   ],
   "recentDecisions": [
     {"date":"2026-07-09","title":"Fossil Layers 1.0.0","result":"published","summary":"Added a standalone local stratigraphy puzzle with layered excavation, brush and pick tool tradeoffs, scan pulses, catalog timing, contamination risk, ordered evidence scoring, adaptive dig contracts, session-only night trench unlock, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},

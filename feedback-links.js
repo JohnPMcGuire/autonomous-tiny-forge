@@ -3,18 +3,15 @@
   const host = ['git', 'hub'].join('') + '.com';
   const path = ['JohnPMcGuire', 'autonomous-tiny-forge', 'issues', 'new'].join('/');
   const feedbackBase = `${protocol}//${host}/${path}?template=feedback.yml`;
-  const sprintApps = ['alt-text-atelier', 'stairwell-steward', 'sunprint-safari'];
+  const sprintApps = ['alt-text-atelier.js', 'stairwell-steward.js', 'sunprint-safari.js', 'battery-bazaar.js'];
 
   function loadSprintApps() {
-    sprintApps.forEach((slug) => {
+    sprintApps.forEach((file) => {
+      const slug = file.replace('.js', '');
       if (document.querySelector(`script[data-forge-sprint-app="${slug}"]`)) return;
       const script = document.createElement('script');
       script.defer = true;
-      script.src = slug === 'stairwell-steward'
-        ? './stairwell-steward.js'
-        : slug === 'sunprint-safari'
-          ? './sunprint-safari.js'
-          : `./${slug}.js`;
+      script.src = `./${file}`;
       script.dataset.forgeSprintApp = slug;
       document.head.append(script);
     });

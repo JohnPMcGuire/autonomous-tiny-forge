@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-10T04:59:00.000Z",
+  "updatedAt": "2026-07-10T06:59:00.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -50,6 +50,13 @@
     "Repository validation must pass before main is published"
   ],
   "queue": [
+    {
+      "id": "library-operations-follow-up",
+      "title": "Library operations variants",
+      "status": "candidate",
+      "source": "Library Stack Sprint review",
+      "reason": "Only expand library operations if future work adds distinct catalog grammars, accessible aisle summaries, multi-floor routing, hold-desk ethics, or richer silence and patron-priority tradeoffs rather than more book labels."
+    },
     {
       "id": "cold-chain-logistics-follow-up",
       "title": "Cold chain logistics variants",
@@ -138,6 +145,19 @@
   "recentDecisions": [
     {
       "date": "2026-07-10",
+      "title": "Library Stack Sprint 1.0.0",
+      "result": "published",
+      "summary": "Added a standalone local library time-management game with shelf sorting, patron queues, cart capacity, patience decay, quiet-point tradeoffs, session-only archive shift unlock, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive shell contract",
+        "Ledger schema",
+        "Required asset wiring",
+        "Safety rules"
+      ]
+    },
+    {
+      "date": "2026-07-10",
       "title": "Cold Chain Cargo 1.0.0",
       "result": "published",
       "summary": "Added a standalone local cold-chain packing game with spatial cargo placement, rotation, temperature zones, battery-powered cooling, deadlines, spoilage risk, route scoring, contract modes, session-only express manifests, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.",
@@ -193,71 +213,6 @@
       "title": "Seismic Survey 1.0.0",
       "result": "published",
       "summary": "Added a standalone local spatial inference game with sensor placement, noisy distance bands, limited probes, budget and trust resources, aftershock echoes, evacuation-zone calls, adaptive survey contracts, session-only deep fault unlock, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.",
-      "checks": [
-        "JavaScript syntax",
-        "Responsive shell contract",
-        "Ledger schema",
-        "Required asset wiring",
-        "Safety rules"
-      ]
-    },
-    {
-      "date": "2026-07-09",
-      "title": "Floodgate Ferry 1.0.0",
-      "result": "published",
-      "summary": "Added a standalone local spatial routing game with rotating current gates, moving ferries, cargo-specific exits, tide steps, limited rudder actions, hull damage, patience pressure, repair choices, adaptive harbor contracts, session-only storm lock unlock, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.",
-      "checks": [
-        "JavaScript syntax",
-        "Responsive shell contract",
-        "Ledger schema",
-        "Required asset wiring",
-        "Safety rules"
-      ]
-    },
-    {
-      "date": "2026-07-09",
-      "title": "Quilt Quest 1.0.0",
-      "result": "published",
-      "summary": "Added a standalone local tactile pattern puzzle with drag, tap, keyboard placement, scarce fabric scraps, client contracts, symmetry and contrast scoring, seam-stress mistakes, repair choices, adaptive orders, session-only star sampler unlock, reduced-motion behavior, optional local audio, and teardown.",
-      "checks": [
-        "JavaScript syntax",
-        "Responsive shell contract",
-        "Ledger schema",
-        "Required asset wiring",
-        "Safety rules"
-      ]
-    },
-    {
-      "date": "2026-07-09",
-      "title": "Kite Cartographer 1.0.0",
-      "result": "published",
-      "summary": "Added a standalone local wind-navigation arcade strategy game with gust forecasting, drag and keyboard steering, tension and stamina resources, marker routing, reel and dive recovery choices, adaptive modes, session-only storm-front unlock, scoring, responsive canvas motion, reduced-motion behavior, optional local audio, and teardown.",
-      "checks": [
-        "JavaScript syntax",
-        "Responsive shell contract",
-        "Ledger schema",
-        "Required asset wiring",
-        "Safety rules"
-      ]
-    },
-    {
-      "date": "2026-07-09",
-      "title": "Potion Parity 1.0.0",
-      "result": "published",
-      "summary": "Added a standalone local potion-balancing puzzle with recipe contracts, interacting ingredients, heat timing, instability, purify and vent recovery actions, adaptive modes, session-only eclipse recipe unlock, scoring, responsive DOM cauldron rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.",
-      "checks": [
-        "JavaScript syntax",
-        "Responsive shell contract",
-        "Ledger schema",
-        "Required asset wiring",
-        "Safety rules"
-      ]
-    },
-    {
-      "date": "2026-07-09",
-      "title": "Cave Cartographer 1.0.0",
-      "result": "published",
-      "summary": "Added a standalone local fog-of-war cave exploration game with map memory, rope, lantern fuel, oxygen pressure, chalk marks, scan pulses, cave-in risk, sample collection, extraction timing, adaptive modes, session-only crystal-depth unlock, scoring, responsive DOM cave rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.",
       "checks": [
         "JavaScript syntax",
         "Responsive shell contract",

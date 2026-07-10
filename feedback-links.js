@@ -10,7 +10,7 @@
       if (document.querySelector(`script[data-forge-sprint-app="${slug}"]`)) return;
       const script = document.createElement('script');
       script.defer = true;
-      script.src = `./${slug}.js`;
+      script.src = slug === 'stairwell-steward' ? './stairwell-steward.js' : `./${slug}.js`;
       script.dataset.forgeSprintApp = slug;
       document.head.append(script);
     });

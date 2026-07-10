@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-10T03:20:00.000Z",
+  "updatedAt": "2026-07-10T04:59:00.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -16,11 +16,31 @@
     "secondaryAutomation": "A separate GitHub Actions workflow runs Tuesday and Friday at 15:17 UTC. It can only create or improve approved declarative-engine apps and records accepted publishes in this ledger."
   },
   "method": [
-    {"id":"inspect","label":"Inspect","description":"Review the live site, repository, current apps, open feedback, bugs, depth, accessibility, and portfolio gaps."},
-    {"id":"compare","label":"Compare","description":"Consider at least three candidate changes and choose the one that creates the strongest useful depth or breadth."},
-    {"id":"build","label":"Build one","description":"Create or improve one coherent feature or app, including mobile, keyboard, touch, reduced-motion, teardown, and edge cases."},
-    {"id":"validate","label":"Validate","description":"Run JavaScript syntax checks, feedback-routing tests, registry rules, required-file checks, and safety-boundary validation."},
-    {"id":"publish","label":"Publish or skip","description":"Merge and deploy only after every required check passes. Skip when the candidate is weak, unsafe, duplicative, or incomplete."}
+    {
+      "id": "inspect",
+      "label": "Inspect",
+      "description": "Review the live site, repository, current apps, open feedback, bugs, depth, accessibility, and portfolio gaps."
+    },
+    {
+      "id": "compare",
+      "label": "Compare",
+      "description": "Consider at least three candidate changes and choose the one that creates the strongest useful depth or breadth."
+    },
+    {
+      "id": "build",
+      "label": "Build one",
+      "description": "Create or improve one coherent feature or app, including mobile, keyboard, touch, reduced-motion, teardown, and edge cases."
+    },
+    {
+      "id": "validate",
+      "label": "Validate",
+      "description": "Run JavaScript syntax checks, feedback-routing tests, registry rules, required-file checks, and safety-boundary validation."
+    },
+    {
+      "id": "publish",
+      "label": "Publish or skip",
+      "description": "Merge and deploy only after every required check passes. Skip when the candidate is weak, unsafe, duplicative, or incomplete."
+    }
   ],
   "qualityGates": [
     "One coherent change maximum per review window",
@@ -30,29 +50,221 @@
     "Repository validation must pass before main is published"
   ],
   "queue": [
-    {"id":"accessibility-writing-follow-up","title":"Accessibility writing variants","status":"candidate","source":"Alt Text Atelier review","reason":"Only expand alt-text play if future work adds distinct accessibility grammars, richer screen-reader previews, long-description decisions, multilingual context checks, or stronger decorative-versus-informative tradeoffs rather than more scene labels."},
-    {"id":"stratigraphy-excavation-follow-up","title":"Stratigraphy excavation variants","status":"candidate","source":"Fossil Layers review","reason":"Only expand excavation play if future work adds distinct dating grammars, accessible trench summaries, multi-team dig permits, conservation ethics, or richer contamination and catalog-order tradeoffs rather than more artifact labels."},
-    {"id":"shadow-theater-follow-up","title":"Shadow projection variants","status":"candidate","source":"Shadow Puppeteer review","reason":"Only expand projection play if future work adds distinct light physics, accessible silhouette summaries, multi-light interference, backstage contracts, or richer prop economy tradeoffs rather than more puppet labels."},
-    {"id":"measurement-inference-follow-up","title":"Measurement inference variants","status":"candidate","source":"Seismic Survey review","reason":"Only expand triangulation and survey play if future work adds distinct measurement grammars, accessible confidence summaries, multi-team survey costs, evacuation ethics, or richer noisy-reading tradeoffs rather than more hazard labels."},
-    {"id":"water-routing-follow-up","title":"Water routing variants","status":"candidate","source":"Floodgate Ferry review","reason":"Only expand ferry and lock-routing play if future work adds distinct water grammars, accessible harbor summaries, multi-boat collision previews, tide ethics, rescue contracts, or richer current and hull tradeoffs rather than more cargo labels."},
-    {"id":"pattern-construction-follow-up","title":"Pattern construction variants","status":"candidate","source":"Quilt Quest review","reason":"Only expand tactile pattern-building play if future work adds distinct block grammars, accessible quilt summaries, drag-to-swap previews, multi-client commissions, fabric economy contracts, or richer symmetry and seam-stress tradeoffs rather than more fabric labels."},
-    {"id":"wind-navigation-follow-up","title":"Wind navigation variants","status":"candidate","source":"Kite Cartographer review","reason":"Only expand wind-navigation play if future work adds distinct wind grammars, accessible flight summaries, route contracts, multi-kite coordination, weather ethics, or richer forecast and line-tension tradeoffs rather than more marker labels."},
-    {"id":"potion-combinatorics-follow-up","title":"Potion combinatorics variants","status":"candidate","source":"Potion Parity review","reason":"Only expand potion-balancing play if future work adds distinct recipe grammars, accessible brew summaries, drag-to-cauldron support, multi-cauldron timing, apprentice requests, or richer ingredient synergies rather than more ingredient labels."},
-    {"id":"cave-exploration-follow-up","title":"Cave exploration variants","status":"candidate","source":"Cave Cartographer review","reason":"Only expand cave-exploration play if future work adds distinct cave grammars, accessible route summaries, multi-explorer coordination, rescue contracts, environmental ethics, or richer fog-of-war and exit-risk tradeoffs rather than more specimen labels."},
-    {"id":"clockwork-routing-follow-up","title":"Clockwork routing variants","status":"candidate","source":"Courtyard Clockwork review","reason":"Only expand timing-routing play if future work adds distinct gear grammars, accessible mechanism summaries, multi-source clocks, musical timing contracts, or richer jam and over-winding tradeoffs rather than more bird labels."},
-    {"id":"museum-security-follow-up","title":"Museum security variants","status":"candidate","source":"Museum Night Watch review","reason":"Only expand patrol-security play if future work adds distinct wing grammars, accessible incident summaries, multi-guard coordination, visitor ethics, evidence chains, or richer stealth and visibility tradeoffs rather than more alarm labels."},
-    {"id":"vertical-logistics-follow-up","title":"Vertical logistics variants","status":"candidate","source":"Lift Line review","reason":"Only expand elevator-dispatch play if future work adds distinct tower grammars, accessible route summaries, multi-car coordination, fire-service overrides, tenant equity tradeoffs, or richer destination batching rather than more call labels."}
+    {
+      "id": "cold-chain-logistics-follow-up",
+      "title": "Cold chain logistics variants",
+      "status": "candidate",
+      "source": "Cold Chain Cargo review",
+      "reason": "Only expand cold-chain play if future work adds distinct loading grammars, accessible route summaries, multi-van coordination, dispatch ethics, or richer spoilage and cooling tradeoffs rather than more shipment labels."
+    },
+    {
+      "id": "accessibility-writing-follow-up",
+      "title": "Accessibility writing variants",
+      "status": "candidate",
+      "source": "Alt Text Atelier review",
+      "reason": "Only expand alt-text play if future work adds distinct accessibility grammars, richer screen-reader previews, long-description decisions, multilingual context checks, or stronger decorative-versus-informative tradeoffs rather than more scene labels."
+    },
+    {
+      "id": "stratigraphy-excavation-follow-up",
+      "title": "Stratigraphy excavation variants",
+      "status": "candidate",
+      "source": "Fossil Layers review",
+      "reason": "Only expand excavation play if future work adds distinct dating grammars, accessible trench summaries, multi-team dig permits, conservation ethics, or richer contamination and catalog-order tradeoffs rather than more artifact labels."
+    },
+    {
+      "id": "shadow-theater-follow-up",
+      "title": "Shadow projection variants",
+      "status": "candidate",
+      "source": "Shadow Puppeteer review",
+      "reason": "Only expand projection play if future work adds distinct light physics, accessible silhouette summaries, multi-light interference, backstage contracts, or richer prop economy tradeoffs rather than more puppet labels."
+    },
+    {
+      "id": "measurement-inference-follow-up",
+      "title": "Measurement inference variants",
+      "status": "candidate",
+      "source": "Seismic Survey review",
+      "reason": "Only expand triangulation and survey play if future work adds distinct measurement grammars, accessible confidence summaries, multi-team survey costs, evacuation ethics, or richer noisy-reading tradeoffs rather than more hazard labels."
+    },
+    {
+      "id": "water-routing-follow-up",
+      "title": "Water routing variants",
+      "status": "candidate",
+      "source": "Floodgate Ferry review",
+      "reason": "Only expand ferry and lock-routing play if future work adds distinct water grammars, accessible harbor summaries, multi-boat collision previews, tide ethics, rescue contracts, or richer current and hull tradeoffs rather than more cargo labels."
+    },
+    {
+      "id": "pattern-construction-follow-up",
+      "title": "Pattern construction variants",
+      "status": "candidate",
+      "source": "Quilt Quest review",
+      "reason": "Only expand tactile pattern-building play if future work adds distinct block grammars, accessible quilt summaries, drag-to-swap previews, multi-client commissions, fabric economy contracts, or richer symmetry and seam-stress tradeoffs rather than more fabric labels."
+    },
+    {
+      "id": "wind-navigation-follow-up",
+      "title": "Wind navigation variants",
+      "status": "candidate",
+      "source": "Kite Cartographer review",
+      "reason": "Only expand wind-navigation play if future work adds distinct wind grammars, accessible flight summaries, route contracts, multi-kite coordination, weather ethics, or richer forecast and line-tension tradeoffs rather than more marker labels."
+    },
+    {
+      "id": "potion-combinatorics-follow-up",
+      "title": "Potion combinatorics variants",
+      "status": "candidate",
+      "source": "Potion Parity review",
+      "reason": "Only expand potion-balancing play if future work adds distinct recipe grammars, accessible brew summaries, drag-to-cauldron support, multi-cauldron timing, apprentice requests, or richer ingredient synergies rather than more ingredient labels."
+    },
+    {
+      "id": "cave-exploration-follow-up",
+      "title": "Cave exploration variants",
+      "status": "candidate",
+      "source": "Cave Cartographer review",
+      "reason": "Only expand cave-exploration play if future work adds distinct cave grammars, accessible route summaries, multi-explorer coordination, rescue contracts, environmental ethics, or richer fog-of-war and exit-risk tradeoffs rather than more specimen labels."
+    },
+    {
+      "id": "clockwork-routing-follow-up",
+      "title": "Clockwork routing variants",
+      "status": "candidate",
+      "source": "Courtyard Clockwork review",
+      "reason": "Only expand timing-routing play if future work adds distinct gear grammars, accessible mechanism summaries, multi-source clocks, musical timing contracts, or richer jam and over-winding tradeoffs rather than more bird labels."
+    },
+    {
+      "id": "museum-security-follow-up",
+      "title": "Museum security variants",
+      "status": "candidate",
+      "source": "Museum Night Watch review",
+      "reason": "Only expand patrol-security play if future work adds distinct wing grammars, accessible incident summaries, multi-guard coordination, visitor ethics, evidence chains, or richer stealth and visibility tradeoffs rather than more alarm labels."
+    }
   ],
   "recentDecisions": [
-    {"date":"2026-07-09","title":"Alt Text Atelier 1.0.0","result":"published","summary":"Added a standalone local accessibility writing game with stylized scene cards, token drafting, word budgets, decorative-image decisions, context-specific scoring, redundancy penalties, revision limits, session-only expert briefs, touch, drag and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
-    {"date":"2026-07-09","title":"Fossil Layers 1.0.0","result":"published","summary":"Added a standalone local stratigraphy puzzle with layered excavation, brush and pick tool tradeoffs, scan pulses, catalog timing, contamination risk, ordered evidence scoring, adaptive dig contracts, session-only night trench unlock, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
-    {"date":"2026-07-09","title":"Shadow Puppeteer 1.0.0","result":"published","summary":"Added a standalone local projection puzzle with draggable lights and puppet blockers, target silhouette contracts, gel and focus resources, cue scoring, shape swapping, adaptive theater modes, session-only moonlight unlock, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
-    {"date":"2026-07-09","title":"Seismic Survey 1.0.0","result":"published","summary":"Added a standalone local spatial inference game with sensor placement, noisy distance bands, limited probes, budget and trust resources, aftershock echoes, evacuation-zone calls, adaptive survey contracts, session-only deep fault unlock, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
-    {"date":"2026-07-09","title":"Floodgate Ferry 1.0.0","result":"published","summary":"Added a standalone local spatial routing game with rotating current gates, moving ferries, cargo-specific exits, tide steps, limited rudder actions, hull damage, patience pressure, repair choices, adaptive harbor contracts, session-only storm lock unlock, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
-    {"date":"2026-07-09","title":"Quilt Quest 1.0.0","result":"published","summary":"Added a standalone local tactile pattern puzzle with drag, tap, keyboard placement, scarce fabric scraps, client contracts, symmetry and contrast scoring, seam-stress mistakes, repair choices, adaptive orders, session-only star sampler unlock, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
-    {"date":"2026-07-09","title":"Kite Cartographer 1.0.0","result":"published","summary":"Added a standalone local wind-navigation arcade strategy game with gust forecasting, drag and keyboard steering, tension and stamina resources, marker routing, reel and dive recovery choices, adaptive modes, session-only storm-front unlock, scoring, responsive canvas motion, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
-    {"date":"2026-07-09","title":"Potion Parity 1.0.0","result":"published","summary":"Added a standalone local potion-balancing puzzle with recipe contracts, interacting ingredients, heat timing, instability, purify and vent recovery actions, adaptive modes, session-only eclipse recipe unlock, scoring, responsive DOM cauldron rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
-    {"date":"2026-07-09","title":"Cave Cartographer 1.0.0","result":"published","summary":"Added a standalone local fog-of-war cave exploration game with map memory, rope, lantern fuel, oxygen pressure, chalk marks, scan pulses, cave-in risk, sample collection, extraction timing, adaptive modes, session-only crystal-depth unlock, scoring, responsive DOM cave rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
-    {"date":"2026-07-08","title":"Courtyard Clockwork 1.0.0","result":"published","summary":"Added a standalone local timing-and-spatial clockwork puzzle with gear placement, timed gates, wind and oil resources, jam risk and recovery, bird-awakening targets, adaptive modes, session-only moon mechanism unlock, scoring, responsive SVG and DOM courtyard rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]}
+    {
+      "date": "2026-07-10",
+      "title": "Cold Chain Cargo 1.0.0",
+      "result": "published",
+      "summary": "Added a standalone local cold-chain packing game with spatial cargo placement, rotation, temperature zones, battery-powered cooling, deadlines, spoilage risk, route scoring, contract modes, session-only express manifests, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive shell contract",
+        "Ledger schema",
+        "Required asset wiring",
+        "Safety rules"
+      ]
+    },
+    {
+      "date": "2026-07-09",
+      "title": "Alt Text Atelier 1.0.0",
+      "result": "published",
+      "summary": "Added a standalone local accessibility writing game with stylized scene cards, token drafting, word budgets, decorative-image decisions, context-specific scoring, redundancy penalties, revision limits, session-only expert briefs, touch, drag and keyboard controls, reduced-motion behavior, optional local audio, and teardown.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive shell contract",
+        "Ledger schema",
+        "Required asset wiring",
+        "Safety rules"
+      ]
+    },
+    {
+      "date": "2026-07-09",
+      "title": "Fossil Layers 1.0.0",
+      "result": "published",
+      "summary": "Added a standalone local stratigraphy puzzle with layered excavation, brush and pick tool tradeoffs, scan pulses, catalog timing, contamination risk, ordered evidence scoring, adaptive dig contracts, session-only night trench unlock, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive shell contract",
+        "Ledger schema",
+        "Required asset wiring",
+        "Safety rules"
+      ]
+    },
+    {
+      "date": "2026-07-09",
+      "title": "Shadow Puppeteer 1.0.0",
+      "result": "published",
+      "summary": "Added a standalone local projection puzzle with draggable lights and puppet blockers, target silhouette contracts, gel and focus resources, cue scoring, shape swapping, adaptive theater modes, session-only moonlight unlock, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive shell contract",
+        "Ledger schema",
+        "Required asset wiring",
+        "Safety rules"
+      ]
+    },
+    {
+      "date": "2026-07-09",
+      "title": "Seismic Survey 1.0.0",
+      "result": "published",
+      "summary": "Added a standalone local spatial inference game with sensor placement, noisy distance bands, limited probes, budget and trust resources, aftershock echoes, evacuation-zone calls, adaptive survey contracts, session-only deep fault unlock, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive shell contract",
+        "Ledger schema",
+        "Required asset wiring",
+        "Safety rules"
+      ]
+    },
+    {
+      "date": "2026-07-09",
+      "title": "Floodgate Ferry 1.0.0",
+      "result": "published",
+      "summary": "Added a standalone local spatial routing game with rotating current gates, moving ferries, cargo-specific exits, tide steps, limited rudder actions, hull damage, patience pressure, repair choices, adaptive harbor contracts, session-only storm lock unlock, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive shell contract",
+        "Ledger schema",
+        "Required asset wiring",
+        "Safety rules"
+      ]
+    },
+    {
+      "date": "2026-07-09",
+      "title": "Quilt Quest 1.0.0",
+      "result": "published",
+      "summary": "Added a standalone local tactile pattern puzzle with drag, tap, keyboard placement, scarce fabric scraps, client contracts, symmetry and contrast scoring, seam-stress mistakes, repair choices, adaptive orders, session-only star sampler unlock, reduced-motion behavior, optional local audio, and teardown.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive shell contract",
+        "Ledger schema",
+        "Required asset wiring",
+        "Safety rules"
+      ]
+    },
+    {
+      "date": "2026-07-09",
+      "title": "Kite Cartographer 1.0.0",
+      "result": "published",
+      "summary": "Added a standalone local wind-navigation arcade strategy game with gust forecasting, drag and keyboard steering, tension and stamina resources, marker routing, reel and dive recovery choices, adaptive modes, session-only storm-front unlock, scoring, responsive canvas motion, reduced-motion behavior, optional local audio, and teardown.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive shell contract",
+        "Ledger schema",
+        "Required asset wiring",
+        "Safety rules"
+      ]
+    },
+    {
+      "date": "2026-07-09",
+      "title": "Potion Parity 1.0.0",
+      "result": "published",
+      "summary": "Added a standalone local potion-balancing puzzle with recipe contracts, interacting ingredients, heat timing, instability, purify and vent recovery actions, adaptive modes, session-only eclipse recipe unlock, scoring, responsive DOM cauldron rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive shell contract",
+        "Ledger schema",
+        "Required asset wiring",
+        "Safety rules"
+      ]
+    },
+    {
+      "date": "2026-07-09",
+      "title": "Cave Cartographer 1.0.0",
+      "result": "published",
+      "summary": "Added a standalone local fog-of-war cave exploration game with map memory, rope, lantern fuel, oxygen pressure, chalk marks, scan pulses, cave-in risk, sample collection, extraction timing, adaptive modes, session-only crystal-depth unlock, scoring, responsive DOM cave rendering, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive shell contract",
+        "Ledger schema",
+        "Required asset wiring",
+        "Safety rules"
+      ]
+    }
   ]
 }

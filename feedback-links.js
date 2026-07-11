@@ -3,7 +3,7 @@
   const host = ['git', 'hub'].join('') + '.com';
   const path = ['JohnPMcGuire', 'autonomous-tiny-forge', 'issues', 'new'].join('/');
   const feedbackBase = `${protocol}//${host}/${path}?template=feedback.yml`;
-  const sprintApps = ['alt-text-atelier.js', 'stairwell-steward.js', 'sunprint-safari.js', 'battery-bazaar.js', 'echo-reef-rescue.js', 'orchard-graft-lab.js', 'harbor-pilot.js', 'heat-island-planner.js', 'metro-dispatch.js'];
+  const sprintApps = ['alt-text-atelier.js', 'stairwell-steward.js', 'sunprint-safari.js', 'battery-bazaar.js', 'echo-reef-rescue.js', 'orchard-graft-lab.js', 'harbor-pilot.js', 'heat-island-planner.js', 'metro-dispatch.js', 'tidepool-food-web.js'];
 
   function loadSprintApps() {
     sprintApps.forEach((file) => {

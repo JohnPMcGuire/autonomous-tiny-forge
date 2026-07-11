@@ -10,7 +10,7 @@ const allowedCategories=new Set(['useful','play','experiment']);
 const allowedEngines=new Set(['timer-guess','fair-picker','micro-step','challenge-deck','choice-mixer','word-remix','reflection-cards','prediction-game']);
 const allowedQueueStatuses=new Set(['shipping','next','candidate','deferred']);
 const allowedDecisionResults=new Set(['published','skipped','deferred']);
-const forbidden=/(https?:\/\/<script|javascript:|onerror=|onload=|eval\s*\(|document\.cookie|localStorage|fetch\s*\()/i;
+const forbidden=/(https?:\/\/|<script|javascript:|onerror=|onload=|eval\s*\(|document\.cookie|localStorage|fetch\s*\()/i;
 
 const registry=JSON.parse(read('registry/apps.json'));
 if(registry.schemaVersion!==1||!Array.isArray(registry.apps))fail('registry shape is invalid');

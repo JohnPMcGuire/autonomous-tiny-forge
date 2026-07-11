@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-11T08:58:09.000Z",
+  "updatedAt": "2026-07-11T10:59:42.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -30,6 +30,7 @@
     "Repository validation must pass before main is published"
   ],
   "queue": [
+    {"id":"metro-dispatch-follow-up","title":"Transit dispatch variants","status":"candidate","source":"Metro Dispatch review","reason":"Only expand transit play if future work adds accessible route narration, multiple interacting lines, vehicle breakdown recovery, fare and labor ethics, or richer passenger-destination models rather than more station labels."},
     {"id":"urban-heat-follow-up","title":"Urban heat planning variants","status":"candidate","source":"Heat Island Planner review","reason":"Only expand civic heat planning if future work adds nonvisual neighborhood summaries, transit and housing displacement tradeoffs, multi-district coordination, public-health ethics, or richer weather and maintenance models rather than more intervention labels."},
     {"id":"harbor-piloting-follow-up","title":"Harbor piloting variants","status":"candidate","source":"Harbor Pilot review","reason":"Only expand harbor play if future work adds distinct vessel handling, accessible route narration, multi-ship traffic, maritime safety ethics, or richer tide and cargo tradeoffs rather than more obstacle labels."},
     {"id":"orchard-genetics-follow-up","title":"Orchard genetics variants","status":"candidate","source":"Orchard Graft Lab review","reason":"Only expand orchard play if future work adds explicit allele models, accessible lineage summaries, multi-orchard exchange, biodiversity ethics, or richer pest and pollination tradeoffs rather than more fruit labels."},
@@ -44,6 +45,7 @@
     {"id":"cyanotype-composition-follow-up","title":"Light composition variants","status":"candidate","source":"Sunprint Safari review","reason":"Only expand printmaking play if future work adds distinct lens grammars, accessible composition summaries, multi-sheet exhibitions, weather ethics, or richer chemistry and shadow tradeoffs rather than more specimen labels."}
   ],
   "recentDecisions": [
+    {"date":"2026-07-11","title":"Metro Dispatch 1.0.0","result":"published","summary":"Added a standalone local transit-dispatch strategy game with a live six-station SVG network, three train classes, passenger queues, shortest-path routing, timed demand, incidents, energy and repair tradeoffs, service-equity scoring, adaptive modes, failure and recovery, a session-only Express and Disruption unlock, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-11","title":"Heat Island Planner 1.0.0","result":"published","summary":"Added a standalone local urban heat-equity simulation with an eight-by-eight city grid, five intervention types, escalating heatwave days, budget, energy and maintenance tradeoffs, vulnerable-resident coverage, emergency recovery, adaptive modes, scoring, a session-only reflective roof and Crisis unlock, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-11","title":"Harbor Pilot 1.0.0","result":"published","summary":"Added a standalone local canvas harbor-piloting game with continuous momentum, wind and current, three vessel profiles, docking contracts, collision and fuel recovery, adaptive modes, combo scoring, session-only cutter and storm unlocks, pointer, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},
     {"date":"2026-07-10","title":"Orchard Graft Lab 1.0.0","result":"published","summary":"Added a standalone local orchard genetics strategy game with nine persistent plots, five rootstocks, graft-based trait combinations, seasonal water and labor budgets, climate shocks, yield and diversity contracts, adaptive modes, failure recovery, scoring, a session-only crabapple unlock, touch and keyboard controls, reduced-motion behavior, optional local audio, and teardown.","checks":["JavaScript syntax","Responsive shell contract","Ledger schema","Required asset wiring","Safety rules"]},

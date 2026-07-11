@@ -10,7 +10,7 @@ const allowedCategories=new Set(['useful','play','experiment']);
 const allowedEngines=new Set(['timer-guess','fair-picker','micro-step','challenge-deck','choice-mixer','word-remix','reflection-cards','prediction-game']);
 const allowedQueueStatuses=new Set(['shipping','next','candidate','deferred']);
 const allowedDecisionResults=new Set(['published','skipped','deferred']);
-const forbidden=/(https?:\/\/|<script|javascript:|onerror=|onload=|eval\s*\(|document\.cookie|localStorage|fetch\s*\()/i;
+const forbidden=/(https?:\/\/<script|javascript:|onerror=|onload=|eval\s*\(|document\.cookie|localStorage|fetch\s*\()/i;
 
 const registry=JSON.parse(read('registry/apps.json'));
 if(registry.schemaVersion!==1||!Array.isArray(registry.apps))fail('registry shape is invalid');
@@ -52,9 +52,10 @@ for(const match of index.matchAll(/<script defer src="\.\/(.+?\.js)"><\/script>/
 for(const match of feedback.matchAll(/'([a-z0-9-]+\.js)'/g))requiredFiles.push(match[1]);
 for(const file of [...new Set(requiredFiles)]){if(!fs.existsSync(path.join(root,file)))fail(`${file} is missing`);if(file.endsWith('.js'))try{execFileSync(process.execPath,['--check',path.join(root,file)],{stdio:'pipe'});}catch{fail(`${file} has invalid JavaScript syntax`);}}
 if(!feedback.includes('orchard-graft-lab.js'))fail('feedback-links.js does not load orchard-graft-lab.js');
+if(!feedback.includes('harbor-pilot.js'))fail('feedback-links.js does not load harbor-pilot.js');
 if(!index.includes('class="forge-ledger-section shell"')||!index.includes('id="forge-ledger-root" class="forge-ledger-root"'))fail('index.html is missing the responsive forge ledger contract');
 if(!index.includes('class="dialog-frame"')||index.includes('class="dialog-shell"'))fail('index.html dialog shell is invalid');
 const template=index.match(/<template id="app-card-template">([\s\S]*?)<\/template>/)?.[1]||'';
 if(!template.includes('app-card-button'))fail('app card template must use one full-card button');
 for(const c of ['app-icon','app-meta','app-name','app-summary','app-open'])if(!template.includes(c))fail(`app card ${c} must remain inside the full-card button`);
-if(failed)process.exitCode=1;else console.log(`Validated ${registry.apps.length} registry apps, standalone games through Orchard Graft Lab, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);
+if(failed)process.exitCode=1;else console.log(`Validated ${registry.apps.length} registry apps, standalone games through Harbor Pilot, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);

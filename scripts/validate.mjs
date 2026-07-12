@@ -54,9 +54,10 @@ for(const file of [...new Set(requiredFiles)]){if(!fs.existsSync(path.join(root,
 if(!feedback.includes('orchard-graft-lab.js'))fail('feedback-links.js does not load orchard-graft-lab.js');
 if(!feedback.includes('harbor-pilot.js'))fail('feedback-links.js does not load harbor-pilot.js');
 if(!feedback.includes('loom-logic-studio.js'))fail('feedback-links.js does not load loom-logic-studio.js');
+if(!feedback.includes('orbital-salvage-yard.js'))fail('feedback-links.js does not load orbital-salvage-yard.js');
 if(!index.includes('class="forge-ledger-section shell"')||!index.includes('id="forge-ledger-root" class="forge-ledger-root"'))fail('index.html is missing the responsive forge ledger contract');
 if(!index.includes('class="dialog-frame"')||index.includes('class="dialog-shell"'))fail('index.html dialog shell is invalid');
 const template=index.match(/<template id="app-card-template">([\s\S]*?)<\/template>/)?.[1]||'';
 if(!template.includes('app-card-button'))fail('app card template must use one full-card button');
 for(const c of ['app-icon','app-meta','app-name','app-summary','app-open'])if(!template.includes(c))fail(`app card ${c} must remain inside the full-card button`);
-if(failed)process.exitCode=1;else console.log(`Validated ${registry.apps.length} registry apps, standalone games through Loom Logic Studio, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);
+if(failed)process.exitCode=1;else console.log(`Validated ${registry.apps.length} registry apps, standalone games through Orbital Salvage Yard, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);

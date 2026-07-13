@@ -3,7 +3,7 @@
   const host = ['git', 'hub'].join('') + '.com';
   const path = ['JohnPMcGuire', 'autonomous-tiny-forge', 'issues', 'new'].join('/');
   const feedbackBase = `${protocol}//${host}/${path}?template=feedback.yml`;
-  const sprintApps = ['alt-text-atelier.js', 'stairwell-steward.js', 'sunprint-safari.js', 'battery-bazaar.js', 'echo-reef-rescue.js', 'orchard-graft-lab.js', 'harbor-pilot.js', 'heat-island-planner.js', 'metro-dispatch.js', 'tidepool-food-web.js', 'tactile-geometry-workshop.js', 'delta-steward.js', 'kitchen-pass.js', 'molecule-assembly-lab.js', 'archive-rescue-lab.js', 'volcano-watch.js', 'emergency-radio-net.js', 'council-commons.js', 'foley-stage-lab.js', 'access-path-lab.js', 'community-fridge-steward.js', 'shelter-shift.js', 'loom-logic-studio.js', 'orbital-salvage-yard.js', 'evidence-chamber.js', 'museum-flow-lab.js', 'circuit-relay-lab.js', 'interpreter-booth.js'];
+  const sprintApps = ['alt-text-atelier.js', 'stairwell-steward.js', 'sunprint-safari.js', 'battery-bazaar.js', 'echo-reef-rescue.js', 'orchard-graft-lab.js', 'harbor-pilot.js', 'heat-island-planner.js', 'metro-dispatch.js', 'tidepool-food-web.js', 'tactile-geometry-workshop.js', 'delta-steward.js', 'kitchen-pass.js', 'molecule-assembly-lab.js', 'archive-rescue-lab.js', 'volcano-watch.js', 'emergency-radio-net.js', 'council-commons.js', 'foley-stage-lab.js', 'access-path-lab.js', 'community-fridge-steward.js', 'shelter-shift.js', 'loom-logic-studio.js', 'orbital-salvage-yard.js', 'evidence-chamber.js', 'museum-flow-lab.js', 'circuit-relay-lab.js', 'interpreter-booth.js', 'thermal-ops-lab.js'];
 
   function loadSprintApps() {
     sprintApps.forEach((file) => {

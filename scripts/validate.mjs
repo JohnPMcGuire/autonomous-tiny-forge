@@ -58,9 +58,11 @@ if(!feedback.includes('orbital-salvage-yard.js'))fail('feedback-links.js does no
 if(!feedback.includes('evidence-chamber.js'))fail('feedback-links.js does not load evidence-chamber.js');
 if(!feedback.includes('museum-flow-lab.js'))fail('feedback-links.js does not load museum-flow-lab.js');
 if(!feedback.includes('circuit-relay-lab.js'))fail('feedback-links.js does not load circuit-relay-lab.js');
+const circuit=read('circuit-relay-lab.js');
+for(const marker of ["version:'1.1.0'",'pathBoard()','Diagnostic scan','aria-label',"prefers-reduced-motion:reduce"])if(!circuit.includes(marker))fail(`Circuit Relay Lab 1.1 contract is missing ${marker}`);
 if(!index.includes('class="forge-ledger-section shell"')||!index.includes('id="forge-ledger-root" class="forge-ledger-root"'))fail('index.html is missing the responsive forge ledger contract');
 if(!index.includes('class="dialog-frame"')||index.includes('class="dialog-shell"'))fail('index.html dialog shell is invalid');
 const template=index.match(/<template id="app-card-template">([\s\S]*?)<\/template>/)?.[1]||'';
 if(!template.includes('app-card-button'))fail('app card template must use one full-card button');
 for(const c of ['app-icon','app-meta','app-name','app-summary','app-open'])if(!template.includes(c))fail(`app card ${c} must remain inside the full-card button`);
-if(failed)process.exitCode=1;else console.log(`Validated ${registry.apps.length} registry apps, standalone games through Circuit Relay Lab, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);
+if(failed)process.exitCode=1;else console.log(`Validated ${registry.apps.length} registry apps, standalone games through Circuit Relay Lab 1.1.0, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);

@@ -39,7 +39,7 @@ if(!(ledger.sprint?.intervalMinutes>0&&ledger.sprint.intervalMinutes<=1440))fail
 if(!(ledger.sprint?.plannedReviewWindows>0&&ledger.sprint.plannedReviewWindows<=1000))fail('forge ledger planned review count is invalid');
 if(ledger.sprint?.maxPublishableChangesPerWindow!==1)fail('forge ledger must preserve the one-change boundary');
 if(!Array.isArray(ledger.method)||ledger.method.length<4||ledger.method.length>8)fail('forge ledger method is invalid');
-if(!Array.isArray(ledger.qualityGates)||ledger.qualityGates.length<3||ledger.qualityGates.length>12)fail('forge ledger quality gates are invalid');
+if(!Array.isArray(ledger.qualityGates)||ledger.qualityGates.length<3||ledger.qualityGates.length>12)fail('forge ledger quality gates is invalid');
 if(!Array.isArray(ledger.queue)||ledger.queue.length>12)fail('forge ledger queue is invalid');
 if(!Array.isArray(ledger.recentDecisions)||ledger.recentDecisions.length>20)fail('forge ledger recent decisions are invalid');
 for(const [i,x] of ledger.queue.entries()){if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(x.id||''))fail(`forge ledger queue[${i}].id is invalid`);if(!x.title||!x.reason||!x.source||!allowedQueueStatuses.has(x.status))fail(`forge ledger queue[${i}] is incomplete`);}
@@ -51,7 +51,7 @@ const requiredFiles=['index.html','styles.css','forge-ledger.css','app.js','time
 for(const match of index.matchAll(/<script defer src="\.\/(.+?\.js)"><\/script>/g))requiredFiles.push(match[1]);
 for(const match of feedback.matchAll(/'([a-z0-9-]+\.js)'/g))requiredFiles.push(match[1]);
 for(const file of [...new Set(requiredFiles)]){if(!fs.existsSync(path.join(root,file)))fail(`${file} is missing`);if(file.endsWith('.js'))try{execFileSync(process.execPath,['--check',path.join(root,file)],{stdio:'pipe'});}catch{fail(`${file} has invalid JavaScript syntax`);}}
-for(const file of ['orchard-graft-lab.js','harbor-pilot.js','loom-logic-studio.js','orbital-salvage-yard.js','evidence-chamber.js','museum-flow-lab.js','circuit-relay-lab.js','interpreter-booth.js','thermal-ops-lab.js','memory-palace-courier.js','signal-choir.js','constellation-surveyor.js'])if(!feedback.includes(file))fail(`feedback-links.js does not load ${file}`);
+for(const file of ['orchard-graft-lab.js','harbor-pilot.js','loom-logic-studio.js','orbital-salvage-yard.js','evidence-chamber.js','museum-flow-lab.js','circuit-relay-lab.js','interpreter-booth.js','thermal-ops-lab.js','memory-palace-courier.js','signal-choir.js','constellation-surveyor.js','rail-yard-shunter.js'])if(!feedback.includes(file))fail(`feedback-links.js does not load ${file}`);
 const circuit=read('circuit-relay-lab.js');
 for(const marker of ["version:'1.1.0'",'pathBoard()','Diagnostic scan','aria-label',"prefers-reduced-motion:reduce"])if(!circuit.includes(marker))fail(`Circuit Relay Lab 1.1 contract is missing ${marker}`);
 const interpreter=read('interpreter-booth.js');
@@ -64,9 +64,11 @@ const signal=read('signal-choir.js');
 for(const marker of ["version:'1.0.0'",'Signal pads','Play pattern','Choir energy','aria-live=polite',"prefers-reduced-motion:reduce"])if(!signal.includes(marker))fail(`Signal Choir 1.0 contract is missing ${marker}`);
 const constellation=read('constellation-surveyor.js');
 for(const marker of ["version:'1.0.0'",'Practice: begin with Station 1','Telescope energy','Submit estimate','aria-live=polite',"prefers-reduced-motion:reduce"])if(!constellation.includes(marker))fail(`Constellation Surveyor 1.0 contract is missing ${marker}`);
+const rail=read('rail-yard-shunter.js');
+for(const marker of ["version:'1.0.0'",'Rail yard grid','Couple / uncouple','Dispatcher hint','aria-live=polite',"prefers-reduced-motion:reduce"])if(!rail.includes(marker))fail(`Rail Yard Shunter 1.0 contract is missing ${marker}`);
 if(!index.includes('class="forge-ledger-section shell"')||!index.includes('id="forge-ledger-root" class="forge-ledger-root"'))fail('index.html is missing the responsive forge ledger contract');
 if(!index.includes('class="dialog-frame"')||index.includes('class="dialog-shell"'))fail('index.html dialog shell is invalid');
 const template=index.match(/<template id="app-card-template">([\s\S]*?)<\/template>/)?.[1]||'';
 if(!template.includes('app-card-button'))fail('app card template must use one full-card button');
 for(const c of ['app-icon','app-meta','app-name','app-summary','app-open'])if(!template.includes(c))fail(`app card ${c} must remain inside the full-card button`);
-if(failed)process.exitCode=1;else console.log(`Validated ${registry.apps.length} registry apps, standalone games through Constellation Surveyor 1.0.0, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);
+if(failed)process.exitCode=1;else console.log(`Validated ${registry.apps.length} registry apps, standalone games through Rail Yard Shunter 1.0.0, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);

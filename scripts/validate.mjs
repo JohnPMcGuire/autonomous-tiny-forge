@@ -51,38 +51,28 @@ const requiredFiles=['index.html','styles.css','forge-ledger.css','app.js','time
 for(const match of index.matchAll(/<script defer src="\.\/(.+?\.js)"><\/script>/g))requiredFiles.push(match[1]);
 for(const match of feedback.matchAll(/'([a-z0-9-]+\.js)'/g))requiredFiles.push(match[1]);
 for(const file of [...new Set(requiredFiles)]){if(!fs.existsSync(path.join(root,file)))fail(`${file} is missing`);if(file.endsWith('.js'))try{execFileSync(process.execPath,['--check',path.join(root,file)],{stdio:'pipe'});}catch{fail(`${file} has invalid JavaScript syntax`);}}
-for(const file of ['orchard-graft-lab.js','harbor-pilot.js','loom-logic-studio.js','orbital-salvage-yard.js','evidence-chamber.js','museum-flow-lab.js','circuit-relay-lab.js','interpreter-booth.js','thermal-ops-lab.js','memory-palace-courier.js','signal-choir.js','constellation-surveyor.js','rail-yard-shunter.js','cipher-dispatch.js','dialect-drift-lab.js','bookbinding-studio.js','caption-control-room.js','pantry-planner.js','rigging-rescue-lab.js','floodplain-architect.js'])if(!feedback.includes(file))fail(`feedback-links.js does not load ${file}`);
-const circuit=read('circuit-relay-lab.js');
-for(const marker of ["version:'1.1.0'",'pathBoard()','Diagnostic scan','aria-label',"prefers-reduced-motion:reduce"])if(!circuit.includes(marker))fail(`Circuit Relay Lab 1.1 contract is missing ${marker}`);
-const interpreter=read('interpreter-booth.js');
-for(const marker of ["version:'1.0.0'",'Crisis summit','Repair trust','aria-live=polite',"prefers-reduced-motion:reduce"])if(!interpreter.includes(marker))fail(`Interpreter Booth contract is missing ${marker}`);
-const thermal=read('thermal-ops-lab.js');
-for(const marker of ["version:'1.0.0'",'heat propagation','Install fan','Migrate workload','aria-live=polite',"prefers-reduced-motion:reduce"])if(!thermal.includes(marker))fail(`Thermal Ops Lab 1.0 contract is missing ${marker}`);
-const memory=read('memory-palace-courier.js');
-for(const marker of ["version:'1.0.0'",'Memory palace rooms','Use focus','aria-live=polite',"prefers-reduced-motion:reduce"])if(!memory.includes(marker))fail(`Memory Palace Courier 1.0 contract is missing ${marker}`);
-const signal=read('signal-choir.js');
-for(const marker of ["version:'1.0.0'",'Signal pads','Play pattern','Choir energy','aria-live=polite',"prefers-reduced-motion:reduce"])if(!signal.includes(marker))fail(`Signal Choir 1.0 contract is missing ${marker}`);
-const constellation=read('constellation-surveyor.js');
-for(const marker of ["version:'1.0.0'",'Practice: begin with Station 1','Telescope energy','Submit estimate','aria-live=polite',"prefers-reduced-motion:reduce"])if(!constellation.includes(marker))fail(`Constellation Surveyor 1.0 contract is missing ${marker}`);
-const rail=read('rail-yard-shunter.js');
-for(const marker of ["version:'1.0.0'",'Rail yard grid','Couple / uncouple','Dispatcher hint','aria-live=polite',"prefers-reduced-motion:reduce"])if(!rail.includes(marker))fail(`Rail Yard Shunter 1.0 contract is missing ${marker}`);
-const cipher=read('cipher-dispatch.js');
-for(const marker of ["version:'1.0.0'",'Encrypted message','Spend token for clue','Submit decode','aria-live=polite',"prefers-reduced-motion:reduce"])if(!cipher.includes(marker))fail(`Cipher Dispatch 1.0 contract is missing ${marker}`);
-const dialect=read('dialect-drift-lab.js');
-for(const marker of ["version:'1.0.0'",'Island language communities','Mutual intelligibility','Preserve heritage word','aria-live=polite',"prefers-reduced-motion:reduce"])if(!dialect.includes(marker))fail(`Dialect Drift Lab 1.0 contract is missing ${marker}`);
-const bookbinding=read('bookbinding-studio.js');
-for(const marker of ["version:'1.0.0'",'Book construction preview','Thread tension','Inspect book','aria-live=polite',"prefers-reduced-motion:reduce"])if(!bookbinding.includes(marker))fail(`Bookbinding Studio 1.0 contract is missing ${marker}`);
-const caption=read('caption-control-room.js');
-for(const marker of ["version:'1.0.0'",'Caption preview','Use review token','Recover missed cue','aria-live="polite"',"prefers-reduced-motion:reduce"])if(!caption.includes(marker))fail(`Caption Control Room 1.0 contract is missing ${marker}`);
-const pantry=read('pantry-planner.js');
-for(const marker of ["version:'1.0.0'",'Pantry shelves','Emergency donation','Serve households','aria-live="polite"',"prefers-reduced-motion:reduce"])if(!pantry.includes(marker))fail(`Pantry Planner 1.0 contract is missing ${marker}`);
-const rigging=read('rigging-rescue-lab.js');
-for(const marker of ["version:'1.0.0'",'Rescue rigging board','Safety reset','Test haul','aria-live="polite"',"prefers-reduced-motion:reduce"])if(!rigging.includes(marker))fail(`Rigging Rescue Lab 1.0 contract is missing ${marker}`);
-const floodplain=read('floodplain-architect.js');
-for(const marker of ["version:'1.0.0'",'Floodplain planning grid','Forecast pulse','Emergency repair','aria-live="polite"',"prefers-reduced-motion:reduce"])if(!floodplain.includes(marker))fail(`Floodplain Architect 1.0 contract is missing ${marker}`);
+for(const file of ['orchard-graft-lab.js','harbor-pilot.js','loom-logic-studio.js','orbital-salvage-yard.js','evidence-chamber.js','museum-flow-lab.js','circuit-relay-lab.js','interpreter-booth.js','thermal-ops-lab.js','memory-palace-courier.js','signal-choir.js','constellation-surveyor.js','rail-yard-shunter.js','cipher-dispatch.js','dialect-drift-lab.js','bookbinding-studio.js','caption-control-room.js','pantry-planner.js','rigging-rescue-lab.js','floodplain-architect.js','seed-bank-steward.js'])if(!feedback.includes(file))fail(`feedback-links.js does not load ${file}`);
+const contracts=[
+ ['circuit-relay-lab.js',["version:'1.1.0'",'pathBoard()','Diagnostic scan','aria-label','prefers-reduced-motion:reduce']],
+ ['interpreter-booth.js',["version:'1.0.0'",'Crisis summit','Repair trust','aria-live=polite','prefers-reduced-motion:reduce']],
+ ['thermal-ops-lab.js',["version:'1.0.0'",'heat propagation','Install fan','Migrate workload','aria-live=polite','prefers-reduced-motion:reduce']],
+ ['memory-palace-courier.js',["version:'1.0.0'",'Memory palace rooms','Use focus','aria-live=polite','prefers-reduced-motion:reduce']],
+ ['signal-choir.js',["version:'1.0.0'",'Signal pads','Play pattern','Choir energy','aria-live=polite','prefers-reduced-motion:reduce']],
+ ['constellation-surveyor.js',["version:'1.0.0'",'Practice: begin with Station 1','Telescope energy','Submit estimate','aria-live=polite','prefers-reduced-motion:reduce']],
+ ['rail-yard-shunter.js',["version:'1.0.0'",'Rail yard grid','Couple / uncouple','Dispatcher hint','aria-live=polite','prefers-reduced-motion:reduce']],
+ ['cipher-dispatch.js',["version:'1.0.0'",'Encrypted message','Spend token for clue','Submit decode','aria-live=polite','prefers-reduced-motion:reduce']],
+ ['dialect-drift-lab.js',["version:'1.0.0'",'Island language communities','Mutual intelligibility','Preserve heritage word','aria-live=polite','prefers-reduced-motion:reduce']],
+ ['bookbinding-studio.js',["version:'1.0.0'",'Book construction preview','Thread tension','Inspect book','aria-live=polite','prefers-reduced-motion:reduce']],
+ ['caption-control-room.js',["version:'1.0.0'",'Caption preview','Use review token','Recover missed cue','aria-live="polite"','prefers-reduced-motion:reduce']],
+ ['pantry-planner.js',["version:'1.0.0'",'Pantry shelves','Emergency donation','Serve households','aria-live="polite"','prefers-reduced-motion:reduce']],
+ ['rigging-rescue-lab.js',["version:'1.0.0'",'Rescue rigging board','Safety reset','Test haul','aria-live="polite"','prefers-reduced-motion:reduce']],
+ ['floodplain-architect.js',["version:'1.0.0'",'Floodplain planning grid','Forecast pulse','Emergency repair','aria-live="polite"','prefers-reduced-motion:reduce']],
+ ['seed-bank-steward.js',["version:'1.0.0'",'Seed collection vault','Germination test','Emergency backup','aria-live="polite"','prefers-reduced-motion:reduce']]
+];
+for(const [file,markers] of contracts){const text=read(file);for(const marker of markers)if(!text.includes(marker))fail(`${file} contract is missing ${marker}`);}
 if(!index.includes('class="forge-ledger-section shell"')||!index.includes('id="forge-ledger-root" class="forge-ledger-root"'))fail('index.html is missing the responsive forge ledger contract');
 if(!index.includes('class="dialog-frame"')||index.includes('class="dialog-shell"'))fail('index.html dialog shell is invalid');
 const template=index.match(/<template id="app-card-template">([\s\S]*?)<\/template>/)?.[1]||'';
 if(!template.includes('app-card-button'))fail('app card template must use one full-card button');
 for(const c of ['app-icon','app-meta','app-name','app-summary','app-open'])if(!template.includes(c))fail(`app card ${c} must remain inside the full-card button`);
-if(failed)process.exitCode=1;else console.log(`Validated ${registry.apps.length} registry apps, standalone games through Floodplain Architect 1.0.0, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);
+if(failed)process.exitCode=1;else console.log(`Validated ${registry.apps.length} registry apps, standalone games through Seed Bank Steward 1.0.0, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);

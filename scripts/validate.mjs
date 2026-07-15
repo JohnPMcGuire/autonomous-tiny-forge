@@ -74,7 +74,7 @@ const contracts=[
  ['animation-timing-studio.js',["version:'1.0.0'",'Motion stage','Use mentor note','Submit brief','aria-live="polite"','prefers-reduced-motion:reduce']],
  ['pollinator-corridor-planner.js',["version:'1.0.0'",'Pollinator planning grid','Emergency reseed','Submit plan','aria-live="polite"','prefers-reduced-motion:reduce']],
  ['stratosphere-mission-control.js',["version:'1.0.0'",'Atmospheric flight board','Emergency recovery','End mission','aria-live="polite"','prefers-reduced-motion:reduce']],
- ['aquifer-commons.js',["version: '1.0.0'",'Shared aquifer board','Emergency compact','End compact','aria-live="polite"','prefers-reduced-motion:reduce']]
+ ['aquifer-commons.js',["version:'1.1.0'",'Shared aquifer board','Council promise','Compact policy','Emergency compact','End compact','aria-live="polite"','prefers-reduced-motion:reduce']]
 ];
 for(const [file,markers] of contracts){const text=read(file);for(const marker of markers)if(!text.includes(marker))fail(`${file} contract is missing ${marker}`);}
 if(!index.includes('class="forge-ledger-section shell"')||!index.includes('id="forge-ledger-root" class="forge-ledger-root"'))fail('index.html is missing the responsive forge ledger contract');
@@ -82,4 +82,4 @@ if(!index.includes('class="dialog-frame"')||index.includes('class="dialog-shell"
 const template=index.match(/<template id="app-card-template">([\s\S]*?)<\/template>/)?.[1]||'';
 if(!template.includes('app-card-button'))fail('app card template must use one full-card button');
 for(const c of ['app-icon','app-meta','app-name','app-summary','app-open'])if(!template.includes(c))fail(`app card ${c} must remain inside the full-card button`);
-if(failed)process.exitCode=1;else console.log(`Validated ${registry.apps.length} registry apps, the opt-in Playtest Lab, standalone games through Aquifer Commons 1.0.0, Lantern Lanes 1.1.0 guided practice, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);
+if(failed)process.exitCode=1;else console.log(`Validated ${registry.apps.length} registry apps, the opt-in Playtest Lab, standalone games through Aquifer Commons 1.1.0, Lantern Lanes 1.1.0 guided practice, feedback links, the responsive shell contract, the public forge ledger, and the static site.`);

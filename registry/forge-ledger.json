@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-15T16:58:00.000Z",
+  "updatedAt": "2026-07-15T19:00:00.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -31,59 +31,19 @@
   ],
   "queue": [
     {"id":"ambient-ambient","title":"Ambient Ambient adaptive room masker","status":"deferred","source":"Issue 10","reason":"Potentially valuable audio experiment, but MediaDevices permission, microphone privacy, and audio teardown require a dedicated security review before implementation."},
+    {"id":"compost-cascade-playtest","title":"Compost Cascade balance playtest","status":"candidate","source":"Compost Cascade 1.0 review","reason":"Collect evidence on order pacing, contamination pressure, double-click discoverability, narrow-screen readability, and whether recovery creates a fair comeback before expanding seasons."},
     {"id":"council-relay-playtest","title":"Council Relay role-boundary playtest","status":"candidate","source":"Council Relay 1.0 review","reason":"Collect evidence on pass-device privacy, solo readability, role balance, and whether the three-role loop remains understandable on narrow mobile screens before expanding scenarios."},
     {"id":"forge-trails-follow-up","title":"Forge Trails app-authored challenge contracts","status":"candidate","source":"Forge Trails 1.1 review","reason":"Only expand after playtest evidence shows that registry-level trail prompts create more value than the current lens, observation, token, and completion contract."},
     {"id":"lantern-lanes-follow-up","title":"Lantern Lanes campaign progression and procedural patrols","status":"candidate","source":"Lantern Lanes 1.1 review and issue 111","reason":"Only expand if future work adds validated procedural patrol puzzles, stronger campaign unlocks, or richer recovery without obscuring the guided-practice path."}
   ],
   "recentDecisions": [
-    {
-      "date":"2026-07-15",
-      "title":"Council Relay 1.0.0",
-      "result":"published",
-      "summary":"Compared a same-device cooperative council game, a tactile logistics simulation, and an accessibility-first spatial puzzle. Prioritized Council Relay because alternating hidden-information roles add a genuinely underserved cooperative audience and mechanic while staying local-only. The change also restores missing Aquifer Commons index wiring.",
-      "checks":["JavaScript syntax","Three-role pass-device state machine","Shared resource and trust accounting","Failure and emergency recovery","Responsive touch and keyboard controls","Reduced motion and teardown","Aquifer Commons index wiring","Safety rules"]
-    },
-    {
-      "date":"2026-07-15",
-      "title":"Aquifer Commons 1.1.0",
-      "result":"published",
-      "summary":"Compared a cooperative aquifer negotiation upgrade, a tactile logistics puzzle, and a procedural ecology game. Prioritized Aquifer Commons because stakeholder bargaining, public promises, trust, basin-wide policy votes, procedural district order, seasonal shocks, and council failure deepen an existing simulation while avoiding another routing-game variant.",
-      "checks":["JavaScript syntax","Stakeholder trust and promises","Policy vote and resource accounting","Procedural district setup and shocks","Scenario unlocks and recovery","Responsive touch and keyboard controls","Reduced motion and teardown","Safety rules"]
-    },
-    {
-      "date":"2026-07-15",
-      "title":"Forge Trails 1.1.0",
-      "result":"published",
-      "summary":"Prioritized deeper guided-discovery contracts because the first route could be completed without opening an app or recording evidence. Added open-before-complete gating, route lenses, local observations, strategic swaps, scoring, and a session debrief.",
-      "checks":["JavaScript syntax","Completion and observation gating","Token and swap accounting","Completion score and debrief","HTML escaping","Responsive controls","Keyboard and focus behavior","Safety rules"]
-    },
-    {
-      "date":"2026-07-15",
-      "title":"Forge Trails 1.0.0",
-      "result":"published",
-      "summary":"Prioritized portfolio-wide guided discovery because a gallery of more than one hundred experiences benefits from randomized routes, branching swaps, challenge prompts, visible session progression, and completion stamps.",
-      "checks":["JavaScript syntax","Index wiring","Randomized route selection","Session progression and reset","Responsive controls","Keyboard and focus behavior","Reduced motion","Safety rules"]
-    },
-    {
-      "date":"2026-07-15",
-      "title":"Release Radar 1.0.0",
-      "result":"published",
-      "summary":"Prioritized collection-level discovery by adding visible update history, search, recency windows, sorting, mobile controls, and accessible status feedback without storage or permissions.",
-      "checks":["JavaScript syntax","Gallery release metadata","Search and sort behavior","Responsive controls","Keyboard and focus behavior","Reduced motion","Ledger schema","Safety rules"]
-    },
-    {
-      "date":"2026-07-15",
-      "title":"Forge Playtest Lab 1.0.0",
-      "result":"published",
-      "summary":"Added an opt-in, in-memory playtest lab with session timing, interaction and focus counts, accessibility checks, timestamped observations, runtime error capture, reviewable reports, and prefilled feedback issues.",
-      "checks":["JavaScript syntax","Playtest Lab contract","Feedback loader wiring","Responsive mobile drawer","Keyboard and focus behavior","Reduced motion","Ledger schema","Safety rules"]
-    },
-    {
-      "date":"2026-07-14",
-      "title":"Lantern Lanes 1.1.0",
-      "result":"published",
-      "summary":"Prioritized valid user feedback by adding a failure-free practice courtyard, persistent route guide, symbol and control explanations, visible patrol beats, campaign switching, mobile layouts, keyboard and touch controls, reduced motion, and teardown.",
-      "checks":["JavaScript syntax","Lantern Lanes guided-practice contract","Responsive shell contract","Ledger schema","Feedback review","Safety rules"]
-    }
+    {"date":"2026-07-15","title":"Compost Cascade 1.0.0","result":"published","summary":"Compared a circular compost operations game, a cooperative emergency-mapping game, and a tactile repair-sequencing puzzle. Prioritized Compost Cascade because transformation timing, pile chemistry, changing demand, contamination, upgrades, shocks, and recovery add a new circular-systems strategy loop rather than another routing or council variant.","checks":["JavaScript syntax","Six-day state progression","Material and bay accounting","Orders, upgrades, shocks, failure and recovery","Responsive touch and keyboard controls","Reduced motion and teardown","Feedback-loader wiring","Safety rules"]},
+    {"date":"2026-07-15","title":"Council Relay 1.0.0","result":"published","summary":"Compared a same-device cooperative council game, a tactile logistics simulation, and an accessibility-first spatial puzzle. Prioritized Council Relay because alternating hidden-information roles add a genuinely underserved cooperative audience and mechanic while staying local-only. The change also restores missing Aquifer Commons index wiring.","checks":["JavaScript syntax","Three-role pass-device state machine","Shared resource and trust accounting","Failure and emergency recovery","Responsive touch and keyboard controls","Reduced motion and teardown","Aquifer Commons index wiring","Safety rules"]},
+    {"date":"2026-07-15","title":"Aquifer Commons 1.1.0","result":"published","summary":"Compared a cooperative aquifer negotiation upgrade, a tactile logistics puzzle, and a procedural ecology game. Prioritized Aquifer Commons because stakeholder bargaining, public promises, trust, basin-wide policy votes, procedural district order, seasonal shocks, and council failure deepen an existing simulation while avoiding another routing-game variant.","checks":["JavaScript syntax","Stakeholder trust and promises","Policy vote and resource accounting","Procedural district setup and shocks","Scenario unlocks and recovery","Responsive touch and keyboard controls","Reduced motion and teardown","Safety rules"]},
+    {"date":"2026-07-15","title":"Forge Trails 1.1.0","result":"published","summary":"Prioritized deeper guided-discovery contracts because the first route could be completed without opening an app or recording evidence. Added open-before-complete gating, route lenses, local observations, strategic swaps, scoring, and a session debrief.","checks":["JavaScript syntax","Completion and observation gating","Token and swap accounting","Completion score and debrief","HTML escaping","Responsive controls","Keyboard and focus behavior","Safety rules"]},
+    {"date":"2026-07-15","title":"Forge Trails 1.0.0","result":"published","summary":"Prioritized portfolio-wide guided discovery because a gallery of more than one hundred experiences benefits from randomized routes, branching swaps, challenge prompts, visible session progression, and completion stamps.","checks":["JavaScript syntax","Index wiring","Randomized route selection","Session progression and reset","Responsive controls","Keyboard and focus behavior","Reduced motion","Safety rules"]},
+    {"date":"2026-07-15","title":"Release Radar 1.0.0","result":"published","summary":"Prioritized collection-level discovery by adding visible update history, search, recency windows, sorting, mobile controls, and accessible status feedback without storage or permissions.","checks":["JavaScript syntax","Gallery release metadata","Search and sort behavior","Responsive controls","Keyboard and focus behavior","Reduced motion","Ledger schema","Safety rules"]},
+    {"date":"2026-07-15","title":"Forge Playtest Lab 1.0.0","result":"published","summary":"Added an opt-in, in-memory playtest lab with session timing, interaction and focus counts, accessibility checks, timestamped observations, runtime error capture, reviewable reports, and prefilled feedback issues.","checks":["JavaScript syntax","Playtest Lab contract","Feedback loader wiring","Responsive mobile drawer","Keyboard and focus behavior","Reduced motion","Ledger schema","Safety rules"]},
+    {"date":"2026-07-14","title":"Lantern Lanes 1.1.0","result":"published","summary":"Prioritized valid user feedback by adding a failure-free practice courtyard, persistent route guide, symbol and control explanations, visible patrol beats, campaign switching, mobile layouts, keyboard and touch controls, reduced motion, and teardown.","checks":["JavaScript syntax","Lantern Lanes guided-practice contract","Responsive shell contract","Ledger schema","Feedback review","Safety rules"]}
   ]
 }

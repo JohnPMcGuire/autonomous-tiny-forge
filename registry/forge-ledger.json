@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-17T03:01:03.000Z",
+  "updatedAt": "2026-07-17T05:02:15.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -41,8 +41,7 @@
     {"id":"succession-plot-playtest","title":"Succession Plot biome balance playtest","status":"candidate","source":"Succession Plot 1.1 review","reason":"Collect evidence on forecast-corridor clarity, biome difficulty, adjacency bonuses, mobile cell density, keyboard movement, and whether the permanent emergency-recovery penalty remains consequential without making recovery futile."},
     {"id":"demand-ripple-playtest","title":"Demand Ripple operations balance playtest","status":"candidate","source":"Demand Ripple 1.0 review","reason":"Collect evidence on lead-time comprehension, order-slider discoverability, shock fairness, bullwhip readability, mobile chart legibility, forecast-upgrade value, and whether emergency credit supports recovery without trivializing cash pressure."},
     {"id":"anomaly-array-playtest","title":"Anomaly Array spatial deduction playtest","status":"candidate","source":"Anomaly Array 1.0 review","reason":"Collect evidence on clue readability, shift fairness, touch target density at 7×7, scan usefulness, keyboard focus movement, and whether prediction rewards deduction rather than lucky marking before adding shapes."},
-    {"id":"repair-bench-playtest","title":"Repair Bench diagnostic balance playtest","status":"candidate","source":"Repair Bench 1.0 review","reason":"Collect evidence on confidence readability, two-fault difficulty, keyboard discoverability, narrow-screen evidence scanning, and whether recovery meaningfully supports learning before adding machines."},
-    {"id":"compost-cascade-playtest","title":"Compost Cascade balance playtest","status":"candidate","source":"Compost Cascade 1.0 review","reason":"Collect evidence on order pacing, contamination pressure, double-click discoverability, narrow-screen readability, and whether recovery creates a fair comeback before expanding seasons."}
+    {"id":"repair-bench-playtest","title":"Repair Bench diagnostic balance playtest","status":"candidate","source":"Repair Bench 1.0 review","reason":"Collect evidence on confidence readability, two-fault difficulty, keyboard discoverability, narrow-screen evidence scanning, and whether recovery meaningfully supports learning before adding machines."}
   ],
   "recentDecisions": [
     {"date":"2026-07-16","title":"Foley Workshop 1.0.0","result":"published","summary":"Compared a tactile Foley sound-design workshop, a branching public-health triage game, and a cooperative emergency mapper. Prioritized Foley Workshop because material, gesture, acoustic-space, timing, layered recipes, energy, takes, trust, scoring, a session unlock, failure, and one costly director reset add an underserved creative audio-production loop rather than another civic triage or emergency-routing simulation.","checks":["JavaScript syntax","Five-scene progression","Material, gesture, space and beat scoring","Layer, energy, take and trust accounting","Precision-mic unlock and one-use recovery","Optional user-initiated Web Audio with teardown","Responsive touch and keyboard controls","Reduced motion and safety wiring"]},

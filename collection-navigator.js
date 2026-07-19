@@ -1,11 +1,6 @@
 (() => {
   'use strict';
 
-  const gameScript = document.createElement('script');
-  gameScript.src = './trackline-ranger.js';
-  gameScript.defer = true;
-  document.head.append(gameScript);
-
   const grid = document.querySelector('#app-grid');
   const filters = document.querySelector('.filters');
   if (!grid || !filters || document.querySelector('#collection-navigator')) return;
@@ -45,16 +40,29 @@
   const count = nav.querySelector('[data-visible-count]');
   const recentWrap = nav.querySelector('.navigator-recent');
   const recentList = nav.querySelector('[data-recent-list]');
-  const cards = () => [...grid.querySelectorAll('.app-card')];
+
+  function cards() {
+    return [...grid.querySelectorAll('.app-card')];
+  }
 
   function cardData(card, index) {
     const button = card.querySelector('.app-card-button');
-    return { card, button, index, name: card.querySelector('.app-name')?.textContent?.trim() || 'Untitled app', summary: card.querySelector('.app-summary')?.textContent?.trim() || '', meta: card.querySelector('.app-meta')?.textContent?.trim() || '', category: card.dataset.category || card.querySelector('.app-meta')?.textContent?.split('·')[0]?.trim() || '', id: card.dataset.navigatorId || `app-${index}` };
+    return {
+      card,
+      button,
+      index,
+      name: card.querySelector('.app-name')?.textContent?.trim() || 'Untitled app',
+      summary: card.querySelector('.app-summary')?.textContent?.trim() || '',
+      meta: card.querySelector('.app-meta')?.textContent?.trim() || '',
+      category: card.dataset.category || card.querySelector('.app-meta')?.textContent?.split('·')[0]?.trim() || '',
+      id: card.dataset.navigatorId || `app-${index}`
+    };
   }
 
   function activeCategoryAllows(card) {
     const active = document.querySelector('.filter.is-active')?.dataset.filter || 'all';
-    return active === 'all' || card.dataset.category === active || normalize(card.querySelector('.app-meta')?.textContent).startsWith(active);
+    if (active === 'all') return true;
+    return card.dataset.category === active || normalize(card.querySelector('.app-meta')?.textContent).startsWith(active);
   }
 
   function apply() {
@@ -64,14 +72,20 @@
     const items = cards().map(cardData);
     items.forEach((item) => {
       item.card.dataset.navigatorId = item.id;
-      item.match = activeCategoryAllows(item.card) && (!query || normalize(`${item.name} ${item.summary} ${item.meta}`).includes(query));
+      const haystack = normalize(`${item.name} ${item.summary} ${item.meta}`);
+      item.match = activeCategoryAllows(item.card) && (!query || haystack.includes(query));
       item.card.hidden = !item.match;
       if (item.button && !item.button.dataset.navigatorBound) {
         item.button.dataset.navigatorBound = '1';
         item.button.addEventListener('click', () => remember(item));
       }
     });
-    const sorted = [...items].sort((a, b) => state.sort === 'az' ? a.name.localeCompare(b.name) : state.sort === 'category' ? a.category.localeCompare(b.category) || a.name.localeCompare(b.name) : b.index - a.index);
+
+    const sorted = [...items].sort((a, b) => {
+      if (state.sort === 'az') return a.name.localeCompare(b.name);
+      if (state.sort === 'category') return a.category.localeCompare(b.category) || a.name.localeCompare(b.name);
+      return b.index - a.index;
+    });
     const fragment = document.createDocumentFragment();
     sorted.forEach((item) => fragment.append(item.card));
     grid.append(fragment);
@@ -82,21 +96,33 @@
 
   function remember(item) {
     state.recent = [{ id: item.id, name: item.name }, ...state.recent.filter((entry) => entry.id !== item.id)].slice(0, 5);
-    recentWrap.hidden = false;
+    renderRecent();
+  }
+
+  function renderRecent() {
+    recentWrap.hidden = state.recent.length === 0;
     recentList.replaceChildren();
     state.recent.forEach((entry) => {
       const button = document.createElement('button');
       button.type = 'button';
       button.className = 'navigator-chip';
       button.textContent = entry.name;
-      button.addEventListener('click', () => cards().find((candidate) => candidate.dataset.navigatorId === entry.id)?.querySelector('.app-card-button')?.click());
+      button.addEventListener('click', () => {
+        const card = cards().find((candidate) => candidate.dataset.navigatorId === entry.id);
+        card?.querySelector('.app-card-button')?.click();
+      });
       recentList.append(button);
     });
   }
 
   function surprise() {
     const available = cards().filter((card) => !card.hidden);
-    if (!available.length) { search.value = ''; state.query = ''; apply(); return surprise(); }
+    if (!available.length) {
+      search.value = '';
+      state.query = '';
+      apply();
+      return surprise();
+    }
     const card = available[Math.floor(Math.random() * available.length)];
     card.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
     card.querySelector('.app-card-button')?.focus({ preventScroll: true });
@@ -105,7 +131,13 @@
   }
 
   search.addEventListener('input', () => { state.query = search.value; apply(); });
-  search.addEventListener('keydown', (event) => { if (event.key === 'Escape' && search.value) { search.value = ''; state.query = ''; apply(); } });
+  search.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && search.value) {
+      search.value = '';
+      state.query = '';
+      apply();
+    }
+  });
   sort.addEventListener('change', () => { state.sort = sort.value; apply(); });
   nav.querySelector('[data-surprise]').addEventListener('click', surprise);
   document.querySelectorAll('.filter').forEach((button) => button.addEventListener('click', () => setTimeout(apply, 0)));

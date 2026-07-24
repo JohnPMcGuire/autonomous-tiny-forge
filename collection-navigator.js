@@ -11,7 +11,8 @@
     mission: 'all',
     recent: [],
     shortlist: [],
-    applying: false
+    applying: false,
+    destroyed: false
   };
 
   const MISSIONS = [
@@ -78,23 +79,12 @@
   const missionList = nav.querySelector('[data-missions]');
   const shortlistWrap = nav.querySelector('.navigator-shortlist');
   const shortlistList = nav.querySelector('[data-shortlist-list]');
+  const cleanup = [];
 
-  MISSIONS.forEach((mission) => {
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.className = 'navigator-chip';
-    button.dataset.mission = mission.id;
-    button.setAttribute('aria-pressed', mission.id === state.mission ? 'true' : 'false');
-    button.textContent = mission.label;
-    button.addEventListener('click', () => {
-      state.mission = mission.id;
-      missionList.querySelectorAll('[data-mission]').forEach((candidate) => {
-        candidate.setAttribute('aria-pressed', String(candidate === button));
-      });
-      apply();
-    });
-    missionList.append(button);
-  });
+  const listen = (target, type, handler, options) => {
+    target.addEventListener(type, handler, options);
+    cleanup.push(() => target.removeEventListener(type, handler, options));
+  };
 
   function cards() {
     return [...grid.querySelectorAll('.app-card')];
@@ -114,98 +104,16 @@
   function activeCategoryAllows(card) {
     const active = document.querySelector('.filter.is-active')?.dataset.filter || 'all';
     if (active === 'all') return true;
-    return card.dataset.category === active ||
-      normalize(card.querySelector('.app-meta')?.textContent).startsWith(active);
+    return card.dataset.category === active || normalize(card.querySelector('.app-meta')?.textContent).startsWith(active);
   }
 
   function relevance(item, terms) {
-    if (!terms.length) return 0;
-    let score = 0;
-    terms.forEach((term) => {
+    return terms.reduce((score, term) => {
       if (normalize(item.name).includes(term)) score += 8;
       if (normalize(item.meta).includes(term)) score += 4;
       if (normalize(item.summary).includes(term)) score += 2;
-    });
-    return score;
-  }
-
-  function ensureShortlistControl(item) {
-    let button = item.card.querySelector('.navigator-shortlist-toggle');
-    if (!button) {
-      button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'navigator-shortlist-toggle';
-      button.addEventListener('click', (event) => {
-        event.stopPropagation();
-        toggleShortlist(item.id);
-      });
-      item.card.append(button);
-    }
-    const selected = state.shortlist.includes(item.id);
-    button.dataset.appId = item.id;
-    button.setAttribute('aria-pressed', String(selected));
-    button.setAttribute('aria-label', `${selected ? 'Remove' : 'Add'} ${item.name} ${selected ? 'from' : 'to'} compare shortlist`);
-    button.textContent = selected ? 'Shortlisted' : 'Compare';
-  }
-
-  function apply() {
-    if (state.applying) return;
-    state.applying = true;
-    const terms = normalize(state.query).split(' ').filter(Boolean);
-    const mission = MISSIONS.find((entry) => entry.id === state.mission) || MISSIONS[0];
-    const items = cards().map(cardData);
-
-    items.forEach((item) => {
-      item.card.dataset.navigatorId = item.id;
-      item.score = relevance(item, terms);
-      const queryMatch = !terms.length || terms.every((term) => item.text.includes(term));
-      item.match = activeCategoryAllows(item.card) && queryMatch && mission.test(item);
-      item.card.hidden = !item.match;
-      ensureShortlistControl(item);
-      if (item.button && !item.button.dataset.navigatorBound) {
-        item.button.dataset.navigatorBound = '1';
-        item.button.addEventListener('click', () => remember(item));
-      }
-    });
-
-    const sorted = [...items].sort((a, b) => {
-      if (state.sort === 'az') return a.name.localeCompare(b.name);
-      if (state.sort === 'category') return a.category.localeCompare(b.category) || a.name.localeCompare(b.name);
-      if (state.sort === 'relevance') return b.score - a.score || b.index - a.index;
-      return b.index - a.index;
-    });
-
-    const fragment = document.createDocumentFragment();
-    sorted.forEach((item) => fragment.append(item.card));
-    grid.append(fragment);
-    count.textContent = String(items.filter((item) => item.match).length);
-    grid.dataset.navigatorReady = 'true';
-    state.applying = false;
-    renderShortlist();
-  }
-
-  function remember(item) {
-    state.recent = [
-      { id: item.id, name: item.name },
-      ...state.recent.filter((entry) => entry.id !== item.id)
-    ].slice(0, 5);
-    renderRecent();
-  }
-
-  function renderRecent() {
-    recentWrap.hidden = state.recent.length === 0;
-    recentList.replaceChildren();
-    state.recent.forEach((entry) => {
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'navigator-chip';
-      button.textContent = entry.name;
-      button.addEventListener('click', () => {
-        const card = cards().find((candidate) => candidate.dataset.navigatorId === entry.id);
-        card?.querySelector('.app-card-button')?.click();
-      });
-      recentList.append(button);
-    });
+      return score;
+    }, 0);
   }
 
   function toggleShortlist(id) {
@@ -220,6 +128,46 @@
     apply();
   }
 
+  function ensureShortlistControl(item) {
+    let button = item.card.querySelector('.navigator-shortlist-toggle');
+    if (!button) {
+      button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'navigator-shortlist-toggle';
+      listen(button, 'click', (event) => {
+        event.stopPropagation();
+        toggleShortlist(button.dataset.appId);
+      });
+      item.card.append(button);
+    }
+    const selected = state.shortlist.includes(item.id);
+    button.dataset.appId = item.id;
+    button.setAttribute('aria-pressed', String(selected));
+    button.setAttribute('aria-label', `${selected ? 'Remove' : 'Add'} ${item.name} ${selected ? 'from' : 'to'} compare shortlist`);
+    button.textContent = selected ? 'Shortlisted' : 'Compare';
+  }
+
+  function remember(item) {
+    state.recent = [{ id: item.id, name: item.name }, ...state.recent.filter((entry) => entry.id !== item.id)].slice(0, 5);
+    renderRecent();
+  }
+
+  function renderRecent() {
+    recentWrap.hidden = state.recent.length === 0;
+    recentList.replaceChildren();
+    state.recent.forEach((entry) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'navigator-chip';
+      button.textContent = entry.name;
+      listen(button, 'click', () => {
+        cards().find((candidate) => candidate.dataset.navigatorId === entry.id)
+          ?.querySelector('.app-card-button')?.click();
+      });
+      recentList.append(button);
+    });
+  }
+
   function renderShortlist() {
     const items = cards().map(cardData).filter((item) => state.shortlist.includes(item.id));
     shortlistWrap.hidden = items.length === 0;
@@ -227,31 +175,75 @@
     items.forEach((item) => {
       const card = document.createElement('article');
       card.className = 'navigator-shortlist-card';
-      card.innerHTML = `<strong></strong><span></span><div></div>`;
+      card.innerHTML = '<strong></strong><span></span><div></div>';
       card.querySelector('strong').textContent = item.name;
       card.querySelector('span').textContent = item.meta;
       const actions = card.querySelector('div');
       const open = document.createElement('button');
       open.type = 'button';
       open.textContent = 'Open';
-      open.addEventListener('click', () => item.button?.click());
+      listen(open, 'click', () => item.button?.click());
       const remove = document.createElement('button');
       remove.type = 'button';
       remove.textContent = 'Remove';
-      remove.addEventListener('click', () => toggleShortlist(item.id));
+      listen(remove, 'click', () => toggleShortlist(item.id));
       actions.append(open, remove);
       shortlistList.append(card);
     });
+  }
+
+  function apply() {
+    if (state.applying || state.destroyed) return;
+    state.applying = true;
+    try {
+      const terms = normalize(state.query).split(' ').filter(Boolean);
+      const mission = MISSIONS.find((entry) => entry.id === state.mission) || MISSIONS[0];
+      const items = cards().map(cardData);
+
+      items.forEach((item) => {
+        item.card.dataset.navigatorId = item.id;
+        item.score = relevance(item, terms);
+        const queryMatch = !terms.length || terms.every((term) => item.text.includes(term));
+        item.match = activeCategoryAllows(item.card) && queryMatch && mission.test(item);
+        item.card.hidden = !item.match;
+        ensureShortlistControl(item);
+        if (item.button && !item.button.dataset.navigatorBound) {
+          item.button.dataset.navigatorBound = '1';
+          listen(item.button, 'click', () => remember(cardData(item.card, item.index)));
+        }
+      });
+
+      const sorted = [...items].sort((a, b) => {
+        if (state.sort === 'az') return a.name.localeCompare(b.name);
+        if (state.sort === 'category') return a.category.localeCompare(b.category) || a.name.localeCompare(b.name);
+        if (state.sort === 'relevance') return b.score - a.score || b.index - a.index;
+        return b.index - a.index;
+      });
+
+      const orderChanged = sorted.some((item, index) => grid.children[index] !== item.card);
+      if (orderChanged) {
+        const fragment = document.createDocumentFragment();
+        sorted.forEach((item) => fragment.append(item.card));
+        grid.append(fragment);
+      }
+
+      count.textContent = String(items.filter((item) => item.match).length);
+      grid.dataset.navigatorReady = 'true';
+      renderShortlist();
+    } finally {
+      state.applying = false;
+    }
   }
 
   function announce(message) {
     const node = nav.querySelector('.navigator-count');
     node.dataset.message = message;
     node.setAttribute('aria-label', message);
-    setTimeout(() => {
+    const timer = window.setTimeout(() => {
       delete node.dataset.message;
       node.removeAttribute('aria-label');
     }, 1400);
+    cleanup.push(() => window.clearTimeout(timer));
   }
 
   function surprise() {
@@ -278,10 +270,28 @@
     });
     card.querySelector('.app-card-button')?.focus({ preventScroll: true });
     card.classList.add('is-surprise');
-    setTimeout(() => card.classList.remove('is-surprise'), 900);
+    const timer = window.setTimeout(() => card.classList.remove('is-surprise'), 900);
+    cleanup.push(() => window.clearTimeout(timer));
   }
 
-  search.addEventListener('input', () => {
+  MISSIONS.forEach((mission) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'navigator-chip';
+    button.dataset.mission = mission.id;
+    button.setAttribute('aria-pressed', String(mission.id === state.mission));
+    button.textContent = mission.label;
+    listen(button, 'click', () => {
+      state.mission = mission.id;
+      missionList.querySelectorAll('[data-mission]').forEach((candidate) => {
+        candidate.setAttribute('aria-pressed', String(candidate === button));
+      });
+      apply();
+    });
+    missionList.append(button);
+  });
+
+  listen(search, 'input', () => {
     state.query = search.value;
     if (state.query && state.sort === 'newest') {
       state.sort = 'relevance';
@@ -290,7 +300,7 @@
     apply();
   });
 
-  search.addEventListener('keydown', (event) => {
+  listen(search, 'keydown', (event) => {
     if (event.key === 'Escape' && search.value) {
       search.value = '';
       state.query = '';
@@ -298,22 +308,22 @@
     }
   });
 
-  sort.addEventListener('change', () => {
+  listen(sort, 'change', () => {
     state.sort = sort.value;
     apply();
   });
 
-  nav.querySelector('[data-surprise]').addEventListener('click', surprise);
-  nav.querySelector('[data-clear-shortlist]').addEventListener('click', () => {
+  listen(nav.querySelector('[data-surprise]'), 'click', surprise);
+  listen(nav.querySelector('[data-clear-shortlist]'), 'click', () => {
     state.shortlist = [];
     apply();
   });
 
   document.querySelectorAll('.filter').forEach((button) => {
-    button.addEventListener('click', () => setTimeout(apply, 0));
+    listen(button, 'click', () => window.setTimeout(apply, 0));
   });
 
-  document.addEventListener('keydown', (event) => {
+  const handleKeyboard = (event) => {
     const tag = event.target?.tagName;
     const typing = tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || event.target?.isContentEditable;
     if (event.key === '/' && !typing) {
@@ -323,18 +333,33 @@
     if ((event.key === 's' || event.key === 'S') && !typing && !document.querySelector('#app-dialog')?.open) {
       surprise();
     }
-  });
+  };
+  listen(document, 'keydown', handleKeyboard);
 
   let queued = false;
-  const observer = new MutationObserver(() => {
-    if (state.applying || queued) return;
+  let frame = 0;
+  const observer = new MutationObserver((mutations) => {
+    if (state.applying || queued || state.destroyed) return;
+    const hasNewCards = mutations.some((mutation) => [...mutation.addedNodes]
+      .some((node) => node.nodeType === Node.ELEMENT_NODE && (node.matches?.('.app-card') || node.querySelector?.('.app-card'))));
+    if (!hasNewCards) return;
     queued = true;
-    requestAnimationFrame(() => {
+    frame = requestAnimationFrame(() => {
       queued = false;
       apply();
     });
   });
 
   observer.observe(grid, { childList: true });
+  cleanup.push(() => observer.disconnect());
+  cleanup.push(() => cancelAnimationFrame(frame));
+
+  const teardown = () => {
+    if (state.destroyed) return;
+    state.destroyed = true;
+    while (cleanup.length) cleanup.pop()();
+  };
+  listen(window, 'pagehide', teardown, { once: true });
+
   apply();
 })();

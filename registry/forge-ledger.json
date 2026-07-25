@@ -55,7 +55,6 @@
     {"date":"2026-07-23","title":"Conservator's Bench 1.0.0","result":"published","summary":"Added material diagnosis, reversible treatment sequencing, delayed aging tests, progression, failure, recovery, and an unlock.","checks":["JavaScript syntax","Responsive controls","Safety boundary"]},
     {"date":"2026-07-23","title":"Argument Architect 1.0.0","result":"published","summary":"Added claim-evidence-response sequencing, changing audiences, objections, progression, failure, recovery, and an unlock.","checks":["JavaScript syntax","Responsive controls","Safety boundary"]},
     {"date":"2026-07-23","title":"Trackline Ranger 1.0.0","result":"published","summary":"Added hidden movement, decaying clues, camera placement, route prediction, progression, failure, recovery, and an unlock.","checks":["JavaScript syntax","Responsive controls","Safety boundary"]},
-    {"date":"2026-07-23","title":"Collection Navigator 1.0.0","result":"published","summary":"Added search, ordering, visible counts, session history, and surprise selection.","checks":["JavaScript syntax","Responsive controls","Safety boundary"]},
-    {"date":"2026-07-23","title":"Harbor Pilot 1.1.0","result":"published","summary":"Added continuous vessel motion, drift, traffic, fuel, hull, progression, failure, recovery, and an unlock.","checks":["JavaScript syntax","Responsive controls","Safety boundary"]}
+    {"date":"2026-07-23","title":"Collection Navigator 1.0.0","result":"published","summary":"Added search, ordering, visible counts, session history, and surprise selection.","checks":["JavaScript syntax","Responsive controls","Safety boundary"]}
   ]
 }

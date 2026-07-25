@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-07-25T17:18:00.000Z",
+  "updatedAt": "2026-07-25T21:00:00.000Z",
   "sprint": {
     "name": "Forge Expansion Sprint",
     "state": "active",
@@ -16,11 +16,31 @@
     "secondaryAutomation": "A separate GitHub Actions workflow runs Tuesday and Friday at 15:17 UTC. It can only create or improve approved declarative-engine apps and records accepted publishes in this ledger."
   },
   "method": [
-    {"id":"inspect","label":"Inspect","description":"Review the live site, repository, current apps, open feedback, bugs, depth, accessibility, and portfolio gaps."},
-    {"id":"compare","label":"Compare","description":"Consider at least three candidate changes and choose the one that creates the strongest useful depth or breadth."},
-    {"id":"build","label":"Build one","description":"Create or improve one coherent feature or app, including mobile, keyboard, touch, reduced-motion, teardown, and edge cases."},
-    {"id":"validate","label":"Validate","description":"Run JavaScript syntax checks, feedback-routing tests, registry rules, required-file checks, and safety-boundary validation."},
-    {"id":"publish","label":"Publish or skip","description":"Merge and deploy only after every required check passes. Skip when the candidate is weak, unsafe, duplicative, or incomplete."}
+    {
+      "id": "inspect",
+      "label": "Inspect",
+      "description": "Review the live site, repository, current apps, open feedback, bugs, depth, accessibility, and portfolio gaps."
+    },
+    {
+      "id": "compare",
+      "label": "Compare",
+      "description": "Consider at least three candidate changes and choose the one that creates the strongest useful depth or breadth."
+    },
+    {
+      "id": "build",
+      "label": "Build one",
+      "description": "Create or improve one coherent feature or app, including mobile, keyboard, touch, reduced-motion, teardown, and edge cases."
+    },
+    {
+      "id": "validate",
+      "label": "Validate",
+      "description": "Run JavaScript syntax checks, feedback-routing tests, registry rules, required-file checks, and safety-boundary validation."
+    },
+    {
+      "id": "publish",
+      "label": "Publish or skip",
+      "description": "Merge and deploy only after every required check passes. Skip when the candidate is weak, unsafe, duplicative, or incomplete."
+    }
   ],
   "qualityGates": [
     "One coherent change maximum per review window",
@@ -30,32 +50,266 @@
     "Repository validation must pass before main is published"
   ],
   "queue": [
-    {"id":"panelcraft-regression-playtest","title":"Panelcraft 1.0 keyboard, balance, and mobile regression playtest","status":"next","source":"Panelcraft 1.0 portfolio expansion","reason":"Verify all six incidents are winnable with distinct layouts; native button keyboard activation never also triggers global shortcuts; 1-8 and Q/W/E/R shortcuts remain available from non-interactive regions; zone capacity, undo, drill scarcity, recovery, unlock pacing, failure states, narrow-screen controls, repeated close and reopen teardown, and visible commissioning gates remain stable."},
-    {"id":"folding-frontier-keyboard-regression","title":"Folding Frontier 1.1.1 keyboard regression playtest","status":"candidate","source":"Folding Frontier live smoke review","reason":"Verify Enter on Submit fold, Preview best bond, Undo move, Call folding mentor, New session, and numbered bond buttons performs only the focused action; verify arrow keys on focused buttons do not rotate or change selection; confirm global arrow, H, U, and Enter shortcuts still work from the canvas and non-interactive regions; confirm repeated close and reopen cycles remove old listeners."},
-    {"id":"collection-navigator-regression-playtest","title":"Collection Navigator stability regression playtest","status":"candidate","source":"Collection Navigator 1.1.1 review","reason":"Verify late-loading cards trigger one bounded refresh, sorting no longer self-schedules renders, shortlist and recent controls remain stable after reordering, keyboard shortcuts do not leak after teardown, and visible counts stay accurate."},
-    {"id":"privacy-ledger-regression-playtest","title":"Privacy Ledger 1.1 strategy regression playtest","status":"candidate","source":"Privacy Ledger 1.1 review","reason":"Verify scenario-specific control bonuses, control tradeoff explanations, audited and unaudited risk displays, readiness gates, budget composition, equity thresholds, disabled actions, narrow-screen controls, keyboard operation, counsel consequences, unlock pacing, and teardown across all six releases."},
-    {"id":"ambient-composition-no-permission","title":"Permission-free ambient composition game","status":"candidate","source":"Portfolio breadth review","reason":"Explore an audio-first composition experience that uses synthesized local audio without microphone permission, storage, accounts, analytics, or network behavior; require multi-layer tradeoffs, timing, progression, failure, recovery, and mobile-safe controls."}
+    {
+      "id": "panelcraft-balance-regression",
+      "title": "Panelcraft 1.0.1 balance and progression regression playtest",
+      "status": "next",
+      "source": "Panelcraft 1.0 regression review",
+      "reason": "Verify all six incidents are winnable under their budgets and targets; confirm placement costs, metric scaling, five-of-six gate rule, fatigue carryover, trust, score unlock, recovery, undo, keyboard protection, mobile controls, and repeated close/reopen teardown remain stable."
+    },
+    {
+      "id": "folding-frontier-keyboard-regression",
+      "title": "Folding Frontier 1.1.1 keyboard regression playtest",
+      "status": "candidate",
+      "source": "Folding Frontier live smoke review",
+      "reason": "Verify focused controls activate only themselves; global shortcuts still work from non-interactive regions; repeated close and reopen cycles remove old listeners."
+    },
+    {
+      "id": "collection-navigator-regression-playtest",
+      "title": "Collection Navigator stability regression playtest",
+      "status": "candidate",
+      "source": "Collection Navigator 1.1.1 review",
+      "reason": "Verify bounded late-card refresh, stable sorting, shortlist controls, counts, shortcuts, and teardown."
+    },
+    {
+      "id": "privacy-ledger-regression-playtest",
+      "title": "Privacy Ledger 1.1 strategy regression playtest",
+      "status": "candidate",
+      "source": "Privacy Ledger 1.1 review",
+      "reason": "Verify scenario bonuses, tradeoffs, audited risk, gates, budget composition, equity, counsel, mobile controls, keyboard operation, unlock pacing, and teardown."
+    },
+    {
+      "id": "ambient-composition-no-permission",
+      "title": "Permission-free ambient composition game",
+      "status": "candidate",
+      "source": "Portfolio breadth review",
+      "reason": "Explore a synthesized local-audio experience with layered tradeoffs, timing, progression, failure, recovery, mobile-safe controls, and no microphone permission, storage, accounts, analytics, or network behavior."
+    }
   ],
   "recentDecisions": [
-    {"date":"2026-07-25","title":"Panelcraft 1.0.0","result":"published","summary":"Compared a human-factors control-panel simulator, a permission-free ambient composition game, and a collection regression-only pass. Selected the human-factors concept because safety-critical interface design, spatial control placement, operator workload, and usability evidence were underserved. Added six incidents, eight controls, four constrained zones, reach, scan, workload, error, budget, fatigue, trust, drills, commissioning gates, progression, failure, recovery, a session unlock, responsive controls, keyboard support, reduced motion, teardown, and local-only state.","checks":["JavaScript syntax","Six-incident progression","Spatial placement and zone capacity","Usability drills and commissioning gates","Keyboard and touch controls","Reduced motion and teardown","No storage, permissions, secrets, or network additions"]},
-    {"date":"2026-07-25","title":"Folding Frontier 1.1.1","result":"published","summary":"Compared a Folding Frontier keyboard-accessibility repair, a permission-free ambient composition game, and a crisis-negotiation simulator. Prioritized the confirmed live regression: document-level arrow, H, U, and Enter shortcuts also fired while native buttons owned keyboard focus, allowing focused actions to rotate, select, hint, undo, or submit a second game action. Added an interactive-control guard while preserving global shortcuts from the canvas and non-interactive regions, repeated-dialog teardown, reduced motion, pointer support, and the local-only safety boundary.","checks":["JavaScript syntax","Interactive-control shortcut guard","Native button keyboard activation","Global shortcut preservation","Repeated dialog teardown","No storage, permissions, secrets, or network additions"]},
-    {"date":"2026-07-25","title":"Fabline Control 1.1.1","result":"published","summary":"Compared a Fabline Control keyboard-accessibility repair, a permission-free ambient composition game, and a crisis-negotiation simulator. Prioritized the queued regression because Fabline's document-level shortcuts also fired while native buttons owned keyboard focus, allowing Enter or arrow activation to trigger both the focused control and a global game action. Added an interactive-control guard while preserving shortcuts elsewhere, repeated-dialog teardown, reduced motion, touch support, and the local-only safety boundary.","checks":["JavaScript syntax","Interactive-control shortcut guard","Native button keyboard activation","Global shortcut preservation","Repeated dialog teardown","No storage, permissions, secrets, or network additions"]},
-    {"date":"2026-07-24","title":"Folding Frontier gallery wiring","result":"published","summary":"Compared a Folding Frontier live-gallery repair, a permission-free ambient composition game, and a crisis-negotiation simulator. Prioritized the confirmed release blocker: the validated Folding Frontier source existed on main but index.html never loaded it, preventing the app from appearing in the public collection. Added the missing deferred script wiring without changing permissions, storage, network behavior, or app logic.","checks":["Source file present","Gallery loader wiring","All and Play filter compatibility","Existing app safety boundary","No storage, permissions, secrets, or network additions"]},
-    {"date":"2026-07-24","title":"Relevance Lab 1.1.1","result":"published","summary":"Compared a Relevance Lab keyboard regression repair, a crisis-negotiation simulator, and a permission-free ambient-sound composition game. Prioritized the confirmed accessibility regression: global shortcuts now ignore interactive controls so native Enter activation cannot also ship a ranking, while game shortcuts remain available elsewhere. The release preserves local-only behavior, reduced motion, touch support, and close teardown.","checks":["JavaScript syntax","Interactive-control shortcut guard","Native Enter button activation","Global shortcut preservation","Repeated dialog teardown","No storage, permissions, secrets, or network additions"]},
-    {"date":"2026-07-24","title":"Relevance Lab 1.1.0","result":"published","summary":"Compared a Relevance Lab strategy pass, a crisis-negotiation simulator, and the open Ambient Ambient feedback proposal. Prioritized the queued search-ranking evidence gap because signals behaved too similarly, experiments exposed too little actionable evidence, and release readiness was hard to read. The release adds scenario-specific signal sensitivities, explicit signal tradeoffs, four visible release gates, blocker-aware experiment reports, clearer commercial-pressure penalties, improved disabled states, narrow-screen controls, and preserved local-only teardown without adding microphone permissions.","checks":["JavaScript syntax","Six-query progression","Differentiated ranking signals","Experiment evidence and release gates","Commercial pressure and diversity tradeoffs","Keyboard and touch controls","Reduced motion and teardown","No storage, permissions, secrets, or network additions"]},
-    {"date":"2026-07-24","title":"Fabline Control 1.1.0","result":"published","summary":"Compared a Fabline Control process-window pass, a crisis-negotiation simulator, and an Ambient Ambient prototype. Added scenario-specific recipes, audited yield ranges, release gates, maintenance consequences, and preserved local-only teardown.","checks":["JavaScript syntax","Responsive controls","Safety boundary"]},
-    {"date":"2026-07-24","title":"Privacy Ledger 1.1.0","result":"published","summary":"Added scenario-specific protection bonuses, explicit control tradeoffs, audited risk ranges, release gates, projected budget spend, and clearer counsel consequences.","checks":["JavaScript syntax","Responsive controls","Safety boundary"]},
-    {"date":"2026-07-24","title":"Folding Frontier 1.1.0","result":"published","summary":"Added numbered bond controls, per-level strategy guidance, collision rings, submit-readiness messaging, clearer hints, and improved narrow-screen controls.","checks":["JavaScript syntax","Responsive controls","Safety boundary"]},
-    {"date":"2026-07-24","title":"Collection Navigator 1.1.1","result":"published","summary":"Fixed mutation-observer render loops, no-op reordering, late-card refresh, and teardown.","checks":["JavaScript syntax","Responsive controls","Safety boundary"]},
-    {"date":"2026-07-23","title":"Collection Navigator 1.1.0","result":"published","summary":"Added discovery missions, multi-term relevance ranking, a three-app shortlist, surprise selection, keyboard shortcuts, and responsive compare controls.","checks":["JavaScript syntax","Responsive controls","Safety boundary"]},
-    {"date":"2026-07-23","title":"Folding Frontier 1.0.0","result":"published","summary":"Added a six-protein spatial folding puzzle with contacts, collisions, limits, hints, undo, progression, failure, recovery, and a session unlock.","checks":["JavaScript syntax","Responsive controls","Safety boundary"]},
-    {"date":"2026-07-23","title":"Privacy Ledger 1.0.0","result":"published","summary":"Added six dataset releases, privacy controls, cumulative budget, attack pressure, audits, utility and equity tradeoffs, progression, failure, recovery, and an unlock.","checks":["JavaScript syntax","Responsive controls","Safety boundary"]},
-    {"date":"2026-07-23","title":"Fabline Control 1.0.0","result":"published","summary":"Added six production lots, hidden tool drift, process controls, scarcity, contamination, maintenance, yield, progression, failure, recovery, and an unlock.","checks":["JavaScript syntax","Responsive controls","Safety boundary"]},
-    {"date":"2026-07-23","title":"Relevance Lab 1.0.0","result":"published","summary":"Added six query sets, weighted ranking signals, limited experiments, relevance and diversity tradeoffs, progression, failure, recovery, and an unlock.","checks":["JavaScript syntax","Responsive controls","Safety boundary"]},
-    {"date":"2026-07-23","title":"Acoustic Commons 1.0.0","result":"published","summary":"Added six venues, layered synthesis, shifting audience needs, energy, fatigue, optional audio, progression, failure, recovery, and an unlock.","checks":["JavaScript syntax","Responsive controls","Safety boundary"]},
-    {"date":"2026-07-23","title":"Civic Ledger 1.0.0","result":"published","summary":"Added six fiscal years, service allocation, shocks, reserves, debt, equity, resilience, progression, failure, recovery, and an unlock.","checks":["JavaScript syntax","Responsive controls","Safety boundary"]},
-    {"date":"2026-07-23","title":"Conservator's Bench 1.0.0","result":"published","summary":"Added material diagnosis, reversible treatment sequencing, delayed aging tests, progression, failure, recovery, and an unlock.","checks":["JavaScript syntax","Responsive controls","Safety boundary"]},
-    {"date":"2026-07-23","title":"Argument Architect 1.0.0","result":"published","summary":"Added claim-evidence-response sequencing, changing audiences, objections, progression, failure, recovery, and an unlock.","checks":["JavaScript syntax","Responsive controls","Safety boundary"]},
-    {"date":"2026-07-23","title":"Trackline Ranger 1.0.0","result":"published","summary":"Added hidden movement, decaying clues, camera placement, route prediction, progression, failure, recovery, and an unlock.","checks":["JavaScript syntax","Responsive controls","Safety boundary"]}
+    {
+      "date": "2026-07-25",
+      "title": "Panelcraft 1.0.1",
+      "result": "published",
+      "summary": "Compared a Panelcraft regression repair, a permission-free ambient composition game, and a crisis-negotiation simulator. Prioritized a release-blocking balance defect: exhaustive layout analysis showed every incident was unwinnable because minimum complete-panel cost exceeded early budgets and the best possible reach, scan, error, and quality values could not satisfy the gates or targets. Rebalanced placement costs, metric scaling, gate thresholds, incident targets, and design time while preserving spatial tradeoffs, progression, recovery, keyboard protection, responsive controls, reduced motion, teardown, and local-only state.",
+      "checks": [
+        "JavaScript syntax",
+        "Exhaustive capacity and budget enumeration",
+        "At least one winning layout for every incident",
+        "Progressive target curve",
+        "Keyboard and touch controls",
+        "Reduced motion and teardown",
+        "No storage, permissions, secrets, or network additions"
+      ]
+    },
+    {
+      "date": "2026-07-25",
+      "title": "Panelcraft 1.0.0",
+      "result": "published",
+      "summary": "Compared a human-factors control-panel simulator, a permission-free ambient composition game, and a collection regression-only pass. Added six incidents, constrained panel layout, reach, scan, workload, error, budget, fatigue, trust, drills, gates, progression, failure, recovery, a session unlock, responsive controls, keyboard support, reduced motion, teardown, and local-only state.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive controls",
+        "Safety boundary"
+      ]
+    },
+    {
+      "date": "2026-07-25",
+      "title": "Folding Frontier 1.1.1",
+      "result": "published",
+      "summary": "Added an interactive-control shortcut guard while preserving canvas shortcuts, teardown, reduced motion, pointer support, and local-only state.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive controls",
+        "Safety boundary"
+      ]
+    },
+    {
+      "date": "2026-07-25",
+      "title": "Fabline Control 1.1.1",
+      "result": "published",
+      "summary": "Added an interactive-control shortcut guard while preserving shortcuts elsewhere, teardown, reduced motion, touch support, and local-only state.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive controls",
+        "Safety boundary"
+      ]
+    },
+    {
+      "date": "2026-07-24",
+      "title": "Folding Frontier gallery wiring",
+      "result": "published",
+      "summary": "Added the missing gallery script wiring without changing permissions, storage, network behavior, or app logic.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive controls",
+        "Safety boundary"
+      ]
+    },
+    {
+      "date": "2026-07-24",
+      "title": "Relevance Lab 1.1.1",
+      "result": "published",
+      "summary": "Prevented global shortcuts from firing on interactive controls while preserving game shortcuts, teardown, and local-only behavior.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive controls",
+        "Safety boundary"
+      ]
+    },
+    {
+      "date": "2026-07-24",
+      "title": "Relevance Lab 1.1.0",
+      "result": "published",
+      "summary": "Added scenario-specific signal sensitivities, explicit tradeoffs, four release gates, blocker-aware experiments, mobile controls, and preserved local-only teardown.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive controls",
+        "Safety boundary"
+      ]
+    },
+    {
+      "date": "2026-07-24",
+      "title": "Fabline Control 1.1.0",
+      "result": "published",
+      "summary": "Added scenario-specific recipes, audited yield ranges, release gates, maintenance consequences, and preserved local-only teardown.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive controls",
+        "Safety boundary"
+      ]
+    },
+    {
+      "date": "2026-07-24",
+      "title": "Privacy Ledger 1.1.0",
+      "result": "published",
+      "summary": "Added scenario-specific protection bonuses, control tradeoffs, audited risk ranges, release gates, projected budget spend, and clearer counsel consequences.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive controls",
+        "Safety boundary"
+      ]
+    },
+    {
+      "date": "2026-07-24",
+      "title": "Folding Frontier 1.1.0",
+      "result": "published",
+      "summary": "Added numbered bond controls, strategy guidance, collision rings, readiness messaging, clearer hints, and improved narrow-screen controls.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive controls",
+        "Safety boundary"
+      ]
+    },
+    {
+      "date": "2026-07-24",
+      "title": "Collection Navigator 1.1.1",
+      "result": "published",
+      "summary": "Fixed mutation-observer render loops, no-op reordering, late-card refresh, and teardown.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive controls",
+        "Safety boundary"
+      ]
+    },
+    {
+      "date": "2026-07-23",
+      "title": "Collection Navigator 1.1.0",
+      "result": "published",
+      "summary": "Added discovery missions, multi-term relevance ranking, a three-app shortlist, surprise selection, keyboard shortcuts, and responsive compare controls.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive controls",
+        "Safety boundary"
+      ]
+    },
+    {
+      "date": "2026-07-23",
+      "title": "Folding Frontier 1.0.0",
+      "result": "published",
+      "summary": "Added a six-protein spatial folding puzzle with contacts, collisions, limits, hints, undo, progression, failure, recovery, and a session unlock.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive controls",
+        "Safety boundary"
+      ]
+    },
+    {
+      "date": "2026-07-23",
+      "title": "Privacy Ledger 1.0.0",
+      "result": "published",
+      "summary": "Added six dataset releases, privacy controls, cumulative budget, attack pressure, audits, utility and equity tradeoffs, progression, failure, recovery, and an unlock.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive controls",
+        "Safety boundary"
+      ]
+    },
+    {
+      "date": "2026-07-23",
+      "title": "Fabline Control 1.0.0",
+      "result": "published",
+      "summary": "Added six production lots, hidden tool drift, process controls, scarcity, contamination, maintenance, yield, progression, failure, recovery, and an unlock.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive controls",
+        "Safety boundary"
+      ]
+    },
+    {
+      "date": "2026-07-23",
+      "title": "Relevance Lab 1.0.0",
+      "result": "published",
+      "summary": "Added six query sets, weighted ranking signals, experiments, relevance and diversity tradeoffs, progression, failure, recovery, and an unlock.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive controls",
+        "Safety boundary"
+      ]
+    },
+    {
+      "date": "2026-07-23",
+      "title": "Acoustic Commons 1.0.0",
+      "result": "published",
+      "summary": "Added six venues, layered synthesis, shifting audience needs, energy, fatigue, optional audio, progression, failure, recovery, and an unlock.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive controls",
+        "Safety boundary"
+      ]
+    },
+    {
+      "date": "2026-07-23",
+      "title": "Civic Ledger 1.0.0",
+      "result": "published",
+      "summary": "Added six fiscal years, service allocation, shocks, reserves, debt, equity, resilience, progression, failure, recovery, and an unlock.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive controls",
+        "Safety boundary"
+      ]
+    },
+    {
+      "date": "2026-07-23",
+      "title": "Conservator's Bench 1.0.0",
+      "result": "published",
+      "summary": "Added material diagnosis, reversible treatment sequencing, delayed aging tests, progression, failure, recovery, and an unlock.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive controls",
+        "Safety boundary"
+      ]
+    },
+    {
+      "date": "2026-07-23",
+      "title": "Argument Architect 1.0.0",
+      "result": "published",
+      "summary": "Added claim-evidence-response sequencing, changing audiences, objections, progression, failure, recovery, and an unlock.",
+      "checks": [
+        "JavaScript syntax",
+        "Responsive controls",
+        "Safety boundary"
+      ]
+    }
   ]
 }

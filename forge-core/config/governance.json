@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "phase": "core",
+  "cadenceHours": 6,
+  "minimumCandidatesPerRun": 3,
+  "maximumCoherentIncrementsPerRun": 1,
+  "maximumParallelExperiments": 1,
+  "autonomousSpendLimitUsd": 0,
+  "monthlyApiBudgetUsd": 40,
+  "allowDirectMainWrites": false,
+  "allowLowRiskMergeAfterGreenCi": false,
+  "requireExactHeadValidation": true,
+  "requireDecisionRecordForDirectionChange": true,
+  "requireNewEvidenceForDirectionChange": true,
+  "requireNextRunHandoff": true,
+  "approvedDataClasses": [
+    "public-market-evidence",
+    "synthetic-test-data",
+    "aggregate-product-metrics",
+    "explicitly-approved-business-input"
+  ],
+  "prohibitedDataClasses": [
+    "credentials",
+    "payment-card-data",
+    "regulated-personal-data",
+    "confidential-customer-data"
+  ],
+  "humanApprovalRequired": [
+    "spend-money",
+    "increase-spend-limit",
+    "accept-legal-terms",
+    "charge-customer",
+    "change-existing-customer-price",
+    "unsolicited-outbound-message",
+    "access-private-customer-data",
+    "issue-refund",
+    "move-funds",
+    "publish-customer-or-revenue-claim",
+    "form-legal-entity",
+    "change-data-collection-scope"
+  ]
+}

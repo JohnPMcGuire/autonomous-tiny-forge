@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "decisions": [
+    {
+      "id": "DEC-0001",
+      "date": "2026-07-03",
+      "type": "strategy",
+      "title": "Start with a bounded Search Intelligence thesis",
+      "status": "active",
+      "context": "The venture studio needs one first direction to avoid portfolio drift. The user has unusually strong ecommerce search, PLP, recommendations, and relevance experience, and the strategy file states that a concierge audit can validate revenue before broad automation.",
+      "decision": "Use Search Intelligence as the first thesis while keeping it unvalidated until external willingness to pay is observed.",
+      "evidence": [
+        "forge-core/STRATEGY.md: current strategic thesis",
+        "forge-core/STRATEGY.md: Phase 1 revenue validation exit criteria"
+      ],
+      "alternativesConsidered": [
+        "Build a generic autonomous app portfolio",
+        "Create a commerce test store first",
+        "Build a full SaaS platform before sales validation"
+      ],
+      "expectedValue": "High, because the thesis has founder-domain fit and can be tested manually before large product investment.",
+      "risk": "Medium, because willingness to pay is not validated yet.",
+      "reversibility": "High until money is spent, customers are promised outcomes, or substantial product code is built.",
+      "approvalGate": "No spending, outreach, customer charging, or published customer claims without human approval.",
+      "reviewDate": "2026-07-10"
+    },
+    {
+      "id": "DEC-0002",
+      "date": "2026-07-03",
+      "type": "operating-system",
+      "title": "Complete Phase 0 core ledgers before revenue work",
+      "status": "active",
+      "context": "The first automation run found strategy and governance text but no decision ledger, opportunity ledger, experiment ledger, deterministic validation, or next-run handoff. Governance requires future runs to read these files before selecting work.",
+      "decision": "Implement the missing Forge Core repository state as the single coherent increment for this run.",
+      "evidence": [
+        "forge-core/GOVERNANCE.md: anti-drift controls require ledgers and handoff",
+        "forge-core/STRATEGY.md: Phase 0 exit criteria require core state validation"
+      ],
+      "alternativesConsidered": [
+        "Draft the first Search Intelligence sales offer",
+        "Build an audit report template",
+        "Research ecommerce search consulting competitors"
+      ],
+      "expectedValue": "High, because durable state and validation reduce strategic drift across all future runs.",
+      "risk": "Low, because the change is documentation and deterministic validation only.",
+      "reversibility": "High, because files can be revised by pull request.",
+      "approvalGate": "No approval gate triggered. No spending, outreach, customer data, legal commitment, or pricing action occurs.",
+      "reviewDate": "2026-07-04"
+    }
+  ]
+}

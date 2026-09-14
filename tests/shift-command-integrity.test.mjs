@@ -89,5 +89,13 @@ assert.match(source, /if\(st\.fatigue\[workerId\]>=p\.stamina\)return say\('Work
   'worker stamina is a hard assignment capacity');
 assert.match(source, /reduce\(\(sum,load\)=>sum\+Math\.max\(0,load-1\),0\)/,
   'every overtime assignment contributes to the overwork penalty');
+assert.match(source, /function refocus\(kind,index\)\{queueMicrotask/,
+  'redraw focus restoration is deferred until replacement controls exist');
+assert.match(source, /draw\(\);refocus\('worker',i\)/,
+  'pointer or touch worker selection restores focus to the replacement worker control');
+assert.match(source, /else if\(id\)\{selected=id;draw\(\);refocus\('slot',i\)\}/,
+  'selecting an assigned post preserves focus after the board redraw');
+assert.match(source, /assign\(e\.dataTransfer\.getData\('text\/plain'\),i\);refocus\('slot',i\)/,
+  'drag assignment restores focus to the updated post');
 
 console.log('Shift Command integrity tests passed.');

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-14T16:57:20.000Z",
+  "updatedAt": "2026-09-14T19:00:37.000Z",
   "sprint": {
     "name": "Shipping Gap Sprint",
     "state": "active",
@@ -33,16 +33,16 @@
     "measurementWindowStart": "2026-09-14T08:00:00-05:00",
     "measurementWindowEnd": "2026-10-14T08:00:00-05:00",
     "reviewWindowsPlanned": 360,
-    "reviewWindowsReached": 3,
-    "candidateChangesConsidered": 9,
-    "pullRequestsOpened": 3,
-    "pullRequestsMerged": 3,
-    "mergedReleases": 3,
-    "successfulDeployments": 2,
+    "reviewWindowsReached": 4,
+    "candidateChangesConsidered": 12,
+    "pullRequestsOpened": 4,
+    "pullRequestsMerged": 4,
+    "mergedReleases": 4,
+    "successfulDeployments": 3,
     "skippedWindows": 0,
-    "bugReports": 3,
-    "repairReleases": 3,
-    "releaseAcceptanceRate": "3 / 360",
+    "bugReports": 4,
+    "repairReleases": 4,
+    "releaseAcceptanceRate": "4 / 360",
     "metricNote": "Metrics reset for this sprint. Future accepted runs update this block when evidence is available; skipped windows should be counted without creating ledger-only commits. Deployment success should be counted only after it is actually observed."
   },
   "reviewMix": [
@@ -81,12 +81,13 @@
   ],
   "queue": [
     {"id":"shipping-gap-experiment","title":"Shipping Gap Experiment layer","status":"shipping","source":"Owner request and NBER working paper lens","reason":"Turn the control room into an explicit informal test of whether faster AI iteration creates durable shipped software after validation, deployment, feedback, and repair costs are counted."},
-    {"id":"shift-command-regression","title":"Shift Command 1.0.3 morale reversibility regression playtest","status":"next","source":"Shift Command QA and bug sweep","reason":"Verify morale is recomputed from the active baseline and current staffing plan so adding, replacing, removing, and undoing assignments remain reversible even when morale clamps at 0 or 10; also verify relief opens at morale 5 with the disruption active, stamina remains a hard capacity, all three sites and relief states remain winnable, and touch, keyboard, reduced motion, audio fallback, transitions, and teardown remain correct."},
+    {"id":"shift-command-regression","title":"Shift Command 1.0.4 focus-continuity and state regression playtest","status":"next","source":"Shift Command QA and bug sweep","reason":"Verify pointer, touch, drag, and keyboard selection keep focus on the replacement worker or post after redraws; also verify morale reversibility, relief morale 5, stamina capacity, overtime accounting, all three sites and relief states, reduced motion, audio fallback, transitions, and teardown remain correct."},
     {"id":"coalition-craft-regression","title":"Coalition Craft 1.0.4 recovery-baseline replay and six-council regression playtest","status":"candidate","source":"Coalition Craft recovery-baseline integrity repair","reason":"Verify emergency recovery establishes the active 2 influence, 4 trust, and 2-support replay baseline; removing either policy and replaying later bargains never restores the normal 3/5/3 baseline; undo restores the active baseline exactly; advancing starts the next council normally; restart clears recovery state; passed votes advance once; recovery remains one-use; and touch, keyboard, reduced motion, audio fallback, and teardown remain correct."},
     {"id":"stormglass-observatory-regression","title":"Stormglass Observatory 1.0.1 transition-lock and six-station regression playtest","status":"candidate","source":"Stormglass Observatory transition-state repair","reason":"Verify one forecast can advance exactly one station, every control and keyboard shortcut remains locked during the verified-forecast transition, restart and dialog close cancel pending transitions, and noisy observations, observation costs, calibration, recovery, session unlocks, touch, reduced motion, audio fallback, and teardown remain correct."},
     {"id":"ambient-ambient","title":"Ambient Ambient","status":"deferred","source":"User feedback","reason":"The idea needs microphone permission and a reviewed audio-analysis runtime, so it stays visible without bypassing the approved engine boundary."}
   ],
   "recentDecisions": [
+    {"date":"2026-09-14","title":"Shift Command 1.0.4 focus continuity repair","result":"published","summary":"A QA and bug sweep found that pointer, touch, and drag selection redraws replaced the active worker or post control without restoring focus. Restore focus after redraws so repeated staffing edits stay predictable for keyboard, assistive, and touch users.","checks":["JavaScript syntax","Shift Command integrity","Focus continuity regression","Responsive controls","Safety boundary"]},
     {"date":"2026-09-14","title":"Shift Command 1.0.3 morale reversibility repair","result":"published","summary":"A QA and bug sweep found that incremental morale clamping could make adding then removing an assignment change morale at the 0/10 boundaries. Recompute morale from the active baseline, disruption state, and current staffing plan so plan edits are reversible while preserving recovery semantics.","checks":["JavaScript syntax","Shift Command reachability","Morale boundary regression","Responsive controls","Safety boundary"]},
     {"date":"2026-09-14","title":"Shift Command 1.0.2 fatigue integrity repair","result":"published","summary":"A QA and bug sweep found that displayed stamina was not enforced and resilience charged the same fatigue penalty whether an overworked person held two posts or many. Added a hard stamina capacity, made every overtime assignment contribute to resilience and score penalties, and extended exhaustive reachability checks so all normal and relief states remain winnable.","checks":["JavaScript syntax","Shift Command reachability","Stamina capacity","Overwork accounting","Responsive controls","Safety boundary"]},
     {"date":"2026-09-14","title":"Shift Command 1.0.1 progression integrity repair","result":"published","summary":"A QA and bug sweep found that launch targets were unreachable, two disruption skill pairs were impossible, the disruption could be skipped, and repeated assignment could farm morale. Rebalanced all three sites around reachable post-disruption plans, made disruption unavoidable, made morale reversible with the current plan, added explicit assignment removal, and added an exhaustive reachability regression test.","checks":["JavaScript syntax","Shift Command reachability","Responsive controls","Safety boundary"]},
@@ -105,7 +106,6 @@
     {"date":"2026-07-29","title":"Habitat Mosaic 1.0.1","result":"published","summary":"Replaced remaining-action shock timing with a per-landscape successful-placement counter so disturbances occur after placements 3, 6, 9, and 12, with exact undo and recovery continuity.","checks":["JavaScript syntax","Responsive controls","Safety boundary"]},
     {"date":"2026-07-28","title":"Habitat Mosaic 1.0.0","result":"published","summary":"Selected and published a spatial ecology restoration game because terrain adjacency, migration corridors, seasonal shocks, species goals, and recovery add a distinct strategic system to the collection.","checks":["JavaScript syntax","Responsive controls","Safety boundary"]},
     {"date":"2026-07-28","title":"Pulse Atelier 1.0.4","result":"published","summary":"Made rejection and studio recovery firm undo-history boundaries so the score penalty and lost streak cannot be restored from a pre-failure snapshot.","checks":["JavaScript syntax","Responsive controls","Safety boundary"]},
-    {"date":"2026-07-28","title":"Pulse Atelier 1.0.3","result":"published","summary":"Prevented rejected commissions from multiplying unused studio moves: recovery now preserves any remaining moves and only raises exhausted takes to a three-move minimum.","checks":["JavaScript syntax","Responsive controls","Safety boundary"]},
-    {"date":"2026-07-28","title":"Pulse Atelier 1.0.2","result":"published","summary":"Made arrow navigation follow the visible four-track sequencer: horizontal movement wraps within a track and vertical movement preserves the beat column across tracks while retaining native activation and global-shortcut boundaries.","checks":["JavaScript syntax","Responsive controls","Safety boundary"]}
+    {"date":"2026-07-28","title":"Pulse Atelier 1.0.3","result":"published","summary":"Prevented rejected commissions from multiplying unused studio moves: recovery now preserves any remaining moves and only raises exhausted takes to a three-move minimum.","checks":["JavaScript syntax","Responsive controls","Safety boundary"]}
   ]
 }

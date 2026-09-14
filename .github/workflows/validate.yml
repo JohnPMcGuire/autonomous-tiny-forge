@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: 22
       - name: Check automation and test syntax
-        run: node --check scripts/forge.mjs && node --check scripts/validate.mjs && node --check tests/feedback-routing.test.mjs && node --check tests/mobile-shell-contract.test.mjs && node --check tests/shipping-gap-ledger.test.mjs && node --check tests/shift-command-integrity.test.mjs
+        run: node --check scripts/forge.mjs && node --check scripts/validate.mjs && node --check tests/feedback-routing.test.mjs && node --check tests/mobile-shell-contract.test.mjs && node --check tests/shipping-gap-ledger.test.mjs && node --check tests/shift-command-integrity.test.mjs && node --check tests/coalition-craft-integrity.test.mjs
       - name: Test feedback routing
         run: node tests/feedback-routing.test.mjs
       - name: Test responsive shell contract
@@ -26,5 +26,7 @@ jobs:
         run: node tests/shipping-gap-ledger.test.mjs
       - name: Test Shift Command integrity
         run: node tests/shift-command-integrity.test.mjs
+      - name: Test Coalition Craft integrity
+        run: node tests/coalition-craft-integrity.test.mjs
       - name: Validate apps, ledger, assets, and safety rules
         run: node scripts/validate.mjs

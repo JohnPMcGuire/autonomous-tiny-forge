@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-09-14T13:00:00.000Z",
+  "updatedAt": "2026-09-14T14:00:26.000Z",
   "sprint": {
     "name": "Shipping Gap Sprint",
     "state": "active",
@@ -12,7 +12,7 @@
     "runsPerDay": 12,
     "plannedReviewWindows": 360,
     "maxPublishableChangesPerWindow": 1,
-    "note": "This sprint tests the shipping gap: scheduled review windows create AI activity opportunities, not guaranteed releases. The forge publishes only when a candidate clears human-readable value, integration, validation, deployment, and feedback gates.",
+    "note": "This sprint tests the shipping gap: scheduled review windows create AI activity opportunities, not guaranteed releases. The forge publishes only when a candidate clears human-readable value, integration, validation, deployment, feedback, and repair gates.",
     "secondaryAutomation": "A separate GitHub Actions workflow runs Tuesday and Friday at 15:17 UTC. It can only create or improve approved declarative-engine apps and records accepted publishes in this ledger."
   },
   "researchLens": {
@@ -33,16 +33,16 @@
     "measurementWindowStart": "2026-09-14T08:00:00-05:00",
     "measurementWindowEnd": "2026-10-14T08:00:00-05:00",
     "reviewWindowsPlanned": 360,
-    "reviewWindowsReached": 0,
-    "candidateChangesConsidered": 0,
-    "pullRequestsOpened": 0,
-    "pullRequestsMerged": 0,
-    "mergedReleases": 0,
+    "reviewWindowsReached": 1,
+    "candidateChangesConsidered": 3,
+    "pullRequestsOpened": 1,
+    "pullRequestsMerged": 1,
+    "mergedReleases": 1,
     "successfulDeployments": 0,
     "skippedWindows": 0,
-    "bugReports": 0,
-    "repairReleases": 0,
-    "releaseAcceptanceRate": "0 / 360",
+    "bugReports": 1,
+    "repairReleases": 1,
+    "releaseAcceptanceRate": "1 / 360",
     "metricNote": "Metrics reset for this sprint. Future accepted runs update this block when evidence is available; skipped windows should be counted without creating ledger-only commits. Deployment success should be counted only after it is actually observed."
   },
   "reviewMix": [
@@ -81,12 +81,13 @@
   ],
   "queue": [
     {"id":"shipping-gap-experiment","title":"Shipping Gap Experiment layer","status":"shipping","source":"Owner request and NBER working paper lens","reason":"Turn the control room into an explicit informal test of whether faster AI iteration creates durable shipped software after validation, deployment, feedback, and repair costs are counted."},
-    {"id":"shift-command-regression","title":"Shift Command 1.0.0 three-site progression and recovery regression playtest","status":"next","source":"Shift Command operations-planning launch","reason":"Verify skill coverage, preference morale, overtime budget and fatigue, disruption requirements, exact undo, permanent failure penalties, one-use relief recovery, all three site targets, drag, touch, keyboard focus boundaries, reduced motion, audio fallback, dialog teardown, and single-step transitions."},
+    {"id":"shift-command-regression","title":"Shift Command 1.0.1 progression-integrity regression playtest","status":"next","source":"Shift Command QA and bug sweep","reason":"Verify all three sites can clear only after their disruption is active; same-post reassignment and remove/re-add cannot farm morale; explicit removal works with touch and keyboard; exact undo restores assignments, fatigue, morale, budget, and disruption state; relief recovery remains winnable on every site; and transitions, reduced motion, audio fallback, and teardown remain correct."},
     {"id":"coalition-craft-regression","title":"Coalition Craft 1.0.4 recovery-baseline replay and six-council regression playtest","status":"candidate","source":"Coalition Craft recovery-baseline integrity repair","reason":"Verify emergency recovery establishes the active 2 influence, 4 trust, and 2-support replay baseline; removing either policy and replaying later bargains never restores the normal 3/5/3 baseline; undo restores the active baseline exactly; advancing starts the next council normally; restart clears recovery state; passed votes advance once; recovery remains one-use; and touch, keyboard, reduced motion, audio fallback, and teardown remain correct."},
     {"id":"stormglass-observatory-regression","title":"Stormglass Observatory 1.0.1 transition-lock and six-station regression playtest","status":"candidate","source":"Stormglass Observatory transition-state repair","reason":"Verify one forecast can advance exactly one station, every control and keyboard shortcut remains locked during the verified-forecast transition, restart and dialog close cancel pending transitions, and noisy observations, observation costs, calibration, recovery, session unlocks, touch, reduced motion, audio fallback, and teardown remain correct."},
     {"id":"ambient-ambient","title":"Ambient Ambient","status":"deferred","source":"User feedback","reason":"The idea needs microphone permission and a reviewed audio-analysis runtime, so it stays visible without bypassing the approved engine boundary."}
   ],
   "recentDecisions": [
+    {"date":"2026-09-14","title":"Shift Command 1.0.1 progression integrity repair","result":"published","summary":"A QA and bug sweep found that launch targets were unreachable, two disruption skill pairs were impossible, the disruption could be skipped, and repeated assignment could farm morale. Rebalanced all three sites around reachable post-disruption plans, made disruption unavoidable, made morale reversible with the current plan, added explicit assignment removal, and added an exhaustive reachability regression test.","checks":["JavaScript syntax","Shift Command reachability","Responsive controls","Safety boundary"]},
     {"date":"2026-09-14","title":"Shipping Gap Experiment layer","result":"published","summary":"Added an explicit research-inspired lens, public shipping metrics, mixed review cadence, stricter definition of shipped, and release criteria that distinguish AI activity from durable published software.","checks":["JavaScript syntax","Ledger schema","Shell contract","Research metadata","Safety boundary"]},
     {"date":"2026-07-31","title":"Shift Command 1.0.0","result":"published","summary":"Selected a three-site shift-planning simulator over another Coalition repair and another cargo-routing game because worker skills, preferences, fatigue, overtime, morale, disruptions, recovery, and progression add a distinct human-operations strategy system.","checks":["JavaScript syntax","Responsive controls","Safety boundary"]},
     {"date":"2026-07-31","title":"Coalition Craft 1.0.4","result":"published","summary":"Preserved the emergency caucus as the active replay baseline so policy removal, ordered bargain replay, and undo retain the fragile 2 influence, 4 trust, and 2-support state until the council ends.","checks":["JavaScript syntax","Responsive controls","Safety boundary"]},

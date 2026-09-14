@@ -18,9 +18,9 @@ function hasWinningPlan(scenario, baseMorale, extraBudget = 0) {
   function visit(slotIndex) {
     if (slotIndex === assignment.length) {
       const counts = PEOPLE.map((_, idx) => assignment.filter(worker => worker === idx).length);
+      if (counts.some((count, idx) => count > PEOPLE[idx].stamina)) return false;
       const overtime = counts.reduce((sum, count) => sum + Math.max(0, count - 1), 0);
       if (overtime > scenario.budget + extraBudget) return false;
-      const repeatedWorkers = counts.filter(count => count > 1).length;
       let morale = baseMorale;
       let hit = 0;
       for (let index = 0; index < assignment.length; index += 1) {
@@ -33,7 +33,7 @@ function hasWinningPlan(scenario, baseMorale, extraBudget = 0) {
         morale += preferenceDelta(worker, shift);
       }
       morale = Math.max(0, Math.min(10, morale));
-      const resilience = morale * 12 + hit * 28 - repeatedWorkers * 18;
+      const resilience = morale * 12 + hit * 28 - overtime * 10;
       return morale >= 4 && resilience >= scenario.target;
     }
     for (let worker = 0; worker < workerCount; worker += 1) {
@@ -62,5 +62,9 @@ assert.match(source, /st\.morale=clamp\(st\.morale-preferenceDelta\(id,slot\),0,
   'removing an assignment refunds its morale effect');
 assert.match(source, /if\(!st\.event\)\{reveal\(true\);return\}/,
   'a shift cannot clear before the disruption occurs');
+assert.match(source, /if\(st\.fatigue\[workerId\]>=p\.stamina\)return say\('Worker at capacity\.'/,
+  'worker stamina is a hard assignment capacity');
+assert.match(source, /reduce\(\(sum,load\)=>sum\+Math\.max\(0,load-1\),0\)/,
+  'every overtime assignment contributes to the overwork penalty');
 
 console.log('Shift Command integrity tests passed.');

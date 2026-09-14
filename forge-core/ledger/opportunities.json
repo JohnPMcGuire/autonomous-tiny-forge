@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "scoringModel": {
+    "scale": "1 to 5",
+    "fields": [
+      "founderFit",
+      "speedToRevenue",
+      "willingnessToPayEvidence",
+      "capitalEfficiency",
+      "dataCompoundingPotential",
+      "automationLeverage",
+      "riskAdjustedReversibility"
+    ],
+    "scoreFormula": "sum(fields)",
+    "tieBreaker": "Prefer the candidate that can produce external revenue evidence fastest without violating approval gates."
+  },
+  "opportunities": [
+    {
+      "id": "OPP-0001",
+      "name": "Search Intelligence concierge audit",
+      "status": "leading-thesis",
+      "customer": "Ecommerce operators with meaningful search, browse, catalog, or recommendations revenue exposure",
+      "problem": "Search and PLP defects hide revenue leaks, but teams often lack independent, expert review across relevance, facets, redirects, zero results, sponsored placement, analytics, and mobile behavior.",
+      "offer": "Manual expert audit with prioritized findings, evidence screenshots, severity, expected business impact, and implementation guidance.",
+      "score": {
+        "founderFit": 5,
+        "speedToRevenue": 5,
+        "willingnessToPayEvidence": 2,
+        "capitalEfficiency": 5,
+        "dataCompoundingPotential": 4,
+        "automationLeverage": 4,
+        "riskAdjustedReversibility": 5,
+        "total": 30
+      },
+      "evidence": [
+        "Founder-domain fit is explicitly cited in STRATEGY.md.",
+        "The audit can be delivered manually before broad automation.",
+        "Willingness to pay still needs external validation."
+      ],
+      "nextExperimentId": "EXP-0001"
+    },
+    {
+      "id": "OPP-0002",
+      "name": "Cruise offer calendar product",
+      "status": "watchlist",
+      "customer": "Casino and cruise offer recipients who need to compare eligible sailings by port, ship, date, and value",
+      "problem": "Offer emails are difficult to compare and rarely behave like a modern travel search experience.",
+      "offer": "Personal offer parser and calendar view for eligible sailings.",
+      "score": {
+        "founderFit": 3,
+        "speedToRevenue": 2,
+        "willingnessToPayEvidence": 1,
+        "capitalEfficiency": 3,
+        "dataCompoundingPotential": 3,
+        "automationLeverage": 4,
+        "riskAdjustedReversibility": 3,
+        "total": 19
+      },
+      "evidence": [
+        "The user has previously explored this as a personal SPA concept.",
+        "The path to unrelated paying customers is less direct than the Search Intelligence thesis."
+      ],
+      "nextExperimentId": null
+    },
+    {
+      "id": "OPP-0003",
+      "name": "AI product ownership workbench",
+      "status": "watchlist",
+      "customer": "Product owners and consultants managing Jira, GitHub, acceptance review, and delivery workflows",
+      "problem": "Day-to-day product ownership work requires consistent issue shaping, acceptance review, dependency mapping, and tool-specific prompts.",
+      "offer": "Workbench and prompt system for issue creation, acceptance review, and delivery evidence checks.",
+      "score": {
+        "founderFit": 4,
+        "speedToRevenue": 3,
+        "willingnessToPayEvidence": 2,
+        "capitalEfficiency": 4,
+        "dataCompoundingPotential": 3,
+        "automationLeverage": 4,
+        "riskAdjustedReversibility": 4,
+        "total": 24
+      },
+      "evidence": [
+        "The user has recurring product ownership workflows and repo-backed prompt systems.",
+        "The customer and buying motion are less sharply defined than ecommerce Search Intelligence."
+      ],
+      "nextExperimentId": null
+    }
+  ]
+}
